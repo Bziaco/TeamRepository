@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.mymatch.dto.Guide;
+import com.mycompany.mymatch.dao.TourlistDao;
 import com.mycompany.mymatch.dto.Tourlist;
 
 @Component
@@ -19,18 +19,24 @@ public class TourlistService {
 	public static final int REMOVE_FAIL = 1;
 	
 	@Autowired
-	private Guide guide;
+	private TourlistDao tourlistDao;
 	
-	public List<Tourlist> list(){
+	public List<Tourlist> list(int pageNo, int rowsPerPage){
+		return tourlistDao.selectByPage(pageNo, rowsPerPage); 
 	}
 	
-	public int modify(){
+	public int modify(Tourlist tourlist){
+		int row = tourlistDao.update(tourlist);
+		if(row == 0) {return MODIFY_FAIL ; }
 		return MODIFY_SUCCESS;
 	}
-	public int remove(){
+	public int remove(String tid){
+		int row = tourlistDao.delete(tid);
+		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCCESS;
 	}
-	public Tourlist info(){
+	public Tourlist info(String tid){
+		return tourlistDao.selectByTid(tid);
 		
 	}
 }

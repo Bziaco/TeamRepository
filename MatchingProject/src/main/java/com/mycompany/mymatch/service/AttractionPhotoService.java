@@ -3,7 +3,6 @@ package com.mycompany.mymatch.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.mymatch.dao.AttractionDao;
 import com.mycompany.mymatch.dao.AttractionPhotoDao;
 import com.mycompany.mymatch.dto.AttractionPhoto;
 
@@ -22,18 +21,23 @@ public class AttractionPhotoService {
 	private AttractionPhotoDao attractionPhotoDao;
 	
 	public int write(AttractionPhoto attractionPhoto) {
+		int row = attractionPhotoDao.insert(attractionPhoto);
 		return WRITE_SUCESS;
 	}
 	
 	public int moodify(AttractionPhoto attractionPhoto) {
+		int row = attractionPhotoDao.update(attractionPhoto);
+		if(row == 0) { return MODIFY_FAIL; }
 		return MODIFY_SUCESS;
 	}
 	
 	public int remove(int pno) {
+		int row = attractionPhotoDao.delete(pno);
+		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCESS;
 	}
 	
 	public AttractionPhoto info(int pno) {
-		return AttractionPhotoDao.selectByPno(pno);
+		return attractionPhotoDao.selectByPno(pno);
 	}
 }

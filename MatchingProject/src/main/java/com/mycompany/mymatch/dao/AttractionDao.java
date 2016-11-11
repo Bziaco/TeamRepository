@@ -1,7 +1,12 @@
 package com.mycompany.mymatch.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Attraction;
@@ -45,7 +50,22 @@ public class AttractionDao {
 		return row;
 	}
 
-	public static Attraction selectByAno(int ano) {
-		return null;
+	public Attraction selectByAno(int ano) {
+		String sql = "select ano, aname, alocation, latitude, hardness, beacon from attraction where ano = ?";
+		List<Attraction> list = jdbcTemplate.query(sql, new Object[]{ano}, new RowMapper<Attraction> () {
+			
+			@Override
+			public Attraction mapRow(ResultSet rs, int row) throws SQLException {
+				Attraction attraction = new Attraction();
+				attraction.setAno(rs.getInt("ano"));
+				attraction.setAname(rs.getString("aname"));
+				attraction.setAlocation(rs.getString("alocation"));
+				attraction.setLatitude(rs.getInt("latitude"));
+				attraction.setHardness(rs.getInt("hardness"));
+				attraction.setBeacon(rs.getInt("beacon"));
+				return attraction;
+			}
+		});
+		return (list.size() != 0)? list.get(0) : null;
 	}
 }

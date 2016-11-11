@@ -1,7 +1,12 @@
 package com.mycompany.mymatch.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.AttractionPhoto;
@@ -39,7 +44,19 @@ public class AttractionPhotoDao {
 		return row;
 	}
 
-	public static AttractionPhoto selectByPno(int pno) {
+	public AttractionPhoto selectByPno(int pno) {
+		String sql = "select pno, pcontent, psavedfile from attractionphoto where pno = ?";
+		List<AttractionPhoto> list = jdbcTemplate.query(sql, new Object[]{pno}, new RowMapper<AttractionPhoto> () {
+			
+			@Override
+			public AttractionPhoto mapRow(ResultSet rs, int row) throws SQLException {
+				AttractionPhoto attractionPhoto = new AttractionPhoto();
+				attractionPhoto.setPno(rs.getInt("pno"));
+				attractionPhoto.set
+				return attractionPhoto;
+				
+			}
+		});
 		return null;
 	}
 }

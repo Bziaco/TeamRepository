@@ -21,18 +21,23 @@ public class AttractionService {
 	private  AttractionDao attractionDao;
 	
 	public int write(Attraction attraction) {
+		int row = attractionDao.insert(attraction);
 		return WRITE_SUCESS;
 	}
 	
 	public int modify(Attraction attraction) {
+		int row = attractionDao.update(attraction);
+		if(row == 0) { return MODIFY_FAIL; }
 		return MODIFY_SUCESS;
 	}
 	
 	public int remove(int ano) {
+		int row = attractionDao.delete(ano);
+		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCESS;
 	}
 	
 	public Attraction info(int ano) {
-		return AttractionDao.selectByAno(ano);
+		return attractionDao.selectByAno(ano);
 	}
 }

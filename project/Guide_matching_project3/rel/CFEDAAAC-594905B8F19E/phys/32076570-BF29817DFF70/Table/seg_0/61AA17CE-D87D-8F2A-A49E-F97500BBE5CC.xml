@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="matching" directorySegmentName="seg_0" id="61AA17CE-D87D-8F2A-A49E-F97500BBE5CC">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:31:49 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="bhitcount" id="0C64DA23-A1FE-DBED-85C4-124D556D1BB3">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bno" id="1BA4ABD0-D892-CB4B-DC50-EAAFBFCD4D46">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bwriter" id="338064C5-A7B5-C906-142C-16CBD0B8FF42">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="gid" id="3786AF7D-0725-F9D0-6F21-55E30D8F5463">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 13:30:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="savedfile" id="4F1D68BA-6AE0-1D97-6DCB-438E06AC7343">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bcontent" id="5021FB98-746D-2835-3ACF-C7DDFAAF3835">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="matchdate" id="5B06DA5D-7BA8-3151-4FCB-7A005292B2EF">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="score" id="8330D05F-9F8C-782C-3B60-D1653D3DBADE">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bdate" id="9B66A5B9-D34A-33E0-DD83-EDA785039ADE">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="mid" id="B1355219-D737-46F6-4E5A-D34E1BDD0BA3">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="btitle" id="C58CC64C-EFDC-9B37-8795-72C69C1E3FAE">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:22:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="matchno" id="E0B2AF40-7F3E-C703-47ED-AA9348482689">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 13:38:52 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="matching_guide_guide_FK" id="A1DD13B8-C0B9-FD99-4C11-698D5F5859BB">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 13:30:32 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="matching_guide_member_FK" id="E4F18DC6-A258-FF2D-0CFC-F2C74374A717">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="matching_PK" id="48EA74E3-EC9E-F49C-E35D-F5E7848B95CA">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 13:15:02 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

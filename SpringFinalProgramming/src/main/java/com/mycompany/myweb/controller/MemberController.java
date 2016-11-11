@@ -34,7 +34,6 @@ public class MemberController {
 			session.setAttribute("login", mid);
 			return "redirect:/";
 		}
-		
 	}
 //------------------------------------------------------------------------------------	
 	@RequestMapping(value = "/findMid", method=RequestMethod.GET)

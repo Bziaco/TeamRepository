@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Member;
-
+ 
 @Component
 public class MemberDao {
 	@Autowired

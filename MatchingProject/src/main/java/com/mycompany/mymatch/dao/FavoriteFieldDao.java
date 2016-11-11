@@ -10,11 +10,27 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.FavoriteField;
-
+import com.mycompany.mymatch.dto.Field;
+ 
 @Component
 public class FavoriteFieldDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+
+//--------------------------------------------------------------------------------------------------
+	
+		public int insert(FavoriteField favoriteField) {
+			String sql="insert into field(fno, mid) value(?,?)";
+			int row=jdbcTemplate.update(
+					sql,
+					favoriteField.getfno(),
+					favoriteField.getmid()
+					);
+			return row;
+		}//--번호,이름 지정(생성)	
+	
+	
 
 //--------------------------------------------------------------------------------------------------
 		

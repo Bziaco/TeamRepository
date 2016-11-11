@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="guide" directorySegmentName="seg_0" id="037D65F4-A438-035C-DACD-8D18071C2756">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:41 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="gintro" id="AD6CB865-CA03-EF45-9371-0EE1BF70E24B">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:11:47 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="gable" id="E32732F4-3A11-A245-1DDC-23248BC2A3B3">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 11:31:23 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="gid" id="EA7A5F58-1364-3C6C-7CD1-B28EE3C9BF46">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:41 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="glocal" id="EED51854-4EA6-E146-0AB1-33910CC671EC">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:11:47 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="guide_member_FK" id="FD518CD4-7B2D-CB4C-57CE-FFB6F201FD10">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:41 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="guide_PK" id="E2303E41-0059-5F0E-6B93-49D25AFCF022">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:18:25 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

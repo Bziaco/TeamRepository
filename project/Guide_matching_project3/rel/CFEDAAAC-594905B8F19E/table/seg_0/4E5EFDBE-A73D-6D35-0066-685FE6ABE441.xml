@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E5EFDBE-A73D-6D35-0066-685FE6ABE441" name="member">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:13:58 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mid" id="6B9453F1-9426-58F2-23FC-54B972F64EA4">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:24 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mpassword" id="2A81F4A8-B84B-E639-2420-B196C490B979">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mnickname" id="BD037EB9-AA2D-F848-9DAE-079DCF7B57DF">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mname" id="F1F59D45-0CD5-257E-8AD4-DF2DF3F835AF">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mage" id="4B84BD66-97E8-3CDD-FFB6-8EBAE841C063">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="msex" id="F2539BDB-AFA2-7002-9495-3D84CE645DED">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="memail" id="EC9B340C-5735-0841-B1C2-6FDB7E6BF9F9">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mlocal" id="38E584C0-DE8D-1E09-3782-D125DB758B75">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mtel" id="F8E8E7BD-E227-E240-CE0D-F35357800852">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="originalfile" id="33D1E0E2-2B0A-45AE-8470-7EA3A37C5095">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="savedfile" id="6BDF1B05-60A3-74EB-22C4-245AE0B9D3AC">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mimetype" id="54286273-E775-FDD7-2867-B7C9F8C00597">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:09:43 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6084557C-9E6C-614B-E743-2848AC873B54" name="member_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:24 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B9453F1-9426-58F2-23FC-54B972F64EA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

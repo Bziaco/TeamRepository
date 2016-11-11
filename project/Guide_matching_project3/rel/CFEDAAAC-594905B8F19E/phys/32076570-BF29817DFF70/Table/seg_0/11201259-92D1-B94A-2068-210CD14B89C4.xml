@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="field" directorySegmentName="seg_0" id="11201259-92D1-B94A-2068-210CD14B89C4">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="fname" id="1812D2D3-1760-E528-0CDD-4E6E6BBEF887">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="fno" id="75D4B076-4179-543B-4340-17001E789795">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="field_PK" id="404F3FC2-D80C-541D-AAE8-F75E482614E4">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:04:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.mycompany.mymatch.dto.Field;
 import com.mycompany.mymatch.dto.Member;
 
-@Component
+@Component 
 public class FieldDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

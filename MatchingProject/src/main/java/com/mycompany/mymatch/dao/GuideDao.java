@@ -85,4 +85,10 @@ public class GuideDao {
 		);
 		return list;
 	}
+	public int count(){
+		String sql = "select count(*) from guide";
+		//sql문이 무조건 하나의 값을 가져와야하는 상황이라면 queryForObject을 사용할 수 있으며 Integer.class 타입으로 리턴을 해준다.  
+		int count = jdbcTemplate.queryForObject(sql, Integer.class);
+		return count;
+	}
 }

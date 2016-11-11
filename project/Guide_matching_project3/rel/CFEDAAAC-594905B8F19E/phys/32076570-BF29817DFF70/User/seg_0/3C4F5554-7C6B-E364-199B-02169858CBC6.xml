@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="KOSAUSER16" directorySegmentName="seg_0" id="3C4F5554-7C6B-E364-199B-02169858CBC6">
+<sourceConnName>106.253.56.123_orcl_kosauser16</sourceConnName>
+<sourceObjName>KOSAUSER16</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 13:48:02 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<schemaObject>DC37DE5C-3566-659A-E8E8-0ED100A1A1F7</schemaObject>
+<privileges>CREATE SEQUENCE, CREATE SESSION, CREATE VIEW, CREATE SYNONYM, UNLIMITED TABLESPACE, ALTER SESSION, CREATE DATABASE LINK</privileges>
+</UserOraclev10g>

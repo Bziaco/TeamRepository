@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0CA89514-F71E-BB6D-65C0-C039F2C05DE8" name="attractionphoto">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:13:10 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pno" id="85C2C284-5B97-3177-A200-8F1444A88530">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:13:29 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="savedfile" id="B47229FA-F99C-5A26-54E6-516E89B51202">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:13:29 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pcontent" id="30FB7E3A-022C-ECC1-722D-4CBA8EBF6E17">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:23:55 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ano" id="CF0A3E48-69A3-40E7-2B97-BABDFF32BB80">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:14:01 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24201883-A9A1-C583-67A8-5C65A81A536A" referredColumn="70A4DCB7-F7AC-CEEC-7E1E-F44D5F05BCB0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="797A7118-A417-133D-1218-46C06A73270A" name="attractionphoto_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:37:34 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85C2C284-5B97-3177-A200-8F1444A88530"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="541CBAE3-F95A-160B-54F4-2BD55E235D94" name="attractionphoto_attraction_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:14:01 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF0A3E48-69A3-40E7-2B97-BABDFF32BB80"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

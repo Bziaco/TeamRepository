@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="037D65F4-A438-035C-DACD-8D18071C2756" name="guide">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:14:12 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="gid" id="EA7A5F58-1364-3C6C-7CD1-B28EE3C9BF46">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="05A83390-160E-970F-991C-6E9AC5347A85" referredColumn="6B9453F1-9426-58F2-23FC-54B972F64EA4"/>
+</associations>
+</Column>
+<Column name="glocal" id="EED51854-4EA6-E146-0AB1-33910CC671EC">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:11:47 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gintro" id="AD6CB865-CA03-EF45-9371-0EE1BF70E24B">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 12:11:47 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gable" id="E32732F4-3A11-A245-1DDC-23248BC2A3B3">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-09 09:44:38 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E2303E41-0059-5F0E-6B93-49D25AFCF022" name="guide_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:18:25 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA7A5F58-1364-3C6C-7CD1-B28EE3C9BF46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FD518CD4-7B2D-CB4C-57CE-FFB6F201FD10" name="guide_member_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-08 11:17:40 UTC</createdTime>
+<ownerDesignName>Guide_matching_project3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA7A5F58-1364-3C6C-7CD1-B28EE3C9BF46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

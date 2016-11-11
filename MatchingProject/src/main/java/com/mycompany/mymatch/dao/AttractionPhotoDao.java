@@ -42,7 +42,7 @@ public class AttractionPhotoDao {
 		String sql = "delete from attactionphoto where pno=?";
 		int row = jdbcTemplate.update(sql, pno);
 		return row;
-	}
+	} 
 
 	public AttractionPhoto selectByPno(int pno) {
 		String sql = "select pno, pcontent, psavedfile from attractionphoto where pno = ?";

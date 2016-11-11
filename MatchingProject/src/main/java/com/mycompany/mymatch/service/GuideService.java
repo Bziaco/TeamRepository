@@ -17,6 +17,9 @@ public class GuideService {
 	public static final int REMOVE_SUCCESS = 0;
 	public static final int REMOVE_FAIL = 1;
 	
+	public static final int JOIN_SUCCESS = 0;
+	public static final int JOIN_FAIL = 1;
+	
 	@Autowired
 	private GuideDao guideDao;
 	
@@ -42,4 +45,13 @@ public class GuideService {
 	public Guide info(String gid){
 		return guideDao.selectByGid(gid);
 	}
+	public int getCount() {
+		return guideDao.count();
+	}
+	public int join(Guide guide){
+		if(guide.getGid() == null)
+			guideDao.insert(guide);
+		return JOIN_SUCCESS;
+	}
+	
 }

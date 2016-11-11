@@ -57,7 +57,7 @@ public class FieldDao {
 //----------------------------------------------------------------------------------------------------
 	
 	
-	public Field selectByFname(int fno) {
+	public Field selectByFno(int fno) {
 		String sql = "select fno fname from field where fno=?";
 		List<Field> list = jdbcTemplate.query(sql, new Object[]{fno}, new RowMapper<Field>() {
 			@Override

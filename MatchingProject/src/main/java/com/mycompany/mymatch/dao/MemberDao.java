@@ -72,22 +72,22 @@ public class MemberDao {
 		public Member selectByMid(String mid) {
 			String sql = "select mid, mpassword, mnickname, mname, mage, msex, memail, mlocal, mtel, originalfile, savefile, mimetype from member where mid=?";
 			List<Member> list = jdbcTemplate.query(sql, new Object[]{mid}, new RowMapper<Member>() {
-				@Override
-				public Member mapRow(ResultSet rs, int row) throws SQLException {
-				Member member = new Member();
-				member.setMid(rs.getString("mid"));
-				member.setMpassword(rs.getString("mpassword"));
-				member.setMnickname(rs.getString("mnickname"));
-				member.setMname(rs.getString("mname"));
-				member.setMage(rs.getInt("mage"));
-				member.setMsex(rs.getString("msex"));
-				member.setMemail(rs.getString("memail"));
-				member.setMlocal(rs.getString("mlocal"));
-				member.setMtel(rs.getString("mtel"));
-				member.setOriginalfile(rs.getString("originalfile"));
-				member.setSavedfile(rs.getString("savefile"));
-				member.setMimetype(rs.getString("mimetype"));
-				return member;
+					@Override
+					public Member mapRow(ResultSet rs, int row) throws SQLException {
+					Member member = new Member();
+					member.setMid(rs.getString("mid"));
+					member.setMpassword(rs.getString("mpassword"));
+					member.setMnickname(rs.getString("mnickname"));
+					member.setMname(rs.getString("mname"));
+					member.setMage(rs.getInt("mage"));
+					member.setMsex(rs.getString("msex"));
+					member.setMemail(rs.getString("memail"));
+					member.setMlocal(rs.getString("mlocal"));
+					member.setMtel(rs.getString("mtel"));
+					member.setOriginalfile(rs.getString("originalfile"));
+					member.setSavedfile(rs.getString("savefile"));
+					member.setMimetype(rs.getString("mimetype"));
+					return member;
 				}
 			});
 			return (list.size() !=0)? list.get(0) : null;

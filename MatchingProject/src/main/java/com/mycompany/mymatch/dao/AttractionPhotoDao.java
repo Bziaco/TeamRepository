@@ -28,7 +28,7 @@ public class AttractionPhotoDao {
 	}
 	
 	public int update(AttractionPhoto attractionPhoto) {
-		String sql = "update attractionPhoto set pcontent=?, savedfile=?, where pno=?";
+		String sql = "update attractionPhoto set pcontent=?, savedfile=? where pno=?";
 		int row = jdbcTemplate.update(
 				sql,
 				attractionPhoto.getPcontent(),

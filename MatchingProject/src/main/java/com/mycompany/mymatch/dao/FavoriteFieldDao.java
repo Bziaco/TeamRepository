@@ -46,15 +46,18 @@ public class FavoriteFieldDao {
 //---------------------------------------------------------------------------------------------------------------------------------	
 			
 		
-		public String selectByFno(int fno) {
-			String sql = "select fno fname from favoriteField where fno=?";
-			List<String> list = jdbcTemplate.query(sql, new Object[]{fno}, new RowMapper<String>(){
+		public List<FavoriteField> selectByMid(String mid) {
+			String sql = "select fno, fname from favoriteField where fno=?";
+			List<FavoriteField> list = jdbcTemplate.query(sql, new Object[]{mid}, new RowMapper<FavoriteField>(){
 				@Override
-				public String mapRow(ResultSet rs, int row) throws SQLException {
-					return rs.getString("fname");
+				public FavoriteField mapRow(ResultSet rs, int row) throws SQLException {
+					FavoriteField ff = new FavoriteField();
+					ff.setFfno(rs.getInt("fno"));
+					ff.setFmid(rs.getString("mid"));
+					return ff;
 				}
 			});
-			return (list.size() !=0)? list.get(0) : null;
+			return list;
 		} //--fno로 fname찾기
 	
 	

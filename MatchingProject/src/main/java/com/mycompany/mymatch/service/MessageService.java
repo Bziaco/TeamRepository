@@ -1,5 +1,7 @@
 package com.mycompany.mymatch.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +17,13 @@ public class MessageService {
 	private MessageDao messageDao;
 	
 	public int write(Message message) {
+		messageDao.insert(message);
 		return WRITE_SUCESS;
+	}
+	
+	public List<Message> readmessage(String mid) {
+		List<Message> ms= messageDao.selectBymto(mid);
+		return ms;
 	}
 	
 }

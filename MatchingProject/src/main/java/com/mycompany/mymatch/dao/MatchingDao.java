@@ -67,23 +67,25 @@ public class MatchingDao {
 		});
 		return (list.size() != 0)? list.get(0) : null;
 	}
-	public List<Matching> selectByPage(int pageNo, int rowsPerPage){
+	
+	public List<Matching> selectByGid(int pageNo, int rowsPerPage, String gid){
 		String sql = "";
 		sql += "select rn, matchno, score";
 		sql += "from ( ";
 		sql += "select rownum as rn, matchno, score";
-		sql += "from (select matchno, score from matching order by matchno) ";
+		sql += "from (select matchno, score from matching where gid=? order by matchno ) ";
 		sql += "where rownum<=? ";
 		sql += ") ";
 		sql += "where rn>=? ";
 		List<Matching> list = jdbcTemplate.query(
 				sql,
-				new Object[]{(pageNo*rowsPerPage),(pageNo-1)*rowsPerPage+1},
+				new Object[]{gid,(pageNo*rowsPerPage),(pageNo-1)*rowsPerPage+1},
 				new RowMapper<Matching>(){
 
 					@Override
 					public Matching mapRow(ResultSet rs, int row) throws SQLException {
 						Matching matcing = new Matching();
+						
 						matcing.setMatchno(rs.getInt("matchno"));
 						matcing.setScore(rs.getInt("score"));
 						return matcing;
@@ -91,5 +93,8 @@ public class MatchingDao {
 				}
 		);
 		return list;
+	}
+	public List<Matching> selectByMid(int pageNo, int rowsPerPage){
+		return null;
 	}
 }

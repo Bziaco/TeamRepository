@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Guide;
+import com.mycompany.mymatch.dto.Tourlist;
 
 @Component
 public class GuideDao {
@@ -57,5 +58,31 @@ public class GuideDao {
 			}
 		});
 		return (list.size() != 0)? list.get(0) : null;
+	}
+	public List<Guide> selectByPage(int pageNo, int rowsPerPage){
+		String sql = "";
+		sql += "select rn, gid, glocal, gintro";
+		sql += "from ( ";
+		sql += "select rownum as rn, gid, glocal, gintro";
+		sql += "from (select gid, glocal, gintro, from Guide order by gid) ";
+		sql += "where rownum<=? ";
+		sql += ") ";
+		sql += "where rn>=? ";
+		List<Guide> list = jdbcTemplate.query(
+				sql,
+				new Object[]{(pageNo*rowsPerPage),(pageNo-1)*rowsPerPage+1},
+				new RowMapper<Guide>(){
+
+					@Override
+					public Guide mapRow(ResultSet rs, int row) throws SQLException {
+						Guide guide = new Guide();
+						guide.setGid(rs.getString("tid"));
+						guide.setGlocal(rs.getString("tlocal"));
+						guide.setGintro(rs.getString("tintro"));
+						return guide;
+					}
+				}
+		);
+		return list;
 	}
 }

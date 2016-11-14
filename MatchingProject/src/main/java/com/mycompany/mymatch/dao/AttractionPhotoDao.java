@@ -44,7 +44,7 @@ public class AttractionPhotoDao {
 		return row;
 	} 
 
-	public AttractionPhoto selectByPno(int pno) {
+/*	public AttractionPhoto selectByPno(int pno) {
 		String sql = "select pno, pcontent, psavedfile from attractionphoto where pno = ?";
 		List<AttractionPhoto> list = jdbcTemplate.query(sql, new Object[]{pno}, new RowMapper<AttractionPhoto> () {
 			
@@ -58,5 +58,5 @@ public class AttractionPhotoDao {
 			}
 		});
 		return null;
-	}
+	}*/
 }

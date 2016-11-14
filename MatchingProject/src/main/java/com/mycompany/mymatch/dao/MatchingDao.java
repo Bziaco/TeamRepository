@@ -70,10 +70,10 @@ public class MatchingDao {
 	
 	public List<Matching> selectByGid(int pageNo, int rowsPerPage, String gid){
 		String sql = "";
-		sql += "select rn, matchno, score";
+		sql += "select rn, matchno, score, matchdate";
 		sql += "from ( ";
-		sql += "select rownum as rn, matchno, score";
-		sql += "from (select matchno, score from matching where gid=? order by matchno ) ";
+		sql += "select rownum as rn, matchno, score, matchdate";
+		sql += "from (select matchno, score, matchdate from matching where gid=? order by matchno ) ";
 		sql += "where rownum<=? ";
 		sql += ") ";
 		sql += "where rn>=? ";
@@ -85,16 +85,41 @@ public class MatchingDao {
 					@Override
 					public Matching mapRow(ResultSet rs, int row) throws SQLException {
 						Matching matcing = new Matching();
-						
+				
 						matcing.setMatchno(rs.getInt("matchno"));
 						matcing.setScore(rs.getInt("score"));
+						matcing.setMatchdate(rs.getDate("matchdate"));
 						return matcing;
 					}
 				}
 		);
 		return list;
 	}
-	public List<Matching> selectByMid(int pageNo, int rowsPerPage){
-		return null;
+	public List<Matching> selectByMid(int pageNo, int rowsPerPage, String mid){
+		String sql = "";
+		sql += "select rn, matchno, score, matchdate";
+		sql += "from ( ";
+		sql += "select rownum as rn, matchno, score, matchdate";
+		sql += "from (select matchno, score, matchdate from matching where mid=? order by matchno ) ";
+		sql += "where rownum<=? ";
+		sql += ") ";
+		sql += "where rn>=? ";
+		List<Matching> list = jdbcTemplate.query(
+				sql,
+				new Object[]{mid,(pageNo*rowsPerPage),(pageNo-1)*rowsPerPage+1},
+				new RowMapper<Matching>(){
+
+					@Override
+					public Matching mapRow(ResultSet rs, int row) throws SQLException {
+						Matching matcing = new Matching();
+				
+						matcing.setMatchno(rs.getInt("matchno"));
+						matcing.setScore(rs.getInt("score"));
+						matcing.setMatchdate(rs.getDate("matchdate"));
+						return matcing;
+					}
+				}
+		);
+		return list;
 	}
 }

@@ -21,8 +21,12 @@ public class MatchingService {
 	@Autowired
 	private MatchingDao matchingDao;
 	
-	public List<Matching> list(int pageNo, int rowsPerPage){
-		return matchingDao.selectByPage(pageNo, rowsPerPage);
+	public List<Matching> gidList(int pageNo, int rowsPerPage, String gid){
+		return matchingDao.selectByGid(pageNo, rowsPerPage, gid);
+	}
+	
+	public List<Matching> midList(int pageNo, int rowsPerPage, String mid){
+		return matchingDao.selectByGid(pageNo, rowsPerPage, mid);
 	}
 	
 	public int modify(Matching matching){

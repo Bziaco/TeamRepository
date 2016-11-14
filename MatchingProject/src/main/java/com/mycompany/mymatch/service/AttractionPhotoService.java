@@ -37,7 +37,7 @@ public class AttractionPhotoService {
 		return REMOVE_SUCESS;
 	}
 	
-	public AttractionPhoto info(int pno) {
+/*	public AttractionPhoto info(int pno) {
 		return attractionPhotoDao.selectByPno(pno);
-	}
+	}*/
 }

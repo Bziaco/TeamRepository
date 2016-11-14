@@ -11,9 +11,9 @@ public class FavoriteFieldService {
 	
 	private FavoriteFieldDao favoriteFieldDao;
 	
-	public int remove(int fno) {
+	public void remove(int fno) {
 		
-		return ;
+		return;
 	}//--관심분야 삭제
 
 }

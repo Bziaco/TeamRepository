@@ -1,14 +1,138 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
+
+﻿<!DOCTYPE html >
 <html>
 <head>
-	<title>Home</title>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />	
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
+	<script type="text/javascript" src="path/to/js/jquery.mmenu.all.min.js"></script>
+	<link type="text/css" href="path/to/css/jquery.mmenu.all.css" rel="stylesheet" />
+	<link type="text/css" href="layout.css" rel="stylesheet" />
+	<link type="text/css" href="path/to/css/jquery.mmenu.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="path/to/js/jquery.min.js"></script>
+    <script type="text/javascript" src="path/to/js/jquery.mmenu.all.min.js"></script>
+      
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+<div id="main-navbar">
+	<h1><a href="/home">MatchingProject</a></h1>
+	<div id="toggle-sidebar"><img src="http://minimar0.dothome.co.kr/img/btn_menu.png" width="28" alt="메뉴 전체보기" /></div>
+</div>
+<div id="main-sidebar">
+	<div class="close-sb">HOME</div>
+	<nav>
+		<ul>
+			<li class="depth1" class="slideUp" class="slideDown"><a>메뉴1</a>
+				<ul id="change_me">
+					<li><a href="">테스트 테스트 테스트</a></li>
+					<li><a href="">테스트 테스트 테스트</a></li>
+					<li><a href="">테스트 테스트 테스트</a></li>
+					<li><a href="">테스트 테스트 테스트</a></li>
+				</ul>
+			</li>
+			<li class="depth1"><a href="">메뉴2</a></li>
+			<li class="depth1"><a href="">메뉴3</a></li>
+			<li class="depth1"><a href="">메뉴4</a></li>
+		</ul>
+	</nav>
+</div>
 
-<P>  The time on the server is ${serverTime}. </P>
+<div id="container">본문내용</div>
+	
+	<div class="wrap">
+	
+		<!-- 로고 영역 -->
+		<h1>
+			<strong>Paris</strong>	<br />	
+			<img src="${pageContext.servletContext.contextPath}/resources/img/logo.png" /><br />
+			<span>Exceptional Creation</span>
+		</h1>
+		
+		<!-- 슬로건 영역 -->
+		<p class="txt">
+			French Jewelry & <span>Watch Maker</span>
+		</p>
+		
+		<!-- 웹 아이콘 버튼 모음 -->
+		<ul class="sns">
+			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+		</ul>
+		
+		<!-- section 영역 -->
+		<section class="contents">
+		
+			<!-- article 영역 -->
+			<article>
+				<h2>Jewelry</h2>
+				<video loop="loop" preload="auto">
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid1.mp4" type="video/mp4" />
+				</video>
+				<div></div>
+				<h3>Jewelry</h3>
+				<p>
+					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. Integer eros tellus, molestie a dictum sit amet, lobortis non turpis. 
+				</p>
+			</article>
+			
+			<!-- article 영역 -->
+			<article>
+				<h2>Watches</h2>
+				<video loop="loop" preload="auto">
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid2.mp4" type="video/mp4" />
+				</video>
+				<div></div>
+				<h3>Watches</h3>
+				<p>
+					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. 
+				</p>
+			</article>
+			
+			<!-- article 영역 -->
+			<article>
+				<h2>Accessories</h2>
+				<video loop="loop" preload="auto">
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid3.mp4" type="video/mp4" />
+				</video>
+				<div></div>
+				<h3>Accessories</h3>
+				<p>
+					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. 
+				</p>
+			</article>
+			
+			<!-- article 영역 -->
+			<article>
+				<h2>Gifts</h2>
+				<video loop="loop" preload="auto">
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid4.mp4" type="video/mp4" />
+				</video>
+				<div></div>
+				<h3>Gifts</h3>
+				<p>
+					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. Integer 
+				</p>
+			</article>
+		</section>
+		
+		<!-- footer -->
+		<footer>
+			<ul>
+				<li><a href="#">sitemap</a></li>
+				<li><a href="#">contact</a></li>
+				<li><a href="#">community</a></li>
+			</ul>
+			<span>copyright 2015 Cartier All right reserved.</span>
+		</footer>
+		
+	</div>
+	
 </body>
 </html>

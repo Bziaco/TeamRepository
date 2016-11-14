@@ -2,14 +2,20 @@ package com.mycompany.mymatch.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.mymatch.service.MatchingService;
 
 @Controller
+@RequestMapping("mypage")
 public class MatchingController {  
 	@Autowired
 	public MatchingService matchingService;
 	
+	@RequestMapping("modify")
+	public String home() {
+	    return "mypage/modify";
+	   }
 /*	@RequestMapping("/list")
 	// 페이지 넘버가 넘어오지 않으면 디폴드 값인 1을 반환해라.
 	public String list(String pageNo, Model model, HttpSession session) {

@@ -1,5 +1,8 @@
 ﻿$(document).ready(function(){  		
-
+	
+	//메뉴 클릭 변수
+	var isClicked = false;
+	
 	// 마우스 오버시
 	$("article").on("mouseover",function(){		
 	
@@ -31,32 +34,66 @@
 		$(this).find("h3").stop().animate({"right":"-310px"},200);
 		$(this).find("p").stop().animate({"right":"-310px"},500);	
 	});
-	$(document).ready(function() {
-		$('#main-sidebar').simpleSidebar({
-			opener: '#toggle-sidebar',
-			wrapper: '#main',
-			animation: {
-				easing: "easeOutQuint"
-			},
-			sidebar: {
-				align: 'left',
-				closingLinks: '.close-sb',
-			},
-			sbWrapper: {
-				display: true
-			}
-		});
+	
+	$('#main-sidebar').simpleSidebar({
+		opener: '#toggle-sidebar',
+		wrapper: '#main',
+		animation: {
+			easing: "easeOutQuint"
+		},
+		sidebar: {
+			align: 'left',
+			closingLinks: '.close-sb',
+		},
+		sbWrapper: {
+			display: true
+		}
 	});
 
-    $(".depth1").click(function () {
-        $("#change_me").slideUp("slow");
+    $(".depth1").click(function() {
+    	if(!isClicked){
+    		$("#change_me1").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me1").slideUp("slow");
+    		isClicked = false;
+     	}
+    });
+    
+    $('#menu1').mouseover(function(){
+    	$('#menu1').addClass('pointer');
+    });
+    /*----------------------------------------*/
+    $(".depth2").click(function() {
+    	if(!isClicked){
+    		$("#change_me2").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me2").slideUp("slow");
+    		isClicked = false;
+     	}
     });
 
-    $(".depth1").click(function () {
-        $("#change_me").slideDown("slow");
+    $('#menu2').mouseover(function(){
+    	$('#menu2').addClass('pointer');
     });
-
+    /*------------------------------------------*/
+    $(".depth3").click(function() {
+    	if(!isClicked){
+    		$("#change_me3").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me3").slideUp("slow");
+    		isClicked = false;
+     	}
+    });
+    
+    $('#menu3').mouseover(function(){
+    	$('#menu3').addClass('pointer');
+    });
 });
+
+
 
 
 

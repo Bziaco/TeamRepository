@@ -12,11 +12,16 @@ import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.service.GuideService;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("resist")
 public class GuideController {
 	@Autowired
 	private GuideService guideService;
 	
+	
+	@RequestMapping("guideResist")
+	public String home() {
+	    return "resist/guideResist";
+	   }
 	
 	@RequestMapping(value = "/resist", method = RequestMethod.GET)
 	public String resistForm() {

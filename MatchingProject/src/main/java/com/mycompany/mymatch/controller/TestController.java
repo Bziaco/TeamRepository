@@ -22,9 +22,9 @@ public class TestController {
 		return "member/resistration";
 	}
 	
-	@RequestMapping("/joinForm")
+	@RequestMapping("/faq")
 	public String faqForm(){
-		return "member/joinForm";
+		return "member/faq";
 	}
 
 }

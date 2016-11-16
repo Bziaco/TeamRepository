@@ -16,6 +16,9 @@ public class MatchingController {
 	public String home() {
 	    return "mypage/modify";
 	   }
+	
+	
+	
 /*	@RequestMapping("/list")
 	// 페이지 넘버가 넘어오지 않으면 디폴드 값인 1을 반환해라.
 	public String list(String pageNo, Model model, HttpSession session) {

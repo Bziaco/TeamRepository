@@ -232,21 +232,34 @@
 	<!-- Resist 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="resistModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel" style="position:relavtive;">
-		<div class="modal-dialog" style="position:absolute;right:1000px;bottom:600px">
+		<div class="modal-dialog" style="position:absolute;right:1000px;bottom:900px">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
-							<h4>LOGIN</h4>
-								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+							<h4>RESIST</h4>
+								<input type="text" id="userId" class="form-control input-sm chat-input" placeholder="ID" />
 							</br> 
-								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
+							</br>
+								<input type="text" id="userNickname" class="form-control input-sm chat-input" placeholder="Nickname" />
+							</br>
+								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Name" />
+							</br>
+								<input type="text" id="userAge" class="form-control input-sm chat-input" placeholder="Age" />
+							</br>
+								<input type="text" id="userSex" class="form-control input-sm chat-input" placeholder="Sex" />
+							</br>
+								<input type="text" id="userEmail" class="form-control input-sm chat-input" placeholder="Email" />
+							</br>
+								<input type="text" id="userLocal" class="form-control input-sm chat-input" placeholder="Local" />
+							</br>
+								<input type="text" id="userTel" class="form-control input-sm chat-input" placeholder="Tel" />
 							</br>
 							<div class="wrapper">
-								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a></span>
+								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">Resist <i class="fa fa-sign-in"></i></a></span>
 							</div>
 							<br/>
-							<a href="" style="margin-right:15px;margin-left:30px">Find ID</a><a href="">Find Password</a> 
 						</div>
 
 					</div>
@@ -326,17 +339,22 @@
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">guideresist</h4>
-				</div>
-				<div class="modal-body">
-					<p>Some text in the modal.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>GUIDED RESIST</h4>
+								<input type="text" id="guideLocal" class="form-control input-sm chat-input" placeholder="Guide Local" />
+							</br> 
+								<input type="text" id="guideIntro" class="form-control input-sm chat-input" placeholder="Guide Intro" />
+							</br>
+							<div class="wrapper">
+								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">Resist <i class="fa fa-sign-in"></i></a></span>
+							</div>
+							<br/>
+						</div>
+
+					</div>
 				</div>
 			</div>
 
@@ -348,17 +366,22 @@
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">tourist</h4>
-				</div>
-				<div class="modal-body">
-					<p>Some text in the modal.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>TOURIST RESIST</h4>
+								<input type="text" id="touristLocal" class="form-control input-sm chat-input" placeholder="username" />
+							</br> 
+								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+							</br>
+							<div class="wrapper">
+								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">Resist <i class="fa fa-sign-in"></i></a></span>
+							</div>
+							<br/>
+						</div>
+
+					</div>
 				</div>
 			</div>
 

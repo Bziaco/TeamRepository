@@ -3,13 +3,20 @@
 ﻿<!DOCTYPE html >
 <html>
 <head>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />	
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>	
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>  
+	<script type="text/javascript">
+		/* function test() {
+			$("#main-sidebar").hide();
+			$("#myModal").focus();
+		} */
+	</script>
 </head>
 <body>
 
@@ -24,7 +31,7 @@
 		<ul>
 			<li id="menu1" class="depth1"><a>My Page</a>
 				<ul style = "display:none" id="change_me1">
-					<li><a href="${pageContext.servletContext.contextPath}/mypage/modify">Modify</a></li>
+					<li><a onclick="test()" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</a></li>
 					<li><a href="">Info</a></li>
 					<li><a href="">withdraw</a></li>
 				</ul>
@@ -139,6 +146,29 @@
 		</footer>
 		
 	</div>
+	
+	<!-- 모달 -->
+	<div style="z-index:5000" class="modal fade" id="myModal" tabindex="5" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Modal Header</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>Some text in the modal.</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+  	</div>
+  
+	
 	
 </body>
 </html>

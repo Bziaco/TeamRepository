@@ -79,7 +79,7 @@
 			<article clss="one">
 				<a href="${pageContext.servletContext.contextPath}/resources/member/joinFom"><h2>Q & A</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4" type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Q & A</h3>
@@ -92,7 +92,7 @@
 			<article clss="two">
 				<a href="${pageContext.servletContext.contextPath}/resources/member/bestGuide"><h2>Best Guide</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4" type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Best Guide</h3>
@@ -105,7 +105,7 @@
 			<article class="three">
 				<a href="${pageContext.servletContext.contextPath}/resources/member/resistration"><h2>Resistration</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4" type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Resistration</h3>
@@ -118,7 +118,7 @@
 			<article class="four">
 				<a href="${pageContext.servletContext.contextPath}/resources/member/matching"><h2>Matching</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4" type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Matching</h3>

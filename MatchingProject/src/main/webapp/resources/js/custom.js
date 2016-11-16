@@ -99,7 +99,6 @@
     $("#btn1").click(function(){
         $("#test2").html("${pageContext.servletContext.contextPath}/resist/guideResist");
     });
-    
 });
 
 

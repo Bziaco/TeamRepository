@@ -5,11 +5,9 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />	
-		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script> 
+		<link href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
 
 	</head>
 	<body>

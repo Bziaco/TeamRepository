@@ -9,6 +9,8 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
@@ -27,12 +29,14 @@
 
 	<!-- 메뉴 -->
 	<div id="main-navbar">
-		<h1 style="margin-top: 10px;text-align: center;font-size: 25px;">
+		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
 			<a>MatchingProject</a>
-			<div style="float: right;margin-right:10px;">
-				<button type="button" class="btn btn-default">Login</button>
-				<button type="button" class="btn btn-default">Resist</button>
-			
+			<div style="float: right; margin-right: 10px;">
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#loginModal">Login</button>
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#resistModal">Resist</button>
+
 			</div>
 		</h1>
 		<div id="toggle-sidebar">
@@ -52,14 +56,19 @@
 					</ul></li>
 				<li id="menu2" class="depth2"><a>Resist</a>
 					<ul style="display: none" id="change_me2">
-						<li><a data-toggle="modal" data-target="#guideModal">Guide Resist</a></li>
-						<li><a data-toggle="modal" data-target="#touristModal">Tourist resist</a></li>
+						<li><a data-toggle="modal" data-target="#guideModal">Guide
+								Resist</a></li>
+						<li><a data-toggle="modal" data-target="#touristModal">Tourist
+								resist</a></li>
 					</ul></li>
 				<li id="menu3" class="depth3"><a>My Two+</a>
 					<ul style="display: none" id="change_me3">
-						<li><a data-toggle="modal" data-target="#scheduleModal">My Schedule</a></li>
-						<li><a data-toggle="modal" data-target="#matchtouristModal">Matching Tourist</a></li>
-						<li><a data-toggle="modal" data-target="#matchguideModal">Matching Guide</a></li>
+						<li><a data-toggle="modal" data-target="#scheduleModal">My
+								Schedule</a></li>
+						<li><a data-toggle="modal" data-target="#matchtouristModal">Matching
+								Tourist</a></li>
+						<li><a data-toggle="modal" data-target="#matchguideModal">Matching
+								Guide</a></li>
 					</ul></li>
 			</ul>
 		</nav>
@@ -96,7 +105,9 @@
 					href="${pageContext.servletContext.contextPath}/resources/member/joinFom"><h2>Q
 						& A</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4" type="video/mp4" />
+					<source
+						src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4"
+						type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Q & A</h3>
@@ -114,7 +125,9 @@
 					href="${pageContext.servletContext.contextPath}/resources/member/bestGuide"><h2>Best
 						Guide</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4" type="video/mp4" />
+					<source
+						src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4"
+						type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Best Guide</h3>
@@ -128,7 +141,9 @@
 				<a
 					href="${pageContext.servletContext.contextPath}/resources/member/resistration"><h2>Resistration</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4" type="video/mp4" />
+					<source
+						src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4"
+						type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Resistration</h3>
@@ -144,7 +159,9 @@
 				<a
 					href="${pageContext.servletContext.contextPath}/resources/member/matching"><h2>Matching</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4" type="video/mp4" />
+					<source
+						src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4"
+						type="video/mp4" />
 				</video>
 				<div></div>
 				<h3>Matching</h3>
@@ -168,9 +185,84 @@
 
 	</div>
 
-	<!-- modify 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="modifyModal" tabindex="5"
+	<!-- login 모달 -->
+	<div style="z-index: 5000" class="modal fade" id="loginModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel" style="position:relavtive;">
+		<div class="modal-dialog" style="position:absolute;right:1000px;bottom:600px">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>LOGIN</h4>
+								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+							</br> 
+								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+							</br>
+							<div class="wrapper">
+								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a></span>
+							</div>
+							<br/>
+							<a href="" style="margin-right:15px;margin-left:30px">Find ID</a><a href="">Find Password</a> 
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- logout 모달 -->
+	<!-- <div style="z-index: 5000" class="modal fade" id="logoutModal" tabindex="5"
 		role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog">
+
+			Modal content
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">logout</h4>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div> -->
+
+	<!-- Resist 모달 -->
+	<div style="z-index: 5000" class="modal fade" id="resistModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel" style="position:relavtive;">
+		<div class="modal-dialog" style="position:absolute;right:1000px;bottom:600px">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>LOGIN</h4>
+								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+							</br> 
+								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+							</br>
+							<div class="wrapper">
+								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a></span>
+							</div>
+							<br/>
+							<a href="" style="margin-right:15px;margin-left:30px">Find ID</a><a href="">Find Password</a> 
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modify 모달 -->
+	<div style="z-index: 5000" class="modal fade" id="modifyModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -189,10 +281,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- info 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="infoModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="infoModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -211,10 +303,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- withdraw 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="withdrawModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="withdrawModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -233,10 +325,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- guideresist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="guideModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="guideModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -255,10 +347,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- touristresist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="touristModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="touristModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -277,10 +369,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- schedule 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="scheduleModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="scheduleModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -299,10 +391,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- matchtourist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="matchtouristModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="matchtouristModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
@@ -321,10 +413,10 @@
 
 		</div>
 	</div>
-	
+
 	<!-- matchguide 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="matchguideModal" tabindex="5"
-		role="dialog" aria-labelledby="myModalLabel">
+	<div style="z-index: 5000" class="modal fade" id="matchguideModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->

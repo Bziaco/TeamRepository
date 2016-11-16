@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.mycompany.mymatch.service.MatchingService;
 
 @Controller
-@RequestMapping("mypage")
+@RequestMapping("mypage") 
 public class MatchingController {  
 	@Autowired
 	public MatchingService matchingService;

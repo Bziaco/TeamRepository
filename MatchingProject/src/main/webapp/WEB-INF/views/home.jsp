@@ -9,17 +9,9 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-
-
-
-      
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>  
 </head>
 <body>
-
-
-
-
 
 <!-- 메뉴 -->
 <div id="main-navbar">
@@ -39,8 +31,8 @@
 			</li>
 			<li id="menu2" class="depth2"><a>Resist</a>
 				<ul style = "display:none" id="change_me2">
-					<li><a href="${pageContext.servletContext.contextPath}/resist/guideResit">Guide resist</a></li>
-					<li><a href="">Tourist resist</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/resist/guideResist">Guide resist</a></li>
+					<li id="btn1"><a href="">Tourist resist</a></li>
 				</ul>
 			</li>
 			<li id="menu3" class="depth3"><a>My Two+</a>

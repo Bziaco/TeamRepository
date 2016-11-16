@@ -91,6 +91,15 @@
     $('#menu3').mouseover(function(){
     	$('#menu3').addClass('pointer');
     });
+    
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+    
+    $("#btn1").click(function(){
+        $("#test2").html("${pageContext.servletContext.contextPath}/resist/guideResist");
+    });
+    
 });
 
 

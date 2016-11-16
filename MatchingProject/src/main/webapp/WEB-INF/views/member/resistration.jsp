@@ -1,4 +1,5 @@
 <%@ page contentType = "text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,5 +9,6 @@
 	<body>
 		예약
 		<hr/>
+		<form method="post">
 	</body>
 </html>

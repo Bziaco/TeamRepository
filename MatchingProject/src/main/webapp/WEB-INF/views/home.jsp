@@ -92,7 +92,7 @@
 			<!-- article 영역 -->
 			<article clss="one">
 				<a
-					href="${pageContext.servletContext.contextPath}/resources/member/joinFom"><h2>Q
+					href="${pageContext.servletContext.contextPath}/member/faq"><h2>Q
 						& A</h2></a>
 				<video loop="loop" preload="auto">
 					<source src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4" type="video/mp4" />
@@ -110,7 +110,7 @@
 			<!-- article 영역 -->
 			<article clss="two">
 				<a
-					href="${pageContext.servletContext.contextPath}/resources/member/bestGuide"><h2>Best
+					href="${pageContext.servletContext.contextPath}/member/bestGuide"><h2>Best
 						Guide</h2></a>
 				<video loop="loop" preload="auto">
 					<source src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4" type="video/mp4" />
@@ -125,7 +125,7 @@
 			<!-- article 영역 -->
 			<article class="three">
 				<a
-					href="${pageContext.servletContext.contextPath}/resources/member/resistration"><h2>Resistration</h2></a>
+					href="${pageContext.servletContext.contextPath}/member/resistration"><h2>Resistration</h2></a>
 				<video loop="loop" preload="auto">
 					<source src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4" type="video/mp4" />
 				</video>
@@ -141,7 +141,7 @@
 			<!-- article 영역 -->
 			<article class="four">
 				<a
-					href="${pageContext.servletContext.contextPath}/resources/member/matching"><h2>Matching</h2></a>
+					href="${pageContext.servletContext.contextPath}/member/matching"><h2>Matching</h2></a>
 				<video loop="loop" preload="auto">
 					<source src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4" type="video/mp4" />
 				</video>
@@ -162,7 +162,7 @@
 				<li><a href="#">contact</a></li>
 				<li><a href="#">community</a></li>
 			</ul>
-			<span>copyright 2015 Cartier All right reserved.</span>
+			<span>copyright 2016 Cartier All right reserved.</span>
 		</footer>
 
 	</div>

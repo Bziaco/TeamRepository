@@ -59,76 +59,76 @@
 	
 	<div class="wrap">
 	
-		<!-- 로고 영역 -->
+		<%-- <!-- 로고 영역 -->
 		<h1>
 			<strong>Paris</strong>	<br />	
 			<img src="${pageContext.servletContext.contextPath}/resources/img/logo.png" /><br />
 			<span>Exceptional Creation</span>
-		</h1>
+		</h1> --%>
 		
 		<!-- 슬로건 영역 -->
 		<p class="txt">
-			French Jewelry & <span>Watch Maker</span>
+			Two<span>Plus+</span>
 		</p>
 		
-		<!-- 웹 아이콘 버튼 모음 -->
+		<%-- <!-- 웹 아이콘 버튼 모음 -->
 		<ul class="sns">
 			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
 			<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-		</ul>
+		</ul> --%> 
 		
 		<!-- section 영역 -->
 		<section class="contents">
 		
 			<!-- article 영역 -->
-			<article>
-				<h2>Jewelry</h2>
+			<article clss="one">
+				<a href="${pageContext.servletContext.contextPath}/resources/member/joinFom"><h2>Q & A</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid1.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4" type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Jewelry</h3>
+				<h3>Q & A</h3>
 				<p>
 					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. Integer eros tellus, molestie a dictum sit amet, lobortis non turpis. 
 				</p>
 			</article>
 			
 			<!-- article 영역 -->
-			<article>
-				<h2>Watches</h2>
+			<article clss="two">
+				<a href="${pageContext.servletContext.contextPath}/resources/member/bestGuide"><h2>Best Guide</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid2.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4" type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Watches</h3>
+				<h3>Best Guide</h3>
 				<p>
 					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. 
 				</p>
 			</article>
 			
 			<!-- article 영역 -->
-			<article>
-				<h2>Accessories</h2>
+			<article class="three">
+				<a href="${pageContext.servletContext.contextPath}/resources/member/resistration"><h2>Resistration</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid3.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4" type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Accessories</h3>
+				<h3>Resistration</h3>
 				<p>
 					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. 
 				</p>
 			</article>
 			
 			<!-- article 영역 -->
-			<article>
-				<h2>Gifts</h2>
+			<article class="four">
+				<a href="${pageContext.servletContext.contextPath}/resources/member/matching"><h2>Matching</h2></a>
 				<video loop="loop" preload="auto">
-					<source src="${pageContext.servletContext.contextPath}/resources/img/vid4.mp4" type="video/mp4" />
+					<source src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4" type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Gifts</h3>
+				<h3>Matching</h3>
 				<p>
 					Nulla ex risus, varius at mauris quis, fringilla accumsan urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus feugiat tincidunt a nec erat. Donec ornare finibus massa. In facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie. Integer 
 				</p>

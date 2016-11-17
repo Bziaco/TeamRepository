@@ -104,15 +104,14 @@
 
 			<!-- article 영역 -->
 			<article clss="one">
-				<a href="${pageContext.servletContext.contextPath}/faq/faq"><h2>Q
-						& A</h2></a>
+				<a href="${pageContext.servletContext.contextPath}/information/info"><h2>Information</h2></a>
 				<video loop="loop" preload="auto">
 					<source
 						src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4"
 						type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Q & A</h3>
+				<h3>Information</h3>
 				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
 					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
 					feugiat tincidunt a nec erat. Donec ornare finibus massa. In
@@ -123,15 +122,14 @@
 
 			<!-- article 영역 -->
 			<article clss="two">
-				<a href="${pageContext.servletContext.contextPath}/member/bestGuide"><h2>Best
-						Guide</h2></a>
+				<a href="${pageContext.servletContext.contextPath}/faq/faqList"><h2>Q & A</h2></a>
 				<video loop="loop" preload="auto">
 					<source
 						src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4"
 						type="video/mp4" />
 				</video>
 				<div></div>
-				<h3>Best Guide</h3>
+				<h3>Q & A</h3>
 				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
 					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
 					feugiat tincidunt a nec erat. Donec ornare finibus massa.</p>
@@ -140,7 +138,7 @@
 			<!-- article 영역 -->
 			<article class="three">
 				<a
-					href="${pageContext.servletContext.contextPath}/member/resistration"><h2>Resistration</h2></a>
+					href="${pageContext.servletContext.contextPath}/bestGuide/bestGuideList"><h2>Best Guide</h2></a>
 				<video loop="loop" preload="auto">
 					<source
 						src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4"
@@ -148,7 +146,7 @@
 
 				</video>
 				<div></div>
-				<h3>Resistration</h3>
+				<h3>Best Guide</h3>
 				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
 					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
 					feugiat tincidunt a nec erat. Donec ornare finibus massa. In
@@ -158,7 +156,7 @@
 
 			<!-- article 영역 -->
 			<article class="four">
-				<a href="${pageContext.servletContext.contextPath}/member/matching"><h2>Matching</h2></a>
+				<a href="${pageContext.servletContext.contextPath}/matching/matchList"><h2>Matching</h2></a>
 				<video loop="loop" preload="auto">
 					<source
 						src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4"

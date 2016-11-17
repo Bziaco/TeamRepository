@@ -4,12 +4,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
-@RequestMapping("/faq")
-public class FaqController {
+@RequestMapping("/information")
+public class InfoController {
 	
-	@RequestMapping("/faqList")
+	@RequestMapping("/info")
 	public String faqForm(){
-		return "faq/faqList";
+		return "information/info";
 	}
 
 }

@@ -24,9 +24,8 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	
-<script 
-	src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -48,7 +47,8 @@
 				</div>
 				<div class="inbox-body">
 					<div class="btn-toolbar">
-						<button class="btn btn-primary">Write</button>
+						<button class="btn btn-primary" id="btnWrite" type="button"
+              				 data-toggle="modal" data-target="#writeModal">Write</button>
 						<button class="btn">Update</button>
 						<button class="btn">Delete</button>
 					</div>
@@ -125,8 +125,8 @@
 											<tr>
 												<td><input type="checkbox" class="checkthis" /></td>
 												<td>3</td>
-												<td>아.. </td>
-												<td> 어려워...디자인 버려..</td>
+												<td>아..</td>
+												<td>어려워...디자인 버려..</td>
 												<td>조옥현</td>
 												<td>777</td>
 												<td><p data-placement="top" data-toggle="tooltip"
@@ -174,7 +174,7 @@
 											<tr>
 												<td><input type="checkbox" class="checkthis" /></td>
 												<td>5</td>
-												<td>오늘 </td>
+												<td>오늘</td>
 												<td>ㅎㅎㅎㅎ</td>
 												<td>조옥현</td>
 												<td>10000</td>
@@ -220,7 +220,8 @@
 	</div>
 </body>
 
-<div class="modal fade" id="edit" tabindex="-1" role="dialog"
+<!-- 글쓰기 모달 -->
+<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"
 	aria-labelledby="edit" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -229,8 +230,7 @@
 					aria-hidden="true">
 					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</button>
-				<h4 class="modal-title custom_align" id="Heading">Edit Your
-					Detail</h4>
+				<h4 class="modal-title custom_align" id="Heading">Do you went to write?</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
@@ -241,60 +241,98 @@
 					<input class="form-control " type="text" placeholder="Title">
 				</div>
 				<div class="form-group">
-					<textarea rows="2" class="form-control"
-						placeholder="Content"></textarea>
-
-
+					<textarea rows="2" class="form-control" placeholder="Content"></textarea>
 				</div>
 			</div>
 			<div class="modal-footer ">
-				<button type="button" class="btn btn-warning btn-lg"
-					style="width: 100%;">
-					<span class="glyphicon glyphicon-ok-sign"></span> Update
-				</button>
-			</div>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
-
-
-
-<div class="modal fade" id="delete" tabindex="-1" role="dialog"
-	aria-labelledby="edit" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				</button>
-				<h4 class="modal-title custom_align" id="Heading">Delete this
-					entry</h4>
-			</div>
-			<div class="modal-body">
-
-				<div class="alert alert-danger">
-					<span class="glyphicon glyphicon-warning-sign"></span> Are you sure
-					you want to delete this Record?
+					<button type="button" class="btn btn-warning btn-lg"
+						style="width: 100%;">
+						<span class="glyphicon glyphicon-ok-sign"></span> Submit
+					</button>
 				</div>
-
-			</div>
-			<div class="modal-footer ">
-				<button type="button" class="btn btn-success">
-					<span class="glyphicon glyphicon-ok-sign"></span> Yes
-				</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-					<span class="glyphicon glyphicon-remove"></span> No
-				</button>
-			</div>
 		</div>
-		<!-- /.modal-content -->
 	</div>
-	<!-- /.modal-dialog -->
 </div>
 
+
+	<!-- 에디트 모달 -->
+	<div class="modal fade" id="edit" tabindex="-1" role="dialog"
+		aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+					<h4 class="modal-title custom_align" id="Heading">Edit Your
+						Detail</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input class="form-control " type="text" placeholder="writer">
+					</div>
+					<div class="form-group">
+
+						<input class="form-control " type="text" placeholder="Title">
+					</div>
+					<div class="form-group">
+						<textarea rows="2" class="form-control" placeholder="Content"></textarea>
+
+
+					</div>
+				</div>
+				<div class="modal-footer ">
+					<button type="button" class="btn btn-warning btn-lg"
+						style="width: 100%;">
+						<span class="glyphicon glyphicon-ok-sign"></span> Update
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+
+
+
+
+	<!-- 딜리트 모달 -->
+	<div class="modal fade" id="delete" tabindex="-1" role="dialog"
+		aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+					<h4 class="modal-title custom_align" id="Heading">Delete
+						this entry</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="alert alert-danger">
+						<span class="glyphicon glyphicon-warning-sign"></span> Are you
+						sure you want to delete this Record?
+					</div>
+
+				</div>
+				<div class="modal-footer ">
+					<button type="button" class="btn btn-success">
+						<span class="glyphicon glyphicon-ok-sign"></span> Yes
+					</button>
+					<button type="button" class="btn btn-default"
+						data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove"></span> No
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 </html>
 
 

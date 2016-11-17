@@ -295,7 +295,7 @@
 							<h4>Password Modification</h4>
 							<input type="text" id="userPassword"
 								class="form-control input-sm chat-input" placeholder="Password" />
-							</br> <span class="group-btn"> <a href="#" data-toggle="modal"
+							</br> <span class="group-btn"> <a id="inputPassword" href="#" data-toggle="modal"
 								data-target="#modifyModal" class="btn btn-primary btn-md"
 								data-trigger="focus">Input Password <i class="fa fa-sign-in"></i></a></span>
 						</div>

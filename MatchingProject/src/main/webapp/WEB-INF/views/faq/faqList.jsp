@@ -1,425 +1,300 @@
- <%@ page contentType = "text/html;charset=UTF-8"%>
+
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link
-			href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
-			rel="stylesheet">
-		
-		<script type="text/javascript"
-			src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
-		
-		<script type="text/javascript"
-			src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-			
-		<link rel="stylesheet"
-			href="${pageContext.servletContext.contextPath}/resources/css/faq.css" />
-		
-		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-	</head>
-	
-	<body id="wrap">
-		<div class="container">
- 			<div class="mail-box">
-                 <aside class="lg-side">
-                     <div class="inbox-head">
-                         <h3>Free Board</h3>
-                         <form action="#" class="pull-right position">
-                             <div class="input-append">
-                                 <input type="text" class="sr-input" placeholder="Search">
-                                 <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
-                             </div>
-                         </form>
-                     </div>
-                     <div class="inbox-body">
-                        <div class="mail-option">
-                            <div class="chk-all">
-                                <input type="checkbox" class="mail-checkbox mail-group-checkbox">
-                                <div class="btn-group">
-                                    <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
-                                        All
-                                        <i class="fa fa-angle-down "></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> None</a></li>
-                                        <li><a href="#"> Read</a></li>
-                                        <li><a href="#"> Unread</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+<head>
+<meta charset="UTF-8">
+<link
+	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
+	rel="stylesheet">
 
-                            <div class="btn-group">
-                                <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
-                                    <i class=" fa fa-refresh"></i>
-                                </a>
-                            </div>
-                            <div class="btn-group hidden-phone">
-                                <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
-                                    More
-                                    <i class="fa fa-angle-down "></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                                    <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                                </ul>
-                            </div>
-                            <div class="btn-group">
-                                <a data-toggle="dropdown" href="#" class="btn mini blue">
-                                    Move to
-                                    <i class="fa fa-angle-down "></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                                    <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                                </ul>
-                            </div>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 
-                            <ul class="unstyled inbox-pagination">
-                                <li><span>1-50 of 234</span></li>
-                                <li>
-                                    <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
-                                </li>
-                                <li>
-                                    <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
-                                </li>
-                            </ul> 
-                        </div>
-                         <table class="table table-inbox table-hover">
-                           <tbody>
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message  dont-show">No</td>
-                                 <td class="view-message">Writer</td>
-                                 <td class="view-message">Title</td>
-                                 <td class="view-message">Content</td>
-                                 <td class="view-message text-right">Count</td>
-                             </tr>
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                 <td class="view-message dont-show">1 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">2 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                 <td class="view-message dont-show">3<span class="label label-success pull-right">Best</span>
-                                  </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                 <td class="view-message dont-show">4 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">5<span class="label label-danger pull-right">Best Of Best</span></td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">6 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">7<span class="label label-info pull-right">Not Bad</span>
-                                  </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">8 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                              <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">9 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                              <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                 <td class="view-message dont-show">10 </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                 <td class="view-message dont-show">11<span class="label label-danger pull-right">Best Of Best</span> </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                             <tr class="unread">
-                                 <td class="inbox-small-cells">
-                                     <input type="checkbox" class="mail-checkbox">
-                                 </td>
-                                 <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                 <td class="view-message dont-show">12<span class="label label-danger pull-right">Best Of Best</span> </td>
-                                 <td class="view-message">조옥현</td>
-                                 <td class="view-message">새벽5시...</td>
-                                 <td class="view-message inbox-small-cells">졸려졸려...졸려 너무..</td>
-                                 <td class="view-message text-right">100</td>
-                             </tr>
-                             
-                         </tbody>
-                         </table>
-                     </div>
-                 </aside>
-             </div>
-</div>
-	</body>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
+
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/faq.css" />
+
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/faq.js"></script>
+
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	
-	
-	
-<%--	<body id="wrap">
-		<div id="table">
-			<!-- 검색 -->			
-			<!-- 테이블 -->	
-			<div class="tb">
-				<div class="panel panel-info">
-					<!-- Default panel contents -->
-					<div class="panel-heading">
-						<h3>Free Board</h3>
+<script 
+	src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body id="wrap">
+	<div class="container">
+		<div class="mail-box">
+			<aside class="lg-side">
+				<div class="inbox-head">
+					<h3>Free Board</h3>
+					<form action="#" class="pull-right position">
+						<div class="input-append">
+							<input type="text" class="sr-input" placeholder="Search">
+							<button class="btn sr-btn" type="button">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="inbox-body">
+					<div class="btn-toolbar">
+						<button class="btn btn-primary">Write</button>
+						<button class="btn">Update</button>
+						<button class="btn">Delete</button>
 					</div>
-					
-					<div class="input-group">
-					  <div class="input-group-btn">
-					    <!-- Button and dropdown menu -->
-					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-				        <ul class="dropdown-menu">
-						    <li><a href="#">Action</a></li>
-						    <li><a href="#">Another action</a></li>
-						    <li><a href="#">Something else here</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						  </ul>
-					  </div>
-					  <input type="text" class="form-control" aria-label="...">
-					</div>
-					
-					
-					
-				<!-- <div>
-					Split button
-					<div class="btn-group">
-					  <button type="button" class="btn btn-danger">Action</button>
-					  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					</div>
-					
-					<div class="panel-body">
-				    	<div>
-					      <div class="col-lg-6">
-						    <div class="input-group">
-						      <input type="text" class="form-control" placeholder="Search for...">
-						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button">Go!</button>
-						      </span>
-						    </div>/input-group
-						  </div>/.col-lg-6
-						</div>/.row
-					</div>
-				</div> -->
-				
-					<!-- Table -->
-						<table class="table">
-						    <tr>
-						    	<th>No</th>
-						    	<th>Writer</th>
-						    	<th>Title</th>
-						    	<th>Content</th>
-						    	<th>Count</th>
-						    </tr>
-						    <tr>
-						    	<td>1</td>
-						    	<td>조옥현</td>
-						    	<td>새벽5시</td>
-						    	<td>졸리다.. 졸려..</td>
-						    	<td>1</td>
-						    </tr>
-						    <tr>
-						    	<td>2</td>
-						    	<td>2</td>
-						    	<td>2</td>
-						    	<td>2</td>
-						    	<td>2</td>
-						    </tr>
-						    <tr>
-						    	<td>3</td>
-						    	<td>3</td>
-						    	<td>3</td>
-						    	<td>3</td>
-						    	<td>3</td>
-						    </tr>
-						    <tr>
-						    	<td>4</td>
-						    	<td>4</td>
-						    	<td>4</td>
-						    	<td>4</td>
-						    	<td>4</td>
-						    </tr>
-						    <tr>
-						    	<td>5</td>
-						    	<td>5</td>
-						    	<td>5</td>
-						    	<td>5</td>
-						    	<td>5</td>
-						    </tr>
-						    <tr>
-						    	<td>6</td>
-						    	<td>6</td>
-						    	<td>6</td>
-						    	<td>6</td>
-						    	<td>6</td>
-						    </tr>
-						    <tr>
-						    	<td>7</td>
-						    	<td>7</td>
-						    	<td>7</td>
-						    	<td>7</td>
-						    	<td>7</td>
-						    </tr>
-						    <tr>
-						    	<td>8</td>
-						    	<td>8</td>
-						    	<td>8</td>
-						    	<td>8</td>
-						    	<td>8</td>
-						    </tr>
-						     
-						    
-						</table>
+
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h3>Two Plus+</h3>
+								<div class="table-responsive">
+
+
+									<table id="mytable" class="table table-bordred table-striped">
+
+										<thead>
+
+											<th><input type="checkbox" id="checkall" /></th>
+											<th>No</th>
+											<th>Title</th>
+											<th>Content</th>
+											<th>Writer</th>
+											<th>Count</th>
+											<th>Edit</th>
+											<th>Delete</th>
+										</thead>
+										<tbody>
+
+											<tr>
+												<td><input type="checkbox" class="checkthis" /></td>
+												<td>1</td>
+												<td>오늘도</td>
+												<td>노트북은 거지다....느려 터졌어</td>
+												<td>조옥현</td>
+												<td>1000</td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Edit">
+														<button class="btn btn-primary btn-xs" data-title="Edit"
+															data-toggle="modal" data-target="#edit">
+															<span class="glyphicon glyphicon-pencil"></span>
+														</button>
+													</p></td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Delete">
+														<button class="btn btn-danger btn-xs" data-title="Delete"
+															data-toggle="modal" data-target="#delete">
+															<span class="glyphicon glyphicon-trash"></span>
+														</button>
+													</p></td>
+											</tr>
+
+											<tr>
+												<td><input type="checkbox" class="checkthis" /></td>
+												<td>2</td>
+												<td>5시 각이군....</td>
+												<td>게시판 드디어 끝이다.....</td>
+												<td>조옥현</td>
+												<td>1000</td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Edit">
+														<button class="btn btn-primary btn-xs" data-title="Edit"
+															data-toggle="modal" data-target="#edit">
+															<span class="glyphicon glyphicon-pencil"></span>
+														</button>
+													</p></td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Delete">
+														<button class="btn btn-danger btn-xs" data-title="Delete"
+															data-toggle="modal" data-target="#delete">
+															<span class="glyphicon glyphicon-trash"></span>
+														</button>
+													</p></td>
+											</tr>
+
+
+											<tr>
+												<td><input type="checkbox" class="checkthis" /></td>
+												<td>3</td>
+												<td>아.. </td>
+												<td> 어려워...디자인 버려..</td>
+												<td>조옥현</td>
+												<td>777</td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Edit">
+														<button class="btn btn-primary btn-xs" data-title="Edit"
+															data-toggle="modal" data-target="#edit">
+															<span class="glyphicon glyphicon-pencil"></span>
+														</button>
+													</p></td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Delete">
+														<button class="btn btn-danger btn-xs" data-title="Delete"
+															data-toggle="modal" data-target="#delete">
+															<span class="glyphicon glyphicon-trash"></span>
+														</button>
+													</p></td>
+											</tr>
+
+
+
+											<tr>
+												<td><input type="checkbox" class="checkthis" /></td>
+												<td>4</td>
+												<td>주말에 잠좀 자야지..</td>
+												<td>금요일 좋아... 불금..굿</td>
+												<td>조옥현</td>
+												<td>555</td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Edit">
+														<button class="btn btn-primary btn-xs" data-title="Edit"
+															data-toggle="modal" data-target="#edit">
+															<span class="glyphicon glyphicon-pencil"></span>
+														</button>
+													</p></td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Delete">
+														<button class="btn btn-danger btn-xs" data-title="Delete"
+															data-toggle="modal" data-target="#delete">
+															<span class="glyphicon glyphicon-trash"></span>
+														</button>
+													</p></td>
+											</tr>
+
+
+											<tr>
+												<td><input type="checkbox" class="checkthis" /></td>
+												<td>5</td>
+												<td>오늘 </td>
+												<td>ㅎㅎㅎㅎ</td>
+												<td>조옥현</td>
+												<td>10000</td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Edit">
+														<button class="btn btn-primary btn-xs" data-title="Edit"
+															data-toggle="modal" data-target="#edit">
+															<span class="glyphicon glyphicon-pencil"></span>
+														</button>
+													</p></td>
+												<td><p data-placement="top" data-toggle="tooltip"
+														title="Delete">
+														<button class="btn btn-danger btn-xs" data-title="Delete"
+															data-toggle="modal" data-target="#delete">
+															<span class="glyphicon glyphicon-trash"></span>
+														</button>
+													</p></td>
+											</tr>
+										</tbody>
+									</table>
+
+									<div class="clearfix"></div>
+									<ul class="pagination pull-right">
+										<li class="disabled"><a href="#"><span
+												class="glyphicon glyphicon-chevron-left"></span></a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#"><span
+												class="glyphicon glyphicon-chevron-right"></span></a></li>
+									</ul>
+
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
-						
-						
-						
-			<!-- 페이징 -->
-			<div class="page">
-				<nav aria-label="Page navigation">
-				  <ul class="pagination">
-				    <li>
-				      <a href="#" aria-label="Previous"> 
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
-				    </li>
-				    <li><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
-				    <li><a href="#">6</a></li>
-				    <li><a href="#">7</a></li>
-				    <li><a href="#">8</a></li>
-				    <li><a href="#">9</a></li>
-				    <li><a href="#">10</a></li>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
+			</aside>
+		</div>
+	</div>
+</body>
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog"
+	aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				<h4 class="modal-title custom_align" id="Heading">Edit Your
+					Detail</h4>
 			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<input class="form-control " type="text" placeholder="writer">
+				</div>
+				<div class="form-group">
+
+					<input class="form-control " type="text" placeholder="Title">
+				</div>
+				<div class="form-group">
+					<textarea rows="2" class="form-control"
+						placeholder="Content"></textarea>
+
+
+				</div>
 			</div>
-	
-		
-	</body>
-</html> --%>
+			<div class="modal-footer ">
+				<button type="button" class="btn btn-warning btn-lg"
+					style="width: 100%;">
+					<span class="glyphicon glyphicon-ok-sign"></span> Update
+				</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog"
+	aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				<h4 class="modal-title custom_align" id="Heading">Delete this
+					entry</h4>
+			</div>
+			<div class="modal-body">
+
+				<div class="alert alert-danger">
+					<span class="glyphicon glyphicon-warning-sign"></span> Are you sure
+					you want to delete this Record?
+				</div>
+
+			</div>
+			<div class="modal-footer ">
+				<button type="button" class="btn btn-success">
+					<span class="glyphicon glyphicon-ok-sign"></span> Yes
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<span class="glyphicon glyphicon-remove"></span> No
+				</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+</html>
+
+

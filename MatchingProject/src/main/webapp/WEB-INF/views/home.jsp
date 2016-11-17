@@ -4,9 +4,8 @@
 <!DOCTYPE html >
 <html>
 <head>
-<link
-	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
-	rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 <link rel="stylesheet"
@@ -275,14 +274,16 @@
 								class="form-control input-sm chat-input" placeholder="Local" />
 							</br> <input type="text" id="userTel"
 								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
+
 							<div class="wrapper">
 								<span class="group-btn"> <a href="#"
 									class="btn btn-primary btn-md">Resist <i
 										class="fa fa-sign-in"></i></a></span>
 							</div>
-							<br />
-						</div>
 
+							<br />
+
+						</div>
 					</div>
 				</div>
 			</div>

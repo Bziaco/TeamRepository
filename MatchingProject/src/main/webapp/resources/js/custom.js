@@ -1,24 +1,41 @@
-﻿$(document).ready(function(){  		
-	
-	//메뉴 클릭 변수
-	var isClicked = false;
-	
-	// 마우스 오버시
-	$("article").on("mouseover",function(){		
-	
-		// 변수 vid에 video파일 참조
-		var vid = $(this).find("video").get(0);
-		// 동영상의 재생위치를 처음(0)으로 설정
-		vid.currentTime=0;
-		// 동영상을 재생
-		vid.play();	
-		
-		$(this).stop().animate({"width":"39%"},1000,function(){
-			//article이 넓어진 바로 후에 아래 구문이 실행됩니다.
-			$(this).find("h3").stop().animate({"right":"10px"},400);
-			$(this).find("p").stop().animate({"right":"10px"},800);	
+﻿$(function () {
+	$('[data-toggle="calendar"] > .row > .calendar-day > .events > .event').popover({
+		container: 'body',
+		content: 'Hello World',
+		html: true,
+		placement: 'bottom',
+		template: '<div class="popover calendar-event-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+	});
+
+	$('[data-toggle="calendar"] > .row > .calendar-day > .events > .event').on('show.bs.popover', function () {
+		var attending = parseInt($(this).find('div.progress>.progress-bar').attr('aria-valuenow')),
+			total = parseInt($(this).find('div.progress>.progress-bar').attr('aria-valuemax')),
+			remaining = total - attending,
+			displayAttending = attending - $(this).find('div.attending').children().length,
+			html = [
+				'<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>',
+				'<h4>'+$(this).find('h4').text()+'</h4>',
+				'<div class="desc">'+$(this).find('div.desc').html()+'</div>',
+				'<div class="location">'+$(this).find('div.location').html()+'</div>',
+				'<div class="datetime">'+$(this).find('div.datetime').html()+'</div>',
+				'<div class="space">Attending <span class="pull-right">Available spots</span></div>',
+				'<div class="attending">',
+					$(this).find('div.attending').html(),
+					'<span class="attending-overflow">+'+displayAttending+'</span>', 
+					'<span class="pull-right">'+remaining+'</span>',
+				'</div>',
+				'<a href="#signup" class="btn btn-success" role="button">Sign up</a>'
+			].join('\n');
+
+		$(this).attr('title', $(this).find('h4').text());
+		$(this).attr('data-content', html);
+	});
+
+	$('[data-toggle="calendar"] > .row > .calendar-day > .events > .event').on('shown.bs.popover', function () {
+		var $popup = $(this);
+		$('.popover:last-child').find('.close').on('click', function(event) {
+			$popup.popover('hide');
 		});
-		$(this).find("video").stop().animate({"opacity":"1", "width":"850px"},1200);		
 	});
 	
 	// 마우스 아웃시
@@ -120,21 +137,3 @@
     /*chat*/
     
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

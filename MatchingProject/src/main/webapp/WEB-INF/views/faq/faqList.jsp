@@ -242,7 +242,7 @@
 				</div>
 				<div class="form-group">
 					<textarea rows="2" class="form-control" placeholder="Content"></textarea>
-				</div>
+				</div> 
 			</div>
 			<div class="modal-footer ">
 					<button type="button" class="btn btn-warning btn-lg"

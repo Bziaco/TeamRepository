@@ -162,7 +162,7 @@
     
     //모달창 드래그 이동
     $("#messageModal").draggable({
-    	handle:"#chat_window_1"
+    	handle:"#chat_window_1"  
     });
 });
 

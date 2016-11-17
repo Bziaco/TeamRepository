@@ -105,11 +105,11 @@
     });
     
     /*login*/
-    $("#loginModal #btnLogin #btnResist").click(function() {
+    $("#loginModal #btnLogin").click(function() {
     	var userName = $("#loginModal #userName").val();
     	var userPassword = $("#loginModal #userPassword").val();
     	$("#main-navbar #btnLogout").show();
-    	$("#main-navbar #btnLogin").hide();
+    	$("#main-navbar #btnLogin ").hide();
     	$("#main-navbar #btnResist").hide();
     	$("#loginModal").modal('hide');
     	
@@ -122,13 +122,64 @@
     });
     
     /*resist*/
-    $("#main-navbar #btnResist").click(function() {
+    $("#resistModal #btnResist").click(function() {
     	$("#resistModal").modal('hide');
     });
     
-    /*modify*/
+    /*passwordmodify*/
     $("#passwordmodifyModal #inputPassword").click(function(){
     	$("#passwordmodifyModal").modal('hide');
+    });
+    
+    /*modify*/
+    $("#modifyModal #btnModify").click(function(){
+    	$("#modifyModal").modal('hide');
+    });
+    
+    /*info*/
+    $(document).ready(function() {
+        var panels = $('.user-infos');
+        var panelsButton = $('.dropdown-user');
+        panels.hide();
+
+        //Click dropdown
+        panelsButton.click(function() {
+            //get data-for attribute
+            var dataFor = $(this).attr('data-for');
+            var idFor = $(dataFor);
+
+            //current button
+            var currentButton = $(this);
+            idFor.slideToggle(400, function() {
+                //Completed slidetoggle
+                if(idFor.is(':visible'))
+                {
+                    currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+                }
+                else
+                {
+                    currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+                }
+            })
+        });
+    });
+    /*withdraw*/
+    $("#withdrawModal").click(function(){
+    	if(!"Okwithdraw"){
+    		$("#withdrawModal").modal('hide');
+    	}else{
+    		$("#withdrawModal").modal('hide');
+    	}
+    });
+    
+    /*guide resist*/
+    $("#guideModal #btnguideresist").click(function(){
+    	$("#guideModal").modal('hide');
+    });
+    
+    /*tourist resist*/
+    $("#touristModal #btnTouristResist").click(function(){
+    	$("#touristModal").modal('hide');
     });
     
     /*popover*/

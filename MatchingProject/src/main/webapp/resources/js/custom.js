@@ -105,17 +105,25 @@
     });
     
     /*login*/
-    $("#loginModal #btnLogin").click(function() {
+    $("#loginModal #btnLogin #btnResist").click(function() {
     	var userName = $("#loginModal #userName").val();
     	var userPassword = $("#loginModal #userPassword").val();
     	$("#main-navbar #btnLogout").show();
     	$("#main-navbar #btnLogin").hide();
+    	$("#main-navbar #btnResist").hide();
     	$("#loginModal").modal('hide');
+    	
     });
     /*logout*/
     $("#main-navbar #btnLogout").click(function() {
     	$("#main-navbar #btnLogout").hide();
     	$("#main-navbar #btnLogin").show();
+    	$("#main-navbar #btnResist").show();
+    });
+    
+    /*resist*/
+    $("#main-navbar #btnResist").click(function() {
+    	$("#resistModal").modal('hide');
     });
     
     /*modify*/

@@ -37,7 +37,7 @@
 				<button id="btnLogin" type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#loginModal">Login</button>
 				<button id="btnLogout" type="button" class="btn btn-default" style="display:none;">Logout</button>
-				<button type="button" class="btn btn-default" data-toggle="modal"
+				<button id="btnResist" type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#resistModal">Resist</button>
 
 			</div>

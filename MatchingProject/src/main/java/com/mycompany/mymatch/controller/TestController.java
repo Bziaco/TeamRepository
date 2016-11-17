@@ -21,10 +21,5 @@ public class TestController {
 	public String resistrationForm(){
 		return "member/resistration";
 	}
-	
-	@RequestMapping("/faq")
-	public String faqForm(){
-		return "member/faq";
-	}
 
 }

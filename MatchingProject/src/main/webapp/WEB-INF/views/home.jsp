@@ -104,7 +104,7 @@
 
 			<!-- article 영역 -->
 			<article clss="one">
-				<a href="${pageContext.servletContext.contextPath}/member/faq"><h2>Q
+				<a href="${pageContext.servletContext.contextPath}/faq/faq"><h2>Q
 						& A</h2></a>
 				<video loop="loop" preload="auto">
 					<source

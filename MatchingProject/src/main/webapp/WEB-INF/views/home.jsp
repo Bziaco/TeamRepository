@@ -276,19 +276,13 @@
 								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
 
 							<div class="wrapper">
-<<<<<<< HEAD
-								<span class="group-btn"> <a href="#" class="btn btn-primary btn-md">RESIST <i class="fa fa-sign-in"></i></a></span>
-=======
 								<span class="group-btn"> <a href="#"
 									class="btn btn-primary btn-md">Resist <i
 										class="fa fa-sign-in"></i></a></span>
->>>>>>> branch 'master' of https://github.com/Bziaco/TeamRepository
 							</div>
-<<<<<<< HEAD
-							<br/>
-=======
+
 							<br />
->>>>>>> branch 'master' of https://github.com/Bziaco/TeamRepository
+
 						</div>
 					</div>
 				</div>

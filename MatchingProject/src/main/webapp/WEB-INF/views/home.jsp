@@ -462,13 +462,14 @@
 								placeholder="Tourlist Introuce"></textarea>
 							</br>
 
-							<!-- <input data-format="dd/MM/yyyy" type="text" class="form-control input-sm chat-input"></input>
+							<input type="date" class="form-control input-sm chat-input"/>
+							~
+							<input type="date" class="form-control input-sm chat-input"/>
+								<!--
 							    <span class="add-on">
 							      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
 							      </i>
 							    </span> -->
-							<input id="fromDate" type="text"> <input id="toDate"
-								type="text">
 
 							<div class="wrapper">
 								<span class="group-btn"> <a href="#"

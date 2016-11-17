@@ -601,7 +601,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 						<div class="thumbnail">
 							<div class="caption">
-								<div class='col-lg-12'>
+								<div class='col-lg-12'>   
 									<!-- 									<span class="glyphicon glyphicon-credit-card"></span> <span
 										class="glyphicon glyphicon-trash pull-right text-primary"></span> -->
 								</div>

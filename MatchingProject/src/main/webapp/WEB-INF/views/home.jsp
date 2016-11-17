@@ -59,7 +59,7 @@
 			<ul>
 				<li id="menu1" class="depth1"><a>My Page</a>
 					<ul style="display: none" id="change_me1">
-						<li><a data-toggle="modal" data-target="#modifyModal">Modify</a></li>
+						<li><a data-toggle="modal" data-target="#passwordmodifyModal">Modify</a></li>
 						<li><a data-toggle="modal" data-target="#infoModal">Info</a></li>
 						<li><a data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
 					</ul></li>
@@ -289,33 +289,79 @@
 		</div>
 	</div>
 
-	<!-- modify 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="modifyModal"
+	<!-- modify 패스워드 확인 -->
+	<div style="z-index: 5000" class="modal fade" id="passwordmodifyModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		style="position:relavtive">
 		<div class="modal-dialog"
-		style="position: absolute; right: 1000px; bottom: 900px">
+			style="position: absolute; right: 1000px; bottom: 900px">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>Password Modification</h4>
 							<input type="text" id="userPassword"
-								class="form-control input-sm chat-input" placeholder="Password" />  
-							</br> 
-								<span class="group-btn"> <a href="#" data-toggle="modal" data-target="#guideModal"
-									class="btn btn-primary btn-md" data-trigger="focus">Input Password <i
-										class="fa fa-sign-in"></i></a></span>
-							</div>
-							<br />
+								class="form-control input-sm chat-input" placeholder="Password" />
+							</br> <span class="group-btn"> <a href="#" data-toggle="modal"
+								data-target="#modifyModal" class="btn btn-primary btn-md"
+								data-trigger="focus">Input Password <i class="fa fa-sign-in"></i></a></span>
 						</div>
-
+						<br />
 					</div>
+
 				</div>
 			</div>
-
 		</div>
+
 	</div>
+
+
+	<!-- modify 모달 -->
+	<div style="z-index: 5000" class="modal fade" id="modifyModal"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
+		style="position:relavtive">
+		<div class="modal-dialog"
+			style="position: absolute; right: 1000px; bottom: 900px">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>Modification</h4>
+							<input type="text" id="userId"
+								class="form-control input-sm chat-input" placeholder="ID" /> </br> <input
+								type="text" id="userPassword"
+								class="form-control input-sm chat-input" placeholder="Password" />
+							</br> <input type="text" id="userNickname"
+								class="form-control input-sm chat-input" placeholder="Nickname" />
+							</br> <input type="text" id="userName"
+								class="form-control input-sm chat-input" placeholder="Name" />
+							</br> <input type="text" id="userAge"
+								class="form-control input-sm chat-input" placeholder="Age" /> </br>
+							<input type="text" id="userSex"
+								class="form-control input-sm chat-input" placeholder="Sex" /> </br>
+							<input type="text" id="userEmail"
+								class="form-control input-sm chat-input" placeholder="Email" />
+							</br> <input type="text" id="userLocal"
+								class="form-control input-sm chat-input" placeholder="Local" />
+							</br> <input type="text" id="userTel"
+								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
+							<span class="group-btn"> <a href="#"
+								class="btn btn-primary btn-md">modify <i
+									class="fa fa-sign-in"></i>
+							</a></span>
+						</div>
+						<br />
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
 
 	<!-- info 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="infoModal"
@@ -341,20 +387,26 @@
 
 	<!-- withdraw 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="withdrawModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog">
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
+		style="position:relavtive;">
+		<div class="modal-dialog"
+		style="position: absolute; right: 900px; bottom: 900px">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">withdraw</h4>
-				</div>
-				<div class="modal-body">
-					<p>Some text in the modal.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-5 col-md-3">
+						<div class="form-login">
+							<h4>really want to leave?</h4>
+							<div class="wrapper">
+								<span class="group-btn"> <a href="#"
+									class="btn btn-primary btn-md" style="margin-right:30px">OK <i class="fa fa-sign-in"></i></a></span>
+								<span class="group-btn"> <a href="#"
+									class="btn btn-primary btn-md">Cancle <i class="fa fa-sign-in"></i></a></span>
+							</div>
+							<br />
+						</div>
+
+					</div>
 				</div>
 			</div>
 

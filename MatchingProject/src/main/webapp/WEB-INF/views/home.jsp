@@ -24,14 +24,6 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-<link
-	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap-datetimepicker.min.css"
-	rel="stylesheet" />
-<script
-	src="${pageContext.servletContext.contextPath}/resources/js/moment-with-locales.min.js"></script>
-<script
-	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap-datetimepicker.min.js"></script>
-
 </head>
 <body>
 
@@ -39,9 +31,10 @@
 	<div id="main-navbar">
 		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
 			<a>MatchingProject</a>
-			<div style="float: right; margin-right: 10px;">
-				<button type="button" class="btn btn-default" data-toggle="modal"
+			<div style="float:right;margin-right:10px;">
+				<button id="btnLogin" type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#loginModal">Login</button>
+				<button id="btnLogout" type="button" class="btn btn-default" style="display:none;">Logout</button>
 				<button type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#resistModal">Resist</button>
 
@@ -208,9 +201,8 @@
 								class="form-control input-sm chat-input" placeholder="password" />
 							</br>
 							<div class="wrapper">
-								<span class="group-btn"> <a href="#"
-									class="btn btn-primary btn-md">login <i
-										class="fa fa-sign-in"></i></a></span>
+								<span class="group-btn"> <a id="btnLogin" href="#"
+									class="btn btn-primary btn-md">login <iclass="fa fa-sign-in"></i></a></span>
 							</div>
 							<br /> <a href="" style="margin-right: 15px; margin-left: 30px">Find
 								ID</a><a href="">Find Password</a>

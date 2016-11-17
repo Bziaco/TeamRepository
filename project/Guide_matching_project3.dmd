@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Guide_matching_project3" id="F3FBF0F1-CCF8-AE8C-780A-E6316A155340" version="3.5">
-<createdBy>Administrator</createdBy>
-<createdTime>2016-11-08 11:13:27 UTC</createdTime>
-<ownerDesignName>Guide_matching_project</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>F3FBF0F1-CCF8-AE8C-780A-E6316A155340</designId>
-</OSDM_Design>

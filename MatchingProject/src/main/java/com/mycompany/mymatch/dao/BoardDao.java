@@ -30,9 +30,16 @@ public class BoardDao {
 //---------------------------------------------------------------------------------------------------------------------------------
 
 		public int update(Board board) {
-			String sql = "update member set ";
-			
-			return 0;
+			String sql = "update board set btitle=?, bcontent=?, bwriter=?, bcount=? where bno=?";
+			int row=jdbcTemplate.update(
+					sql,
+					board.getBtitle(), 
+					board.getBcontent(),
+					board.getBwriter(),
+					board.getBcount(),
+					board.getBno()
+					);
+			return row;
 		}
 		
 //---------------------------------------------------------------------------------------------------------------------------------	

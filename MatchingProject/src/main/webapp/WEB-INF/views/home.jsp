@@ -431,7 +431,7 @@
 														<td>Tel:</td>
 														<td>010-1235-1245</td>
 													</tr>
-												</tbody>
+												</tbody>  
 											</table>
 										</div>
 									</div>

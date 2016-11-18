@@ -4,140 +4,146 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link
 	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
 	rel="stylesheet">
-	
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/info.css" />
-	
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
+
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/info.css" />
 
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/info.js"></script>
-<%-- <link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/faq.css" /> --%>
-
+<%-- <script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/info.js"></script>	 --%>
 </head>
+<body id="wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<!-- begin panel group -->
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+
+					<!-- panel 1 -->
+					<div class="panel panel-default">
+						<!--wrap panel heading in span to trigger image change as well as collapse -->
+						<span class="side-tab" data-target="#tab1" data-toggle="tab"
+							role="tab" aria-expanded="false">
+							<div class="panel-heading" role="tab" id="headingOne"
+								data-toggle="collapse" data-parent="#accordion"
+								aria-expanded="true" aria-controls="collapseOne" href="#collapseOne">
+								<a  id="flip1" class="panel-title">She Sells Seashells</a>	
+							</div>
+						</span>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<!-- Tab content goes here -->
+								That fall, as Nadia and Masha got shipped off to prison camps in
+								Siberia, South Brooklyn tried to recover from the storm. My dad
+								and I spent a lot of time in the same apartment engrossed in
+								separate laptops, separate internet missives. He followed
+								Russian news bloggers closely and would update me on troubling
+								developments. A rise in protofascist nationalism
+							</div>
+						</div>
+					</div>
+					<!-- / panel 1 -->
+
+					<!-- panel 2 -->
+					<div class="panel panel-default">
+						<!--wrap panel heading in span to trigger image change as well as collapse -->
+						<div class="side-tab" data-target="#tab2" data-toggle="tab"
+							role="tab" aria-expanded="false">
+							<div class="panel-heading" role="tab" id="headingTwo"
+								data-toggle="collapse" data-parent="#accordion"
+								 aria-expanded="false"
+								aria-controls="collapseTwo">
+								<a href="#collapseTwo"><h4 id="flip2" class="panel-title collapsed">TAB 2</a></h4>
+							</div>
+						</div>
+
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<!-- Tab content goes here -->
+								tab 2 content
+							</div>
+						</div>
+					</div>
+					<!-- / panel 2 -->
+
+					<!--  panel 3 -->
+					<div class="panel panel-default">
+						<!--wrap panel heading in span to trigger image change as well as collapse -->
+						<span class="side-tab" data-target="#tab3" data-toggle="tab"
+							role="tab" aria-expanded="false">
+							<div class="panel-heading" role="tab" id="headingThree"
+								class="collapsed" data-toggle="collapse"
+								data-parent="#accordion" href="#collapseThree"
+								aria-expanded="false" aria-controls="collapseThree">
+								<h4 class="panel-title">TAB 3</h4>
+							</div>
+						</span>
+
+						<div id="collapseThree" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<!-- tab content goes here -->
+								tab 3 content
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- / panel-group -->
+
+			</div>
+			<!-- /col-md-4 -->
+
+			<div class="col-md-8">
+				<!-- begin macbook pro mockup -->
+				<div class="md-macbook-pro md-glare">
+					<div class="md-lid">
+						<div class="md-camera"></div>
+						<div class="md-screen">
+							<!-- content goes here -->
+							<div class="tab-featured-image">
+								<div class="tab-content">
+									<div class="tab-pane  in active" id="tab1">
+										<img
+											src="https://ununsplash.imgix.net/photo-1417024321782-1375735f8987?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950"
+											alt="tab1" class="img img-responsive">
+									</div>
+									<div class="tab-pane " id="tab2">
+
+										<img
+											src="https://unsplash.imgix.net/uploads/1411724908903377d4696/2e9b0cb2?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950">
+
+									</div>
+									<div class="tab-pane fade" id="tab3">
+
+										<img
+											src="https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950"
+											alt="tab1" class="img img-responsive">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="md-base"></div>
+				</div>
+				<!-- end macbook pro mockup -->
 
 
-<body>
-<div class="container">
-        <div id="main_area">
-                <!-- Slider -->
-                <div class="row">
-                    <div class="col-xs-12" id="slider">
-                        <!-- Top part of the slider -->
-                        <div class="row">
-                            <div class="col-sm-8" id="carousel-bounding-box">
-                                <div class="carousel slide" id="myCarousel">
-                                    <!-- Carousel items -->
-                                    <div class="carousel-inner">
-                                        <div class="active item" data-slide-number="0">
-                                        <img src="http://placehold.it/770x300&text=one"></div>
 
-                                        <div class="item" data-slide-number="1">
-                                        <img src="http://placehold.it/770x300&text=two"></div>
-
-                                        <div class="item" data-slide-number="2">
-                                        <img src="http://placehold.it/770x300&text=three"></div>
-
-                                        <div class="item" data-slide-number="3">
-                                        <img src="http://placehold.it/770x300&text=four"></div>
-
-                                        <div class="item" data-slide-number="4">
-                                        <img src="http://placehold.it/770x300&text=five"></div>
-
-                                        <div class="item" data-slide-number="5">
-                                        <img src="http://placehold.it/770x300&text=six"></div>
-                                    </div><!-- Carousel nav -->
-                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"></span>                                       
-                                    </a>
-                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>                                       
-                                    </a>                                
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-4" id="carousel-text"></div>
-
-                            <div id="slide-content" style="display: none;">
-                                <div id="slide-content-0">
-                                    <h2>Slider One</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-
-                                <div id="slide-content-1">
-                                    <h2>Slider Two</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-
-                                <div id="slide-content-2">
-                                    <h2>Slider Three</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-
-                                <div id="slide-content-3">
-                                    <h2>Slider Four</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-
-                                <div id="slide-content-4">
-                                    <h2>Slider Five</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-
-                                <div id="slide-content-5">
-                                    <h2>Slider Six</h2>
-                                    <p>Lorem Ipsum Dolor</p>
-                                    <p class="sub-text">October 24 2014 - <a href="#">Read more</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/Slider-->
-
-                <div class="row hidden-xs" id="slider-thumbs">
-                        <!-- Bottom switcher of slider -->
-                        <ul class="hide-bullets">
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-0"><img src="http://placehold.it/170x100&text=one"></a>
-                            </li>
-
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-1"><img src="http://placehold.it/170x100&text=two"></a>
-                            </li>
-
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-2"><img src="http://placehold.it/170x100&text=three"></a>
-                            </li>
-
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-3"><img src="http://placehold.it/170x100&text=four"></a>
-                            </li>
-
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-4"><img src="http://placehold.it/170x100&text=five"></a>
-                            </li>
-
-                            <li class="col-sm-2">
-                                <a class="thumbnail" id="carousel-selector-5"><img src="http://placehold.it/170x100&text=six"></a>
-                            </li>
-                        </ul>                 
-                </div>
-        </div>
-</div>
+			</div>
+			<!-- / .col-md-8 -->
+		</div>
+		<!--/ .row -->
+	</div>
+	<!-- end sidetab container -->
 </body>
 </html>

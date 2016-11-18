@@ -437,16 +437,6 @@
 									</div>
 								</div>
 								<div class="panel-footer">
-									<button class="btn btn-sm btn-primary" type="button"
-										data-toggle="tooltip"
-										data-original-title="Send message to user">
-										<i class="glyphicon glyphicon-envelope"></i>
-									</button>
-									<span class="pull-right">
-										<button class="btn btn-sm btn-warning" type="button"
-											data-toggle="tooltip" data-original-title="Edit this user">
-											<i class="glyphicon glyphicon-edit"></i>
-										</button>
 										<button class="btn btn-sm btn-danger" type="button"
 											data-toggle="tooltip" data-original-title="Remove this user">
 											<i class="glyphicon glyphicon-remove"></i>

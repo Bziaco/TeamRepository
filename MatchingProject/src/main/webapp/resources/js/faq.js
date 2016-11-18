@@ -1,5 +1,5 @@
-﻿$(document).ready(function(){
-$("#mytable #checkall").click(function () {
+﻿$(function() {
+	$("#mytable #checkall").click(function () {
         if ($("#mytable #checkall").is(':checked')) {
             $("#mytable input[type=checkbox]").each(function () {
                 $(this).prop("checked", true);
@@ -13,4 +13,18 @@ $("#mytable #checkall").click(function () {
     });
     
     $("[data-toggle=tooltip]").tooltip();
+    
+    
+    $("#writeModal #btnwrite").click(function(){
+    	
+    });
+    
 });
+
+
+
+
+
+
+
+

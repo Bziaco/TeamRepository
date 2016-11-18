@@ -17,7 +17,7 @@ public class MemberDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Member member) {
-		String sql="insert into member(mid, mpassword, mnickname, mname, mage, msex, memail, mlocal, mtel, originalfile, savefile, mimetype)value(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into member(mid, mpassword, mnickname, mname, mage, msex, memail, mlocal, mtel, originalfile, savedfile, mimetype) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		int row=jdbcTemplate.update(
 				sql,
 				member.getMid(),
@@ -27,6 +27,7 @@ public class MemberDao {
 				member.getMage(),
 				member.getMsex(),
 				member.getMemail(),
+				member.getMlocal(),
 				member.getMtel(),
 				member.getOriginalfile(),
 				member.getSavedfile(),
@@ -70,7 +71,7 @@ public class MemberDao {
 
 	
 		public Member selectByMid(String mid) {
-			String sql = "select mid, mpassword, mnickname, mname, mage, msex, memail, mlocal, mtel, originalfile, savefile, mimetype from member where mid=?";
+			String sql = "select mid, mpassword, mnickname, mname, mage, msex, memail, mlocal, mtel, originalfile, savedfile, mimetype from member where mid=?";
 			List<Member> list = jdbcTemplate.query(sql, new Object[]{mid}, new RowMapper<Member>() {
 					@Override
 					public Member mapRow(ResultSet rs, int row) throws SQLException {
@@ -85,7 +86,7 @@ public class MemberDao {
 					member.setMlocal(rs.getString("mlocal"));
 					member.setMtel(rs.getString("mtel"));
 					member.setOriginalfile(rs.getString("originalfile"));
-					member.setSavedfile(rs.getString("savefile"));
+					member.setSavedfile(rs.getString("savedfile"));
 					member.setMimetype(rs.getString("mimetype"));
 					return member;
 				}

@@ -26,6 +26,8 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/network.js"></script>
 </head>
 <body>
 
@@ -199,10 +201,10 @@
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>LOGIN</h4>
-							<input type="text" id="userName"
-								class="form-control input-sm chat-input" placeholder="username" />
-							</br> <input type="text" id="userPassword"
-								class="form-control input-sm chat-input" placeholder="password" />
+							<input type="text" id="mid"
+								class="form-control input-sm chat-input" placeholder="username" value="user" />
+							</br> <input type="password" id="mpassword"
+								class="form-control input-sm chat-input" placeholder="password" value="kosa12345" />
 							</br>
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnLogin" href="#"
@@ -253,24 +255,27 @@
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>RESIST</h4>
-							<input type="text" id="userId"
-								class="form-control input-sm chat-input" placeholder="ID" /> </br> <input
-								type="text" id="userPassword"
-								class="form-control input-sm chat-input" placeholder="Password" />
-							</br> <input type="text" id="userNickname"
-								class="form-control input-sm chat-input" placeholder="Nickname" />
-							</br> <input type="text" id="userName"
-								class="form-control input-sm chat-input" placeholder="Name" />
-							</br> <input type="text" id="userAge"
-								class="form-control input-sm chat-input" placeholder="Age" /> </br>
-							<input type="text" id="userSex"
-								class="form-control input-sm chat-input" placeholder="Sex" /> </br>
-							<input type="text" id="userEmail"
-								class="form-control input-sm chat-input" placeholder="Email" />
-							</br> <input type="text" id="userLocal"
-								class="form-control input-sm chat-input" placeholder="Local" />
-							</br> <input type="text" id="userTel"
-								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
+							<input type="text" id="mid"
+								class="form-control input-sm chat-input" placeholder="ID" value="test"/> </br> 
+							<input type="password" id="mpassword"
+								class="form-control input-sm chat-input" placeholder="Password" value="kosa12345"/></br> 
+							<input type="text" id="mnickname"
+								class="form-control input-sm chat-input" placeholder="Nickname" value="테스트" /></br> 
+							<input type="text" id="mname"
+								class="form-control input-sm chat-input" placeholder="Name" value="조옥현" /></br>
+							<input type="number" id="mage"
+								class="form-control input-sm chat-input" placeholder="Age" value="30"/> </br>
+							<select class="form-control input-sm chat-input" id="msex">
+								<option checked value="M">Male</option>
+								<option value="F">Female</option>
+							</select></br>
+							<input type="text" id="memail"
+								class="form-control input-sm chat-input" placeholder="Email"  value="test@naver.com"/></br>
+							<input type="text" id="mlocal"
+								class="form-control input-sm chat-input" placeholder="Local" value="Seoul"/></br> 
+							<input type="text" id="mtel"
+								class="form-control input-sm chat-input" placeholder="Tel" value="010-123-1234"/> </br>
+							<input type="file" id="mphoto" class="form-control input-sm chat-input" multiple/> <br/>
 
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnResist" href="#"

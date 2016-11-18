@@ -1,5 +1,7 @@
 package com.mycompany.mymatch.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Member { //member 회원정보
 	private String mid;
 	private String mpassword;
@@ -10,6 +12,7 @@ public class Member { //member 회원정보
 	private String memail;
 	private String mlocal;
 	private String mtel;
+	private MultipartFile mphoto;
 	private String originalfile;
 	private String savedfile;
 	private String mimetype;
@@ -86,6 +89,12 @@ public class Member { //member 회원정보
 	}
 	public void setMimetype(String mimetype) {
 		this.mimetype = mimetype;
+	}
+	public MultipartFile getMphoto() {
+		return mphoto;
+	}
+	public void setMphoto(MultipartFile mphoto) {
+		this.mphoto = mphoto;
 	}
 	
 	

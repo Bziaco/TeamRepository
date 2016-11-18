@@ -104,26 +104,11 @@
         $("#test2").html("${pageContext.servletContext.contextPath}/resist/guideResist");
     });
     
-    /*login*/
-    $("#loginModal #btnLogin").click(function() {
-    	var userName = $("#loginModal #userName").val();
-    	var userPassword = $("#loginModal #userPassword").val();
-    	$("#main-navbar #btnLogout").show();
-    	$("#main-navbar #btnLogin ").hide();
-    	$("#main-navbar #btnResist").hide();
-    	$("#loginModal").modal('hide');
-    	
-    });
     /*logout*/
     $("#main-navbar #btnLogout").click(function() {
     	$("#main-navbar #btnLogout").hide();
     	$("#main-navbar #btnLogin").show();
     	$("#main-navbar #btnResist").show();
-    });
-    
-    /*resist*/
-    $("#resistModal #btnResist").click(function() {
-    	$("#resistModal").modal('hide');
     });
     
     /*passwordmodify*/

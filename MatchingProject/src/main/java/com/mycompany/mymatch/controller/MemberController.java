@@ -1,5 +1,11 @@
 package com.mycompany.mymatch.controller;
 
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,30 +19,27 @@ import com.mycompany.mymatch.service.MemberService;
 
 
 @Component
+@RequestMapping("/member")
 public class MemberController {
 	@Autowired
 	public MemberService memberService;
 
 //--------------------------------------------------------------------------------------------------------------------------		
 
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String loginForm(){
-		return "member/loginForm";
-	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(String mid, String mpassword, HttpSession session, Model model){
+		String strResult = "LOGIN_SUCCESS";
 		int result = memberService.login(mid, mpassword);
 		if(result == MemberService.LOGIN_FAIL_MPASSWORD){
-			model.addAttribute("error", "LOGIN_FAIL_MPASSWORD");
-			return "member/loginForm";
+			strResult = "LOGIN_FAIL_MPASSWORD";
 		} else if(result == MemberService.LOGIN_FAIL_MID) {
-			model.addAttribute("error", "LOGIN_FAIL_MID");
-			return "member/loginForm";
+			strResult = "LOGIN_FAIL_MID";
 		} else {
-			session.setAttribute("login", mid); //세션에 mid저장
+			session.setAttribute("login", mid); 
 		}
-		return "redirect:/";
+		model.addAttribute("result", strResult);
+		return "member/login";
 	}
 //--------------------------------------------------------------------------------------------------------------------------	
 	
@@ -49,7 +52,7 @@ public class MemberController {
 	public String findMid(String memail, Model model, HttpSession session) {
 		String mid = memberService.findMid(memail);
 		if(mid == null) {
-			model.addAttribute("error", "이메일이 존재 하지 않습니다.");
+			model.addAttribute("error", "�씠硫붿씪�씠 議댁옱 �븯吏� �븡�뒿�땲�떎.");
 			return "member/findMidForm";
 		}
 		session.setAttribute("findMid", mid);
@@ -58,21 +61,41 @@ public class MemberController {
 	
 //--------------------------------------------------------------------------------------------------------------------------		
 	
-	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public String joinForm(){
-		return "member/joinForm";
-	}
 	
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String join(Member member){
+	public String join(Member member, HttpServletRequest request, HttpServletResponse response, Model model){
+		String strResult = "success";
 		try{
-			int result = memberService.join(member);
-			return "redirect:/member/login"; 
+			/*
+			System.out.println("mid : " + member.getMid());
+			System.out.println("mpassword : " + member.getMpassword());
+			System.out.println("mnickname : " + member.getMnickname());
+			System.out.println("mname : " + member.getMname());
+			System.out.println("mage : " + member.getMage());
+			System.out.println("msex : " + member.getMsex());
+			System.out.println("memail : " + member.getMemail());
+			System.out.println("mlocal :" + member.getMlocal());
+			System.out.println("mtel : " + member.getMtel());
+			System.out.println("originalfilename: " + member.getMphoto().getOriginalFilename());
+			System.out.println("mimetype: " + member.getMphoto().getContentType());
+			*/
 			
+			String savedfile = new Date().getTime() + member.getMphoto().getOriginalFilename();
+			String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
+			member.getMphoto().transferTo(new File(savePath));
+			
+			member.setOriginalfile(member.getMphoto().getOriginalFilename());
+			member.setMimetype(member.getMphoto().getContentType());
+			member.setSavedfile(savedfile);
+
+			int result = memberService.join(member);
 		} catch(Exception e){
-			return "member/joinForm";
+			e.printStackTrace();
+			strResult = "fail";
 		}
+		model.addAttribute("result", strResult);
+		return "member/join";
 	}
 	
 //----------------------------------------------------------------------------------------------------------------------------	

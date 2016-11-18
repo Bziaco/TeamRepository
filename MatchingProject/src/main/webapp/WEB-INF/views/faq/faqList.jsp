@@ -245,7 +245,7 @@
 				</div> 
 			</div>
 			<div class="modal-footer ">
-					<button type="button" class="btn btn-warning btn-lg"
+					<button type="button" class="btn btn-warning btn-lg" id="btnwrite"
 						style="width: 100%;">
 						<span class="glyphicon glyphicon-ok-sign"></span> Submit
 					</button>

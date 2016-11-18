@@ -1,7 +1,6 @@
 package com.mycompany.mymatch.controller;
 
 import java.io.File;
-import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -120,5 +119,16 @@ public class MemberController {
 		model.addAttribute("member", member);
 		return "member/info";
 	}
-
+	
+	@RequestMapping(value="/passwordmodify", method=RequestMethod.POST)
+	public String definePassword(String mpassword, HttpSession session, Model model){
+		String strResult = "PASSWORD_SUCCESS";
+		int result = memberService.definePassword(mpassword);
+		if(result == MemberService.PASSWORD_FAIL){
+			strResult = "PASSWORD_DEFINE_FAIL";
+		} else{
+			session.setAttribute("password", mpassword);
+		}
+		return "member/passwordmodify";
+	}
 }

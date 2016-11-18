@@ -27,7 +27,7 @@
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/home_network.js"></script>
+	src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
 </head>
 <body>
 
@@ -313,11 +313,9 @@
 						</div>
 						<br />
 					</div>
-
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 

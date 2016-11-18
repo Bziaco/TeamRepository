@@ -25,6 +25,10 @@ public class MemberService {
 	public static final int WITHDAW_SUCCESS = 0;
 	public static final int WITHDRAW_FAIL = 1;
 	
+	
+	public static final int PASSWORD_SUCCESS = 0;
+	public static final int PASSWORD_FAIL = 1;
+	
 	@Autowired
 	private MemberDao memberDao;
 	
@@ -107,5 +111,15 @@ public class MemberService {
 		if(member==null) return false;
 		return true;
 	}
+
+	
+	public int definePassword(String mpassword) {
+		Member member = memberDao.selectByMid(mpassword);
+		if(member == null) {return LOGIN_FAIL_MID;}
+		if(member.getMpassword().equals(mpassword)==false) {return LOGIN_FAIL_MPASSWORD;}
+		return LOGIN_SUCCESS;
+	}
+	
+
 	
 }

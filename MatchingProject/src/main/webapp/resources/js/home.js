@@ -1,4 +1,5 @@
 ﻿$(function() {
+	/*레지스트*/
 	$("#resistModal #btnResist").click(function() {
 		var mid = $("#resistModal #mid").val();
 		var mpassword = $("#resistModal #mpassword").val();
@@ -52,7 +53,7 @@
 		});
 	});
 	
-	
+	/*로그인*/
 	$("#loginModal #btnLogin").click(function() {
 		var mid = $("#loginModal #mid").val();
 		var mpassword = $("#loginModal #mpassword").val();
@@ -80,6 +81,25 @@
 			}
 		});
 		
+	});
+	
+	$("#passwordmodifyModal #inputPassword").click(function(){
+		var mpassword = $("#passwordmodifyModal #mpassword").val();
+		
+		console.log("mpassword: " + mpassword);
+		
+		$.ajax({
+			url:"/mymatch/member/passwordmodify",
+			data: {mpassword:mpassword},
+			method: "post",
+			success: function(data) {
+				if(data.result == "PASSWORD_SUCCESS")  {
+					$("#passwordmodifyModal").modal('hide');
+				} else if(data.result == "PASSWORD_FAIL"){
+					alert("패스워드가 틀림");
+				}
+			}
+		});
 	});
 });
 

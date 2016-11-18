@@ -74,9 +74,8 @@ public class MemberService {
 	
 //--------------------------------------------------------------------------------------------			
 	
-	public Member info(String mid, String mpassword) {
+	public Member getMember(String mid) {
 		Member member = memberDao.selectByMid(mid);
-		if(member.getMpassword().equals(mpassword) == false) {return null;}
 		return member;
 	}
 	
@@ -113,11 +112,13 @@ public class MemberService {
 	}
 
 	
-	public int definePassword(String mpassword) {
-		Member member = memberDao.selectByMid(mpassword);
-		if(member == null) {return LOGIN_FAIL_MID;}
-		if(member.getMpassword().equals(mpassword)==false) {return LOGIN_FAIL_MPASSWORD;}
-		return LOGIN_SUCCESS;
+	public int checkPassword(String mid, String mpassword) {
+		Member member = memberDao.selectByMid(mid);
+		if(member.getMpassword().equals(mpassword)) {
+			return PASSWORD_SUCCESS;
+		} else {
+			return PASSWORD_FAIL;
+		}
 	}
 	
 

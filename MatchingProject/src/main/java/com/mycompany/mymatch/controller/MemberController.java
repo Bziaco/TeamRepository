@@ -115,19 +115,18 @@ public class MemberController {
 	@RequestMapping("/info")
 	public String info(String mpassword, HttpSession session, Model model) {
 		String mid = (String) session.getAttribute("login");
-		Member member = memberService.info(mid, mpassword);
+		Member member = memberService.getMember(mid);
 		model.addAttribute("member", member);
 		return "member/info";
 	}
 	
 	@RequestMapping(value="/passwordmodify", method=RequestMethod.POST)
 	public String definePassword(String mpassword, HttpSession session, Model model){
-		String strResult = "PASSWORD_SUCCESS";
-		int result = memberService.definePassword(mpassword);
-		if(result == MemberService.PASSWORD_FAIL){
-			strResult = "PASSWORD_DEFINE_FAIL";
-		} else{
-			session.setAttribute("password", mpassword);
+		String mid = (String) session.getAttribute("login");
+		int result = memberService.checkPassword(mid, mpassword);
+		if(result == MemberService.PASSWORD_SUCCESS) {
+			Member member = memberService.getMember(mid);
+			model.addAttribute("member", member);
 		}
 		return "member/passwordmodify";
 	}

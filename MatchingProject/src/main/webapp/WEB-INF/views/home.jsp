@@ -305,8 +305,7 @@
 							<h4>Password Modification</h4>
 							<input type="password" id="mpassword"
 								class="form-control input-sm chat-input" placeholder="Password" value="kosa12345"/>
-							</br> <span class="group-btn"> <a id="inputPassword" href="#"
-								data-toggle="modal" data-target="#modifyModal"
+							</br> <span class="group-btn"> <a id="inputPassword" href="#" 
 								class="btn btn-primary btn-md" data-trigger="focus">Input
 									Password <i class="fa fa-sign-in"></i>
 							</a></span>
@@ -330,23 +329,23 @@
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>Modification</h4>
-							<input type="text" id="userId"
+							<input type="text" id="mid"
 								class="form-control input-sm chat-input" placeholder="ID" /> </br> <input
-								type="text" id="userPassword"
+								type="text" id="mpassword"
 								class="form-control input-sm chat-input" placeholder="Password" />
-							</br> <input type="text" id="userNickname"
+							</br> <input type="text" id="mnickname"
 								class="form-control input-sm chat-input" placeholder="Nickname" />
-							</br> <input type="text" id="userName"
+							</br> <input type="text" id="mname"
 								class="form-control input-sm chat-input" placeholder="Name" />
-							</br> <input type="text" id="userAge"
+							</br> <input type="text" id="mage"
 								class="form-control input-sm chat-input" placeholder="Age" /> </br>
-							<input type="text" id="userSex"
+							<input type="text" id="msex"
 								class="form-control input-sm chat-input" placeholder="Sex" /> </br>
-							<input type="text" id="userEmail"
+							<input type="text" id="memail"
 								class="form-control input-sm chat-input" placeholder="Email" />
-							</br> <input type="text" id="userLocal"
+							</br> <input type="text" id="mlocal"
 								class="form-control input-sm chat-input" placeholder="Local" />
-							</br> <input type="text" id="userTel"
+							</br> <input type="text" id="mtel"
 								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
 							<span class="group-btn"> <a id="btnModify" href="#"
 								class="btn btn-primary btn-md">modify <i

@@ -8,8 +8,8 @@ import com.mycompany.mymatch.service.BoardService;
 @Component
 public class BoardController {
 	
-	@Autowired
-	public BoardService boardService;
+/*	@Autowired
+	public BoardService boardService;*/
 	
 
 }

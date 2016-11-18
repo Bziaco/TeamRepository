@@ -303,8 +303,8 @@
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>Password Modification</h4>
-							<input type="text" id="userPassword"
-								class="form-control input-sm chat-input" placeholder="Password" />
+							<input type="password" id="mpassword"
+								class="form-control input-sm chat-input" placeholder="Password" value="kosa12345"/>
 							</br> <span class="group-btn"> <a id="inputPassword" href="#"
 								data-toggle="modal" data-target="#modifyModal"
 								class="btn btn-primary btn-md" data-trigger="focus">Input

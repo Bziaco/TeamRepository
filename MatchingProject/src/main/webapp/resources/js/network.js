@@ -52,7 +52,7 @@
 		});
 	});
 	
-	
+
 	$("#loginModal #btnLogin").click(function() {
 		var mid = $("#loginModal #mid").val();
 		var mpassword = $("#loginModal #mpassword").val();

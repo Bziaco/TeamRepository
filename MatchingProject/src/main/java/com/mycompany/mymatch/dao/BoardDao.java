@@ -17,7 +17,7 @@ public class BoardDao {
 		int row=jdbcTemplate.update(
 				sql,
 				board.getBno(),
-				board.getBtitle(),
+				board.getBtitle(), 
 				board.getBcontent(),
 				board.getBwriter(),
 				board.getBcount()

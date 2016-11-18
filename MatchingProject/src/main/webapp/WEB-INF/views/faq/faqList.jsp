@@ -70,7 +70,7 @@
 											<th>Content</th>
 											<th>Writer</th>
 											<th>Count</th>
-											<th>Edit</th>
+											<th>Update</th>
 											<th>Delete</th>
 										</thead>
 										<tbody>

@@ -234,14 +234,14 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<input class="form-control " type="text" placeholder="writer">
+					<input class="form-control " type="text" placeholder="writer" id="bwrite">
 				</div>
 				<div class="form-group">
 
-					<input class="form-control " type="text" placeholder="Title">
+					<input class="form-control " type="text" placeholder="Title" id="btitle">
 				</div>
 				<div class="form-group">
-					<textarea rows="2" class="form-control" placeholder="Content"></textarea>
+					<textarea rows="2" class="form-control" placeholder="Content" id="bcontent"></textarea>
 				</div> 
 			</div>
 			<div class="modal-footer ">

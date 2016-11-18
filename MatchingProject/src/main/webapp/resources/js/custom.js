@@ -111,16 +111,6 @@
     	$("#main-navbar #btnResist").show();
     });
     
-    /*passwordmodify*/
-    $("#passwordmodifyModal #inputPassword").click(function(){
-    	$("#passwordmodifyModal").modal('hide');
-    });
-    
-    /*modify*/
-    $("#modifyModal #btnModify").click(function(){
-    	$("#modifyModal").modal('hide');
-    });
-    
     /*info*/
     $(document).ready(function() {
         var panels = $('.user-infos');

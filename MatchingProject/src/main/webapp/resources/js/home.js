@@ -93,9 +93,12 @@
 			data: {mpassword:mpassword},
 			method: "post",
 			success: function(data) {
-				if(data.result == "PASSWORD_SUCCESS")  {
+				if(data.result == "success")  {
 					$("#passwordmodifyModal").modal('hide');
-				} else if(data.result == "PASSWORD_FAIL"){
+					$("#modifyModal").modal("show");
+					$("#modifyModal #mid").val(data.member.mid);
+					$("#modifyModal #mname").val(data.member.mname);
+				} else {
 					alert("패스워드가 틀림");
 				}
 			}

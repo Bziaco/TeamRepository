@@ -8,14 +8,13 @@
 <link
 	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
 	rel="stylesheet">
-
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/info.css" />
-
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
+
 <%-- <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/info.js"></script>	 --%>
 </head>

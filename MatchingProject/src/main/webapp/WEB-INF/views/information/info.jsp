@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 <!DOCTYPE html>
-<html>
+<html>  
 <head>
 <meta charset="UTF-8">
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>

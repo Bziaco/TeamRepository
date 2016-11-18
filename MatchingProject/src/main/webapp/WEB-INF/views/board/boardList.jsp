@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 <!DOCTYPE html>
@@ -16,10 +15,10 @@
 	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/faq.css" />
+	href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
 
 <script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/faq.js"></script>
+	src="${pageContext.servletContext.contextPath}/resources/js/board.js"></script>
 
 
 <script

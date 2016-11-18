@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Board;
-import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class BoardDao {
@@ -13,14 +12,12 @@ public class BoardDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Board board) {
-		String sql="insert into board(bno, btitle, bcontent, bwriter, bcount) values(?,?,?,?,?)";
+		String sql="insert into board(bwriter, btitle, bcontent) values(?,?,?)";
 		int row=jdbcTemplate.update(
 				sql,
-				board.getBno(),
-				board.getBtitle(), 
-				board.getBcontent(),
 				board.getBwriter(),
-				board.getBcount()
+				board.getBtitle(), 
+				board.getBcontent()
 				);
 		return row;
 	}
@@ -30,13 +27,12 @@ public class BoardDao {
 //---------------------------------------------------------------------------------------------------------------------------------
 
 		public int update(Board board) {
-			String sql = "update board set btitle=?, bcontent=?, bwriter=?, bcount=? where bno=?";
+			String sql = "update board set bwriter=?, btitle=?, bcontent=? where bno=?";
 			int row=jdbcTemplate.update(
 					sql,
+					board.getBwriter(),
 					board.getBtitle(), 
 					board.getBcontent(),
-					board.getBwriter(),
-					board.getBcount(),
 					board.getBno()
 					);
 			return row;

@@ -1,15 +1,11 @@
 package com.mycompany.mymatch.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.mycompany.mymatch.service.BoardService;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
+@RequestMapping("/board")
 public class BoardController {
-	
-	@Autowired
-	public BoardService boardService;
 	
 
 }

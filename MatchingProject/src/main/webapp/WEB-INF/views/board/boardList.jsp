@@ -217,41 +217,35 @@
 			</aside>
 		</div>
 	</div>
-</body>
 
-<!-- 글쓰기 모달 -->
-<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"
-	aria-labelledby="edit" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				</button>
-				<h4 class="modal-title custom_align" id="Heading">Do you went to write?</h4>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<input class="form-control " type="text" placeholder="writer" id="bwrite">
-				</div>
-				<div class="form-group">
-
-					<input class="form-control " type="text" placeholder="Title" id="btitle">
-				</div>
-				<div class="form-group">
-					<textarea rows="2" class="form-control" placeholder="Content" id="bcontent"></textarea>
-				</div> 
-			</div>
-			<div class="modal-footer ">
-					<button type="button" class="btn btn-warning btn-lg" id="btnwrite"
-						style="width: 100%;">
-						<span class="glyphicon glyphicon-ok-sign"></span> Submit
+	<!-- 글쓰기 모달 -->
+	<div style="z-index: 5000" class="modal fade" id="writeModal" role="dialog"
+		aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>
+					<h4 class="modal-title custom_align" id="Heading">Do you went to write?</h4>
 				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input class="form-control " type="text" placeholder="Title" id="btitle">
+					</div>
+					<div class="form-group">
+						<textarea rows="2" class="form-control" placeholder="Content" id="bcontent"></textarea>
+					</div> 
+				</div>
+				<div class="modal-footer ">
+					<a class="btn btn-warning btn-lg" id="btnwrite" href="#">
+						<span class="glyphicon glyphicon-ok-sign"></span> Submit
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
 
 
 	<!-- 에디트 모달 -->
@@ -332,6 +326,7 @@
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+</body>
 </html>
 
 

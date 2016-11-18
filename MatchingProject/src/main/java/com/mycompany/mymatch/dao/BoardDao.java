@@ -12,13 +12,13 @@ public class BoardDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Board board) {
-		String sql="insert into board(bwriter, btitle, bcontent) values(?,?,?)";
+		String sql="insert into board(bno, btitle, bcontent, bhitcount, mid, bdate) values(seq_board_bno.nextval, ?, ?, 0, ?, sysdate)";
 		int row=jdbcTemplate.update(
 				sql,
-				board.getBwriter(),
-				board.getBtitle(), 
-				board.getBcontent()
-				);
+				board.getBtitle(),
+				board.getBcontent(), 
+				board.getMid()
+		);
 		return row;
 	}
 
@@ -26,27 +26,9 @@ public class BoardDao {
 	
 //---------------------------------------------------------------------------------------------------------------------------------
 
-		public int update(Board board) {
-			String sql = "update board set bwriter=?, btitle=?, bcontent=? where bno=?";
-			int row=jdbcTemplate.update(
-					sql,
-					board.getBwriter(),
-					board.getBtitle(), 
-					board.getBcontent(),
-					board.getBno()
-					);
-			return row;
-		}
 		
 //---------------------------------------------------------------------------------------------------------------------------------	
 		
-		public int delete(int bno) {
-			String sql = "delete from board where bno=?";
-			int row =jdbcTemplate.update(sql, bno);
-			return row;
-		}
-		
-//---------------------------------------------------------------------------------------------------------------------------------	
 
 	
 

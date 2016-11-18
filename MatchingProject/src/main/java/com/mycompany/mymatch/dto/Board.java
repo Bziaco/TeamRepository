@@ -1,14 +1,14 @@
 package com.mycompany.mymatch.dto;
 
+import java.util.Date;
+
 public class Board {
-	
 	private int bno;
 	private String btitle;
 	private String bcontent;
-	private String bwriter;
-	private int bcount;
-	
-	
+	private int bhitcount;
+	private String mid;
+	private Date bdate;
 	
 	public int getBno() {
 		return bno;
@@ -28,16 +28,22 @@ public class Board {
 	public void setBcontent(String bcontent) {
 		this.bcontent = bcontent;
 	}
-	public String getBwriter() {
-		return bwriter;
+	public int getBhitcount() {
+		return bhitcount;
 	}
-	public void setBwriter(String bwriter) {
-		this.bwriter = bwriter;
+	public void setBhitcount(int bhitcount) {
+		this.bhitcount = bhitcount;
 	}
-	public int getBcount() {
-		return bcount;
+	public String getMid() {
+		return mid;
 	}
-	public void setBcount(int bcount) {
-		this.bcount = bcount;
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public Date getBdate() {
+		return bdate;
+	}
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
 	}
 }

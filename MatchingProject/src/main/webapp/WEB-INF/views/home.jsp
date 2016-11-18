@@ -125,7 +125,7 @@
 
 			<!-- article 영역 -->
 			<article clss="two">
-				<a href="${pageContext.servletContext.contextPath}/faq/faqList"><h2>Q
+				<a href="${pageContext.servletContext.contextPath}/board/boardList"><h2>Q
 						& A</h2></a>
 				<video loop="loop" preload="auto">
 					<source

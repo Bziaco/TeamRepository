@@ -164,7 +164,7 @@
 								<span class="group-btn"> <a id="btnResist" href="#"
 									class="btn btn-primary btn-md">Resist <i
 										class="fa fa-sign-in"></i></a></span>
-							</div>
+							</div> 
 	
 							<br />
 	

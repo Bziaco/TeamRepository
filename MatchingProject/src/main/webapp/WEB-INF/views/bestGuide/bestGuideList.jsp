@@ -89,10 +89,6 @@
 						<div class="row">
 							<div class="col col-xs-6">
 								<h3 class="panel-title">Best Guide</h3>
-								<div class="btn-toolbar">
-									<button class="btn btn-primary" id="btnWrite" type="button"
-										data-toggle="modal" data-target="#writeModal">Write</button>
-								</div>
 							</div>
 
 						</div>
@@ -101,9 +97,11 @@
 						<table class="table table-striped table-bordered table-list">
 							<thead>
 								<tr>
-									<th><em class="fa fa-cog"></em></th>
+									<th>No</th>
 									<th class="hidden-xs">ID</th>
-									<th>Name</th>
+									<th>Local</th>
+									<th>Intro</th>
+									<th></th>
 									<th>Email</th>
 								</tr>
 							</thead>

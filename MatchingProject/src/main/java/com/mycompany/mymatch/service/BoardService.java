@@ -23,6 +23,11 @@ public class BoardService {
 		return list;
 	}
 	
+	public List<Board> getListKeyword(String keyword, int pageNo, int rowsPerPage) {
+		List<Board> list = boardDao.selectKeywordByPage(keyword, pageNo, rowsPerPage);
+		return list;
+	}	
+	
 	public int delete(int bno) {
 		int row = boardDao.delete(bno);
 		return row;
@@ -32,5 +37,18 @@ public class BoardService {
 		Board board = boardDao.selectByBno(bno);
 		return board;
 	}
+	
+	public int update(Board board) {
+		int row = boardDao.update(board);
+		return row;
+	}
+	
+	public int getCount() {
+		return boardDao.count();
+	}
+	
+	public int getCountKeyword(String keyword) {
+		return boardDao.countKeyword(keyword);
+	}	
 		
 }

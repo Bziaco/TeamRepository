@@ -23,11 +23,53 @@ public class BoardController {
 	public BoardService boardService;
 	
 	@RequestMapping("/boardList")
-	public String boardList(Model model) {
+	public String boardList(String pageNo, String keyword, Model model, HttpSession session) {
 		logger.info("boardList");
-		List<Board> list = boardService.getList(1, 8);
 		
+		int intPageNo = 1;
+		if(pageNo == null) {
+			pageNo = (String) session.getAttribute("pageNo");
+			if(pageNo != null) {
+				intPageNo = Integer.parseInt(pageNo);
+			}
+		} else {
+			intPageNo = Integer.parseInt(pageNo);
+		}
+		session.setAttribute("pageNo", String.valueOf(intPageNo));
+		
+		int rowsPerPage = 8;
+		int pagesPerGroup = 5;
+		
+		int totalBoardNo = 0;
+		List<Board> list = null;
+		if(keyword == null || keyword.equals("")) {
+			totalBoardNo = boardService.getCount();
+			list = boardService.getList(intPageNo, rowsPerPage);
+		} else {
+			totalBoardNo = boardService.getCountKeyword(keyword);
+			list = boardService.getListKeyword(keyword, intPageNo, rowsPerPage);
+		}
+		
+		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);
+		int totalGroupNo = (totalPageNo/pagesPerGroup) + ((totalPageNo%pagesPerGroup!=0)?1:0);
+		
+		int groupNo = (intPageNo-1)/pagesPerGroup + 1;
+		int startPageNo = (groupNo-1)*pagesPerGroup + 1;
+		int endPageNo = startPageNo + pagesPerGroup - 1;
+		if(groupNo == totalGroupNo) { endPageNo = totalPageNo; }
+		
+		model.addAttribute("pageNo", intPageNo);
+		model.addAttribute("rowsPerPage", rowsPerPage);
+		model.addAttribute("pagesPerGroup", pagesPerGroup);
+		model.addAttribute("totalBoardNo", totalBoardNo);
+		model.addAttribute("totalPageNo", totalPageNo);
+		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);
 		model.addAttribute("list", list);
+		model.addAttribute("keyword", keyword);
+
 		return "board/boardList";
 	}
 	
@@ -50,5 +92,11 @@ public class BoardController {
 		Board board = boardService.getBoard(bno);
 		model.addAttribute("board", board);
 		return "board/getBoard";
+	}
+	
+	@RequestMapping("/update")
+	public String update(Board board) {
+		boardService.update(board);
+		return "board/update";
 	}
 }

@@ -55,27 +55,26 @@
     
     $(".table-responsive #btnUpdate").click(function(event){
     	var bno = $(this).attr("data-bno");
+    	/*console.log("bno:"+ bno);*/
     	
     	$.ajax({
     		url:"/mymatch/board/getBoard",
     		data: {bno:bno},
     		success: function(data) {
     			$("#updateModal").modal("show");
-    			
-    			data.btitle
-    			data.bcontent
+    			$("#updateModal #btitle").val(data.btitle);
+    			$("#updateModal #bcontent").val(data.bcontent);
     		}
 		});
     	
-    	
-    	/*$("#updateModal #btnUpdate").click(function(event){
+    	$("#updateModal #btnUpdate").click(function(event){
     		$.ajax({
-    			url:"/mymatch/board/getBoard",
-    			data: {bno:bno},
+    			url:"/mymatch/board/update",
+    			data: {bno:bno, btitle:$("#updateModal #btitle").val(), bcontent:$("#updateModal #bcontent").val()},
     			method: "post",
     			success: function(data) {
     				if(data.result=="success") {
-    					$("#deleteModal").modal('hide');
+    					$("#updateModal").modal('hide');
     					$('.modal-backdrop').remove();
     					location.reload(true);
     				}
@@ -83,8 +82,17 @@
     		});
         	
         });
-    	$("#deleteModal").modal("show");*/
-    }); 
+    });
+    
+    $("#btnSearch").click(function() {
+    	var keyword = $("#keyword").val();
+    	var url = location.href;
+    	var index = url.indexOf("boardList");
+    	if(index != -1) {
+    		url = url.substring(0, index+9);
+    	}
+    	location.href = url + "?keyword="+keyword;
+    });
 });
 
 

@@ -18,10 +18,10 @@
 			<aside class="lg-side">
 				<div class="inbox-head">
 					<h3>Free Board</h3>
-					<form action="#" class="pull-right position">
+					<form class="pull-right position">
 						<div class="input-append">
-							<input type="text" class="sr-input" placeholder="Search">
-							<button class="btn sr-btn" type="button">
+							<input id="keyword" type="text" class="sr-input" placeholder="Search">
+							<button id="btnSearch" class="btn sr-btn" type="button">
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
@@ -77,17 +77,30 @@
 
 									<div class="clearfix"></div>
 									<ul class="pagination pull-right">
-										<li class="disabled"><a href="#"><span
-												class="glyphicon glyphicon-chevron-left"></span></a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#"><span
-												class="glyphicon glyphicon-chevron-right"></span></a></li>
+										<li>
+											<c:if test="${groupNo==1}">
+												<span class="glyphicon glyphicon-chevron-left" style="color:gray"></span>
+											</c:if>
+											<c:if test="${groupNo>1}">
+												<a href="boardList?pageNo=${startPageNo-1}&keyword=${keyword}"><span class="glyphicon glyphicon-chevron-left" style="color:green"></span></a>
+											</c:if>
+										</li>
+										
+										<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
+											<li <c:if test="${pageNo==i}">class="active"</c:if>>
+												<a href="boardList?pageNo=${i}&keyword=${keyword}">${i}</a>											
+											</li>
+										</c:forEach>
+										
+										<li>
+											<c:if test="${groupNo==totalGroupNo}">
+												<span class="glyphicon glyphicon-chevron-right" style="color:gray"></span>
+											</c:if>
+											<c:if test="${groupNo<totalGroupNo}">
+												<a href="boardList?pageNo=${endPageNo+1}&keyword=${keyword}"><span class="glyphicon glyphicon-chevron-right" style="color:green"></span></a>
+											</c:if>
+										</li>
 									</ul>
-
 								</div>
 
 							</div>
@@ -143,10 +156,10 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<input class="form-control " type="text" placeholder="Title">
+						<input id="btitle" class="form-control " type="text" placeholder="Title">
 					</div>
 					<div class="form-group">
-						<textarea rows="2" class="form-control" placeholder="Content"></textarea>
+						<textarea id="bcontent" rows="2" class="form-control" placeholder="Content"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer ">

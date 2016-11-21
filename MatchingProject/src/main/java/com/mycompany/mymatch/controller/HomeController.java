@@ -16,12 +16,12 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/")
-	public String home() {
-		return "home";
+	public String index() {
+		return "index";
 	}
 	
-	@RequestMapping(value = "/first")
-	public String first(Locale locale, Model model) {		
-		return "first";
+	@RequestMapping(value = "/home")
+	public String home(Locale locale, Model model) {		
+		return "home";
 	}
 }

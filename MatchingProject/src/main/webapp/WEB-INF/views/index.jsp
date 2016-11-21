@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
-<%-- 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script> --%>
+	<%-- <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script> --%>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
@@ -22,7 +22,7 @@
 	<!-- 메뉴 -->
 	<div id="main-navbar">
 		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
-
+	
 			<div style="float: right; margin-right: 10px;">
 				<c:if test="${empty login}">
 					<button id="btnLogin" type="button" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Login</button>
@@ -71,111 +71,7 @@
 		</nav>
 	</div>
 
-	<div class="wrap">
-
-		<%-- <!-- 로고 영역 -->
-		<h1>
-			<strong>Paris</strong>	<br />	
-			<img src="${pageContext.servletContext.contextPath}/resources/img/logo.png" /><br />
-			<span>Exceptional Creation</span>
-		</h1> --%>
-
-		<!-- 슬로건 영역 -->
-		<p class="txt">
-			Two<span>Plus+</span>
-		</p>
-
-		<%-- <!-- 웹 아이콘 버튼 모음 -->
-		<ul class="sns">
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-		</ul> --%>
-
-		<!-- section 영역 -->
-		<section class="contents">
-
-			<!-- article 영역 -->
-			<article clss="one">
-				<a href="${pageContext.servletContext.contextPath}/information/info"><h2>Information</h2></a>
-				<video loop="loop" preload="auto">
-					<source
-						src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4"
-						type="video/mp4" />
-				</video>
-				<div></div>
-				<h3>Information</h3>
-				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
-					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
-					feugiat tincidunt a nec erat. Donec ornare finibus massa. In
-					facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie.
-					Integer eros tellus, molestie a dictum sit amet, lobortis non
-					turpis.</p>
-			</article>
-
-			<!-- article 영역 -->
-			<article clss="two">
-				<a href="${pageContext.servletContext.contextPath}/board/boardList"><h2>Q
-						& A</h2></a>
-				<video loop="loop" preload="auto">
-					<source
-						src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4"
-						type="video/mp4" />
-				</video>
-				<div></div>
-				<h3>Q & A</h3>
-				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
-					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
-					feugiat tincidunt a nec erat. Donec ornare finibus massa.</p>
-			</article>
-
-			<!-- article 영역 -->
-			<article class="three">
-				<a
-					href="${pageContext.servletContext.contextPath}/bestGuide/bestGuideList"><h2>Best
-						Guide</h2></a>
-				<video loop="loop" preload="auto">
-					<source
-						src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4"
-						type="video/mp4" />
-
-				</video>
-				<div></div>
-				<h3>Best Guide</h3>
-				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
-					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
-					feugiat tincidunt a nec erat. Donec ornare finibus massa. In
-					facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie.
-				</p>
-			</article>
-
-			<!-- article 영역 -->
-			<article class="four">
-				<a
-					href="${pageContext.servletContext.contextPath}/matching/matchList"><h2>Matching</h2></a>
-				<video loop="loop" preload="auto">
-					<source
-						src="${pageContext.servletContext.contextPath}/resources/img/vid10.mp4"
-						type="video/mp4" />
-				</video>
-				<div></div>
-				<h3>Matching</h3>
-				<p>Nulla ex risus, varius at mauris quis, fringilla accumsan
-					urna. Cras eleifend tempor nunc id cursus. Mauris in elit ut risus
-					feugiat tincidunt a nec erat. Donec ornare finibus massa. In
-					facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie.
-					Integer</p>
-			</article>
-		</section>
-
-		<!-- footer -->
-		<footer>
-			
-			<span>copyright 2016 Cartier All right reserved.</span>
-		</footer>
-
-	</div>
+	<iframe src="home" style="width: 100%; height: 98%; overflow: hidden;"></iframe>
 
 	<!-- login 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="loginModal"
@@ -201,19 +97,19 @@
 							<br/> <a href="" style="margin-right: 15px; margin-left: 30px">Find
 								ID</a><a href="">Find Password</a>
 						</div>
-
+	
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
+	
+	
 	<!-- logout 모달 -->
 	<!-- <div style="z-index: 5000" class="modal fade" id="logoutModal" tabindex="5"
 		role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
-
+	
 			Modal content
 			<div class="modal-content">
 				<div class="modal-header">
@@ -227,10 +123,10 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
-
+	
 		</div>
 	</div> -->
-
+	
 	<!-- Resist 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="resistModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
@@ -263,22 +159,22 @@
 							<input type="text" id="mtel"
 								class="form-control input-sm chat-input" placeholder="Tel" value="010-123-1234"/> </br>
 							<input type="file" id="mphoto" multiple/> <br/>
-
+	
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnResist" href="#"
 									class="btn btn-primary btn-md">Resist <i
 										class="fa fa-sign-in"></i></a></span>
 							</div>
-
+	
 							<br />
-
+	
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- modify 패스워드 확인 -->
 	<div style="z-index: 5000" class="modal fade" id="passwordmodifyModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
@@ -303,8 +199,8 @@
 			</div>
 		</div>
 	</div>
-
-
+	
+	
 	<!-- modify 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="modifyModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
@@ -340,42 +236,42 @@
 						</div>
 						<br />
 					</div>
-
+	
 				</div>
 			</div>
 		</div>
-
+	
 	</div>
-
-
-
-
-
+	
+	
+	
+	
+	
 	<!-- info 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="infoModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		style="position:relavtive">
 		<div class="modal-dialog" style="position: absolute; right: 800px; bottom: 900px">
-
-
+	
+	
 			<div class="container">
-<!-- 				<div
-					class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-					<div class="row user-row">
-						<div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-							<img class="img-circle"
-								src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-								alt="User Pic">
-						</div>
-						<div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-							<strong>Cyruxx</strong><br> <span class="text-muted">User
-								level: Administrator</span>
-						</div>
-						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user"
-							data-for=".cyruxx">
-							<i class="glyphicon glyphicon-chevron-down text-muted"></i>
-						</div>
-					</div> -->
+	<!-- 				<div
+						class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+						<div class="row user-row">
+							<div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+								<img class="img-circle"
+									src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+									alt="User Pic">
+							</div>
+							<div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+								<strong>Cyruxx</strong><br> <span class="text-muted">User
+									level: Administrator</span>
+							</div>
+							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user"
+								data-for=".cyruxx">
+								<i class="glyphicon glyphicon-chevron-down text-muted"></i>
+							</div>
+						</div> -->
 					<div class="">
 						<div
 							class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
@@ -390,11 +286,11 @@
 												src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
 												 width="130" height="130">
 										</div>
-<!-- 										<div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-											<img class="img-circle"
-												src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-												alt="User Pic">
-										</div> -->
+	<!-- 										<div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+												<img class="img-circle"
+													src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+													alt="User Pic">
+											</div> -->
 										<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
 											<strong>Jae-Hwan Bae</strong><br>
 											<table class="table table-user-information">
@@ -437,15 +333,15 @@
 				</div>
 			</div>
 		</div>
-
-
+	
+	
 	<!-- withdraw 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="withdrawModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		style="position:relavtive;">
 		<div class="modal-dialog"
 			style="position: absolute; right: 900px; bottom: 900px">
-
+	
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-5 col-md-3">
@@ -461,21 +357,21 @@
 							</div>
 							<br />
 						</div>
-
+	
 					</div>
 				</div>
 			</div>
-
+	
 		</div>
 	</div>
-
+	
 	<!-- guideresist 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="guideModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		style="position:relavtive;">
 		<div class="modal-dialog"
 			style="position: absolute; right: 900px; bottom: 900px">
-
+	
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-5 col-md-3">
@@ -495,21 +391,21 @@
 							</div>
 							<br />
 						</div>
-
+	
 					</div>
 				</div>
 			</div>
-
+	
 		</div>
 	</div>
-
+	
 	<!-- touristresist 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="touristModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		style="position:relavtive;">
 		<div class="modal-dialog"
 			style="position: absolute; right: 900px; bottom: 900px">
-
+	
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-5 col-md-3">
@@ -537,19 +433,19 @@
 							</div>
 							<br />
 						</div>
-
+	
 					</div>
 				</div>
 			</div>
-
+	
 		</div>
 	</div>
-
+	
 	<!-- schedule 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="scheduleModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
-
+	
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -563,176 +459,67 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
-
+	
 		</div>
 	</div>
-
+	
 	<!-- matchtourist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="matchtouristModal"
+	<div style="z-index: 5000;" class="modal fade" id="matchtouristModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog">
-
-
-			<div class="container" id="tourpackages-carousel">
-				<div class="row">
-					<div class="col-lg-12"></div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>   
-									<!-- 									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span> -->
+		<div class="modal-dialog" style="margin-left: 500px; margin-top: 180px;">
+			<div class="container" id="tourpackages-carousel" style="width: 1175px; height:650px; overflow: auto;  background-color: white; border-radius: 20px;">
+				<table>
+					<tr>
+						<td>
+							<c:forEach var="i" begin="1" end="6">
+								<div class="thumbnail" style="width:350px; display: inline-block;margin:6px;">
+									<div class="caption">
+										<div>   
+											<!-- 									<span class="glyphicon glyphicon-credit-card"></span> <span
+												class="glyphicon glyphicon-trash pull-right text-primary"></span> -->
+										</div>
+										<div>
+											<h4>3Team</h4>
+										</div>
+										<div style="margin:0px 10px;">
+											<img
+												src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
+												style="float: right" class="img-rounded" alt="Cinque Terre"
+												width="120" height="130"> <span
+												style="font-weight: bold">Name: </span>Jae-Hwan Bae<br /> <span
+												style="font-weight: bold">Local: </span>Pusan<br /> <span
+												style="font-weight: bold">Tel: </span>010-1234-2501<br /> <span
+												style="font-weight: bold">Email: </span>Bziaco@naver.com<br /> <span
+												style="font-weight: bold">age: </span>26<br /> <span
+												style="font-weight: bold">Sex: </span>Male<br /> <span
+												style="font-weight: bold">Matching: </span>2016.12.16<br />
+										</div>
+										<button type="button"
+											class="btn btn-primary btn-xs btn-update btn-add-card"
+											title="Introduce" data-toggle="popover" data-trigger="focus"
+											data-placement="bottom"
+											data-content="Hi, My hobby is coding. do you play coding with me?">
+											Intro</button>
+										<button type="button"
+											class="btn btn-danger btn-xs btn-update btn-add-card"
+											data-toggle="modal" data-target="#messageModal">CHATTING
+										</button>
+									</div>
 								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>3Team</h4>
-								</div>
-								<div class='col-lg-12'>
-									<img
-										src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
-										style="float: right" class="img-rounded" alt="Cinque Terre"
-										width="130" height="130"> <span
-										style="font-weight: bold">Name: </span>Jae-Hwan Bae<br /> <span
-										style="font-weight: bold">Local: </span>Pusan<br /> <span
-										style="font-weight: bold">Tel: </span>010-1234-2501<br /> <span
-										style="font-weight: bold">Email: </span>Bziaco@naver.com<br /> <span
-										style="font-weight: bold">age: </span>26<br /> <span
-										style="font-weight: bold">Sex: </span>Male<br /> <span
-										style="font-weight: bold">Matching: </span>2016.12.16<br />
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card"
-									title="Introduce" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									data-content="Hi, My hobby is coding. do you play coding with me?">
-									Intro</button>
-								<button type="button"
-									class="btn btn-danger btn-xs btn-update btn-add-card"
-									data-toggle="modal" data-target="#messageModal">CHATTING
-								</button>
-							</div>
-						</div>
-					</div>
-					<!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>
-									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span>
-								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>John Deo Mobilel</h4>
-								</div>
-								<div class='col-lg-12'>
-									<p>4111xxxxxxxx3265</p>
-									<pclass"text-muted">Exp: 12-08
-									</p>
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>
-									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span>
-								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>John Deo Mobilel</h4>
-								</div>
-								<div class='col-lg-12'>
-									<p>4111xxxxxxxx3265</p>
-									<pclass"text-muted">Exp: 12-08
-									</p>
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>
-									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span>
-								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>John Deo Mobilel</h4>
-								</div>
-								<div class='col-lg-12'>
-									<p>4111xxxxxxxx3265</p>
-									<pclass"text-muted">Exp: 12-08
-									</p>
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>
-									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span>
-								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>John Deo Mobilel</h4>
-								</div>
-								<div class='col-lg-12'>
-									<p>4111xxxxxxxx3265</p>
-									<pclass"text-muted">Exp: 12-08
-									</p>
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-								<button type="button"
-									class="btn btn-danger btn-xs btn-update btn-add-card">Vrify
-									Now</button>
-								<span
-									class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="caption">
-								<div class='col-lg-12'>
-									<span class="glyphicon glyphicon-credit-card"></span> <span
-										class="glyphicon glyphicon-trash pull-right text-primary"></span>
-								</div>
-								<div class='col-lg-12 well well-add-card'>
-									<h4>John Deo Mobilel</h4>
-								</div>
-								<div class='col-lg-12'>
-									<p>4111xxxxxxxx3265</p>
-									<pclass"text-muted">Exp: 12-08
-									</p>
-								</div>
-								<button type="button"
-									class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-							</div>
-						</div>
-					</div>
-				</div> -->
-					<!-- End row -->
-				</div>
+							</c:forEach>
+						</td>
+					</tr>
+				</table>
 				<!-- End container -->
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- matchguide 모달 -->
 	<div style="z-index: 5000" class="modal fade" id="matchguideModal"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
-
+	
 			<div class="container" id="tourpackages-carousel">
 				<div class="row">
 					<div class="col-lg-12"></div>
@@ -778,7 +565,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- 메세지 -->
 	<div style="z-index: 8000" class="modal fade messageBody"
 		id="messageModal" tabindex="5" role="dialog"
@@ -904,12 +691,10 @@
 					</div>
 				</div>
 			</div>
-
-
-
+	
+	
+	
 		</div>
 	</div>
-
-
 </body>
 </html>

@@ -148,6 +148,7 @@
 			var mphoto = $("#modifyModal #mphoto")[0].files[0];
 			data.append("mphoto", mphoto);	
 		}
+
 		
 		$.ajax({
 			url:"/mymatch/member/modify",
@@ -159,7 +160,7 @@
 			success: function(data) {
 				if(data.result == "success") {
 					$("#modifyModal").modal('hide');
-/*					console.log("mpassword: " + mpassword);
+					console.log("mpassword: " + mpassword);
 					console.log("mnickname: " + mnickname);
 					console.log("mname: " + mname);
 					console.log("mage: " + mage);
@@ -167,7 +168,7 @@
 					console.log("memail: " + memail);
 					console.log("mlocal: " + mlocal);
 					console.log("mtel: " + mtel);
-					console.log("mphoto: " + mphoto);*/
+					console.log("mphoto: " + mphoto);
 				} else {
 					alert("수정에 실패했습니다.");
 				}
@@ -177,16 +178,27 @@
 	
 	/*유저정보*/
 	$("#btninfo").click(function(){
-		$ajax({
+		
+		$.ajax({
 			url:"/mymatch/member/info",
+			method: "post",
 			success: function(data) {
-				$("#btninfo #mname").val(data.member.mname);
-				$("#btninfo #mnickname").val(data.member.mnickname);
-				$("#btninfo #mage").val(data.member.mage);
-				$("#btninfo #msex").val(data.member.msex);
-				$("#btninfo #memail").val(data.member.memail);
-				$("#btninfo #mlocal").val(data.member.mlocal);
-				$("#btninfo #mtel").val(data.member.mtel);
+				$("#infoModal #mname").val(data.member.mname);
+				$("#infoModal #mnickname").val(data.member.mnickname);
+				$("#infoModal #mage").val(data.member.mage);
+				$("#infoModal #msex").val(data.member.msex);
+				$("#infoModal #memail").val(data.member.memail);
+				$("#infoModal #mlocal").val(data.member.mlocal);
+				$("#infoModal #mtel").val(data.member.mtel);
+				console.log("mpassword: " + data.member.mpassword);
+				console.log("mnickname: " + mnickname);
+				console.log("mname: " + mname);
+				console.log("mage: " + mage);
+				console.log("msex: " + msex);
+				console.log("memail: " + memail);
+				console.log("mlocal: " + mlocal);
+				console.log("mtel: " + mtel);
+				console.log("mphoto: " + mphoto);
 			}
 		});
 	});

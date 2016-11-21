@@ -109,7 +109,7 @@ public class MemberController {
 	
 //-------------------------------------------------------------------------------------------------------------------------------
 	
-	@RequestMapping("/info")
+	@RequestMapping(value="/info", method=RequestMethod.POST)
 	public String info(Member member, HttpSession session, Model model) {
 		String mid = (String) session.getAttribute("login");
 		member = memberService.getMember(mid);

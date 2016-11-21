@@ -89,6 +89,7 @@ public class MemberService {
 			dbMember.setMpassword(member.getMpassword());
 		}
 		dbMember.setMnickname(member.getMnickname());
+		dbMember.setMname(member.getMname());
 		dbMember.setMage(member.getMage());
 		dbMember.setMsex(member.getMsex());
 		dbMember.setMtel(member.getMtel());

@@ -1,11 +1,20 @@
 ﻿$(function() {    
-	/*$(".container #collapseOne .list-group>a ").click(function(e) {
-        e.preventDefault();
-        $(this).siblings('a.active').removeClass("active");
-        $(this).addClass("active");
-        var index = $(this).index();
-        $("div.container div.panel-table").removeClass("active");
-        $("div.container div.panel-table").eq(index).addClass("active");
+	/*$("#writeModal #guideWrite").click(function(){
+    	var btitle = $("#writeModal #btitle").val();
+    	var bcontent = $("#writeModal #bcontent").val();
+    	
+    	$.ajax({
+			url:"/mymatch/board/write",
+			data: {btitle:btitle, bcontent:bcontent},
+			method: "post",
+			success: function(data) {
+				if(data.result=="success") {
+					$("#writeModal").modal('hide');
+					$('.modal-backdrop').remove();
+					location.reload(true);
+				}
+			}
+		});
     });*/
     
     /*$(".table-responsive #btnDelete").click(function(event){

@@ -83,8 +83,9 @@ used to vertically center elements, may need modification if you're not using de
 }
 
 .panel-table .panel-heading .col h3{
- line-height: 30px;
+ line-height: 35px;
  height: 30px;
+ float: left;
 }
 
 .panel-table .panel-body .table-bordered > tbody > tr > td{

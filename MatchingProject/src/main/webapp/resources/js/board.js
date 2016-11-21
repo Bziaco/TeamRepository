@@ -27,10 +27,64 @@
 				if(data.result=="success") {
 					$("#writeModal").modal('hide');
 					$('.modal-backdrop').remove();
+					location.reload(true);
 				}
 			}
 		});
     });
+    
+    $(".table-responsive #btnDelete").click(function(event){
+    	var bno = $(this).attr("data-bno");
+    	$("#deleteModal #btnYes").click(function(event){
+    		$.ajax({
+    			url:"/mymatch/board/delete",
+    			data: {bno:bno},
+    			method: "post",
+    			success: function(data) {
+    				if(data.result=="success") {
+    					$("#deleteModal").modal('hide');
+    					$('.modal-backdrop').remove();
+    					location.reload(true);
+    				}
+    			}
+    		});
+        	
+        });
+    	$("#deleteModal").modal("show");
+    });    
+    
+    $(".table-responsive #btnUpdate").click(function(event){
+    	var bno = $(this).attr("data-bno");
+    	
+    	$.ajax({
+    		url:"/mymatch/board/getBoard",
+    		data: {bno:bno},
+    		success: function(data) {
+    			$("#updateModal").modal("show");
+    			
+    			data.btitle
+    			data.bcontent
+    		}
+		});
+    	
+    	
+    	/*$("#updateModal #btnUpdate").click(function(event){
+    		$.ajax({
+    			url:"/mymatch/board/getBoard",
+    			data: {bno:bno},
+    			method: "post",
+    			success: function(data) {
+    				if(data.result=="success") {
+    					$("#deleteModal").modal('hide');
+    					$('.modal-backdrop').remove();
+    					location.reload(true);
+    				}
+    			}
+    		});
+        	
+        });
+    	$("#deleteModal").modal("show");*/
+    }); 
 });
 
 

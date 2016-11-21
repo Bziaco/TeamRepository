@@ -159,7 +159,7 @@
 			success: function(data) {
 				if(data.result == "success") {
 					$("#modifyModal").modal('hide');
-					console.log("mpassword: " + mpassword);
+/*					console.log("mpassword: " + mpassword);
 					console.log("mnickname: " + mnickname);
 					console.log("mname: " + mname);
 					console.log("mage: " + mage);
@@ -167,10 +167,26 @@
 					console.log("memail: " + memail);
 					console.log("mlocal: " + mlocal);
 					console.log("mtel: " + mtel);
-					console.log("mphoto: " + mphoto);
+					console.log("mphoto: " + mphoto);*/
 				} else {
 					alert("수정에 실패했습니다.");
 				}
+			}
+		});
+	});
+	
+	/*유저정보*/
+	$("#btninfo").click(function(){
+		$ajax({
+			url:"/mymatch/member/info",
+			success: function(data) {
+				$("#btninfo #mname").val(data.member.mname);
+				$("#btninfo #mnickname").val(data.member.mnickname);
+				$("#btninfo #mage").val(data.member.mage);
+				$("#btninfo #msex").val(data.member.msex);
+				$("#btninfo #memail").val(data.member.memail);
+				$("#btninfo #mlocal").val(data.member.mlocal);
+				$("#btninfo #mtel").val(data.member.mtel);
 			}
 		});
 	});

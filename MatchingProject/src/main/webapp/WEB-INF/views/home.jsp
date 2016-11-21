@@ -20,27 +20,10 @@
 <body>
 
 	<div class="wrap">
-
-		<%-- <!-- 로고 영역 -->
-		<h1>
-			<strong>Paris</strong>	<br />	
-			<img src="${pageContext.servletContext.contextPath}/resources/img/logo.png" /><br />
-			<span>Exceptional Creation</span>
-		</h1> --%>
-
 		<!-- 슬로건 영역 -->
 		<p class="txt">
 			Two<span>Plus+</span>
 		</p>
-
-		<%-- <!-- 웹 아이콘 버튼 모음 -->
-		<ul class="sns">
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-		</ul> --%>
-
 		<!-- section 영역 -->
 		<section class="contents">
 

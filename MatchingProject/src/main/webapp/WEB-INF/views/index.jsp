@@ -48,7 +48,7 @@
 				<li id="menu1" class="depth1"><a>My Page</a>
 					<ul style="display: none" id="change_me1">
 						<li><a data-toggle="modal" data-target="#passwordmodifyModal">Modify</a></li>
-						<li><a data-toggle="modal" data-target="#infoModal">Info</a></li>
+						<li><a id="#btninfo" data-toggle="modal" data-target="#infoModal">Info</a></li>
 						<li><a data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
 					</ul></li>
 				<li id="menu2" class="depth2"><a>Resist</a>
@@ -213,23 +213,23 @@
 						<div class="form-login">
 							<h4>Modification</h4>
 							<input type="file" id="mphoto" multiple/> <br/>
-							<input type="password" id="mpassword" class="form-control input-sm chat-input" placeholder="Password" value="${member.mpassword}" />
+							<input type="password" id="mpassword" class="form-control input-sm chat-input" placeholder="Password" />
 							</br> <input type="text" id="mnickname"
-								class="form-control input-sm chat-input" placeholder="Nickname" value="${member.mnickname}"/>
+								class="form-control input-sm chat-input" placeholder="Nickname"/>
 							</br> <input type="text" id="mname"
-								class="form-control input-sm chat-input" placeholder="Name" value="${member.mname}"/>
+								class="form-control input-sm chat-input" placeholder="Name"/>
 							</br> <input type="number" id="mage"
-								class="form-control input-sm chat-input" placeholder="Age" value="${member.mage}"/> </br>
-							<select class="form-control input-sm chat-input" id="msex" value="${member.msex}">
+								class="form-control input-sm chat-input" placeholder="Age"/> </br>
+							<select class="form-control input-sm chat-input" id="msex">
 								<option checked value="M">Male</option>
 								<option value="F">Female</option>
 							</select></br>							
 							<input type="text" id="memail"
-								class="form-control input-sm chat-input" placeholder="Email" value="${member.memail}"/>
+								class="form-control input-sm chat-input" placeholder="Email"/>
 							</br> <input type="text" id="mlocal"
-								class="form-control input-sm chat-input" placeholder="Local" value="${member.mlocal}"/>
+								class="form-control input-sm chat-input" placeholder="Local"/>
 							</br> <input type="text" id="mtel"
-								class="form-control input-sm chat-input" placeholder="Tel" value="${member.btel}"/> </br>
+								class="form-control input-sm chat-input" placeholder="Tel"/> </br>
 							<span class="group-btn"> 
 								<a id="btnModify" href="#" class="btn btn-primary btn-md">modify<i class="fa fa-sign-in"></i>
 							</a></span>
@@ -255,23 +255,6 @@
 	
 	
 			<div class="container">
-	<!-- 				<div
-						class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-						<div class="row user-row">
-							<div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-								<img class="img-circle"
-									src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-									alt="User Pic">
-							</div>
-							<div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-								<strong>Cyruxx</strong><br> <span class="text-muted">User
-									level: Administrator</span>
-							</div>
-							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user"
-								data-for=".cyruxx">
-								<i class="glyphicon glyphicon-chevron-down text-muted"></i>
-							</div>
-						</div> -->
 					<div class="">
 						<div
 							class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
@@ -286,34 +269,30 @@
 												src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
 												 width="130" height="130">
 										</div>
-	<!-- 										<div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-												<img class="img-circle"
-													src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-													alt="User Pic">
-											</div> -->
+
 										<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-											<strong>Jae-Hwan Bae</strong><br>
+											<strong>${member.mname}</strong><br>
 											<table class="table table-user-information">
 												<tbody>
 													<tr>
 														<td>Nickname:</td>
-														<td>Bziaco</td>
+														<td>${member.mnickname}</td>
 													</tr>
 													<tr>
 														<td>E-mail:</td>
-														<td>Bziaco@naver.com</td>
+														<td>${member.memail}</td>
 													</tr>
 													<tr>
 														<td>Age:</td>
-														<td>26</td>
+														<td>${member.mage}</td>
 													</tr>
 													<tr>
 														<td>Local:</td>
-														<td>Pusan</td>
+														<td>${member.mlocal}</td>
 													</tr>
 													<tr>
 														<td>Tel:</td>
-														<td>010-1235-1245</td>
+														<td>${member.mtel}</td>
 													</tr>
 												</tbody>  
 											</table>

@@ -283,8 +283,6 @@ ul.inbox-pagination li {
 	width: 100%;
 }
 
-
-
 .mail-option .chk-all, .mail-option .btn-group a.btn {
 	background: none repeat scroll 0 0 #fcfcfc;
 	border: 1px solid #e7e7e7;
@@ -539,4 +537,3 @@ footer ul li {	float:left;	margin-right:40px;}
 footer span {position:absolute; 	right:50px; bottom:0px;}
 
  */
-

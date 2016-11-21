@@ -126,7 +126,7 @@ public class MemberController {
 		int result = memberService.checkPassword(mid, mpassword);
 		if(result == MemberService.PASSWORD_SUCCESS) {
 			Member member = memberService.getMember(mid);
-			model.addAttribute("member", member);
+			model.addAttribute("member", member); 
 		}
 		return "member/passwordmodify";
 	}

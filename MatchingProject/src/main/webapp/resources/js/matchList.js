@@ -1,62 +1,219 @@
-﻿$.getScript('http://arshaw.com/js/fullcalendar-1.6.4/fullcalendar/fullcalendar.min.js',function(){
-  
-  var date = new Date();
-  var d = date.getDate();
-  var m = date.getMonth();
-  var y = date.getFullYear();
-  
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    editable: true,
-    events: [
-      {
-        title: 'All Day Event',
-        start: new Date(y, m, 1)
-      },
-      {
-        title: 'Long Event',
-        start: new Date(y, m, d-5),
-        end: new Date(y, m, d-2)
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: new Date(y, m, d-3, 16, 0),
-        allDay: false
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: new Date(y, m, d+4, 16, 0),
-        allDay: false
-      },
-      {
-        title: 'Meeting',
-        start: new Date(y, m, d, 10, 30),
-        allDay: false
-      },
-      {
-        title: 'Lunch',
-        start: new Date(y, m, d, 12, 0),
-        end: new Date(y, m, d, 14, 0),
-        allDay: false
-      },
-      {
-        title: 'Birthday Party',
-        start: new Date(y, m, d+1, 19, 0),
-        end: new Date(y, m, d+1, 22, 30),
-        allDay: false
-      },
-      {
-        title: 'Click for Google',
-        start: new Date(y, m, 28),
-        end: new Date(y, m, 29),
-        url: 'http://google.com/'
-      }
-    ]
-  });
-})
+﻿$(document).ready(function(){  		
+	
+	//메뉴 클릭 변수
+	var isClicked = false;
+	
+	// 마우스 오버시
+	$("article").on("mouseover",function(){	
+		var vid = $(this).find("video").get(0);
+		setTimeout(function () {      
+			// 동영상의 재생위치를 처음(0)으로 설정
+			//vid.currentTime=0;
+			// 동영상을 재생
+			vid.play();	
+		}, 550);
+		// 변수 vid에 video파일 참조
+		//var vid = $(this).find("video").get(0);
+		// 동영상의 재생위치를 처음(0)으로 설정
+		//vid.currentTime=0;
+		// 동영상을 재생
+		//vid.play();	
+		
+		$(this).stop().animate({"width":"39%"},500,function(){
+			//article이 넓어진 바로 후에 아래 구문이 실행됩니다.
+			$(this).find("h3").stop().animate({"right":"10px"},400);
+			$(this).find("p").stop().animate({"right":"10px"},800);	
+		});
+		$(this).find("video").stop().animate({"opacity":"1", "width":"850px"},1200);		
+	});
+	
+	// 마우스 아웃시
+	$("article").on("mouseout",function(){	
+		// 변수 vid에 video파일 참조
+		var vid = $(this).find("video").get(0);
+		// 동영상을 정지
+		vid.pause();
+		$(this).stop().animate({"width":"12%"},700);
+		$(this).find("video").stop().animate({"opacity":"0"},2000);	
+		$(this).find("h3").stop().animate({"right":"-310px"},200);
+		$(this).find("p").stop().animate({"right":"-310px"},500);	
+	});
+	
+	$('#main-sidebar').simpleSidebar({
+		opener: '#toggle-sidebar',
+		wrapper: '#main',
+		animation: {
+			easing: "easeOutQuint"
+		},
+		sidebar: {
+			align: 'left',
+			closingLinks: '.close-sb',
+		},
+		sbWrapper: {
+			display: true
+		}
+	});
+
+    $(".depth1").click(function() {
+    	if(!isClicked){
+    		$("#change_me1").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me1").slideUp("slow");
+    		isClicked = false;
+     	}
+    });
+    
+    $('#menu1').mouseover(function(){
+    	$('#menu1').addClass('pointer');
+    });
+    /*----------------------------------------*/
+    $(".depth2").click(function() {
+    	if(!isClicked){
+    		$("#change_me2").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me2").slideUp("slow");
+    		isClicked = false;
+     	}
+    });
+
+    $('#menu2').mouseover(function(){
+    	$('#menu2').addClass('pointer');
+    });
+    /*------------------------------------------*/
+    $(".depth3").click(function() {
+    	if(!isClicked){
+    		$("#change_me3").slideDown("slow");
+    		isClicked = true;
+    	}else{
+    		$("#change_me3").slideUp("slow");
+    		isClicked = false;
+     	}
+    });
+    
+    $('#menu3').mouseover(function(){
+    	$('#menu3').addClass('pointer');
+    });
+    
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+    
+    $("#btn1").click(function(){
+        $("#test2").html("${pageContext.servletContext.contextPath}/resist/guideResist");
+    });
+    
+    /*logout*/
+    $("#main-navbar #btnLogout").click(function() {
+    	$("#main-navbar #btnLogout").hide();
+    	$("#main-navbar #btnLogin").show();
+    	$("#main-navbar #btnResist").show();
+    });
+    
+    /*info*/
+    $(document).ready(function() {
+        var panels = $('.user-infos');
+        var panelsButton = $('.dropdown-user');
+        panels.hide();
+
+        //Click dropdown
+        panelsButton.click(function() {
+            //get data-for attribute
+            var dataFor = $(this).attr('data-for');
+            var idFor = $(dataFor);
+
+            //current button
+            var currentButton = $(this);
+            idFor.slideToggle(400, function() {
+                //Completed slidetoggle
+                if(idFor.is(':visible'))
+                {
+                    currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+                }
+                else
+                {
+                    currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+                }
+            })
+        });
+    });
+    /*withdraw*/
+    $("#withdrawModal").click(function(){
+    	if(!"Okwithdraw"){
+    		$("#withdrawModal").modal('hide');
+    	}else{
+    		$("#withdrawModal").modal('hide');
+    	}
+    });
+    
+    /*guide resist*/
+    $("#guideModal #btnguideresist").click(function(){
+    	$("#guideModal").modal('hide');
+    });
+    
+    /*tourist resist*/
+    $("#touristModal #btnTouristResist").click(function(){
+    	$("#touristModal").modal('hide');
+    });
+    
+    /*popover*/
+    $('[data-toggle="popover"]').popover();
+    
+    
+    /*message*/
+    $(document).on('click', '.panel-heading span.icon_minim', function (e) {
+        var $this = $(this);
+        if (!$this.hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideUp();
+            $this.addClass('panel-collapsed');
+            $this.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        } else {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $this.removeClass('panel-collapsed');
+            $this.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        }
+    });
+    $(document).on('focus', '.panel-footer input.chat_input', function (e) {
+        var $this = $(this);
+        if ($('#minim_chat_window').hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $('#minim_chat_window').removeClass('panel-collapsed');
+            $('#minim_chat_window').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        }
+    });
+    $(document).on('click', '#new_chat', function (e) {
+        var size = $( ".chat-window:last-child" ).css("margin-left");
+         size_total = parseInt(size) + 400;
+        alert(size_total);
+        var clone = $( "#chat_window_1" ).clone().appendTo( ".container" );
+        clone.css("margin-left", size_total);
+    });
+    $(document).on('click', '.icon_close', function (e) {
+        //$(this).parent().parent().parent().parent().remove();
+        $( "#chat_window_1" ).remove();
+    });
+    
+    //모달창 드래그 이동
+    $("#messageModal").draggable({
+    	handle:"#chat_window_1"  
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,10 +63,10 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String join(Member member, HttpServletRequest request, HttpServletResponse response, Model model){
+	public String join(Member member, HttpServletRequest request, Model model){
 		String strResult = "success";
 		try{
-			/*
+			
 			System.out.println("mid : " + member.getMid());
 			System.out.println("mpassword : " + member.getMpassword());
 			System.out.println("mnickname : " + member.getMnickname());
@@ -78,7 +78,7 @@ public class MemberController {
 			System.out.println("mtel : " + member.getMtel());
 			System.out.println("originalfilename: " + member.getMphoto().getOriginalFilename());
 			System.out.println("mimetype: " + member.getMphoto().getContentType());
-			*/
+			
 			
 			String savedfile = new Date().getTime() + member.getMphoto().getOriginalFilename();
 			String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
@@ -121,7 +121,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/passwordmodify", method=RequestMethod.POST)
-	public String definePassword(String mpassword, HttpSession session, Model model){
+	public String checkPassword(String mpassword, HttpSession session, Model model){
 		String mid = (String) session.getAttribute("login");
 		int result = memberService.checkPassword(mid, mpassword);
 		if(result == MemberService.PASSWORD_SUCCESS) {
@@ -129,5 +129,38 @@ public class MemberController {
 			model.addAttribute("member", member);
 		}
 		return "member/passwordmodify";
+	}
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modify(Member member, Model model, HttpServletRequest request, HttpSession session){
+		String strResult = "success";
+		try{
+		System.out.println("mpassword : " + member.getMpassword());
+		System.out.println("mnickname : " + member.getMnickname());
+		System.out.println("mname : " + member.getMname());
+		System.out.println("mage : " + member.getMage());
+		System.out.println("msex : " + member.getMsex());
+		System.out.println("memail : " + member.getMemail());
+		System.out.println("mlocal :" + member.getMlocal());
+		System.out.println("mtel : " + member.getMtel());
+		System.out.println("originalfilename: " + member.getMphoto().getOriginalFilename());
+		System.out.println("mimetype: " + member.getMphoto().getContentType());
+
+		
+		String savedfile = new Date().getTime() + member.getMphoto().getOriginalFilename();
+		String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
+		member.getMphoto().transferTo(new File(savePath));
+		
+		member.setOriginalfile(member.getMphoto().getOriginalFilename());
+		member.setMimetype(member.getMphoto().getContentType());
+		member.setSavedfile(savedfile);
+		
+		int result = memberService.modify(member);
+		} catch(Exception e){
+			e.printStackTrace();
+			strResult = "fail";
+		}
+		model.addAttribute("result", strResult);
+		return "member/modify";
 	}
 }

@@ -85,7 +85,7 @@ public class MemberService {
 	
 	public int modify(Member member) {
 		Member dbMember = memberDao.selectByMid(member.getMid());
-		if(dbMember.getMpassword().equals(member.getMpassword())==false){return MODIFY_FAIL;};
+		if(dbMember.getMpassword().equals(member.getMpassword())==false){return MODIFY_FAIL;}
 		int row = memberDao.update(member);
 		if(row !=1) {return MODIFY_FAIL;}
 		return MODIFY_SUCCESS;

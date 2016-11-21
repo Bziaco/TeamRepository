@@ -34,7 +34,7 @@
 	<!-- 메뉴 -->
 	<div id="main-navbar">
 		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
-			<a>MatchingProject</a>
+
 			<div style="float: right; margin-right: 10px;">
 				<button id="btnLogin" type="button" class="btn btn-default"
 					data-toggle="modal" data-target="#loginModal">Login</button>
@@ -180,11 +180,7 @@
 
 		<!-- footer -->
 		<footer>
-			<ul>
-				<li><a href="#">sitemap</a></li>
-				<li><a href="#">contact</a></li>
-				<li><a href="#">community</a></li>
-			</ul>
+			
 			<span>copyright 2016 Cartier All right reserved.</span>
 		</footer>
 
@@ -202,13 +198,13 @@
 						<div class="form-login">
 							<h4>LOGIN</h4>
 							<input type="text" id="mid"
-								class="form-control input-sm chat-input" placeholder="username" value="user" />
+								class="form-control input-sm chat-input" placeholder="username" value="test" />
 							</br> <input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="password" value="kosa12345" />
+								class="form-control input-sm chat-input" placeholder="password" value="${member.mpassword}" />
 							</br>
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnLogin" href="#"
-									class="btn btn-primary btn-md">login <iclass ="fafa-sign-in">
+									class="btn btn-primary btn-md">login <i class ="fafa-sign-in">
 										</i></a></span>
 							</div>
 							<br /> <a href="" style="margin-right: 15px; margin-left: 30px">Find
@@ -275,7 +271,7 @@
 								class="form-control input-sm chat-input" placeholder="Local" value="Seoul"/></br> 
 							<input type="text" id="mtel"
 								class="form-control input-sm chat-input" placeholder="Tel" value="010-123-1234"/> </br>
-							<input type="file" id="mphoto" class="form-control input-sm chat-input" multiple/> <br/>
+							<input type="file" id="mphoto" multiple/> <br/>
 
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnResist" href="#"
@@ -329,24 +325,28 @@
 					<div class="col-md-offset-5 col-md-3">
 						<div class="form-login">
 							<h4>Modification</h4>
-							<input type="text" id="mid"
-								class="form-control input-sm chat-input" placeholder="ID" /> </br> <input
-								type="text" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="Password" />
+							<input type="file" id="mphoto" multiple/> <br/>
+							<input type="password" id="mpassword" class="form-control input-sm chat-input" placeholder="Password" value="${member.mpassword}" />
 							</br> <input type="text" id="mnickname"
-								class="form-control input-sm chat-input" placeholder="Nickname" />
+								class="form-control input-sm chat-input" placeholder="Nickname" value="${member.mnickname}"/>
 							</br> <input type="text" id="mname"
-								class="form-control input-sm chat-input" placeholder="Name" />
-							</br> <input type="text" id="mage"
-								class="form-control input-sm chat-input" placeholder="Age" /> </br>
-							<input type="text" id="msex"
-								class="form-control input-sm chat-input" placeholder="Sex" /> </br>
+								class="form-control input-sm chat-input" placeholder="Name" value="${member.mname}"/>
+							</br> <input type="number" id="mage"
+								class="form-control input-sm chat-input" placeholder="Age" value="${member.mage}"/> </br>
+								
+							<select class="form-control input-sm chat-input" id="msex" value="${member.msex}">
+								<option checked value="M">Male</option>
+								<option value="F">Female</option>
+							</select></br>
+							
+							
+							
 							<input type="text" id="memail"
-								class="form-control input-sm chat-input" placeholder="Email" />
+								class="form-control input-sm chat-input" placeholder="Email" value="${member.memail}"/>
 							</br> <input type="text" id="mlocal"
-								class="form-control input-sm chat-input" placeholder="Local" />
+								class="form-control input-sm chat-input" placeholder="Local" value="${member.mlocal}"/>
 							</br> <input type="text" id="mtel"
-								class="form-control input-sm chat-input" placeholder="Tel" /> </br>
+								class="form-control input-sm chat-input" placeholder="Tel" value="${member.btel}"/> </br>
 							<span class="group-btn"> <a id="btnModify" href="#"
 								class="btn btn-primary btn-md">modify <i
 									class="fa fa-sign-in"></i>

@@ -4,11 +4,7 @@
 
 <c:if test="${member != null}">
 	{
-		"result":"success",
-		"member": {
-			"mid":"${member.mid}",
-			"mname":"${member.mname}"
-		}
+		"result":"success"
 	}
 </c:if>
 

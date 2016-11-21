@@ -7,8 +7,13 @@
 		"result":"success",
 		"member": {
 			"mid":"${member.mid}",
+			"mnickname":"${member.mnickname}",
 			"mname":"${member.mname}",
-			
+			"mage":"${member.mage}",
+			"msex":"${member.msex}",
+			"memail":"${member.memail}",
+			"mlocal":"${member.mlocal}",
+			"mtel":"${member.mtel}"
 		}
 	}
 </c:if>

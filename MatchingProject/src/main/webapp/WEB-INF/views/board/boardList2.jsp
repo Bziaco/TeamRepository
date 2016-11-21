@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
@@ -19,10 +18,12 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-
 </head>
 
-<body id="wrap" style="overflow: hidden;">
+<body id="wrap">
+
+	<%@include file="../menu.jsp"%>
+
 
 	<div class="container">
 		<div class="mail-box">
@@ -31,19 +32,17 @@
 					<h3>Free Board</h3>
 					<form class="pull-right position">
 						<div class="input-append">
-							<input id="keyword" type="text" class="sr-input"
-								placeholder="Search">
+							<input id="keyword" type="text" class="sr-input" placeholder="Search">
 							<button id="btnSearch" class="btn sr-btn" type="button">
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
 					</form>
 				</div>
-
+				
 				<div class="inbox-body">
 					<div class="btn-toolbar">
-						<button class="btn btn-primary" id="btnWrite" type="button"
-							data-toggle="modal" data-target="#writeModal">Write</button>
+						<button class="btn btn-primary" id="btnWrite" type="button" data-toggle="modal" data-target="#writeModal">Write</button>
 					</div>
 
 					<div class="container">
@@ -73,15 +72,13 @@
 													<td>${board.bdate}</td>
 													<td><p data-placement="top" data-toggle="tooltip"
 															title="Edit">
-															<button id="btnUpdate" class="btn btn-primary btn-xs"
-																data-bno="${board.bno}">
+															<button id="btnUpdate" class="btn btn-primary btn-xs" data-bno="${board.bno}">
 																<span class="glyphicon glyphicon-pencil"></span>
 															</button>
 														</p></td>
 													<td><p data-placement="top" data-toggle="tooltip"
 															title="Delete">
-															<button class="btn btn-danger btn-xs" id="btnDelete"
-																data-bno="${board.bno}">
+															<button class="btn btn-danger btn-xs" id="btnDelete" data-bno="${board.bno}">
 																<span class="glyphicon glyphicon-trash"></span>
 															</button>
 														</p></td>
@@ -92,29 +89,29 @@
 
 									<div class="clearfix"></div>
 									<ul class="pagination pull-right">
-										<li><c:if test="${groupNo==1}">
-												<span class="glyphicon glyphicon-chevron-left"
-													style="color: gray"></span>
-											</c:if> <c:if test="${groupNo>1}">
-												<a
-													href="boardList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
-													class="glyphicon glyphicon-chevron-left"
-													style="color: green"></span></a>
-											</c:if></li>
-
+										<li>
+											<c:if test="${groupNo==1}">
+												<span class="glyphicon glyphicon-chevron-left" style="color:gray"></span>
+											</c:if>
+											<c:if test="${groupNo>1}">
+												<a href="boardList?pageNo=${startPageNo-1}&keyword=${keyword}"><span class="glyphicon glyphicon-chevron-left" style="color:green"></span></a>
+											</c:if>
+										</li>
+										
 										<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
-											<li <c:if test="${pageNo==i}">class="active"</c:if>><a
-												href="boardList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
+											<li <c:if test="${pageNo==i}">class="active"</c:if>>
+												<a href="boardList?pageNo=${i}&keyword=${keyword}">${i}</a>											
+											</li>
 										</c:forEach>
-
-										<li><c:if test="${groupNo==totalGroupNo}">
-												<span class="glyphicon glyphicon-chevron-right"
-													style="color: gray"></span>
-											</c:if> <c:if test="${groupNo<totalGroupNo}">
-												<a href="boardList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
-													class="glyphicon glyphicon-chevron-right"
-													style="color: green"></span></a>
-											</c:if></li>
+										
+										<li>
+											<c:if test="${groupNo==totalGroupNo}">
+												<span class="glyphicon glyphicon-chevron-right" style="color:gray"></span>
+											</c:if>
+											<c:if test="${groupNo<totalGroupNo}">
+												<a href="boardList?pageNo=${endPageNo+1}&keyword=${keyword}"><span class="glyphicon glyphicon-chevron-right" style="color:green"></span></a>
+											</c:if>
+										</li>
 									</ul>
 								</div>
 
@@ -127,8 +124,8 @@
 	</div>
 
 	<!-- 글쓰기 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="writeModal"
-		role="dialog" aria-labelledby="edit" aria-hidden="true">
+	<div style="z-index: 5000" class="modal fade" id="writeModal" role="dialog"
+		aria-labelledby="edit" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -136,22 +133,19 @@
 						aria-hidden="true">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>
-					<h4 class="modal-title custom_align" id="Heading">Do you went
-						to write?</h4>
+					<h4 class="modal-title custom_align" id="Heading">Do you went to write?</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<input class="form-control " type="text" placeholder="Title"
-							id="btitle">
+						<input class="form-control " type="text" placeholder="Title" id="btitle">
 					</div>
 					<div class="form-group">
-						<textarea rows="2" class="form-control" placeholder="Content"
-							id="bcontent"></textarea>
-					</div>
+						<textarea rows="2" class="form-control" placeholder="Content" id="bcontent"></textarea>
+					</div> 
 				</div>
 				<div class="modal-footer ">
-					<a class="btn btn-warning btn-lg" id="btnwrite" href="#"> <span
-						class="glyphicon glyphicon-ok-sign"></span> Submit
+					<a class="btn btn-warning btn-lg" id="btnwrite" href="#">
+						<span class="glyphicon glyphicon-ok-sign"></span> Submit
 					</a>
 				</div>
 			</div>
@@ -174,12 +168,10 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<input id="btitle" class="form-control " type="text"
-							placeholder="Title">
+						<input id="btitle" class="form-control " type="text" placeholder="Title">
 					</div>
 					<div class="form-group">
-						<textarea id="bcontent" rows="2" class="form-control"
-							placeholder="Content"></textarea>
+						<textarea id="bcontent" rows="2" class="form-control" placeholder="Content"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer ">
@@ -207,8 +199,8 @@
 						aria-hidden="true">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>
-					<h4 class="modal-title custom_align" id="Heading">Delete this
-						entry</h4>
+					<h4 class="modal-title custom_align" id="Heading">Delete
+						this entry</h4>
 				</div>
 				<div class="modal-body">
 

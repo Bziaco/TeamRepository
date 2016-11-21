@@ -30,57 +30,6 @@
 </head>
 <body id="wrap">
 
-	<!-- 메뉴 -->
-	<div id="main-navbar">
-		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
-			<a>Best Guide</a>
-			<div style="float: right; margin-right: 10px;">
-				<button id="btnLogin" type="button" class="btn btn-default"
-					data-toggle="modal" data-target="#loginModal">Login</button>
-				<button id="btnLogout" type="button" class="btn btn-default"
-					style="display: none;">Logout</button>
-				<button id="btnResist" type="button" class="btn btn-default"
-					data-toggle="modal" data-target="#resistModal">Resist</button>
-
-			</div>
-		</h1>
-		<div id="toggle-sidebar">
-			<img src="http://minimar0.dothome.co.kr/img/btn_menu.png" width="28"
-				alt="메뉴 전체보기" />
-		</div>
-	</div>
-	<div id="main-sidebar">
-		<div class="close-sb">HOME</div>
-		<nav>
-			<ul>
-				<li id="menu1" class="depth1"><a>My Page</a>
-					<ul style="display: none" id="change_me1">
-						<li><a data-toggle="modal" data-target="#passwordmodifyModal">Modify</a></li>
-						<li><a data-toggle="modal" data-target="#infoModal">Info</a></li>
-						<li><a data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
-					</ul></li>
-				<li id="menu2" class="depth2"><a>Resist</a>
-					<ul style="display: none" id="change_me2">
-						<li><a data-toggle="modal" data-target="#guideModal">Guide
-								Resist</a></li>
-						<li><a data-toggle="modal" data-target="#touristModal">Tourist
-								resist</a></li>
-					</ul></li>
-				<li id="menu3" class="depth3"><a>My Two+</a>
-					<ul style="display: none" id="change_me3">
-						<li><a data-toggle="modal" data-target="#scheduleModal">My
-								Schedule</a></li>
-						<li><a data-toggle="modal" data-target="#matchtouristModal">Matching
-								Tourist</a></li>
-						<li><a data-toggle="modal" data-target="#matchguideModal">Matching
-								Guide</a></li>
-					</ul></li>
-			</ul>
-		</nav>
-	</div>
-
-	<!-- BestGuide 메뉴 -->
-
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3 col-md-3">

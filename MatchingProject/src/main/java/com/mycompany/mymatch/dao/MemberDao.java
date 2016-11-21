@@ -41,15 +41,15 @@ public class MemberDao {
 //---------------------------------------------------------------------------------------------------------------------------------
 	
 		public int update(Member member) {
-			String sql = "update member set mpassword=?, mnickname=?, mname=?, mage=?, msex=?, memail=?, mlocal=?, mtel=?, originalfile=?, savefile=?, mimetype=? where mid=?";
+			String sql = "update member set mpassword=?, mnickname=?, mage=?, msex=?, memail=?, mlocal=?, mtel=?, originalfile=?, savedfile=?, mimetype=? where mid=?";
 			int row =jdbcTemplate.update(
 					sql,
 					member.getMpassword(),
 					member.getMnickname(),
-					member.getMname(),
 					member.getMage(),
 					member.getMsex(),
 					member.getMemail(),
+					member.getMlocal(),
 					member.getMtel(),
 					member.getOriginalfile(),
 					member.getSavedfile(),

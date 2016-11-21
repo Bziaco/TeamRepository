@@ -20,7 +20,10 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
 </head>
 
-<body id="wrap" style="overflow: hidden;">
+<body id="wrap">
+
+	<%@include file="../menu.jsp"%>
+
 
 	<div class="container">
 		<div class="mail-box">

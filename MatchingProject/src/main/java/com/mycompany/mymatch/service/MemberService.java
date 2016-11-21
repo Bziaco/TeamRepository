@@ -85,8 +85,23 @@ public class MemberService {
 	
 	public int modify(Member member) {
 		Member dbMember = memberDao.selectByMid(member.getMid());
-		if(dbMember.getMpassword().equals(member.getMpassword())==false){return MODIFY_FAIL;}
-		int row = memberDao.update(member);
+		if(member.getMpassword() != null) {
+			dbMember.setMpassword(member.getMpassword());
+		}
+		dbMember.setMnickname(member.getMnickname());
+		dbMember.setMage(member.getMage());
+		dbMember.setMsex(member.getMsex());
+		dbMember.setMtel(member.getMtel());
+		dbMember.setMemail(member.getMemail());
+		dbMember.setMlocal(member.getMlocal());
+		if(member.getSavedfile() != null) {
+			dbMember.setOriginalfile(member.getOriginalfile());
+			dbMember.setSavedfile(member.getSavedfile());
+			dbMember.setMimetype(member.getMimetype());
+		} else {
+			System.out.println(dbMember.getOriginalfile());
+		}
+		int row = memberDao.update(dbMember);
 		if(row !=1) {return MODIFY_FAIL;}
 		return MODIFY_SUCCESS;
 	}

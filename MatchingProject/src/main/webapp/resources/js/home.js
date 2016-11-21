@@ -84,6 +84,17 @@
 	});
 	
 	
+	/*로그아웃*/
+	$("#btnLogout").click(function() {
+		$.ajax({
+			url:"/mymatch/member/logout",
+			success: function(data) {
+			}
+		});
+		
+	});
+	
+	
 	/*패스워드 확인*/
 	$("#passwordmodifyModal #inputPassword").click(function(){
 		var mpassword = $("#passwordmodifyModal #mpassword").val();
@@ -98,12 +109,12 @@
 					$("#modifyModal").modal('show');
 					$("#modifyModal #mid").val(data.member.mid);
 					$("#modifyModal #mname").val(data.member.mname);
-/*					$("#modifyModal #mnickname").val(data.member.mnickname);
+					$("#modifyModal #mnickname").val(data.member.mnickname);
 					$("#modifyModal #mage").val(data.member.mage);
 					$("#modifyModal #msex").val(data.member.msex);
 					$("#modifyModal #memail").val(data.member.memail);
 					$("#modifyModal #mlocal").val(data.member.mlocal);
-					$("#modifyModal #mtel").val(data.member.mtel);*/
+					$("#modifyModal #mtel").val(data.member.mtel);
 				} else {
 					alert("패스워드가 틀림");
 				}
@@ -123,10 +134,8 @@
 		var memail = $("#modifyModal #memail").val();
 		var mlocal = $("#modifyModal #mlocal").val();
 		var mtel = $("#modifyModal #mtel").val();
-		var mphoto = $("#modifyModal #mphoto")[0].files[0];
 		
 		var data = new FormData();
-		data.append("mpassword", mid);
 		data.append("mpassword", mpassword);
 		data.append("mnickname", mnickname);
 		data.append("mname", mname);
@@ -135,7 +144,10 @@
 		data.append("memail", memail);
 		data.append("mlocal", mlocal);
 		data.append("mtel", mtel);
-		data.append("mphoto", mphoto);	
+		if($("#modifyModal #mphoto")[0].files.length != 0) {
+			var mphoto = $("#modifyModal #mphoto")[0].files[0];
+			data.append("mphoto", mphoto);	
+		}
 		
 		$.ajax({
 			url:"/mymatch/member/modify",

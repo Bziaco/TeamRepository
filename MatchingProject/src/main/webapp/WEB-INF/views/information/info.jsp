@@ -19,6 +19,7 @@
 </head>
 <body>
 
+<!-- sakura back -->
 <canvas id="sakura"></canvas>
 <div class="btnbg">
 </div>
@@ -563,6 +564,19 @@ void main(void) {
                 <div class="md-base"></div>
             </div> <!-- end macbook pro mockup -->
 
+
+			<!-- 페이지 -->
+			<div class="page">
+			<ul class="pagination">
+			              <li class="disabled"><a href="#">«</a></li>
+			              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			              <li><a href="#">2</a></li>
+			              <li><a href="#">3</a></li>
+			              <li><a href="#">4</a></li>
+			              <li><a href="#">5</a></li>
+			              <li><a href="#">»</a></li>
+			            </ul>
+			</div>
 
 
         </div> <!-- / .col-md-8 -->

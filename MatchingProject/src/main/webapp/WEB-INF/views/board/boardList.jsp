@@ -252,47 +252,64 @@
 
 	<!-- Detail page -->
 	<div style="z-index: 5000" class="modal fade" id="detailModal"
-		role="dialog" aria-labelledby="edit" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-						<img class="img-thumbnail"
-							src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
-							width="130" height="130">
+		tabindex="5" role="dialog" aria-labelledby="edite">
+		<div>
+			<div class="container">
+				<div class="">
+					<div
+						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h2 class="panel-title">Board Detail</h2>
+							</div>
+							<div class="panel-body">
+								<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									</button>
+								<div class="row">
+									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+										<img class="img-thumbnail" id="mphoto"
+											src="${pageContext.servletContext.contextPath}/resources/img/info.jpg"
+											width="200px" height="300px"></img>
+									</div>
+
+									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
+										<strong id="mname"></strong><br>
+										<table class="table table-user-information" style="height:250px;">
+											<tbody>
+												<tr>
+													<td>ID:</td>
+													<td id="id"></td>
+												</tr>
+												<tr>
+													<td>Count:</td>
+													<td id="count"></td>
+												</tr>
+												<tr>
+													<td>Date:</td>
+													<td id="date"></td>
+												</tr>
+												<tr>
+													<td>Title:</td>
+													<td id="title"></td>
+												</tr>
+												<tr>
+													<td>Content:</td>
+													<td id="content"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<table class="table table-user-information">
-						<tbody>
-							<tr>
-								<td>No:</td>
-							</tr>
-							<tr>
-								<td>Writer:</td>
-							</tr>
-							<tr>
-								<td>Title:</td>
-							</tr>
-							<tr>
-								<td>Content::</td>
-							</tr>
-							<tr>
-								<td>Date:</td>
-							</tr>
-							<tr>
-								<td>Count:</td>
-							</tr>
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
 

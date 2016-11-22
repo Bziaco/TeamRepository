@@ -1,11 +1,18 @@
 package com.mycompany.mymatch.dto;
 
-public class BestGuide {
+public class Guide {
 	private String gid;
 	private String glocal;
 	private String gintro;
-	private boolean gable;
-	
+	private String gable;
+	private int count;
+
+	public String getGable() {
+		return gable;
+	}
+	public void setGable(String gable) {
+		this.gable = gable;
+	}
 	public String getGid() {
 		return gid;
 	}
@@ -24,11 +31,10 @@ public class BestGuide {
 	public void setGintro(String gintro) {
 		this.gintro = gintro;
 	}
-	public boolean isGable() {
-		return gable;
+	public int getCount() {
+		return count;
 	}
-	public void setGable(boolean gable) {
-		this.gable = gable;
+	public void setCount(int count) {
+		this.count = count;
 	}
-	
 }

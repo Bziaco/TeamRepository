@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
 <link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/bestGuideList.css" />
+	href="${pageContext.servletContext.contextPath}/resources/css/guideList.css" />
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
@@ -26,7 +26,7 @@
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/bestGuide.js"></script>
+	src="${pageContext.servletContext.contextPath}/resources/js/guide.js"></script>
 </head>
 <body id="wrap">
 
@@ -46,28 +46,28 @@
 							<ul class="list-group" role="tablist">
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Seoul</a></li>
+									href="#" class="btnLocation" data-location="Seoul">Seoul</a></li>
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Pusan</a></li>
+									href="#" class="btnLocation" data-location="Pusan">Pusan</a></li>
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Daejun</a></li>
+									href="#" class="btnLocation" data-location="Daejun">Daejun</a></li>
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Ulsan</a></li>
+									href="#" class="btnLocation" data-location="Ulsan">Ulsan</a></li>
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Gwangju</a></li>
+									href="#" class="btnLocation" data-location="Gwangju">Gwangju</a></li>
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Incheon</a></li>
+									href="#" class="btnLocation" data-location="Incheon">Incheon</a></li>
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#">Kangwon</a></li>
+									href="#" class="btnLocation" data-location="Kangwon">Kangwon</a></li>
 							</ul>
 						</div>
 					</div>
@@ -80,10 +80,7 @@
 
 	<div class="container" style="margin-left: 200px" id="board1">
 		<div class="row">
-
-
 			<div class="col-md-10 col-md-offset-1">
-
 				<div class="panel panel-default panel-table">
 					<div class="panel-heading">
 						<div class="row">
@@ -93,30 +90,10 @@
 
 						</div>
 					</div>
-					<div class="panel-body">
-						<table class="table table-striped table-bordered table-list">
-							<thead>
-								<tr>
-									<th>No</th>
-									<th class="hidden-xs">ID</th>
-									<th>Local</th>
-									<th>Intro</th>
-									<th></th>
-									<th>Email</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td align="center">1</td>
-									<td class="hidden-xs">Bziaco</td>
-									<td>John Doe</td>
-									<td>johndoe@example.com</td>
-								</tr>
-							</tbody>
-						</table>
-
+					<div id="guideTable" class="panel-body">
+						
 					</div>
-					<div class="panel-footer">
+					<!-- <div class="panel-footer">
 						<div class="row">
 							<div class="col col-xs-4">Page 1 of 5</div>
 							<div class="col col-xs-8">
@@ -133,7 +110,7 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 			</div>

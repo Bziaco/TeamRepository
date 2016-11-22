@@ -64,7 +64,7 @@
 			<!-- article 영역 -->
 			<article class="three">
 				<a
-					href="${pageContext.servletContext.contextPath}/bestGuide/bestGuideList"><h2>Best
+					href="${pageContext.servletContext.contextPath}/guide/guideList"><h2>Best
 						Guide</h2></a>
 				<video loop="loop" preload="auto">
 					<source

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.TourlistDao;
-import com.mycompany.mymatch.dto.BestGuide;
+import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.dto.Tourlist;
 
 @Component

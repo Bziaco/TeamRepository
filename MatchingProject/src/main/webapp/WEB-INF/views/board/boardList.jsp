@@ -5,20 +5,33 @@
 <html>
 <head>
 
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
-	<link rel="stylesheet"href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/board.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/board.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
 
 </head>
 
@@ -66,7 +79,8 @@
 											<c:forEach var="board" items="${list}">
 												<tr>
 													<td>${board.bno}</td>
-													<td>${board.btitle}</td>
+													<td><a class="btnDetailModal" href="#"
+														data-bno="${board.bno}">${board.btitle}</a></td>
 													<td>${board.bcontent}</td>
 													<td>${board.mid}</td>
 													<td>${board.bhitcount}</td>
@@ -231,6 +245,53 @@
 			<!-- /.modal-content -->
 		</div>
 		<!-- /.modal-dialog -->
+	</div>
+
+
+
+
+	<!-- Detail page -->
+	<div style="z-index: 5000" class="modal fade" id="detailModal"
+		role="dialog" aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+						<img class="img-thumbnail"
+							src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
+							width="130" height="130">
+					</div>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table class="table table-user-information">
+						<tbody>
+							<tr>
+								<td>No:</td>
+							</tr>
+							<tr>
+								<td>Writer:</td>
+							</tr>
+							<tr>
+								<td>Title:</td>
+							</tr>
+							<tr>
+								<td>Content::</td>
+							</tr>
+							<tr>
+								<td>Date:</td>
+							</tr>
+							<tr>
+								<td>Count:</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

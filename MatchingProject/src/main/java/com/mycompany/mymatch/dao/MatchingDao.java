@@ -122,4 +122,10 @@ public class MatchingDao {
 		);
 		return list;
 	}
+	
+	public int countByGid(String gid) {
+		String sql = "select count(*) from matching where gid=?";
+		int count = jdbcTemplate.queryForObject(sql, new Object[] {gid}, Integer.class);
+		return count;
+	}	
 }

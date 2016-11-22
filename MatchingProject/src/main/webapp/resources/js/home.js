@@ -178,27 +178,18 @@
 	
 	/*유저정보*/
 	$("#btninfo").click(function(){
-		
 		$.ajax({
 			url:"/mymatch/member/info",
 			method: "post",
 			success: function(data) {
-				$("#infoModal #mname").val(data.member.mname);
-				$("#infoModal #mnickname").val(data.member.mnickname);
-				$("#infoModal #mage").val(data.member.mage);
-				$("#infoModal #msex").val(data.member.msex);
-				$("#infoModal #memail").val(data.member.memail);
-				$("#infoModal #mlocal").val(data.member.mlocal);
-				$("#infoModal #mtel").val(data.member.mtel);
-				console.log("mpassword: " + data.member.mpassword);
-				console.log("mnickname: " + mnickname);
-				console.log("mname: " + mname);
-				console.log("mage: " + mage);
-				console.log("msex: " + msex);
-				console.log("memail: " + memail);
-				console.log("mlocal: " + mlocal);
-				console.log("mtel: " + mtel);
-				console.log("mphoto: " + mphoto);
+				$("#infoModal #mname").html(data.member.mname);
+				$("#infoModal #mnickname").html(data.member.mnickname);
+				$("#infoModal #mage").html(data.member.mage);
+				$("#infoModal #msex").html(data.member.msex);
+				$("#infoModal #memail").html(data.member.memail);
+				$("#infoModal #mlocal").html(data.member.mlocal);
+				$("#infoModal #mtel").html(data.member.mtel);
+				$("#infoModal").modal("show");
 			}
 		});
 	});

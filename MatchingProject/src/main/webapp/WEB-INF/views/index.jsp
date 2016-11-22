@@ -48,7 +48,7 @@
 				<li id="menu1" class="depth1"><a>My Page</a>
 					<ul style="display: none" id="change_me1">
 						<li><a data-toggle="modal" data-target="#passwordmodifyModal">Modify</a></li>
-						<li><a id="btninfo" data-toggle="modal" data-target="#infoModal">Info</a></li>
+						<li><a id="btninfo" href="#">Info</a></li>
 						<li><a data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
 					</ul></li>
 				<li id="menu2" class="depth2"><a>Resist</a>
@@ -271,28 +271,28 @@
 										</div>
 
 										<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-											<strong id="mname">${member.mname}</strong><br>
+											<strong id="mname"></strong><br>
 											<table class="table table-user-information">
 												<tbody>
 													<tr>
 														<td>Nickname:</td>
-														<td id="mnickname">${member.mnickname}</td>
+														<td id="mnickname"></td>
 													</tr>
 													<tr>
 														<td>E-mail:</td>
-														<td id="memail">${member.memail}</td>
+														<td id="memail"></td>
 													</tr>
 													<tr>
 														<td>Age:</td>
-														<td id="mage">${member.mage}</td>
+														<td id="mage"></td>
 													</tr>
 													<tr>
 														<td>Local:</td>
-														<td id="mlocal">${member.mlocal}</td>
+														<td id="mlocal"></td>
 													</tr>
 													<tr>
 														<td>Tel:</td>
-														<td id="mtel">${member.mtel}</td>
+														<td id="mtel"></td>
 													</tr>
 												</tbody>  
 											</table>

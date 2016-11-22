@@ -20,29 +20,28 @@ public class MessageDao {
 		String sql = "insert into message(mno, mcontent, mdate, mfrom, mto) values(seq_message_mno.nextval,?,sysdate,?,?)";
 		int row = jdbcTemplate.update (
 				sql,
-				message.getMno(),
 				message.getMcontent(),
-				message.getMdate(),
 				message.getMfrom(),
 				message.getMto()
-				);
+		);
 		return row;
 	}
 	
 	
-	public List<Message> selectBymto(String mid) {
-		String sql = "select mno, mcontent, mdate, mfrom, mto from message where mno=?";
-		List<Message> list = jdbcTemplate.query(sql, new Object[]{mid}, new RowMapper<Message>(){
+	public List<Message> selectMessage(String mid, String chatter) {
+		String sql = "select mno, mcontent, mdate, mfrom, mto from message where (mfrom=? and mto=?) or (mfrom=? and mto=?) order by mdate desc";
+		List<Message> list = jdbcTemplate.query(sql, new Object[]{mid, chatter, chatter, mid}, new RowMapper<Message>() {
 			@Override
 			public Message mapRow(ResultSet rs, int row) throws SQLException {
-				Message ms = new Message();
-				ms.setMno(rs.getInt("mno"));
-				return ms;
+				Message message = new Message();
+				message.setMno(rs.getInt("mno"));
+				message.setMcontent(rs.getString("mcontent"));
+				message.setMdate(rs.getDate("mdate"));
+				message.setMfrom(rs.getString("mfrom"));
+				message.setMto(rs.getString("mto"));
+				return message;
 			}
 		});
-		return null;
-	}
-	
-	
-		
+		return list;
+	}		
 }

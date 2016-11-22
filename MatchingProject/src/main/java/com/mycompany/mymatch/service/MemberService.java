@@ -1,10 +1,13 @@
 package com.mycompany.mymatch.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dto.Member;
+import com.mycompany.mymatch.dto.Message;
 
 @Component
 public class MemberService {
@@ -136,7 +139,5 @@ public class MemberService {
 			return PASSWORD_FAIL;
 		}
 	}
-	
 
-	
 }

@@ -11,6 +11,8 @@ public class Message {
 	private Date mdate;
 	private String mfrom;
 	private String mto;
+	private String mfromPhoto;
+	private String mtoPhoto;
 	
 	public int getMno() {
 		return mno;
@@ -42,4 +44,16 @@ public class Message {
 	public void setMto(String mto) {
 		this.mto = mto;
 	}
+	public String getMfromPhoto() {
+		return mfromPhoto;
+	}
+	public void setMfromPhoto(String mfromPhoto) {
+		this.mfromPhoto = mfromPhoto;
+	}
+	public String getMtoPhoto() {
+		return mtoPhoto;
+	}
+	public void setMtoPhoto(String mtoPhoto) {
+		this.mtoPhoto = mtoPhoto;
+	}	
 }

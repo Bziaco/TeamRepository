@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Member;
+import com.mycompany.mymatch.dto.Message;
  
 @Component
 public class MemberDao {
@@ -107,9 +108,5 @@ public class MemberDao {
 				}
 			});
 			return (list.size() !=0)? list.get(0) : null;
-		}
-		
-		
-		
-		
+		}	
 }

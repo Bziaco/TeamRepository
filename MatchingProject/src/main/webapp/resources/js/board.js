@@ -94,6 +94,11 @@
     	}
     	location.href = url + "?keyword="+keyword;
     });
+    
+    $(".btnDetailModal").click(function() {
+    	var bno = $(this).attr("data-bno");
+    	$("#detailModal").modal("show");
+    });
 });
 
 

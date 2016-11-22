@@ -1,5 +1,8 @@
 package com.mycompany.mymatch.service;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,4 +30,8 @@ public class GuideService {
 		return JOIN_SUCCESS;
 	}
 
+	public List<Guide> findGuide(String glocal) {
+		List<Guide> list= guideDao.selectByGlocal(glocal);
+		return list;
+	}
 }

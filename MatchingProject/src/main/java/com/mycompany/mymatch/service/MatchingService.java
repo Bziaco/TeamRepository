@@ -43,6 +43,9 @@ public class MatchingService {
 	
 	public Matching info(int matchno){
 		return matchingDao.selectByMatch(matchno);
-		
+	}
+	
+	public int countByGid(String gid) {
+		return matchingDao.countByGid(gid);
 	}
 }

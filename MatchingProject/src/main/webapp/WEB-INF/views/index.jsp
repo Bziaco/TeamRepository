@@ -49,7 +49,7 @@
 					<ul style="display: none" id="change_me1">
 						<li><a data-toggle="modal" data-target="#passwordmodifyModal">Modify</a></li>
 						<li><a id="btninfo" href="#">Info</a></li>
-						<li><a data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
+						<li><a id="btnwithdraw" href="#" data-toggle="modal" data-target="#withdrawModal">withdraw</a></li>
 					</ul></li>
 				<li id="menu2" class="depth2"><a>Resist</a>
 					<ul style="display: none" id="change_me2">
@@ -265,9 +265,9 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-											<img class="img-thumbnail"
-												src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
-												 width="130" height="130">
+											<img class="img-thumbnail" id="mphoto"
+												
+												 width="130" height="130"></img>
 										</div>
 
 										<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
@@ -395,9 +395,9 @@
 								placeholder="Tourist Local" /> </br>
 							<textarea id="touristIntro"
 								class="form-control input-sm chat-input"
-								placeholder="Tourlist Introuce"></textarea>
-							</br> <input type="date" class="form-control input-sm chat-input"
-								placeholder="to" /> ~ <input type="date"
+								placeholder="Tourlist Introduce"></textarea>
+							</br> <input id="toDate" type="date" class="form-control input-sm chat-input"
+								placeholder="to" /> ~ <input id="fromDate" type="date"
 								class="form-control input-sm chat-input" placeholder="from" />
 							<!--
 							    <span class="add-on">

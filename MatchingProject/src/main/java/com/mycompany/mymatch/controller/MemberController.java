@@ -1,6 +1,7 @@
 package com.mycompany.mymatch.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -110,10 +111,32 @@ public class MemberController {
 //-------------------------------------------------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/info")
-	public String info(Member member, HttpSession session, Model model) {
+	public String info(Member member, HttpSession session, Model model, HttpServletRequest request) {
 		String mid = (String) session.getAttribute("login");
 		member = memberService.getMember(mid);
+		if(member.getMphoto()!= null && !member.getMphoto().isEmpty()) {
+			System.out.println("originalfilename: " + member.getMphoto().getOriginalFilename());
+			System.out.println("mimetype: " + member.getMphoto().getContentType());
+			
+			String savedfile = new Date().getTime() + member.getMphoto().getOriginalFilename();
+			String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
+			try {
+				member.getMphoto().transferTo(new File(savePath));
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			member.setOriginalfile(member.getMphoto().getOriginalFilename());
+			member.setMimetype(member.getMphoto().getContentType());
+			member.setSavedfile(savedfile);
+		}
 		model.addAttribute("member", member);
+		System.out.println(member.getSavedfile());
+		System.out.println(member.getMimetype());
 		return "member/info";
 	}
 	
@@ -166,5 +189,16 @@ public class MemberController {
 		}
 		model.addAttribute("result", strResult);
 		return "member/modify";
+	}
+	
+	
+	@RequestMapping("/withdraw")
+	public String withdraw(String mid, Member member, HttpSession session){
+		mid = (String) session.getAttribute("login");
+		member.setMid(mid);
+		System.out.println("widthdrawController: " + member.getMid());
+		memberService.withdraw(member.getMid());
+		
+		return "member/withdraw";
 	}
 }

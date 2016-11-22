@@ -65,6 +65,7 @@ public class MemberDao {
 		public int delete(String mid) {
 			String sql = "delete from member where mid=?";
 			int row =jdbcTemplate.update(sql, mid);
+			System.out.println(mid);
 			return row;
 		}
 		

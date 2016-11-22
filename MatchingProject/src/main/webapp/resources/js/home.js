@@ -181,6 +181,9 @@
 		$.ajax({
 			url:"/mymatch/member/info",
 			method: "post",
+			cache: false,
+			processData: false,
+			contentType: false,
 			success: function(data) {
 				$("#infoModal #mname").html(data.member.mname);
 				$("#infoModal #mnickname").html(data.member.mnickname);
@@ -189,9 +192,77 @@
 				$("#infoModal #memail").html(data.member.memail);
 				$("#infoModal #mlocal").html(data.member.mlocal);
 				$("#infoModal #mtel").html(data.member.mtel);
+				$("#infoModal #mphoto").attr('src', data.member.savedfile)
+				/*$("#infoModal #mphoto").html(data.member.savedfile);*/
+				/*$("#infoModal #mphoto").html(data.member.mimetype);*/
+				
+				console.log("mtel: " + data.member.mtel);
+				console.log("mphoto: " + data.member.savedfile);
+				/*console.log("mphoto: " + data.member.mimetype);*/
 				$("#infoModal").modal("show");
 			}
 		});
+	});
+	
+	/*탈퇴*/
+	$("#withdrawModal #Okwithdraw").click(function(){
+
+		$.ajax({
+			url:"/mymatch/member/withdraw",
+			success: function(data){
+				console.log("withdraw");
+			}
+		});
+	});
+	
+	/*가이드 등록*/
+	$("#guideModal #btnguideresist").click(function(){
+		var guideLocal = $("#guideModal #guideLocal").val();
+		var guideIntroduce = $("#guideModal #guideIntro").val();
+		
+		console.log("guideLocal: " + guideLocal);
+		console.log("guideIntro: " + guideIntroduce);
+		
+		$.ajax({
+			url:"/mymatch/guide/guideResist",
+			data: {glocal:guideLocal, gintro:guideIntroduce},
+			method:"post",
+			success: function(data) {
+				if(data.result == "success") {
+					$("#guideModal").modal("hide");
+				} else {
+					alert("가이드 등록 실패");
+				}
+			}
+		});
+	});
+	
+	/*관광객 등록*/
+	$("#touristModal #btnTouristResist").click(function(){
+		var touristLocal = $("#touristModal #touristLocal").val();
+		var touristIntro = $("#touristModal #touristIntro").val();
+		var toDate = $("#touristModal #toDate").val();
+		var fromDate = $("#touristModal #fromDate").val();
+		
+		console.log("touristLocal: " + touristLocal);
+		console.log("touristIntro: " + touristIntro);
+		console.log("toDate: " + toDate);
+		console.log("fromDate: " + fromDate);
+		console.log(typeof(toDate));
+		
+		$.ajax({
+			url:"/mymatch/tourist/touristResist",
+			data: {"tlocal":touristLocal, "tintro":touristIntro, "tstartdate":toDate, "tenddate":fromDate},
+			method: "post",
+			success: function(data){
+				/*if(data.result == "success") {
+					$("#touristModal").modal("hide");
+				} else {
+					alert("관광객 등록 실패");
+				}*/
+			}
+		});
+		
 	});
 });
 

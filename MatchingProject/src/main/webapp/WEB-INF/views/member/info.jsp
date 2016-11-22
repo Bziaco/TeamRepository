@@ -11,6 +11,8 @@
 		"msex":"${member.msex}",
 		"memail":"${member.memail}",
 		"mlocal":"${member.mlocal}",
-		"mtel":"${member.mtel}"
+		"mtel":"${member.mtel}",
+		"mphoto":"${member.savedfile}"
+		<%-- "mphoto":"${member.mimetype}" --%>
 	}
 }

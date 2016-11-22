@@ -22,8 +22,8 @@ public class MemberService {
 	public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
 	
-	public static final int WITHDAW_SUCCESS = 0;
-	public static final int WITHDRAW_FAIL = 1;
+	public static final int WITHDRAW_SUCCESS = 0;
+	public static final int WITHDRRAW_FAIL = 1;
 	
 	
 	public static final int PASSWORD_SUCCESS = 0;
@@ -110,11 +110,12 @@ public class MemberService {
 	
 //--------------------------------------------------------------------------------------------		
 	
-	public int withdraw(String mid, String mpassword) {
-		Member member = memberDao.selectByMid(mid);
-		if(member.getMpassword().equals(mpassword) == false) {return WITHDRAW_FAIL;}
+	public int withdraw(String mid) {
 			memberDao.delete(mid);
-			return WITHDAW_SUCCESS;
+			
+			System.out.println("withdrawServic: " + mid);
+			logout();
+			return WITHDRAW_SUCCESS;
 	}
 	
 	

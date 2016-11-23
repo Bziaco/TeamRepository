@@ -192,13 +192,14 @@
 				$("#infoModal #memail").html(data.member.memail);
 				$("#infoModal #mlocal").html(data.member.mlocal);
 				$("#infoModal #mtel").html(data.member.mtel);
-				$("#infoModal #mphoto").attr('src', data.member.savedfile)
+				//$("#infoModal #mphoto").attr('src', data.member.savedfile)
 				/*$("#infoModal #mphoto").html(data.member.savedfile);*/
 				/*$("#infoModal #mphoto").html(data.member.mimetype);*/
 				
 				console.log("mtel: " + data.member.mtel);
 				console.log("mphoto: " + data.member.savedfile);
-				/*console.log("mphoto: " + data.member.mimetype);*/
+				console.log("mphoto: " + data.member.mimetype);
+				
 				$("#infoModal").modal("show");
 			}
 		});

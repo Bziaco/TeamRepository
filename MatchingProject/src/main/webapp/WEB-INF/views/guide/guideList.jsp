@@ -162,7 +162,7 @@
 													<td>Hitcount:</td>
 													<td id="hitcount"></td>
 												</tr>
-											</tbody>
+											</tbody> 
 										</table>
 									</div>
 								</div>

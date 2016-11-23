@@ -1,11 +1,13 @@
 package com.mycompany.mymatch.controller;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mycompany.mymatch.dto.Member;
-import com.mycompany.mymatch.dto.Message;
 import com.mycompany.mymatch.service.MemberService;
 
 
@@ -112,32 +113,11 @@ public class MemberController {
 //-------------------------------------------------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/info")
-	public String info(Member member, HttpSession session, Model model, HttpServletRequest request) {
+	public String info(Model model, HttpSession session) {
 		String mid = (String) session.getAttribute("login");
-		member = memberService.getMember(mid);
-		if(member.getMphoto()!= null && !member.getMphoto().isEmpty()) {
-			System.out.println("originalfilename: " + member.getMphoto().getOriginalFilename());
-			System.out.println("mimetype: " + member.getMphoto().getContentType());
-			
-			String savedfile = new Date().getTime() + member.getMphoto().getOriginalFilename();
-			String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
-			try {
-				member.getMphoto().transferTo(new File(savePath));
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			member.setOriginalfile(member.getMphoto().getOriginalFilename());
-			member.setMimetype(member.getMphoto().getContentType());
-			member.setSavedfile(savedfile);
-		}
-		model.addAttribute("member", member);
+		Member member = memberService.getMember(mid);
 		System.out.println(member.getSavedfile());
-		System.out.println(member.getMimetype());
+		model.addAttribute("member", member);
 		return "member/info";
 	}
 	
@@ -201,5 +181,29 @@ public class MemberController {
 		memberService.withdraw(member.getMid());
 		
 		return "member/withdraw";
+	}
+	
+	@RequestMapping("/getPhoto")
+	public void getPhoto(String savedfile, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String fileName = savedfile;
+
+			String mimeType = request.getServletContext().getMimeType(fileName);
+			response.setContentType(mimeType);
+			
+			OutputStream os = response.getOutputStream();
+			String filePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + fileName);
+			InputStream is = new FileInputStream(filePath);
+			byte[] values = new byte[1024];
+			int byteNum = -1;
+			while((byteNum = is.read(values)) != -1) {
+				os.write(values, 0, byteNum);
+			}
+			os.flush();
+			is.close();
+			os.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

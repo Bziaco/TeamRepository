@@ -13,7 +13,7 @@ public class TourlistDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Tourist tourist) {
-		String sql="insert into tourlist(gid, glocal, gstartdate, genddate, gintro) values(?,?,?,?,?)";
+		String sql="insert into tourlist(tid, tlocal, tstartdate, tenddate, tintro) values(?,?,?,?,?)";
 		int row=jdbcTemplate.update(
 				sql,
 				tourist.getTid(),

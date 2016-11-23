@@ -279,14 +279,6 @@
 										<table class="table table-user-information" style="height:250px;">
 											<tbody>
 												<tr>
-													<td>ID:</td>
-													<td id="id"></td>
-												</tr>
-												<tr>
-													<td>Count:</td>
-													<td id="count"></td>
-												</tr>
-												<tr>
 													<td>Date:</td>
 													<td id="date"></td>
 												</tr>
@@ -297,6 +289,14 @@
 												<tr>
 													<td>Content:</td>
 													<td id="content"></td>
+												</tr>
+												<tr>
+													<td>Writer:</td>
+													<td id="writer"></td>
+												</tr>
+												<tr>
+													<td>Hitcount:</td>
+													<td id="hitcount"></td>
 												</tr>
 											</tbody>
 										</table>

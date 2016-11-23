@@ -14,7 +14,7 @@
 	<tbody>
 		<c:forEach var="guide" items="${list}">
 			<tr>
-				<td align="center"><a  id="btnDetailModal" href="#" >${guide.gid}</a></td>
+				<td align="center"><a class="btnDetailModal" href="#" data-gid="${guide.gid}">${guide.gid}</a></td>
 				<td class="hidden-xs">${guide.glocal}</td>
 				<td>${guide.gintro}</td>
 				<td>${guide.count}</td>
@@ -22,6 +22,8 @@
 		</c:forEach>	
 	</tbody>
 </table>
+
+
 
 
 

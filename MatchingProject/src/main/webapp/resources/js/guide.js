@@ -14,8 +14,8 @@
 	});
 	
 	
-	$("#btnDetailModal").click(function(){ 
-
+	$(document).on('click', '.btnDetailModal', function() {
+		var gid = $(this).attr("data-gid");
 		$.ajax({
 			url:"/mymatch/guide/getList",
 			data:{gid:gid},
@@ -23,7 +23,6 @@
 			success: function(data) {
 				console.log(data);
 				$("#detailModal").modal("show");
-
 			}
 		});
 	});

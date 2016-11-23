@@ -8,7 +8,7 @@ public class Matching {
 	private int matchno;
 	private String gid;
 	private String mid;
-	@DateTimeFormat(pattern="yyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date matchdate;
 	private int score;
 	private int bno;
@@ -16,7 +16,7 @@ public class Matching {
 	private String bcontent;
 	private String bwriter;
 	private int bhitcount;
-	@DateTimeFormat(pattern="yyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date bdate;
 	private String savedfile;
 	

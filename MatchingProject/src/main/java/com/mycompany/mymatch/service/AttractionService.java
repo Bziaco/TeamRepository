@@ -20,7 +20,7 @@ public class AttractionService {
 	@Autowired
 	private  AttractionDao attractionDao;
 	
-	public int write(Attraction attraction) {
+	/*public int write(Attraction attraction) {
 		int row = attractionDao.insert(attraction);
 		return WRITE_SUCESS;
 	}
@@ -35,7 +35,7 @@ public class AttractionService {
 		int row = attractionDao.delete(ano);
 		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCESS;
-	}
+	}*/
 	
 	public Attraction info(int ano) {
 		return attractionDao.selectByAno(ano);

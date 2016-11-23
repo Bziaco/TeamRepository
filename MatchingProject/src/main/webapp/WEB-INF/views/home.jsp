@@ -29,7 +29,7 @@
 
 			<!-- article 영역 -->
 			<article clss="one">
-				<a href="${pageContext.servletContext.contextPath}/information/info"><h2>Information</h2></a>
+				<a href="${pageContext.servletContext.contextPath}/attraction/attractionList"><h2>Information</h2></a>
 				<video loop="loop" preload="auto">
 					<source
 						src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4"

@@ -17,11 +17,12 @@ public class AttractionDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Attraction attraction) {
-		String sql = "insert into attraction(ano, aname, alocation, latitude, hardness, beacon) values(?,?,?,?,?,?)";
+		String sql = "insert into attraction(ano, aname, ainfo, alocation, latitude, hardness, beacon) values(?,?,?,?,?,?)";
 		int row = jdbcTemplate.update(
 				sql,
 				attraction.getAno(),
 				attraction.getAname(),
+				attraction.getAinfo(),
 				attraction.getAlocation(),
 				attraction.getLatitude(),
 				attraction.getHardness(),
@@ -31,10 +32,11 @@ public class AttractionDao {
 	}
 	
 	public int update(Attraction attraction) {
-		String sql = "update attraction set aname=?, aloction=?, latitude=?, hardness=?, beacon=? where ano=?";
+		String sql = "update attraction set aname=?, ainfo=?, aloction=?, latitude=?, hardness=?, beacon=? where ano=?";
 		int row = jdbcTemplate.update(
 				sql,
 				attraction.getAname(),
+				attraction.getAinfo(),
 				attraction.getAlocation(),
 				attraction.getLatitude(),
 				attraction.getHardness(),
@@ -51,7 +53,7 @@ public class AttractionDao {
 	}
 
 	public Attraction selectByAno(int ano) {
-		String sql = "select ano, aname, alocation, latitude, hardness, beacon from attraction where ano = ?";
+		String sql = "select ano, aname, ainfo, alocation, latitude, hardness, beacon from attraction where ano = ?";
 		List<Attraction> list = jdbcTemplate.query(sql, new Object[]{ano}, new RowMapper<Attraction> () {
 			
 			@Override
@@ -59,6 +61,7 @@ public class AttractionDao {
 				Attraction attraction = new Attraction();
 				attraction.setAno(rs.getInt("ano"));
 				attraction.setAname(rs.getString("aname"));
+				attraction.setAinfo(rs.getString("ainfo"));
 				attraction.setAlocation(rs.getString("alocation"));
 				attraction.setLatitude(rs.getInt("latitude"));
 				attraction.setHardness(rs.getInt("hardness"));

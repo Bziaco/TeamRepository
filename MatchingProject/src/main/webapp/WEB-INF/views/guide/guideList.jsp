@@ -117,12 +117,11 @@
 		</div>
 	</div>
 	
-	
-<!-- Guide Detail -->
+	<!-- Guide Detail -->
 	<div style="z-index: 5000" class="modal fade" id="detailModal"
 		tabindex="5" role="dialog" aria-labelledby="edite">
 		<div>
-			<div class="container">
+			<div class="container1" style="position: absolute;  top: 70px;  left: 450px;  width: 1000px;">
 				<div class="">
 					<div
 						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
@@ -158,9 +157,57 @@
 													<td>Intro:</td>
 													<td id="intro"></td>
 												</tr>
+											</tbody> 
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Guide Detail -->
+	<div style="z-index: 5000" class="modal fade" id="detailModal"
+		tabindex="5" role="dialog" aria-labelledby="edite">
+		<div>
+			<div id="container">
+			<div class="">
+					<div
+						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h2 class="panel-title">Board Detail</h2>
+							</div>
+							<div class="panel-body">
+								<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									</button>
+								<div class="row">
+									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+										<img class="img-thumbnail" id="mphoto"
+											src="${pageContext.servletContext.contextPath}/resources/img/info.jpg"
+											width="200px" height="300px"></img>
+									</div>
+				
+									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
+										<strong id="mname"></strong><br>
+										<table class="table table-user-information" style="height:250px;">
+											<tbody>
 												<tr>
-													<td>Hitcount:</td>
-													<td id="hitcount"></td>
+													<td>ID:</td>
+													<td id="id">${guide.gid}</td>
+												</tr>
+												<tr>
+													<td>Local:</td>
+													<td id="local">${guide.glocal}</td>
+												</tr>
+												<tr>
+													<td>Intro:</td>
+													<td id="intro">${guide.gintro}</td>
 												</tr>
 											</tbody> 
 										</table>
@@ -172,8 +219,7 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-	
+	</div>
 	
 	
 </body>

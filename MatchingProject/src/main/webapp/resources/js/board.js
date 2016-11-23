@@ -97,7 +97,21 @@
     
     $(".btnDetailModal").click(function() {
     	var bno = $(this).attr("data-bno");
-    	$("#detailModal").modal("show");
+    	
+    	$.ajax({
+    		url:"/mymatch/board/getBoard",
+    		data:{bno:bno},
+    		method:"post",
+    		success: function(data) {
+    			console.log(data);
+    			$("#detailModal #date").html(data.bdate);
+    			$("#detailModal #title").html(data.btitle);
+    			$("#detailModal #content").html(data.bcontent);
+    			$("#detailModal #writer").html(data.mid);
+    			$("#detailModal #hitcount").html(data.bhitcount);    			
+    			$("#detailModal").modal("show");
+    		}
+    	});
     });
 });
 

@@ -178,6 +178,7 @@
 	
 	/*유저정보*/
 	$("#btninfo").click(function(){
+		
 		$.ajax({
 			url:"/mymatch/member/info",
 			method: "post",
@@ -192,12 +193,14 @@
 				$("#infoModal #memail").html(data.member.memail);
 				$("#infoModal #mlocal").html(data.member.mlocal);
 				$("#infoModal #mtel").html(data.member.mtel);
-				$("#infoModal #mphoto").attr('src', data.member.savedfile)
+				$("#infoModal #mphoto").attr('img', data.member.savedfile)
+
 				/*$("#infoModal #mphoto").html(data.member.savedfile);*/
 				/*$("#infoModal #mphoto").html(data.member.mimetype);*/
 				
 				console.log("mtel: " + data.member.mtel);
 				console.log("mphoto: " + data.member.savedfile);
+				console.log(typeof(mphoto));
 				/*console.log("mphoto: " + data.member.mimetype);*/
 				$("#infoModal").modal("show");
 			}
@@ -255,11 +258,11 @@
 			data: {"tlocal":touristLocal, "tintro":touristIntro, "tstartdate":toDate, "tenddate":fromDate},
 			method: "post",
 			success: function(data){
-				/*if(data.result == "success") {
+				if(data.result == "success") {
 					$("#touristModal").modal("hide");
 				} else {
 					alert("관광객 등록 실패");
-				}*/
+				}
 			}
 		});
 	});

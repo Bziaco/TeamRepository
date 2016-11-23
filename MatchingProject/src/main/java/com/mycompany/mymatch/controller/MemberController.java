@@ -123,11 +123,7 @@ public class MemberController {
 			String savePath = request.getServletContext().getRealPath("/WEB-INF/img/photo/" + savedfile);
 			try {
 				member.getMphoto().transferTo(new File(savePath));
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			

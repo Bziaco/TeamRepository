@@ -265,8 +265,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-											<img class="img-thumbnail" id="mphoto"
-												
+											<img class="img-thumbnail" id="mphoto" src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
 												 width="130" height="130"></img>
 										</div>
 

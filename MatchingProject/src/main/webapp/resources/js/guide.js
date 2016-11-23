@@ -11,9 +11,21 @@
 				$("#guideTable").html(data);
 			}
 		});
-		
-		
-		
+	});
+	
+	
+	$("#btnDetailModal").click(function(){ 
+
+		$.ajax({
+			url:"/mymatch/guide/getList",
+			data:{gid:gid},
+			method: "post",
+			success: function(data) {
+				console.log(data);
+				$("#detailModal").modal("show");
+
+			}
+		});
 	});
 	
 });

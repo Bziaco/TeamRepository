@@ -46,6 +46,8 @@ public class GuideDao {
 		return row;
 	}
 	
+//--------------------------------------------------------------------------------------------------------	
+	
 	public Guide selectByGid(String gid) {
 		String sql = "select gid, glocal, gintro, gable from guide where gid = ?";
 		List<Guide> list = jdbcTemplate.query(sql, new Object[]{gid}, new RowMapper<Guide> () {
@@ -63,6 +65,7 @@ public class GuideDao {
 		return (list.size() != 0)? list.get(0) : null;
 	}
 
+//---------------------------------------------------------------------------------------------------
 	
 	public List<Guide> selectByGlocal(String glocal) {
 		String sql = "select gid, glocal, gintro, gable from guide where glocal=?";

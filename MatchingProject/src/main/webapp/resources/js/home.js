@@ -289,26 +289,14 @@
 	});
 	
 	/*매칭된 관광객*/
-	$(document).on('click', '.btnMatchingTourist', function() {
-/*	$(".btnMatchingTourist").click(function(){*/
-		var tid = $(this).attr("data-tid");
-		console.log(tid);
-		/*$.ajax({
-			url:"/mymatch/mytwo/matchingGuide",
+	$(".btnMatchingTourist").click(function(){
+		$.ajax({
+			url:"/mymatch/matching/tourList",
 			method: "post", 
-			cache: false,
-			processData: false,
-			contentType: false,
 			success: function(data){
-				$("#matchtouristModal #mname").html(data.member.mname);
-				$("#matchtouristModal #mnickname").html(data.member.mlocal);
-				$("#matchtouristModal #mage").html(data.member.mtel);
-				$("#matchtouristModal #msex").html(data.member.memail);
-				$("#matchtouristModal #memail").html(data.member.mage);
-				$("#matchtouristModal #mlocal").html(data.member.msex);
-				$("#matchtouristModal #mtel").html(data.member.mmatching);
-				$("#matchtouristModal #mphoto").attr('src', "member/getPhoto?savedfile=" + data.member.mphoto)
+				$("#matchtouristModal #matchtourlist").html(data);
+				$("#matchtouristModal").modal("show");
 			}
-		});*/
+		});
 	});
 });

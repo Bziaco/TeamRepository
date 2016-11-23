@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Matching;
+import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingDao {
@@ -67,28 +68,26 @@ public class MatchingDao {
 		return (list.size() != 0)? list.get(0) : null;
 	}
 	
-	public List<Matching> selectByGid(int pageNo, int rowsPerPage, String gid){
-		String sql = "";
-		sql += "select rn, matchno, score, matchdate";
-		sql += "from ( ";
-		sql += "select rownum as rn, matchno, score, matchdate";
-		sql += "from (select matchno, score, matchdate from matching where gid=? order by matchno ) ";
-		sql += "where rownum<=? ";
-		sql += ") ";
-		sql += "where rn>=? ";
+	public List<Matching> selectByGid(String gid){
+		String sql = "select * from matching where gid=?";
 		List<Matching> list = jdbcTemplate.query(
 				sql,
-				new Object[]{gid,(pageNo*rowsPerPage),(pageNo-1)*rowsPerPage+1},
+				new Object[]{gid},
 				new RowMapper<Matching>(){
-
 					@Override
 					public Matching mapRow(ResultSet rs, int row) throws SQLException {
-						Matching matcing = new Matching();
-				
-						matcing.setMatchno(rs.getInt("matchno"));
-						matcing.setScore(rs.getInt("score"));
-						matcing.setMatchdate(rs.getDate("matchdate"));
-						return matcing;
+						Matching matching = new Matching();
+						matching.setMatchno(rs.getInt("matchno"));	
+						matching.setGid(rs.getString("gid"));
+						matching.setMid(rs.getString("mid"));
+						matching.setMatchdate(rs.getDate("matchdate"));
+						matching.setScore(rs.getInt("score"));
+						matching.setBtitle(rs.getString("btitle"));
+						matching.setBcontent(rs.getString("bcontent"));
+						matching.setBhitcount(rs.getInt("bhitcount"));
+						matching.setBdate(rs.getDate("bdate"));
+						matching.setSavedfile(rs.getString("savedfile"));
+						return matching;
 					}
 				}
 		);
@@ -126,6 +125,5 @@ public class MatchingDao {
 		String sql = "select count(*) from matching where gid=?";
 		int count = jdbcTemplate.queryForObject(sql, new Object[] {gid}, Integer.class);
 		return count;
-	}	
-
+	}
 }

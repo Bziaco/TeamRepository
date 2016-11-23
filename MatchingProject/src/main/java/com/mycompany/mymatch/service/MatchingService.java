@@ -1,17 +1,18 @@
 package com.mycompany.mymatch.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.MatchingDao;
+import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dto.Matching;
+import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingService {
-
-	
 	public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
 	
@@ -21,13 +22,8 @@ public class MatchingService {
 	@Autowired
 	private MatchingDao matchingDao;
 	
-	public List<Matching> gidList(int pageNo, int rowsPerPage, String gid){
-		return matchingDao.selectByGid(pageNo, rowsPerPage, gid);
-	}
-	
-	public List<Matching> midList(int pageNo, int rowsPerPage, String mid){
-		return matchingDao.selectByGid(pageNo, rowsPerPage, mid);
-	}
+	@Autowired
+	private MemberDao memberDao;
 	
 	public int modify(Matching matching){
 		int row = matchingDao.update(matching);
@@ -47,5 +43,16 @@ public class MatchingService {
 	
 	public int countByGid(String gid) {
 		return matchingDao.countByGid(gid);
+	}
+
+	public List<Member> getMatchingToureList(String gid) {
+		List<Matching> list = matchingDao.selectByGid(gid);
+		List<Member> matchingTourList = new ArrayList<Member>();
+		for(Matching matching : list) {
+			Member member = memberDao.selectByMid(matching.getMid());
+			member.setMmatchingdate(matching.getMatchdate());
+			matchingTourList.add(member);
+		}
+		return matchingTourList;
 	}
 }

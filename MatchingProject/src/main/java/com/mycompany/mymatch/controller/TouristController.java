@@ -13,7 +13,7 @@ import com.mycompany.mymatch.service.TouristService;
 
 @Controller
 @RequestMapping("tourist")
-public class TourlistController {
+public class TouristController {
 	
 	@Autowired
 	public TouristService touristService;

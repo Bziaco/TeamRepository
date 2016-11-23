@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Matching {
 	private int matchno;
 	private String gid;
+	private String mid;
 	@DateTimeFormat(pattern="yyy-MM-dd")
 	private Date matchdate;
 	private int score;
@@ -30,6 +31,12 @@ public class Matching {
 	}
 	public void setGid(String gid) {
 		this.gid = gid;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 	public Date getMatchdate() {
 		return matchdate;

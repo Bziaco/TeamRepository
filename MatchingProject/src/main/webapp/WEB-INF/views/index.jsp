@@ -53,19 +53,14 @@
 					</ul></li>
 				<li id="menu2" class="depth2"><a>Resist</a>
 					<ul style="display: none" id="change_me2">
-						<li><a data-toggle="modal" data-target="#guideModal">Guide
-								Resist</a></li>
-						<li><a data-toggle="modal" data-target="#touristModal">Tourist
-								resist</a></li>
+						<li><a data-toggle="modal" data-target="#guideModal">Guide Resist</a></li>
+						<li><a data-toggle="modal" data-target="#touristModal">Tourist resist</a></li>
 					</ul></li>
 				<li id="menu3" class="depth3"><a>My Two+</a>
 					<ul style="display: none" id="change_me3">
-						<li><a data-toggle="modal" data-target="#scheduleModal">My
-								Schedule</a></li>
-						<li><a data-toggle="modal" data-target="#matchtouristModal">Matching
-								Tourist</a></li>
-						<li><a data-toggle="modal" data-target="#matchguideModal">Matching
-								Guide</a></li>
+						<li><a data-toggle="modal" data-target="#scheduleModal">My Schedule</a></li>
+						<li><a class="btnMatchingTourist" href="#">Matching Tourist</a></li>
+						<li><a class="btnMatchingGuide" href="#">Matching Guide</a></li>
 					</ul></li>
 			</ul>
 		</nav>
@@ -442,47 +437,13 @@
 	
 	<!-- matchtourist 모달 -->
 	<div style="z-index: 5000;" class="modal fade" id="matchtouristModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel" data-tid="$(tourist.tid)">
 		<div class="modal-dialog" style="margin-left: 500px; margin-top: 180px;">
 			<div class="container" id="tourpackages-carousel" style="width: 1175px; height:650px; overflow: auto;  background-color: white; border-radius: 20px;">
 				<table>
 					<tr>
-						<td>
-							<c:forEach var="i" begin="1" end="6">
-								<div class="thumbnail" style="width:350px; display: inline-block;margin:6px;">
-									<div class="caption">
-										<div>   
-											<!--
-												<span class="glyphicon glyphicon-credit-card"></span>
-												<span class="glyphicon glyphicon-trash pull-right text-primary"></span> 
-											-->
-										</div>
-										<div>
-											<h4>3Team</h4>
-										</div>
-										<div style="margin:0px 10px;">
-											<img
-												src="${pageContext.servletContext.contextPath}/resources/img/bae.jpg"
-												style="float: right" class="img-rounded" alt="Cinque Terre"
-												width="120" height="130"> <span
-												style="font-weight: bold">Name: </span>Jae-Hwan Bae<br /> <span
-												style="font-weight: bold">Local: </span>Pusan<br /> <span
-												style="font-weight: bold">Tel: </span>010-1234-2501<br /> <span
-												style="font-weight: bold">Email: </span>Bziaco@naver.com<br /> <span
-												style="font-weight: bold">age: </span>26<br /> <span
-												style="font-weight: bold">Sex: </span>Male<br /> <span
-												style="font-weight: bold">Matching: </span>2016.12.16<br />
-										</div>
-										<button type="button"
-											class="btn btn-primary btn-xs btn-update btn-add-card"
-											title="Introduce" data-toggle="popover" data-trigger="focus"
-											data-placement="bottom"
-											data-content="Hi, My hobby is coding. do you play coding with me?">Intro</button>
-										<button id="btnMessageModal" type="button"
-											class="btn btn-danger btn-xs btn-update btn-add-card" data-mto="test1">CHATTING</button>
-									</div>
-								</div>
-							</c:forEach>
+						<td id="matchtourlist">
+							
 						</td>
 					</tr>
 				</table>

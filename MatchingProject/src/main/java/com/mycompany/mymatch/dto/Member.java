@@ -1,5 +1,7 @@
 package com.mycompany.mymatch.dto;
 
+import java.util.Date;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class Member { //member 회원정보
@@ -16,7 +18,7 @@ public class Member { //member 회원정보
 	private String originalfile;
 	private String savedfile;
 	private String mimetype;
-	
+	private Date mmatchingdate;
 	
 	public String getMid() {
 		return mid;
@@ -96,8 +98,11 @@ public class Member { //member 회원정보
 	public void setMphoto(MultipartFile mphoto) {
 		this.mphoto = mphoto;
 	}
-	
-	
-	
+	public Date getMmatchingdate() {
+		return mmatchingdate;
+	}
+	public void setMmatchingdate(Date mmatchingdate) {
+		this.mmatchingdate = mmatchingdate;
+	}
 
 }

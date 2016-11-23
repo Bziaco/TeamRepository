@@ -4,6 +4,7 @@
 <!DOCTYPE html >
 <html>
 <head>
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/common.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/login.css" />

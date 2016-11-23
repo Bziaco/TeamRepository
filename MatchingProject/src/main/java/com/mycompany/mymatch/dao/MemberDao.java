@@ -97,6 +97,8 @@ public class MemberDao {
 			return (list.size() !=0)? list.get(0) : null;
 		}
 		
+		
+		
 //---------------------------------------------------------------------------------------------------------------------------------	
 		
 		public String selectByMemail(String memail) {

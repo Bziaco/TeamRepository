@@ -21,7 +21,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,9 +29,10 @@
             android:name=".BeaconScanService"
             android:enabled="true"
             android:exported="true" />
+
         <service android:name="com.perples.recosdk.RECOBeaconService" />
 
-        <activity android:name=".EventActivity" android:label="Event"></activity>
+        <activity android:name=".LocationInfoActivity" android:label="Location Info"></activity>
     </application>
 
 </manifest>

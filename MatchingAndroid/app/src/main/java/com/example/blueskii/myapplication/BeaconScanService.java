@@ -4,15 +4,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
@@ -21,16 +16,9 @@ import com.perples.recosdk.RECOErrorCode;
 import com.perples.recosdk.RECORangingListener;
 import com.perples.recosdk.RECOServiceConnectListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 
 public class BeaconScanService extends Service implements RECOServiceConnectListener, RECORangingListener {
     private RECOBeaconManager recoBeaconManager;
@@ -41,7 +29,6 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -52,7 +39,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
         recoBeaconManager.setRangingListener(this);
 
         regions = new ArrayList<RECOBeaconRegion>();
-        RECOBeaconRegion recoRegion = new RECOBeaconRegion("24DDF411-8CF1-440C-87CD-E368DAF9C931", "RECO Sample Region");
+        RECOBeaconRegion recoRegion = new RECOBeaconRegion("24DDF411-8CF1-440C-87CD-E368DAF9C93E", "RECO Sample Region");
         regions.add(recoRegion);
 
         recoBeaconManager.bind(this);
@@ -95,8 +82,8 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             if (beacon.getAccuracy() < 1) {
                 if(!beacons.contains(bminor)) {
                     beacons.add(bminor);
-                    StoreEvent storeEvent = getStoreEvent(bminor);
-                    popupNotification(storeEvent);
+                    LocationInfo locationInfo = getLocationInfo(bminor);
+                    popupNotification(locationInfo);
                 }
             } else {
                 beacons.remove(new Integer(bminor));
@@ -108,31 +95,29 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     public void rangingBeaconsDidFailForRegion(RECOBeaconRegion recoBeaconRegion, RECOErrorCode recoErrorCode) {
     }
 
-    private StoreEvent getStoreEvent(int bminor) {
-        StoreEvent storeEvent = new StoreEvent();
-        storeEvent.setBminor(bminor);
-        storeEvent.setSid(1);
-        storeEvent.setSname("스타벅스");
-        List<String> events = Arrays.asList("크리스마스 할인 이벤트");
-        storeEvent.setEvents(events);
-        return storeEvent;
+    private LocationInfo getLocationInfo(int bminor) {
+        LocationInfo locationInfo = new LocationInfo();
+        locationInfo.setBminor(bminor);
+        locationInfo.setLid(1);
+        locationInfo.setLname("유럽풍경");
+        return locationInfo;
     }
 
-    private void popupNotification(StoreEvent shopEvent) {
+    private void popupNotification(LocationInfo locationInfo) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle(shopEvent.getSname() + ": " + shopEvent.getBminor());
-        builder.setContentText(shopEvent.getEvents().get(0));
+        builder.setContentTitle(locationInfo.getLname() + ": " + locationInfo.getBminor());
+        builder.setContentText("자세한 설명을 위해 클릭해 주세요.");
 
         PendingIntent pendingIntent = PendingIntent.getActivity(
             this, 0,
-            new Intent(this, EventActivity.class),
+            new Intent(this, LocationInfoActivity.class),
             PendingIntent.FLAG_UPDATE_CURRENT
         );
         builder.setContentIntent(pendingIntent);
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(shopEvent.getBminor(), builder.build());
+        nm.notify(locationInfo.getBminor(), builder.build());
     }
 }

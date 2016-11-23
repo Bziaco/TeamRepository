@@ -83,7 +83,7 @@
 							<input type="text" id="mid"
 								class="form-control input-sm chat-input" placeholder="username" value="test" />
 							</br> <input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="password" value="kosa12345" />
+								class="form-control input-sm chat-input" placeholder="password" value="123" />
 							</br>
 							<div class="wrapper">
 								<span class="group-btn"> <a id="btnLogin" href="#"

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.service.GuideService;
 import com.mycompany.mymatch.service.MatchingService;
@@ -46,6 +47,13 @@ public class GuideController {
 	@RequestMapping("/guideList")
 	public String guideList() {
 		return "guide/guideList";
+	}
+	
+	@RequestMapping("/getList")
+	public String getList(String gid, Model model) {
+		Guide guide = guideService.getList(gid);
+		model.addAttribute("guide", guide);
+		return "guide/getList";
 	}
 	
 	@RequestMapping("/findGuide")

@@ -14,15 +14,21 @@
 	});
 	
 	
-	$(document).on('click', '.btnDetailModal', function() {
+	$(document).on("click", ".btnDetailModal", function() {
 		var gid = $(this).attr("data-gid");
-		$.ajax({
+		console.log(gid);
+		
+		$.ajax({	
 			url:"/mymatch/guide/getList",
-			data:{gid:gid},
+			data: {gid:gid},
 			method: "post",
 			success: function(data) {
-				console.log(data);
+    			console.log(data);
+    			$("#detailModal #id").html(data.gid);
+    			$("#detailModal #local").html(data.glocal);
+    			$("#detailModal #intro").html(data.gintro);
 				$("#detailModal").modal("show");
+				console.log(data.gid);
 			}
 		});
 	});

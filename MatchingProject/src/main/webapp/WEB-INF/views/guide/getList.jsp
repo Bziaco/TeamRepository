@@ -5,4 +5,4 @@
 	"glocal": "${guide.glocal}", 
 	"gintro": "${guide.gintro}",
 	"gable": "${guide.gable}"
-}
+} 

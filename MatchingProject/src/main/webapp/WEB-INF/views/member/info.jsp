@@ -13,6 +13,5 @@
 		"mlocal":"${member.mlocal}",
 		"mtel":"${member.mtel}",
 		"mphoto":"${member.savedfile}"
-		<%-- "mphoto":"${member.mimetype}" --%>
 	}
 }

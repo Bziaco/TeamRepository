@@ -265,9 +265,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-											<img class="img-thumbnail" id="mphoto"
-												
-												 width="130" height="130"></img>
+											<img class="img-thumbnail" id="mphoto" src="" width="130" height="130"></img>
 										</div>
 
 										<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">

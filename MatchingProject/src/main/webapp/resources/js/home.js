@@ -181,7 +181,7 @@
 		
 		$.ajax({
 			url:"/mymatch/member/info",
-			method: "post",
+			method: "post", 
 			cache: false,
 			processData: false,
 			contentType: false,

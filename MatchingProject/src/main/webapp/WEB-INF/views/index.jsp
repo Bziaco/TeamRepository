@@ -4,7 +4,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/common.css" />
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/common.css" /> 
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-</head>
+</head> 
 <body>
 
 	<!-- 메뉴 -->

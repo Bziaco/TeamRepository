@@ -54,6 +54,7 @@
     	$("#deleteModal").modal("show");
     });    
     
+    
     $(".table-responsive #btnUpdate").click(function(event){
     	var bno = $(this).attr("data-bno");
     	/*console.log("bno:"+ bno);*/
@@ -67,6 +68,7 @@
     			$("#updateModal #bcontent").val(data.bcontent);
     		}
 		});
+    	
     	
     	$("#updateModal #btnUpdate").click(function(event){
     		$.ajax({
@@ -85,6 +87,7 @@
         });
     });
     
+    
     $("#btnSearch").click(function() {
     	var keyword = $("#keyword").val();
     	var url = location.href;
@@ -94,6 +97,7 @@
     	}
     	location.href = url + "?keyword="+keyword;
     });
+    
     
     $(".btnDetailModal").click(function() {
     	var bno = $(this).attr("data-bno");

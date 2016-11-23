@@ -121,7 +121,7 @@
 	<div style="z-index: 5000" class="modal fade" id="detailModal"
 		tabindex="5" role="dialog" aria-labelledby="edite">
 		<div>
-			<div class="container">
+			<div class="container1" style="position: absolute;  top: 70px;  left: 450px;  width: 1000px;">
 				<div class="">
 					<div
 						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">

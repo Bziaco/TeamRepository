@@ -7,6 +7,18 @@ public class Attraction {
 	private int latitude;
 	private int hardness;
 	private int beacon;
+	private String ainfo;
+	
+	
+	
+	
+	
+	public String getAinfo() {
+		return ainfo;
+	}
+	public void setAinfo(String ainfo) {
+		this.ainfo = ainfo;
+	}
 	public int getAno() {
 		return ano;
 	}

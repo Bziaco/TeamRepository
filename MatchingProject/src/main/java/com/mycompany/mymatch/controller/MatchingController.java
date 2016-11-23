@@ -18,6 +18,11 @@ public class MatchingController {
 	@Autowired
 	public MatchingService matchingService;
 	
+	@RequestMapping("/matchList")
+	public String match() {
+		return "matching/matchList";
+	}
+	
 	@RequestMapping("/tourList")
 	public String tourList(HttpSession session, Model model) {
 		String gid = (String) session.getAttribute("login");

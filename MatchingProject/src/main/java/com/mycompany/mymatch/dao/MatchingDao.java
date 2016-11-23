@@ -93,7 +93,32 @@ public class MatchingDao {
 		);
 		return list;
 	}
-	public List<Matching> selectByMid(int pageNo, int rowsPerPage, String mid){
+	public List<Matching> selectByMid(String mid) {
+		String sql = "select * from matching where mid=?";
+		List<Matching> list = jdbcTemplate.query(
+				sql,
+				new Object[]{mid},
+				new RowMapper<Matching>(){
+					@Override
+					public Matching mapRow(ResultSet rs, int row) throws SQLException {
+						Matching matching = new Matching();
+						matching.setMatchno(rs.getInt("matchno"));	
+						matching.setGid(rs.getString("gid"));
+						matching.setMid(rs.getString("mid"));
+						matching.setMatchdate(rs.getDate("matchdate"));
+						matching.setScore(rs.getInt("score"));
+						matching.setBtitle(rs.getString("btitle"));
+						matching.setBcontent(rs.getString("bcontent"));
+						matching.setBhitcount(rs.getInt("bhitcount"));
+						matching.setBdate(rs.getDate("bdate"));
+						matching.setSavedfile(rs.getString("savedfile"));
+						return matching;
+					}
+				}
+		);
+		return list;
+	}
+	/*public List<Matching> selectByMid(int pageNo, int rowsPerPage, String mid){
 		String sql = "";
 		sql += "select rn, matchno, score, matchdate";
 		sql += "from ( ";
@@ -119,11 +144,12 @@ public class MatchingDao {
 				}
 		);
 		return list;
-	}
+	}*/
 	
 	public int countByGid(String gid) {
 		String sql = "select count(*) from matching where gid=?";
 		int count = jdbcTemplate.queryForObject(sql, new Object[] {gid}, Integer.class);
 		return count;
 	}
+
 }

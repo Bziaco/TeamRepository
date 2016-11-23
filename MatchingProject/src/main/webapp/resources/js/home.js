@@ -299,4 +299,17 @@
 			}
 		});
 	});
+	
+	/*매칭된 가이드*/
+	$(".btnMatchingGuide").click(function(){
+		$.ajax({
+			url:"/mymatch/matching/guideList",
+			method: "post",
+			success: function(data){
+				$("#matchguideModal #matchguidelist").html(data);
+				$("#matchguideModal").modal("show");
+				console.log(data);
+			}
+		})
+	});
 });

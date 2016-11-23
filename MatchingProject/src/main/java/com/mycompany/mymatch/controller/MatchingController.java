@@ -27,7 +27,10 @@ public class MatchingController {
 	}
 	
 	@RequestMapping("/guideList")
-	public String guideList() {
+	public String guideList(HttpSession session, Model model) {
+		String mid = (String) session.getAttribute("login");
+		List<Member> list = matchingService.getMatchingGuideList(mid);
+		model.addAttribute("list", list);
 		return "matching/guideList";
 	}
 

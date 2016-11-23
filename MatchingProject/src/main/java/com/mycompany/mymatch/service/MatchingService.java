@@ -55,4 +55,15 @@ public class MatchingService {
 		}
 		return matchingTourList;
 	}
+
+	public List<Member> getMatchingGuideList(String mid) {
+		List<Matching> list = matchingDao.selectByMid(mid);
+		List<Member> matchingGuideList = new ArrayList<Member>();
+		for(Matching matching : list) {
+			Member member = memberDao.selectByGid(matching.getGid());
+			member.setMmatchingdate(matching.getMatchdate());
+			matchingGuideList.add(member);
+		}
+		return matchingGuideList;
+	}
 }

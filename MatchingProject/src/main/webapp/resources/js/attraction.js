@@ -1,47 +1,31 @@
 ﻿$(function() {
-	/*
-	$("#mytable #checkall").click(function () {
-        if ($("#mytable #checkall").is(':checked')) {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", true);
-            });
-
-        } else {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", false);
-            });
-        }
-    });
-    
-    $("[data-toggle=tooltip]").tooltip();*/
-	
-	
 	
 	 $("#btnSearch").click(function() {
 	    	var keyword = $("#keyword").val();
 	    	var url = location.href;
-	    	var index = url.indexOf("boardList");
+	    	var index = url.indexOf("attractionList");
 	    	if(index != -1) {
-	    		url = url.substring(0, index+9);
+	    		url = url.substring(0, index+11);
 	    	}
 	    	location.href = url + "?keyword="+keyword;
 	    });
 	    
 	    
 	    $(".btnDetailModal").click(function() {
-	    	var aname = $(this).attr("data-aname");
+	    	var ano = $(this).attr("data-ano");
+	    	console.log("aaa")
 	    	
 	    	$.ajax({
 	    		url:"/mymatch/attraction/getAttraction",
-	    		data:{aname:aname},
+	    		data:{ano:ano},
 	    		method:"post",
 	    		success: function(data) {
 	    			console.log(data);
 	    			$("#detailModal #ano").html(data.ano);
 	    			$("#detailModal #aname").html(data.aname);
 	    			$("#detailModal #ainfo").html(data.ainfo);
-	    			$("#detailModal #alocation").html(data.alocation);    			
-	    			$("#detailModal").modal("show");
+	    			$("#detailModal #alocation").html(data.alocation);   			
+	    			$("#attractionModal").modal("show");
 	    		}
 	    	});
 	    });

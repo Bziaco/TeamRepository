@@ -55,21 +55,22 @@
 						<table style="width: 1200px">
 							<tr>
 								<td><c:forEach var="attraction" items="${list}">
-											
-											<div
-												style="width:200px; height:170px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/${attraction.savedfile}); background-size: 200px 170px;">
-												
-													<div style="height: 140px;"></div>
-													<div>
-														<table
-															style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-															<tr>
-																<td style="text-align: left; color: white"><a class="btnDetailModal" href="#" data-aname="${attraction.aname}">
-																		${attraction.aname}</a></td>
-															</tr>
-														</table>
-													</div>
-												</div>
+
+										<div
+											style="width:200px; height:170px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/${attraction.savedfile}); background-size: 200px 170px;">
+
+											<div style="height: 140px;"></div>
+											<div>
+												<table
+													style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
+													<tr>
+														<td style="text-align: left; color: white"><a
+															class="btnDetailModal" href="#"
+															data-ano="${attraction.ano}"> ${attraction.aname}</a></td>
+													</tr>
+												</table>
+											</div>
+										</div>
 									</c:forEach></td>
 							</tr>
 						</table>
@@ -78,98 +79,83 @@
 									<span class="glyphicon glyphicon-chevron-left"
 										style="color: gray"></span>
 								</c:if> <c:if test="${groupNo>1}">
-									<a href="boardList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
+									<a
+										href="attractionList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
 										class="glyphicon glyphicon-chevron-left" style="color: green"></span></a>
 								</c:if></li>
 
 							<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
 								<li <c:if test="${pageNo==i}">class="active"</c:if>><a
-									href="boardList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
+									href="attractionList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
 							</c:forEach>
 
 							<li><c:if test="${groupNo==totalGroupNo}">
 									<span class="glyphicon glyphicon-chevron-right"
 										style="color: gray"></span>
 								</c:if> <c:if test="${groupNo<totalGroupNo}">
-									<a href="boardList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
+									<a
+										href="attractionList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
 										class="glyphicon glyphicon-chevron-right" style="color: green"></span></a>
 								</c:if></li>
 						</ul>
+					</div>
+				</div>
+			</aside>
+		</div>
+	</div>
 
 
-						<!-- <!--페이지 -->
-						<!-- <div class="clearfix">
-								<ul class="pagination pull-right">
-									<li class="disabled"><a href="#">«</a></li>
-									<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">»</a></li>
-								</ul>
-							</div> -->
+	<!-- modal -->
+	<div style="z-index: 5000" class="modal fade" id="attractionModal"
+		tabindex="5" role="dialog" aria-labelledby="edite">
+		<div>
+			<div class="container">
+				<div class="">
+					<div
+						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h2 class="panel-title">Attraction Detail</h2>
+							</div>
+							<div class="panel-body">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>
+								<div class="row">
+									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm"></div>
 
-
-						<!-- modal -->
-						<div style="z-index: 5000" class="modal fade" id="detailModal"
-							tabindex="5" role="dialog" aria-labelledby="edite">
-							<div>
-								<div class="container">
-									<div class="">
-										<div
-											class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-											<div class="panel panel-primary">
-												<div class="panel-heading">
-													<h2 class="panel-title">Board Detail</h2>
-												</div>
-												<div class="panel-body">
-													<button type="button" class="close" data-dismiss="modal"
-														aria-hidden="true">
-														<span class="glyphicon glyphicon-remove"
-															aria-hidden="true"></span>
-													</button>
-													<div class="row">
-														<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-														</div>
-
-														<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-															<strong id="mname"></strong><br>
-															<div id="savedfile"></div>
-															<table class="table table-user-information"
-																style="height: 250px;">
-																<tbody>
-																	<tr>
-																		<td>No:</td>
-																		<td id="ano"></td>
-																	</tr>
-																	<tr>
-																		<td>Name:</td>
-																		<td id="aname"></td>
-																	</tr>
-																	<tr>
-																		<td>Info:</td>
-																		<td id="ainfo"></td>
-																	</tr>
-																	<tr>
-																		<td>Location:</td>
-																		<td id="alocation"></td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
+										<strong id="mname"></strong><br>
+										<div id="savedfile"></div>
+										<table class="table table-user-information"
+											style="height: 250px;">
+											<tbody>
+												<tr>
+													<td>No:</td>
+													<td id="ano"></td>
+												</tr>
+												<tr>
+													<td>Name:</td>
+													<td id="aname"></td>
+												</tr>
+												<tr>
+													<td>Info:</td>
+													<td id="ainfo"></td>
+												</tr>
+												<tr>
+													<td>Location:</td>
+													<td id="alocation"></td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
-			</aside>
+			</div>
 		</div>
 	</div>
 </body>

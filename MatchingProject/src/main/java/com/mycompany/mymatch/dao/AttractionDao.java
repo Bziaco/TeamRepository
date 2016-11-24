@@ -10,8 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dto.Attraction;
-import com.mycompany.mymatch.dto.Board;
-import com.mycompany.mymatch.dto.Guide;
 
 @Component
 public class AttractionDao {
@@ -90,7 +88,7 @@ public class AttractionDao {
 			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
 			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile " ;
-			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction order by ano desc) ";
+			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction) ";
 			sql += "	where rownum<=? ";
 			sql += ") ";
 			sql += "where rn>=? ";
@@ -125,7 +123,7 @@ public class AttractionDao {
 			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
 			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile " ;
-			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where aname like ? order by ano desc) ";
+			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where aname like ?) ";
 			sql += "	where rownum<=? ";
 			sql += ") ";
 			sql += "where rn>=? ";

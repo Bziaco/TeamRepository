@@ -4,31 +4,6 @@
 <!DOCTYPE html >
 <html>
 <head>
-<<<<<<< HEAD
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
-<%-- <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script> --%>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-=======
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
@@ -41,13 +16,6 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-	<script>
- 
-
- 
-</script>
-	
->>>>>>> branch 'master' of https://github.com/Bziaco/TeamRepository
 </head>
 <body>
 

@@ -341,61 +341,68 @@
 	</div>	
 
 	<!-- schedule 모달 -->
-	<div id="scheduleModal" style="z-index: 5000" class="modal fade"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
+	<div id="scheduleModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">schedule</h4>
 				</div>
 				<div class="modal-body">
-					<p>Some text in the modal.</p>
+						<p>Some text in the modal.</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div>	
+
 
 	<!-- matchtourist 모달 -->
-	<div id="matchtouristModal" style="z-index: 5000;" class="modal fade"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		data-tid="$(tourist.tid)">
-		<div class="modal-dialog"
-			style="margin-left: 500px; margin-top: 180px;">
-			<div class="container" id="tourpackages-carousel"
-				style="width: 1175px; height: 650px; overflow: auto; background-color: white; border-radius: 20px;">
-				<table>
-					<tr>
-						<td id="matchtourlist"></td>
-					</tr>
-				</table>
-				<!-- End container -->
+ 	<div id="matchtouristModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000" data-tid="$(tourist.tid)">
+		<div class="modal-dialog" role="document"  style="width:1175px; height: 650px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">matchtourist</h4>
+				</div>
+				<div class="modal-body">
+					<table>
+						<tr>
+							<td id="matchtourlist"></td>
+						</tr>
+					</table>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>  -->
 			</div>
 		</div>
-	</div>
-
+	</div>	
+	
 	<!-- matchguide 모달 -->
-	<div id="matchguideModal" style="z-index: 5000" class="modal fade"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		data-gid="$(guide.gid)">
-		<div class="modal-dialog"
-			style="margin-left: 500px; margin-top: 180px;">
-			<div class="container" id="tourpackages-carousel"
-				style="width: 1175px; height: 650px; overflow: auto; background-color: white; border-radius: 20px;">
-				<table>
-					<tr>
-						<td id="matchguidelist"></td>
-					</tr>
-				</table>
+ 	<div id="matchguideModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000" data-gid="$(guide.gid)">
+		<div class="modal-dialog" role="document"  style="width:1175px; height: 650px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">matchtourist</h4>
+				</div>
+				<div class="modal-body">
+					<table>
+						<tr>
+							<td id="matchguidelist"></td>
+						</tr>
+					</table>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div> --> 
 			</div>
 		</div>
 	</div>
+		
 
 	<!-- 메세지 -->
 	<div id="messageModal" style="z-index: 8000;" class="modal fade"
@@ -437,8 +444,7 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div> 
 </body>
 </html>

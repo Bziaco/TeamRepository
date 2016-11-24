@@ -65,6 +65,7 @@ public class MatchingService {
 			member.setMmatchingdate(matching.getMatchdate());
 			matchingGuideList.add(member);
 		}
+		
 		return matchingGuideList;
 	}
 }

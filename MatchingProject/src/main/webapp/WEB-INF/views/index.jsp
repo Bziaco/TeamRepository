@@ -16,6 +16,12 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
+	<script>
+ 
+
+ 
+</script>
+	
 </head>
 <body>
 
@@ -122,8 +128,8 @@
 							<input type="number" id="mage"
 								class="form-control input-sm chat-input" placeholder="Age" value="30"/> </br>
 							<select class="form-control input-sm chat-input" id="msex">
-								<option checked value="M">Male</option>
-								<option value="F">Female</option>
+								<option checked value="Male">Male</option>
+								<option value="Female">Female</option>
 							</select></br>
 							<input type="text" id="memail"
 								class="form-control input-sm chat-input" placeholder="Email"  value="test@naver.com"/></br>
@@ -447,7 +453,7 @@
 	</div>
 	
 	<!-- 메세지 -->
-	<div id="messageModal" style="z-index: 8000;" class="modal fade" tabindex="5" role="dialog" aria-labelledby="myModalLabel">
+	<div id="btnMessageModal" style="z-index: 8000;" class="modal fade" tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" style="position: absolute; left: 800px; bottom: 100px; width: 2000px;">
 			<div class="container">
 				<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left: 10px;">

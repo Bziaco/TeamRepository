@@ -72,6 +72,8 @@ public class BoardController {
 
 		return "board/boardList";
 	}
+
+//--------------------------------------------------------------------------------------------------------------------------------------
 	
 	@RequestMapping("/write")
 	public String write(Board board, HttpSession session) {
@@ -80,19 +82,30 @@ public class BoardController {
 		boardService.write(board);
 		return "board/write";
 	}
+
+	
+//--------------------------------------------------------------------------------------------------------------------------------------	
+
 	
 	@RequestMapping("/delete")
 	public String delete(int bno) {
 		boardService.delete(bno);
 		return "board/delete";
 	}
-
+	
+//--------------------------------------------------------------------------------------------------------------------------------------
+	
+	
 	@RequestMapping("/getBoard")
 	public String getBoard(int bno, Model model) {
 		Board board = boardService.getBoard(bno);
 		model.addAttribute("board", board);
 		return "board/getBoard";
 	}
+	
+	
+//--------------------------------------------------------------------------------------------------------------------------------------	
+	
 	
 	@RequestMapping("/update")
 	public String update(Board board) {

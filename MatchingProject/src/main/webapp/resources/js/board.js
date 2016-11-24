@@ -14,7 +14,8 @@
     
     $("[data-toggle=tooltip]").tooltip();
     
- 
+    
+    /*-------모달창---------*/
     
     $("#writeModal #btnwrite").click(function(){
     	var btitle = $("#writeModal #btitle").val();
@@ -87,6 +88,8 @@
         });
     });
     
+    
+    /*-------Search---------*/
     
     $("#btnSearch").click(function() {
     	var keyword = $("#keyword").val();

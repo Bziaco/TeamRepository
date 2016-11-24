@@ -43,7 +43,6 @@ public class AttractionDao {
 				attraction.getLatitude(),
 				attraction.getLongitude(),
 				attraction.getBeacon(),
-				attraction.getAno(),
 				attraction.getSavedfile()
 		);
 		return row;
@@ -54,7 +53,13 @@ public class AttractionDao {
 		int row = jdbcTemplate.update(sql, ano);
 		return row;
 	}
-
+	
+	
+	
+//-------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
 	public Attraction selectByAno(int ano) {
 		String sql = "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where ano=?";
 		List<Attraction> list = jdbcTemplate.query(sql, new Object[]{ano}, new RowMapper<Attraction> () {
@@ -79,7 +84,8 @@ public class AttractionDao {
 	
 	
 //---------------------------------------------------------------------------------------------------------------------------------
-		public List<Attraction> selectByPage(int pageNo, int rowsPerPage) {
+	
+	public List<Attraction> selectByPage(int pageNo, int rowsPerPage) {
 			String sql = "";
 			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
@@ -109,15 +115,12 @@ public class AttractionDao {
 			);
 			return list;
 		}
+
+		
 		
 //---------------------------------------------------------------------------------------------------
-		public int count() {
-			String sql = "select count(*) from attraction";
-			int count = jdbcTemplate.queryForObject(sql, Integer.class);
-			return count;
-		}
-//---------------------------------------------------------------------------------------------------
-		public List<Attraction> selectByPage(String keyword, int pageNo, int rowsPerPage) {
+		
+		public List<Attraction> selectKeywordByPage(String keyword, int pageNo, int rowsPerPage) {
 			String sql = "";
 			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
@@ -148,9 +151,23 @@ public class AttractionDao {
 			return list;
 		}
 
-		public int count(String keyword) {
+		
+//-------------------------------------------------------------------------------------------------------------------------------------
+	
+		
+		public int count() {
+			String sql = "select count(*) from attraction";
+			int count = jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		}
+	
+		
+//-------------------------------------------------------------------------------------------------------------------------------------	
+		
+		
+		public int countKeyword(String keyword) {
 			String sql = "select count(*) from attraction where aname like ?";
-			int count = jdbcTemplate.queryForObject(sql, new Object[]{"%" + keyword + "%"}, Integer.class);
+			int count = jdbcTemplate.queryForObject(sql, new Object[] {"%"+keyword+"%"}, Integer.class);
 			return count;
 		}	
 

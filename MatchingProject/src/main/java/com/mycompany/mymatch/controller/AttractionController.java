@@ -17,7 +17,7 @@ import com.mycompany.mymatch.service.AttractionService;
 public class AttractionController {
 	
 	@Autowired
-	private AttractionService attractionService;
+	public AttractionService attractionService;
 	
 	
 	@RequestMapping("/attractionList")
@@ -33,7 +33,7 @@ public class AttractionController {
 		}
 		session.setAttribute("pageNo", String.valueOf(intPageNo));
 		
-		int rowsPerPage = 8;
+		int rowsPerPage = 10;
 		int pagesPerGroup = 5;
 		
 		int totalBoardNo = 0;
@@ -68,4 +68,34 @@ public class AttractionController {
 
 		return "attraction/attractionList";
 	}
+	
+	
+//--------------------------------------------------------------------------------------------------------------------------------------	
+	
+	@RequestMapping("/getAttraction")
+	public String getAttraction(int ano, Model model) {
+		Attraction attraction = attractionService.getAttraction(ano);
+		model.addAttribute("attraction", attraction);
+		return "attraction/getAttraction";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+

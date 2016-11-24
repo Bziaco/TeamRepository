@@ -136,9 +136,8 @@ public class MemberController {
 	public String modify(Member member, Model model, HttpServletRequest request, HttpSession session){
 		String strResult = "success";
 		try{
-		String mid = (String) session.getAttribute("login");	
+		String mid = (String) session.getAttribute("login");
 		member.setMid(mid);
-		
 		System.out.println("mid : " + member.getMid());
 		System.out.println("mpassword : " + member.getMpassword());
 		System.out.println("mnickname : " + member.getMnickname());
@@ -163,7 +162,6 @@ public class MemberController {
 		}
 		
 		int result = memberService.modify(member);
-
 		} catch(Exception e){
 			e.printStackTrace();
 			strResult = "fail";

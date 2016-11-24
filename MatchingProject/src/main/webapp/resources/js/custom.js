@@ -158,7 +158,8 @@
     });
     
     /*popover*/
-    $('[data-toggle="popover"]').popover();
+      $('[data-toggle="popover"]').popover();
+    
     
     
     /*message*/

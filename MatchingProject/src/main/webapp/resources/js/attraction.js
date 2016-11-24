@@ -1,17 +1,19 @@
 ﻿$(function() {
-	/*$(".attraction").click(function(){
-		var ano=$(this).attr("data-location");
+	$("#btnInfo").click(function() {
+    	var name = $(this).attr("data-location");
 		console.log("aaa")
-		
-		$.ajax({
-			url:"/mymatch/attraction/attractionList",
-			data: {ano:ainfo},
-			method: "post",
-			success: function(data) {
-				$("#attractionSeoul").html(data.ainfo);
-			}
-		});
-	});*/
+    	
+    	$.ajax({
+    		url:"/mymatch/attraction/attractionList",
+    		data:{aname:name},
+    		method:"post",
+    		success: function(data) {
+    			console.log(data);
+    			$("#ainfo").html(data);		
+    			//$("#collapseOne").modal("show");
+    		}
+    	});
+    });
 });
 
 

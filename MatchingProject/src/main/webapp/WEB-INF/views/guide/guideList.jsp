@@ -50,7 +50,7 @@
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#" class="btnLocation" data-location="Pusan">Pusan</a></li>
+									href="#" class="btnLocation" data-location="Busan">Busan</a></li>
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a

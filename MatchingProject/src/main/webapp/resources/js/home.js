@@ -262,7 +262,7 @@
 
 	/*MessageBox 띄우기*/
 	var mto;
-	$("#btnMessageModal").click( function() {
+	$(document).on("click", "#btnMessageModal", function() {
 		mto = $("#btnMessageModal").attr("data-mto");
 		$.ajax({
 			url: "/mymatch/message/messageList",

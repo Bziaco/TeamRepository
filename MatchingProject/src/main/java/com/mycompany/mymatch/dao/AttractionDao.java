@@ -19,32 +19,33 @@ public class AttractionDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Attraction attraction) {
-		String sql = "insert into attraction(ano, aname, ainfo, alocation, latitude, hardness, beacon) values(?,?,?,?,?,?,?)";
+		String sql = "insert into attraction(ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile) values(seq_attraction_ano.nextval,?,?,?,?,?,?,?)";
 		int row = jdbcTemplate.update(
 				sql,
-				attraction.getAno(),
 				attraction.getAname(),
 				attraction.getAinfo(),
 				attraction.getAlocation(),
 				attraction.getLatitude(),
-				attraction.getHardness(),
-				attraction.getBeacon()
+				attraction.getLongitude(),
+				attraction.getBeacon(),
+				attraction.getSavedfile()
 				);
 		return row;
 	}
 	
 	public int update(Attraction attraction) {
-		String sql = "update attraction set aname=?, ainfo=?, aloction=?, latitude=?, hardness=?, beacon=? where ano=?";
+		String sql = "update attraction set aname=?, ainfo=?, aloction=?, latitude=?, longitude=?, beacon=?, savedfile=? where ano=?";
 		int row = jdbcTemplate.update(
 				sql,
 				attraction.getAname(),
 				attraction.getAinfo(),
 				attraction.getAlocation(),
 				attraction.getLatitude(),
-				attraction.getHardness(),
+				attraction.getLongitude(),
 				attraction.getBeacon(),
-				attraction.getAno()
-				);
+				attraction.getAno(),
+				attraction.getSavedfile()
+		);
 		return row;
 	}
 	
@@ -55,7 +56,7 @@ public class AttractionDao {
 	}
 
 	public Attraction selectByAno(int ano) {
-		String sql = "select ano, aname, ainfo, alocation, latitude, hardness, beacon from attraction where ano = ?";
+		String sql = "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where ano=?";
 		List<Attraction> list = jdbcTemplate.query(sql, new Object[]{ano}, new RowMapper<Attraction> () {
 			
 			@Override
@@ -65,9 +66,10 @@ public class AttractionDao {
 				attraction.setAname(rs.getString("aname"));
 				attraction.setAinfo(rs.getString("ainfo"));
 				attraction.setAlocation(rs.getString("alocation"));
-				attraction.setLatitude(rs.getInt("latitude"));
-				attraction.setHardness(rs.getInt("hardness"));
+				attraction.setLatitude(rs.getDouble("latitude"));
+				attraction.setLongitude(rs.getDouble("longitude"));
 				attraction.setBeacon(rs.getInt("beacon"));
+				attraction.setSavedfile(rs.getString("savedfile"));
 				return attraction;
 			}
 		});
@@ -77,13 +79,12 @@ public class AttractionDao {
 	
 	
 //---------------------------------------------------------------------------------------------------------------------------------
-
 		public List<Attraction> selectByPage(int pageNo, int rowsPerPage) {
 			String sql = "";
-			sql += "select ano, aname, ainfo, alocation, latitude, hardness, beacon ";
+			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
-			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, hardness, beacon " ;
-			sql += "	from (select ano, aname, ainfo, alocation, latitude, hardness, beacon from attraction order by ano desc) ";
+			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile " ;
+			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction order by ano desc) ";
 			sql += "	where rownum<=? ";
 			sql += ") ";
 			sql += "where rn>=? ";
@@ -98,9 +99,10 @@ public class AttractionDao {
 							attraction.setAname(rs.getString("aname"));
 							attraction.setAinfo(rs.getString("ainfo"));
 							attraction.setAlocation(rs.getString("alocation"));
-							attraction.setLatitude(rs.getInt("latitude"));
-							attraction.setHardness(rs.getInt("hardness"));
+							attraction.setLatitude(rs.getDouble("latitude"));
+							attraction.setLongitude(rs.getDouble("longitude"));
 							attraction.setBeacon(rs.getInt("beacon"));
+							attraction.setSavedfile(rs.getString("savedfile"));
 							return attraction;
 						}
 					}
@@ -109,14 +111,25 @@ public class AttractionDao {
 		}
 		
 //---------------------------------------------------------------------------------------------------
-		
-		public List<Attraction> selectByAname(String aname) {
-			String sql = "select ano, aname, ainfo, alocation, latitude, hardness, beacon from attraction where aname=?";
+		public int count() {
+			String sql = "select count(*) from attraction";
+			int count = jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		}
+//---------------------------------------------------------------------------------------------------
+		public List<Attraction> selectByPage(String keyword, int pageNo, int rowsPerPage) {
+			String sql = "";
+			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
+			sql += "from ( ";
+			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile " ;
+			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where aname like ? order by ano desc) ";
+			sql += "	where rownum<=? ";
+			sql += ") ";
+			sql += "where rn>=? ";
 			List<Attraction> list = jdbcTemplate.query(
-					sql,
-					new Object[]{aname},
-					new RowMapper<Attraction>(){
-
+					sql,  
+					new Object[]{"%" + keyword + "%", (pageNo*rowsPerPage), ((pageNo-1)*rowsPerPage + 1)},
+					new RowMapper<Attraction>() {
 						@Override
 						public Attraction mapRow(ResultSet rs, int row) throws SQLException {
 							Attraction attraction = new Attraction();
@@ -124,19 +137,20 @@ public class AttractionDao {
 							attraction.setAname(rs.getString("aname"));
 							attraction.setAinfo(rs.getString("ainfo"));
 							attraction.setAlocation(rs.getString("alocation"));
-							attraction.setLatitude(rs.getInt("latitude"));
-							attraction.setHardness(rs.getInt("hardness"));
+							attraction.setLatitude(rs.getDouble("latitude"));
+							attraction.setLongitude(rs.getDouble("longitude"));
 							attraction.setBeacon(rs.getInt("beacon"));
+							attraction.setSavedfile(rs.getString("savedfile"));
 							return attraction;
 						}
 					}
 			);
 			return list;
-		}		
-		
-		public int count() {
-			String sql = "select count(*) from attraction";
-			int count = jdbcTemplate.queryForObject(sql, Integer.class);
+		}
+
+		public int count(String keyword) {
+			String sql = "select count(*) from attraction where aname like ?";
+			int count = jdbcTemplate.queryForObject(sql, new Object[]{"%" + keyword + "%"}, Integer.class);
 			return count;
 		}	
 

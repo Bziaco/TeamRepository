@@ -2,6 +2,8 @@ package com.mycompany.mymatch.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -18,31 +20,8 @@ public class AttractionController {
 	private AttractionService attractionService;
 	
 	
-	/*@RequestMapping("/attractionList")
-	public String attractionList() {
-		return "attraction/attractionList";
-	}*/
-	
 	@RequestMapping("/attractionList")
-	public String attrac(String aname, Model model) {
-		List<Attraction> list= attractionService.attrac(aname);
-		model.addAttribute("list", list);
-		return "attraction/attractionList";
-	}
-	
-	
-	
-	/*@RequestMapping("/attrac")
-	public String getInfo(int ano, Model model) {
-		Attraction attraction = attractionService.attrac(ano);
-		model.addAttribute("attraction", attraction);
-		return "attraction/attrac";
-	}*/
-	
-/*	@RequestMapping("/attractionList")
 	public String attractionList(String pageNo, String keyword, Model model, HttpSession session) {
-		logger.info("boardList");
-		
 		int intPageNo = 1;
 		if(pageNo == null) {
 			pageNo = (String) session.getAttribute("pageNo");
@@ -59,7 +38,7 @@ public class AttractionController {
 		
 		int totalBoardNo = 0;
 		List<Attraction> list = null;
-		if(keyword == null || keyword.equals("")) {
+		if(keyword == null || keyword.trim().equals("")) {
 			totalBoardNo = attractionService.getCount();
 			list = attractionService.getList(intPageNo, rowsPerPage);
 		} else {
@@ -88,9 +67,5 @@ public class AttractionController {
 		model.addAttribute("keyword", keyword);
 
 		return "attraction/attractionList";
-	}*/
-	
-	
-
-
+	}
 }

@@ -24,33 +24,6 @@ public class AttractionService {
 	@Autowired
 	private  AttractionDao attractionDao;
 	
-	/*public int write(Attraction attraction) {
-		int row = attractionDao.insert(attraction);
-		return WRITE_SUCESS;
-	}
-	
-	public int modify(Attraction attraction) {
-		int row = attractionDao.update(attraction);
-		if(row == 0) { return MODIFY_FAIL; }
-		return MODIFY_SUCESS;
-	}
-	
-	public int remove(int ano) {
-		int row = attractionDao.delete(ano);
-		if(row == 0) { return REMOVE_FAIL; }
-		return REMOVE_SUCESS;
-	}*/
-	
-	/*public Attraction attrac(int ano) {
-		Attraction attraction = attractionDao.selectByAno(ano);
-		return attraction;
-	}*/
-	
-	public List<Attraction> attrac(String aname) {
-		List<Attraction> list= attractionDao.selectByAname(aname);
-		return list;
-	}
-	
 	public List<Attraction> getList(int pageNo, int rowsPerPage) {
 		List<Attraction> list = attractionDao.selectByPage(pageNo, rowsPerPage);
 		return list;
@@ -59,4 +32,13 @@ public class AttractionService {
 	public int getCount() {
 		return attractionDao.count();
 	}
+
+	public List<Attraction> getListKeyword(String keyword, int pageNo, int rowsPerPage) {
+		List<Attraction> list = attractionDao.selectByPage(keyword, pageNo, rowsPerPage);
+		return list;
+	}
+	
+	public int getCountKeyword(String keyword) {
+		return attractionDao.count(keyword);
+	}	
 }

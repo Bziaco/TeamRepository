@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -50,129 +51,27 @@
 				</div>
 				<div class="inbox-body">
 					<div class="container">
-						<div class="row">
-						<div class="col-md-12">
 						<!-- table -->
-							<table style="width: 600px">
-							<!--첫번째 줄  -->
+							<table style="width: 1200px">
 								<tr>
 									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
+										<c:forEach var="attraction" items="${list}">
+											<a href="#">
+												<div style="width:200px; height:170px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/${attraction.savedfile}); background-size: 200px 170px;">
+													<div style="height: 140px;">
+													</div>
+													<div>
+														<table style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
+															<tr>
+																<td style="text-align: left; color: white">${attraction.aname}</td>
+															</tr>
+														</table>
+													</div>
 												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>
-									</td>
-									
-									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
-												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>  
-									</td>
-									
-									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
-												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>
+											</a>
+										</c:forEach>
 									</td>
 								</tr>
-								<!-- 두번째 줄 -->
-								<tr>
-									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
-												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>
-									</td>
-									
-									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
-												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>
-									</td>
-									
-									<td>
-										<a href="#">
-											<div style="width:120px; height:130px; display:inline-block; margin:5px; background-image:url(${pageContext.servletContext.contextPath}/resources/img/photo1.jpg); background-size: 120px 130px;">
-												<div style="height: 100px;">
-													<span style="color: white; font-size: 12px">날짜</span>
-												</div>
-												<div>
-													<table
-														style="width: 100%; height: 30px; background-color: black; opacity: 0.7;">
-														<tr>
-															<td style="text-align: left; color: white">제목</td>
-															<td style="text-align: right; color: aqua;">내용</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</a>
-									</td>
-								</tr>
-								
 							</table>
 							
 							
@@ -188,10 +87,7 @@
 									<li><a href="#">»</a></li>
 								</ul>
 							</div>
-							
-							
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</aside>

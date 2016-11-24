@@ -438,7 +438,7 @@
 										class="input-group-btn">
 										<button class="btn btn-primary btn-sm" id="btnMessageSend">Send</button>
 									</span>
-								</div>
+								</div> 
 							</div>
 						</div>
 					</div>

@@ -4,36 +4,12 @@
 <!DOCTYPE html >
 <html>
 <head>
-<<<<<<< HEAD
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
-<%-- <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script> --%>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-=======
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/common.css" />	
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 	<%-- <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/prefixfree.min.js"></script> --%>
@@ -41,20 +17,12 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/home.js"></script>
-	<script>
- 
-
- 
-</script>
-	
->>>>>>> branch 'master' of https://github.com/Bziaco/TeamRepository
 </head>
 <body>
 
 	<!-- 메뉴 -->
 	<div id="main-navbar">
 		<h1 style="margin-top: 10px; text-align: center; font-size: 25px;">
-
 			<div style="float: right; margin-right: 10px;">
 				<c:if test="${empty login}">
 					<button id="btnLogin" type="button" class="btn btn-default"
@@ -113,353 +81,267 @@
 	<iframe src="home" style="width: 100%; height: 98%; overflow: hidden;"></iframe>
 
 	<!-- login 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="loginModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive;">
-		<div class="modal-dialog"
-			style="position: absolute; right: 1000px; bottom: 800px">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>LOGIN</h4>
-							<input type="text" id="mid"
-								class="form-control input-sm chat-input" placeholder="username"
-								value="test" /> </br> <input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="password"
-								value="123" /> </br>
-							<div class="wrapper">
-								<span class="group-btn"> <a id="btnLogin" href="#"
-									class="btn btn-primary btn-md">login <i
-										class="fafa-sign-in"> </i></a></span>
-							</div>
-							<br /> <a href="" style="margin-right: 15px; margin-left: 30px">Find
-								ID</a><a href="">Find Password</a>
-						</div>
-
-					</div>
+	<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:300px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">LOGIN</h4>
 				</div>
-			</div>
-		</div>
+				<div class="modal-body">
+					<input type="text" id="mid"
+						class="form-control input-sm chat-input" placeholder="username"
+						value="test" /> 
+					</br> 
+					<input type="password" id="mpassword"
+						class="form-control input-sm chat-input" placeholder="password"
+						value="123" /> 
+					</br>
+					<br /> 
+					<a href="" style="margin-right: 15px; margin-left: 30px">Find ID</a>
+					<a href="">Find Password</a>
+				</div>
+	      		<div class="modal-footer">
+	        		<button id="btnLogin" type="button" class="btn btn-primary">login</button>
+	      		</div>
+	    	</div>
+	  	</div>
 	</div>
 
 
 	<!-- Resist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="resistModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive">
-		<div class="modal-dialog"
-			style="position: absolute; right: 1000px; bottom: 900px">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>RESIST</h4>
-							<input type="text" id="mid"
-								class="form-control input-sm chat-input" placeholder="ID"
-								value="test" /> </br> <input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="Password"
-								value="kosa12345" /></br> <input type="text" id="mnickname"
-								class="form-control input-sm chat-input" placeholder="Nickname"
-								value="테스트" /></br> <input type="text" id="mname"
-								class="form-control input-sm chat-input" placeholder="Name"
-								value="조옥현" /></br> <input type="number" id="mage"
-								class="form-control input-sm chat-input" placeholder="Age"
-								value="30" /> </br> <select class="form-control input-sm chat-input"
-								id="msex">
-								<option checked value="M">Male</option>
-								<option value="F">Female</option>
-							</select></br> <input type="text" id="memail"
-								class="form-control input-sm chat-input" placeholder="Email"
-								value="test@naver.com" /></br> <input type="text" id="mlocal"
-								class="form-control input-sm chat-input" placeholder="Local"
-								value="Seoul" /></br> <input type="text" id="mtel"
-								class="form-control input-sm chat-input" placeholder="Tel"
-								value="010-123-1234" /> </br> <input type="file" id="mphoto" multiple />
-							<br />
-							
-							<!-- 	class="form-control input-sm chat-input" placeholder="ID" value="test"/> </br> 
-							<input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="Password" value="kosa12345"/></br> 
-							<input type="text" id="mnickname"
-								class="form-control input-sm chat-input" placeholder="Nickname" value="테스트" /></br> 
-							<input type="text" id="mname"
-								class="form-control input-sm chat-input" placeholder="Name" value="조옥현" /></br>
-							<input type="number" id="mage"
-								class="form-control input-sm chat-input" placeholder="Age" value="30"/> </br>
-							<select class="form-control input-sm chat-input" id="msex">
-								<option checked value="Male">Male</option>
-								<option value="Female">Female</option>
-							</select></br>
-							<input type="text" id="memail"
-								class="form-control input-sm chat-input" placeholder="Email"  value="test@naver.com"/></br>
-							<input type="text" id="mlocal"
-								class="form-control input-sm chat-input" placeholder="Local" value="Seoul"/></br> 
-							<input type="text" id="mtel"
-								class="form-control input-sm chat-input" placeholder="Tel" value="010-123-1234"/> </br>
-							<input type="file" id="mphoto" multiple/> <br/>
-	 -->
-							<div class="wrapper">
-								<span class="group-btn"> <a id="btnResist" href="#"
-									class="btn btn-primary btn-md">Resist <i
-										class="fa fa-sign-in"></i></a></span>
-							</div>
-
-							<br />
-
-						</div>
-					</div>
+	<div id="resistModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">RESIST</h4>
+	      		</div>
+	      		<div class="modal-body">
+					<input type="text" id="mid"
+						class="form-control input-sm chat-input" placeholder="ID"
+						value="test" /> 
+					<br/> 
+					<input type="password" id="mpassword"
+						class="form-control input-sm chat-input" placeholder="Password"
+						value="kosa12345" />
+						<br/> 
+					<input type="text" id="mnickname"
+						class="form-control input-sm chat-input" placeholder="Nickname"
+						value="테스트" />
+					<br/> 
+					<input type="text" id="mname"
+						class="form-control input-sm chat-input" placeholder="Name"
+						value="조옥현" />
+					<br/>
+					<input type="number" id="mage"
+						class="form-control input-sm chat-input" placeholder="Age"
+						value="30" />
+					<br/> 
+					<select
+						class="form-control input-sm chat-input" id="msex">
+						<option checked value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+					<br/> 
+					<input type="text" id="memail"
+						class="form-control input-sm chat-input" placeholder="Email"
+						value="test@naver.com" />
+					<br/> 
+					<input type="text" id="mlocal"
+						class="form-control input-sm chat-input" placeholder="Local"
+						value="Seoul" />
+					<br/> 
+					<input type="text" id="mtel"
+						class="form-control input-sm chat-input" placeholder="Tel"
+						value="010-123-1234" /> 
+					<br/> 
+					<input type="file" id="mphoto" multiple /> <br/>
 				</div>
-			</div>
-		</div>
-	</div>
+	      		<div class="modal-footer">
+	        		<button id="btnResist" type="button" class="btn btn-primary">Resist</button>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>	
 
 	<!-- modify 패스워드 확인 -->
-	<div style="z-index: 5000" class="modal fade" id="passwordmodifyModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive">
-		<div class="modal-dialog"
-			style="position: absolute; right: 1000px; bottom: 900px">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>Password Modification</h4>
-							<input type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="Password"
-								value="kosa12345" /> </br> <span class="group-btn"> <a
-								id="inputPassword" href="#" class="btn btn-primary btn-md"
-								data-trigger="focus">Input Password <i class="fa fa-sign-in"></i>
-							</a></span>
-						</div>
-						<br />
-					</div>
+	<div id="passwordmodifyModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Password Modification</h4>
+				</div>
+				<div class="modal-body">
+					<input type="password" id="mpassword" class="form-control input-sm chat-input" placeholder="Password" value="kosa12345" />
+				</div>
+				<div class="modal-footer">
+					<button id="inputPassword" type="button" class="btn btn-primary">Input Password</button>
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</div>		
+	
 
 	<!-- modify 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="modifyModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive">
-		<div class="modal-dialog"
-			style="position: absolute; right: 1000px; bottom: 900px">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>Modification</h4>
-							<input type="file" id="mphoto" multiple /> <br /> <input
-								type="password" id="mpassword"
-								class="form-control input-sm chat-input" placeholder="Password" />
-							</br> <input type="text" id="mnickname"
-								class="form-control input-sm chat-input" placeholder="Nickname" />
-							</br> <input type="text" id="mname"
-								class="form-control input-sm chat-input" placeholder="Name" /> </br>
-							<input type="number" id="mage"
-								class="form-control input-sm chat-input" placeholder="Age" /> </br> <select
-								class="form-control input-sm chat-input" id="msex">
-								<option checked value="M">Male</option>
-								<option value="F">Female</option>
-							</select></br> <input type="text" id="memail"
-								class="form-control input-sm chat-input" placeholder="Email" />
-							</br> <input type="text" id="mlocal"
-								class="form-control input-sm chat-input" placeholder="Local" />
-							</br> <input type="text" id="mtel"
-								class="form-control input-sm chat-input" placeholder="Tel" /> </br> <span
-								class="group-btn"> <a id="btnModify" href="#"
-								class="btn btn-primary btn-md">modify<i
-									class="fa fa-sign-in"></i>
-							</a></span>
-						</div>
-						<br />
-					</div>
-
+	<div id="modifyModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Modification</h4>
+				</div>
+				<div class="modal-body">
+						<input type="file" id="mphoto" multiple /> <br /> <input
+							type="password" id="mpassword"
+							class="form-control input-sm chat-input" placeholder="Password" />
+						</br> <input type="text" id="mnickname"
+							class="form-control input-sm chat-input" placeholder="Nickname" />
+						</br> <input type="text" id="mname"
+							class="form-control input-sm chat-input" placeholder="Name" /> </br>
+						<input type="number" id="mage"
+							class="form-control input-sm chat-input" placeholder="Age" /> </br> <select
+							class="form-control input-sm chat-input" id="msex">
+							<option checked value="M">Male</option>
+							<option value="F">Female</option>
+						</select></br> <input type="text" id="memail"
+							class="form-control input-sm chat-input" placeholder="Email" />
+						</br> <input type="text" id="mlocal"
+							class="form-control input-sm chat-input" placeholder="Local" />
+						</br> <input type="text" id="mtel"
+							class="form-control input-sm chat-input" placeholder="Tel" /> 
+				</div>
+				<div class="modal-footer">
+					<button id="btnModify" type="button" class="btn btn-primary">modify</button>
 				</div>
 			</div>
 		</div>
-
-	</div>
-
-
-
-
-
+	</div>	
+	
 	<!-- info 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="infoModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive">
-		<div class="modal-dialog"
-			style="position: absolute; right: 800px; bottom: 900px">
-
-
-			<div class="container">
-				<div class="">
-					<div
-						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<h3 class="panel-title">User information</h3>
+	<div id="infoModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:600px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">User information</h4>
+				</div>
+				<div class="modal-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+								<img class="img-thumbnail" id="mphoto" src="" width="130"
+									height="130"></img>
 							</div>
-							<div class="panel-body">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">
-									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								</button>
-								<div class="row">
-									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-										<img class="img-thumbnail" id="mphoto" src="" width="130"
-											height="130"></img>
-									</div>
 
-									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-										<strong id="mname"></strong><br>
-										<table class="table table-user-information">
-											<tbody>
-												<tr>
-													<td>Nickname:</td>
-													<td id="mnickname"></td>
-												</tr>
-												<tr>
-													<td>E-mail:</td>
-													<td id="memail"></td>
-												</tr>
-												<tr>
-													<td>Age:</td>
-													<td id="mage"></td>
-												</tr>
-												<tr>
-													<td>Local:</td>
-													<td id="mlocal"></td>
-												</tr>
-												<tr>
-													<td>Tel:</td>
-													<td id="mtel"></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
+							<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
+								<strong id="mname"></strong><br>
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Nickname:</td>
+											<td id="mnickname"></td>
+										</tr>
+										<tr>
+											<td>E-mail:</td>
+											<td id="memail"></td>
+										</tr>
+										<tr>
+											<td>Age:</td>
+											<td id="mage"></td>
+										</tr>
+										<tr>
+											<td>Local:</td>
+											<td id="mlocal"></td>
+										</tr>
+										<tr>
+											<td>Tel:</td>
+											<td id="mtel"></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
-					</div>
 				</div>
+				<!-- <div class="modal-footer">
+					<button id="btnModify" type="button" class="btn btn-primary">modify</button>
+				</div> -->
 			</div>
 		</div>
-	</div>
+	</div>		
 
 
 	<!-- withdraw 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="withdrawModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive;">
-		<div class="modal-dialog"
-			style="position: absolute; right: 900px; bottom: 900px">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>really want to leave?</h4>
-							<div class="wrapper">
-								<span class="group-btn"> <a id="Okwithdraw" href="#"
-									class="btn btn-primary btn-md" style="margin-right: 30px">OK
-										<i class="fa fa-sign-in"></i>
-								</a></span> <span class="group-btn"> <a id="Canclewithdraw" href="#"
-									class="btn btn-primary btn-md">Cancle <i
-										class="fa fa-sign-in"></i></a></span>
-							</div>
-							<br />
-						</div>
-
-					</div>
+	<div id="withdrawModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">really want to leave?</h4>
+				</div>
+				<!-- <div class="modal-body">
+						<h4>really want to leave?</h4>
+				</div> -->
+				<div class="modal-footer">
+					<button id="Okwithdraw" type="button" class="btn btn-primary">OK</button>
+					<button id="Canclewithdraw" type="button" class="btn btn-primary">Cancle</button>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div>		
 
 	<!-- guideresist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="guideModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive;">
-		<div class="modal-dialog"
-			style="position: absolute; right: 900px; bottom: 900px">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>GUIDED RESIST</h4>
-							<input type="text" id="guideLocal"
+	<div id="guideModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">GUIDED RESIST</h4>
+				</div>
+				<div class="modal-body">
+						<input type="text" id="guideLocal"
 								class="form-control input-sm chat-input"
 								placeholder="Guide Local" /> </br>
-							<textarea id="guideIntro"
-								class="form-control input-sm chat-input"
-								placeholder="Guide Introuce"></textarea>
-							</br>
-							<div class="wrapper">
-								<span class="group-btn"> <a id="btnguideresist" href="#"
-									class="btn btn-primary btn-md">Resist <i
-										class="fa fa-sign-in"></i></a></span>
-							</div>
-							<br />
-						</div>
-
-					</div>
+						<textarea id="guideIntro"
+							class="form-control input-sm chat-input"
+							placeholder="Guide Introuce"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button id="btnguideresist" type="button" class="btn btn-primary">Resist</button>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div>		
 
 	<!-- touristresist 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="touristModal"
-		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
-		style="position:relavtive;">
-		<div class="modal-dialog"
-			style="position: absolute; right: 900px; bottom: 900px">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-offset-5 col-md-3">
-						<div class="form-login">
-							<h4>TOURIST RESIST</h4>
-							<input type="text" id="touristLocal"
+	<div id="touristModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+		<div class="modal-dialog" role="document"  style="width:400px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">TOURIST RESIST</h4>
+				</div>
+				<div class="modal-body">
+						<input type="text" id="touristLocal"
 								class="form-control input-sm chat-input"
 								placeholder="Tourist Local" /> </br>
-							<textarea id="touristIntro"
-								class="form-control input-sm chat-input"
-								placeholder="Tourlist Introduce"></textarea>
-							</br> <input id="toDate" type="date"
-								class="form-control input-sm chat-input" placeholder="to" /> ~
-							<input id="fromDate" type="date"
-								class="form-control input-sm chat-input" placeholder="from" />
-							<!--
-							    <span class="add-on">
-							      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-							      </i>
-							    </span> -->
-							</br> </br>
-							<div class="wrapper">
-								<span class="group-btn"> <a id="btnTouristResist"
-									href="#" class="btn btn-primary btn-md">Resist <i
-										class="fa fa-sign-in"></i></a></span>
-							</div>
-							<br />
-						</div>
-
-					</div>
+						<textarea id="touristIntro"
+							class="form-control input-sm chat-input"
+							placeholder="Tourlist Introduce"></textarea>
+						</br> <input id="toDate" type="date"
+							class="form-control input-sm chat-input" placeholder="to" /> ~
+						<input id="fromDate" type="date"
+							class="form-control input-sm chat-input" placeholder="from" />
+				</div>
+				<div class="modal-footer">
+					<button id="btnTouristResist" type="button" class="btn btn-primary">Resist</button>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div>	
 
 	<!-- schedule 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="scheduleModal"
+	<div id="scheduleModal" style="z-index: 5000" class="modal fade"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog">
 
@@ -481,7 +363,7 @@
 	</div>
 
 	<!-- matchtourist 모달 -->
-	<div style="z-index: 5000;" class="modal fade" id="matchtouristModal"
+	<div id="matchtouristModal" style="z-index: 5000;" class="modal fade"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		data-tid="$(tourist.tid)">
 		<div class="modal-dialog"
@@ -499,7 +381,7 @@
 	</div>
 
 	<!-- matchguide 모달 -->
-	<div style="z-index: 5000" class="modal fade" id="matchguideModal"
+	<div id="matchguideModal" style="z-index: 5000" class="modal fade"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel"
 		data-gid="$(guide.gid)">
 		<div class="modal-dialog"
@@ -516,15 +398,10 @@
 	</div>
 
 	<!-- 메세지 -->
-<<<<<<< HEAD
 	<div id="messageModal" style="z-index: 8000;" class="modal fade"
 		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog"
 			style="position: absolute; left: 800px; bottom: 100px; width: 2000px;">
-=======
-	<div id="btnMessageModal" style="z-index: 8000;" class="modal fade" tabindex="5" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" style="position: absolute; left: 800px; bottom: 100px; width: 2000px;">
->>>>>>> branch 'master' of https://github.com/Bziaco/TeamRepository
 			<div class="container">
 				<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1"
 					style="margin-left: 10px;">

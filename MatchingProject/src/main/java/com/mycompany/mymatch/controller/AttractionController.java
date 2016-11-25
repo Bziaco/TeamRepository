@@ -1,7 +1,12 @@
 package com.mycompany.mymatch.controller;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,11 +84,33 @@ public class AttractionController {
 		return "attraction/getAttraction";
 	}
 	
+//----------저장되어있는 사진의 타입을 읽어서 보낸다 ----------------------------------------------------------------------------------------------------------------------------	
 	
 	
 	
-	
-	
+	@RequestMapping("/getPhoto")
+	public void getPhoto(String savedfile, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String fileName = savedfile;
+
+			String mimeType = request.getServletContext().getMimeType(fileName);
+			response.setContentType(mimeType);
+			
+			OutputStream os = response.getOutputStream();
+			String filePath = request.getServletContext().getRealPath("/resources/img/" + fileName);
+			InputStream is = new FileInputStream(filePath);
+			byte[] values = new byte[1024];
+			int byteNum = -1;
+			while((byteNum = is.read(values)) != -1) {
+				os.write(values, 0, byteNum);
+			}
+			os.flush();
+			is.close();
+			os.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	

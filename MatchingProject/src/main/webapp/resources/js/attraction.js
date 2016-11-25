@@ -13,18 +13,17 @@
 	    
 	    $(".btnDetailModal").click(function() {
 	    	var ano = $(this).attr("data-ano");
-	    	console.log("aaa")
 	    	
 	    	$.ajax({
 	    		url:"/mymatch/attraction/getAttraction",
 	    		data:{ano:ano},
 	    		method:"post",
 	    		success: function(data) {
-	    			console.log(data);
-	    			$("#detailModal #ano").html(data.ano);
-	    			$("#detailModal #aname").html(data.aname);
-	    			$("#detailModal #ainfo").html(data.ainfo);
-	    			$("#detailModal #alocation").html(data.alocation);   			
+	    			$("#attractionModal #savedfile").attr('src', "/mymatch/attraction/getPhoto?savedfile=" +data.savedfile);
+	    			$("#attractionModal #ano").html(data.ano);
+	    			$("#attractionModal #aname").html(data.aname);
+	    			$("#attractionModal #ainfo").html(data.ainfo);
+	    			$("#attractionModal #alocation").html(data.alocation);   			
 	    			$("#attractionModal").modal("show");
 	    		}
 	    	});

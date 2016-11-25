@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/login.css" />
 <link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/message.css" />
+	href="${pageContext.servletContext.contextPath}/resources/css/attracList.css" />
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/matchtourist.css" />
 <script type="text/javascript"
@@ -20,7 +20,7 @@
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
+	href="${pageContext.servletContext.contextPath}/resources/css/attraction.css" />
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/attraction.js"></script>
 <script type="text/javascript"
@@ -122,12 +122,14 @@
 									aria-hidden="true">
 									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 								</button>
+								<!-- 사진 -->
+								<img  id="savedfile" style="width:100%; height:400px"></img>
+											
 								<div class="row">
 									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm"></div>
 
 									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
 										<strong id="mname"></strong><br>
-										<div id="savedfile"></div>
 										<table class="table table-user-information"
 											style="height: 250px;">
 											<tbody>

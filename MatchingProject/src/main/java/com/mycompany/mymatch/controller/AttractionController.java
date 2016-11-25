@@ -43,7 +43,7 @@ public class AttractionController {
 		
 		int totalBoardNo = 0;
 		List<Attraction> list = null;
-		if(keyword == null || keyword.trim().equals("")) {
+		if(keyword == null || keyword.equals("")) {
 			totalBoardNo = attractionService.getCount();
 			list = attractionService.getList(intPageNo, rowsPerPage);
 		} else {

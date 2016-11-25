@@ -93,12 +93,7 @@
     
     $("#btnSearch").click(function() {
     	var keyword = $("#keyword").val();
-    	var url = location.href;
-    	var index = url.indexOf("boardList");
-    	if(index != -1) {
-    		url = url.substring(0, index+9);
-    	}
-    	location.href = url + "?keyword="+keyword;
+    	location.href = "boardList?keyword="+keyword;
     });
     
     

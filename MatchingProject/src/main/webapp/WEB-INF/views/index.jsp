@@ -270,7 +270,6 @@
 		</div>
 	</div>		
 
-
 	<!-- withdraw 모달 -->
 	<div id="withdrawModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
 		<div class="modal-dialog" role="document"  style="width:400px;">

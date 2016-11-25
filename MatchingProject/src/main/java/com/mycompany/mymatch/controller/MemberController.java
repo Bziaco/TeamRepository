@@ -120,6 +120,9 @@ public class MemberController {
 		model.addAttribute("member", member);
 		return "member/info";
 	}
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------	
 	
 	@RequestMapping(value="/passwordmodify", method=RequestMethod.POST)
 	public String checkPassword(String mpassword, HttpSession session, Model model){
@@ -131,6 +134,10 @@ public class MemberController {
 		}
 		return "member/passwordmodify";
 	}
+	
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+	
 	
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modify(Member member, Model model, HttpServletRequest request, HttpSession session){
@@ -170,7 +177,7 @@ public class MemberController {
 		return "member/modify";
 	}
 	
-	
+//-------------------------------------------------------------------------------------------------------------------------------------	
 	@RequestMapping("/withdraw")
 	public String withdraw(String mid, Member member, HttpSession session){
 		mid = (String) session.getAttribute("login");
@@ -180,6 +187,10 @@ public class MemberController {
 		
 		return "member/withdraw";
 	}
+	
+	
+//-------------------------------------------------------------------------------------------------------------------------------------	
+	
 	
 	@RequestMapping("/getPhoto")
 	public void getPhoto(String savedfile, HttpServletRequest request, HttpServletResponse response) {

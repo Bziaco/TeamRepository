@@ -88,7 +88,7 @@ public class AttractionDao {
 			sql += "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile ";
 			sql += "from ( ";
 			sql += "	select rownum as rn, ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile " ;
-			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction) ";
+			sql += "	from (select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction order by ano desc) ";
 			sql += "	where rownum<=? ";
 			sql += ") ";
 			sql += "where rn>=? ";

@@ -5,7 +5,7 @@
 	    	var url = location.href;
 	    	var index = url.indexOf("attractionList");
 	    	if(index != -1) {
-	    		url = url.substring(0, index+11);
+	    		url = url.substring(0, index+15);
 	    	}
 	    	location.href = url + "?keyword="+keyword;
 	    });

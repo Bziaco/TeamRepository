@@ -43,7 +43,7 @@
 		}
 	} 
 </script>
-	
+
 </head>
 
 <body id="wrap" style="overflow: hidden;">
@@ -52,13 +52,13 @@
 			<aside class="lg-side">
 				<div class="inbox-head">
 					<h3>Photo Board</h3>
-					<form class="pull-right position">
+					<form class="pull-right position" name="formname">
 						<div class="input-append">
 							<input id="keyword" type="text" class="sr-input"
 								placeholder="Search">
-							<button id="btnSearch" class="btn sr-btn" type="button">
+							 <button id="btnSearch" class="btn sr-btn" type="button">
 								<i class="fa fa-search"></i>
-							</button>
+							 </button>
 						</div>
 					</form>
 				</div>

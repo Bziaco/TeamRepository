@@ -23,6 +23,20 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
+	
+<script type="text/javascript">
+	document.onkeydown = trapRefresh;
+	function trapRefresh() {
+		if (event.keyCode == 116) {
+			event.keyCode = 0; 
+			event.cancelBubble = true; 
+			event.returnValue = false;
+			document.location.reload();
+		}
+	} 
+</script>	
+	
+	
 </head>
 <body id="wrap">
 	

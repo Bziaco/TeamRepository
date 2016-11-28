@@ -60,7 +60,7 @@ public class GuideController {
 	public String findGuide(String glocal, Model model) {
 		List<Guide> list= guideService.findGuide(glocal);
 		for(Guide guide : list) {
-			guide.setCount(matchingService.countByGid(guide.getGid()));
+			guide.setCount(matchingService.countByGid(guide.getGid())); 
 		}	
 		list.sort(new Comparator<Guide>() {
 			@Override

@@ -15,7 +15,8 @@ ol, ul {
 a {
 	outline: 0;
 	text-decoration: none;
-	color: #bbb;
+	color: #070707;
+    font-weight: bolder;
 }
 
 img {
@@ -66,7 +67,7 @@ html {
 
 .mail-box .lg-side {
 	background: none repeat scroll 0 0 #fff;
-	border-radius: 0 4px 4px 0;
+	border-radius: 30px;
 	width: 75%;
 }
 
@@ -211,7 +212,7 @@ ul.labels-info li a i {
 
 .inbox-head {
 	background: none repeat scroll 0 0 #41cac0;
-	border-radius: 0 4px 0 0;
+	border-radius: 20px 20px 0 0;
 	color: #fff;
 	min-height: 80px;
 	padding: 20px;

@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.MatchingDao;
 import com.mycompany.mymatch.dao.MemberDao;
+import com.mycompany.mymatch.dto.Attraction;
+import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingService {
-	public static final int MODIFY_SUCCESS = 0;
+	/*public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
 	
 	public static final int REMOVE_SUCCESS = 0;
@@ -41,9 +43,6 @@ public class MatchingService {
 		return matchingDao.selectByMatch(matchno);
 	}
 	
-	public int countByGid(String gid) {
-		return matchingDao.countByGid(gid);
-	}
 
 	public List<Member> getMatchingToureList(String gid) {
 		List<Matching> list = matchingDao.selectByGid(gid);
@@ -68,4 +67,38 @@ public class MatchingService {
 		
 		return matchingGuideList;
 	}
+	*/
+	public int countByGid(String gid) {
+		return matchingDao.countByGid(gid);
+	}
+	
+//---------------------------------------------------------------------------------------------------------------------------
+	@Autowired
+	private MatchingDao matchingDao;
+	
+	
+	public List<Matching> getList(int pageNo, int rowsPerPage) {
+		List<Matching> list = matchingDao.selectByPage(pageNo, rowsPerPage);
+		return list;
+	}
+
+	public List<Matching> getListKeyword(String keyword, int pageNo, int rowsPerPage) {
+		List<Matching> list = matchingDao.selectKeywordByPage(keyword, pageNo, rowsPerPage);
+		return list;
+	}
+	
+	public int getCountKeyword(String keyword) {
+		return matchingDao.countKeyword(keyword);
+	}
+	
+	public int getCount() {
+		return matchingDao.count();
+	}
+	
+	public Matching getMatching(String gid) {
+		Matching matching = matchingDao.selectByGid(gid);
+		return matching;
+	}
+	
+	
 }

@@ -126,7 +126,7 @@
 				<div class="">
 					<div
 						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-						<div class="panel panel-primary">
+						<div class="panel panel-primary" style="margin-top: 30px;">
 							<div class="panel-heading">
 								<h2 class="panel-title">Attraction Detail</h2>
 							</div>
@@ -139,12 +139,12 @@
 								<img  id="savedfile" style="width:100%; height:400px"></img>
 											
 								<div class="row">
-									<div class="col-md-3 col-lg-3 hidden-xs hidden-sm"></div>
+									<div ></div>
 
-									<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
+									<div >
 										<strong id="mname"></strong><br>
 										<table class="table table-user-information"
-											style="height: 250px;">
+											style="height: 250px; font-size: 15px; font-weight: bolder;">
 											<tbody>
 												<tr>
 													<td>No:</td>
@@ -156,7 +156,7 @@
 												</tr>
 												<tr>
 													<td>Info:</td>
-													<td id="ainfo"></td>
+													<td id="ainfo" style="height: 200px; overflow-y: scroll;"></td>
 												</tr>
 												<tr>
 													<td>Location:</td>

@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.mymatch.dto.Attraction;
+import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
 
@@ -18,7 +20,7 @@ public class MatchingDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public int insert(Matching matching){
+	/*public int insert(Matching matching){
 		String sql = "insert into matching(matchno, matchdate, score, bno, btitle, bcontent, bwriter, bhitcount, bdate, savedfile) values(seq_matching_matchno.nextval,sysdate,?,?,?,?,?,?,?,?)";
 		int row = jdbcTemplate.update(
 				sql,
@@ -118,7 +120,7 @@ public class MatchingDao {
 		);
 		return list;
 	}
-	/*public List<Matching> selectByMid(int pageNo, int rowsPerPage, String mid){
+	public List<Matching> selectByMid(int pageNo, int rowsPerPage, String mid){
 		String sql = "";
 		sql += "select rn, matchno, score, matchdate";
 		sql += "from ( ";
@@ -144,12 +146,108 @@ public class MatchingDao {
 				}
 		);
 		return list;
-	}*/
-	
+	}
+	*/
 	public int countByGid(String gid) {
 		String sql = "select count(*) from matching where gid=?";
 		int count = jdbcTemplate.queryForObject(sql, new Object[] {gid}, Integer.class);
 		return count;
 	}
+	
+	
+	
+//---------------------------------------------------------------------------------------------------------------------------------
 
+		public List<Matching> selectByPage(int pageNo, int rowsPerPage) {
+			String sql = "";
+			sql += "select matchno, gid, score, matchdate, savedfile ";
+			sql += "from ( ";
+			sql += "	select rownum as rn, machno, gid, score, matchdate, savedfile " ;
+			sql += "	from (select machno, gid, score, matchdate, savedfile from matching order by score desc) ";
+			sql += "	where rownum<=? ";
+			sql += ") ";
+			sql += "where rn>=? ";
+			List<Matching> list = jdbcTemplate.query(
+					sql,  
+					new Object[]{(pageNo*rowsPerPage), ((pageNo-1)*rowsPerPage + 1)},
+					new RowMapper<Matching>() {
+						@Override
+						public Matching mapRow(ResultSet rs, int row) throws SQLException {
+							Matching matching = new Matching();
+							matching.setMatchno(rs.getInt("matchno"));
+							matching.setGid(rs.getString("gid"));
+							matching.setScore(rs.getInt("score"));
+							matching.setMatchdate(rs.getDate("matchdate"));
+							matching.setSavedfile(rs.getString("savedfile"));
+							return matching;
+						}
+					}
+			);
+			return list;
+		}
+
+//-------------------------------------------------------------------------------------------------------
+		
+		
+		public List<Matching> selectKeywordByPage(String keyword, int pageNo, int rowsPerPage) {
+			String sql = "";
+			sql += "select matchno, gid, score, matchdate, savedfile ";
+			sql += "from ( ";
+			sql += "	select rownum as rn, matchno, gid, score, matchdate, savedfile " ;
+			sql += "	from (select matchno, gid, score, matchdate, savedfile from matching where  gid like ?) ";
+			sql += "	where rownum<=? ";
+			sql += ") ";
+			sql += "where rn>=? ";
+			List<Matching> list = jdbcTemplate.query(
+					sql,  
+					new Object[]{"%"+keyword+"%", (pageNo*rowsPerPage), ((pageNo-1)*rowsPerPage + 1)},
+					new RowMapper<Matching>() {
+						@Override
+						public Matching mapRow(ResultSet rs, int row) throws SQLException {
+							Matching matching = new Matching();
+							matching.setMatchno(rs.getInt("matchno"));
+							matching.setGid(rs.getString("gid"));
+							matching.setScore(rs.getInt("score"));
+							matching.setMatchdate(rs.getDate("matchdate"));
+							matching.setSavedfile(rs.getString("savedfile"));
+							return matching;
+						}
+					}
+			);
+			return list;
+		}
+		
+//---------------------------------------------------------------------------------------------------------------------------------		
+		
+		
+		public Matching selectByGid(String gid) {
+			String sql = "select matchno, gid, score, matchdate, savedfile from board where gid=?";
+			List<Matching> list = jdbcTemplate.query(sql, new Object[] {gid}, new RowMapper<Matching>() {
+				@Override
+				public Matching mapRow(ResultSet rs, int row) throws SQLException {
+					Matching matching = new Matching();
+					matching.setMatchno(rs.getInt("matchno"));
+					matching.setGid(rs.getString("gid"));
+					matching.setScore(rs.getInt("score"));
+					matching.setMatchdate(rs.getDate("matchdate"));
+					matching.setSavedfile(rs.getString("savedfile"));
+					return matching;
+				}
+			});
+			return (list.size() != 0)? list.get(0) : null;
+		}
+		
+//------전체 행수-------------------------------------------------------------------------------------------------------------------------------
+
+		public int count() {
+			String sql = "select count(*) from matching";
+			int count = jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		}	
+		
+		public int countKeyword(String keyword) {
+			String sql = "select count(*) from matching where gid like ?";
+			int count = jdbcTemplate.queryForObject(sql, new Object[] {"%"+keyword+"%"}, Integer.class);
+			return count;
+		}	
 }

@@ -43,6 +43,7 @@
 				</c:if>
 			</div>
 		</h1>
+		<div  style="margin-top: 10px; text-align: center;" ><a href="http://localhost:8080/mymatch/" style="font-size: 35px; color: white;">TwoPlus+</a></div>
 		<div id="toggle-sidebar">
 			<img src="http://minimar0.dothome.co.kr/img/btn_menu.png" width="28"
 				alt="메뉴 전체보기" />

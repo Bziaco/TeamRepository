@@ -5,7 +5,7 @@
 	<div class="thumbnail" style="width:350px; display: inline-block;margin:6px;">
 		<div class="caption">
 			<div>
-				<h4>3Team</h4>
+				<h4 id="mnickname">${member.mnickname}</h4>
 			</div>
 			<div style="margin:0px 10px;">
 				<img src="member/getPhoto?savedfile=${member.savedfile}"

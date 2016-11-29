@@ -176,7 +176,7 @@
 		});
 	});
 	
-	/*유저정보*/
+	/*유저정보 성공*/
 	$("#btninfo").click(function(){
 		
 		$.ajax({
@@ -186,18 +186,24 @@
 			processData: false,
 			contentType: false,
 			success: function(data) {
-				$("#infoModal #mname").html(data.member.mname);
-				$("#infoModal #mnickname").html(data.member.mnickname);
-				$("#infoModal #mage").html(data.member.mage);
-				$("#infoModal #msex").html(data.member.msex);
-				$("#infoModal #memail").html(data.member.memail);
-				$("#infoModal #mlocal").html(data.member.mlocal);
-				$("#infoModal #mtel").html(data.member.mtel);
-				$("#infoModal #mphoto").attr('src', "member/getPhoto?savedfile=" + data.member.mphoto)
-				$("#infoModal").modal("show");
+				if(data.result == "success") {
+					$("#infoModal #mname").html(data.member.mname);
+					$("#infoModal #mnickname").html(data.member.mnickname);
+					$("#infoModal #mage").html(data.member.mage);
+					$("#infoModal #msex").html(data.member.msex);
+					$("#infoModal #memail").html(data.member.memail);
+					$("#infoModal #mlocal").html(data.member.mlocal);
+					$("#infoModal #mtel").html(data.member.mtel);
+					$("#infoModal #mphoto").attr('src', "member/getPhoto?savedfile=" + data.member.mphoto)
+					$("#infoModal").modal("show");
+				} else {
+					alert("로그인하세요.");
+				}
 			}
 		});
 	});
+	
+	
 	
 	/*탈퇴*/
 	$("#withdrawModal #Okwithdraw").click(function(){
@@ -262,7 +268,7 @@
 
 	/*MessageBox 띄우기*/
 	var mto;
-	$("#btnMessageModal").click( function() {
+	$(document).on("click", "#btnMessageModal", function() {
 		mto = $("#btnMessageModal").attr("data-mto");
 		$.ajax({
 			url: "/mymatch/message/messageList",

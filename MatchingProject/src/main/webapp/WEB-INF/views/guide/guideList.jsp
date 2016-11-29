@@ -27,6 +27,21 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery.simple-sidebar.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/guide.js"></script>
+	
+<script type="text/javascript">
+	document.onkeydown = trapRefresh;
+	function trapRefresh() {
+		if (event.keyCode == 116) {
+			event.keyCode = 0; 
+			event.cancelBubble = true; 
+			event.returnValue = false;
+			document.location.reload();
+		}
+	} 
+</script>	
+	
+	
+	
 </head>
 <body id="wrap">
 
@@ -50,7 +65,7 @@
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a
-									href="#" class="btnLocation" data-location="Pusan">Pusan</a></li>
+									href="#" class="btnLocation" data-location="Busan">Busan</a></li>
 
 								<li class="list-group-item"><span
 									class="glyphicon glyphicon-pencil text-primary"></span> <a

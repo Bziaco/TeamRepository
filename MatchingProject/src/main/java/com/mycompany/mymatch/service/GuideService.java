@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.GuideDao;
+import com.mycompany.mymatch.dto.Attraction;
 import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Guide;
 
@@ -40,4 +41,5 @@ public class GuideService {
 		Guide guide = guideDao.selectByGid(gid);
 		return guide;
 	}
+	
 }

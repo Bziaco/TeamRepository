@@ -54,7 +54,7 @@ public class MatchingController {
 		}
 		session.setAttribute("pageNo", String.valueOf(intPageNo));
 		
-		int rowsPerPage = 8;
+		int rowsPerPage = 3;
 		int pagesPerGroup = 5;
 		
 		int totalBoardNo = 0;

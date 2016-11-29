@@ -85,7 +85,8 @@
 													<td>${matching.matchno}</td>
 													<td><a class="btnDetailModal" href="#"
 														data-gid="${matching.gid}">${matching.gid}</a></td>
-													<td style="background-image:url(${pageContext.servletContext.contextPath}/resources/img/${matching.savedfile}); background-size: 200px 170px;"></td>
+													<td><img src="matching/getPhoto?savedfile=${matching.savedfile}" 
+															width="120" height="130"></img> </td>
 													<td>${matching.score}</td>
 													<td>${matching.matchdate}</td>
 												</tr>

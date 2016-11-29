@@ -1,20 +1,19 @@
 package com.mycompany.mymatch.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.MatchingDao;
-import com.mycompany.mymatch.dao.MemberDao;
-import com.mycompany.mymatch.dto.Attraction;
-import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Matching;
-import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingService {
+	
+	@Autowired
+	private MatchingDao matchingDao;
+	
 	/*public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
 	
@@ -73,8 +72,7 @@ public class MatchingService {
 	}
 	
 //---------------------------------------------------------------------------------------------------------------------------
-	@Autowired
-	private MatchingDao matchingDao;
+	
 	
 	
 	public List<Matching> getList(int pageNo, int rowsPerPage) {

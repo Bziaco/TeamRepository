@@ -4,7 +4,7 @@
     
     $("#btnSearch").click(function() {
     	var keyword = $("#keyword").val();
-    	location.href = "boardList?keyword="+keyword;
+    	location.href = "matchingList?keyword="+keyword;
     });
     
     
@@ -17,11 +17,11 @@
     		method:"post",
     		success: function(data) {
     			console.log(data);
-    			$("#detailModal #mphoto").html(matching.savedfile);
     			$("#detailModal #matchno").html(matching.matchno);
     			$("#detailModal #gid").html(matching.gid);
     			$("#detailModal #score").html(matching.score);
-    			$("#detailModal #matchdate").html(matching.matchdate);    			
+    			$("#detailModal #matchdate").html(matching.matchdate);
+    			$("#detailModal #mphoto").attr('src', "matching/getPhoto?savedfile=" + data.matching.mphoto);
     			$("#detailModal").modal("show");
     		}
     	});

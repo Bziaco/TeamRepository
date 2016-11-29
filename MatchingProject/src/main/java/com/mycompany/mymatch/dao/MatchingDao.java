@@ -9,10 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.mymatch.dto.Attraction;
-import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Matching;
-import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingDao {
@@ -162,8 +159,8 @@ public class MatchingDao {
 			String sql = "";
 			sql += "select matchno, gid, score, matchdate, savedfile ";
 			sql += "from ( ";
-			sql += "	select rownum as rn, machno, gid, score, matchdate, savedfile " ;
-			sql += "	from (select machno, gid, score, matchdate, savedfile from matching order by score desc) ";
+			sql += "	select rownum as rn, matchno, gid, score, matchdate, savedfile " ;
+			sql += "	from (select matchno, gid, score, matchdate, savedfile from matching order by score desc) ";
 			sql += "	where rownum<=? ";
 			sql += ") ";
 			sql += "where rn>=? ";

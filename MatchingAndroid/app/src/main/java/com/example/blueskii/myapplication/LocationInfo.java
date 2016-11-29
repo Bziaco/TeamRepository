@@ -1,7 +1,5 @@
 package com.example.blueskii.myapplication;
 
-import java.util.List;
-
 public class LocationInfo {
     private int bminor;
     private int lid;

@@ -1,5 +1,6 @@
 package com.example.blueskii.myapplication;
 
+
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
@@ -7,24 +8,51 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class DrawerActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+
     private RelativeLayout rootViewGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        rootViewGroup = (RelativeLayout) findViewById(R.id.rootViewGroup);
+        setContentView(R.layout.activity_drawer);
+        rootViewGroup = (RelativeLayout) findViewById(R.id.content_drawer);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //main에서 가져온것
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 Log.i("MainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is not granted.");
@@ -40,17 +68,9 @@ public class MainActivity extends AppCompatActivity {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, 1);
         }
-    }
-/*
-    public void startBeaconScanService(View view) {
-        Intent intent = new Intent(this, BeaconScanService.class);
-        startService(intent);
-    }
+        //----------------------------------------------------------------------------------------------------
 
-    public void stopBeaconScanService(View view) {
-        Intent intent = new Intent(this, BeaconScanService.class);
-        stopService(intent);
-    }*/
+    }
 
     private void requestLocationPermission() {
         if(!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
@@ -61,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 .setAction("OK", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+                        ActivityCompat.requestPermissions(DrawerActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
                     }
                 })
                 .show();
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == 10) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Snackbar.make(rootViewGroup, "Location permission has been granted. RECO SDK can now work properly", Snackbar.LENGTH_LONG)
@@ -79,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    //-------------------------------------------------------------------------------------------------------------------
 
     //서비스를 실행하는 코드
     @Override
@@ -125,21 +147,75 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("No", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "BeaconService Stop", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, BeaconScanService.class);
+                        Toast.makeText(DrawerActivity.this, "BeaconService Stop", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DrawerActivity.this, BeaconScanService.class);
                         stopService(intent);
                     }
                 })
                 .setNegativeButton("Yes", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "BeaconService Start", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, BeaconScanService.class);
+                        Toast.makeText(DrawerActivity.this, "BeaconService Start", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DrawerActivity.this, BeaconScanService.class);
                         startService(intent);
                     }
                 })
                 .show();
     }
 
+    //-------------------------------------------------------------------------------------------------------------------
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.drawer, menu);
+        return true;
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        Fragment fragment = null;
+        String title = getString(R.string.app_name);
+
+        if (id == R.id.nav_login) {
+            // Handle the camera action
+            Intent intent =  new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            title = "Home";
+        } else if (id == R.id.nav_resist) {
+
+        } else if (id == R.id.nav_livematching) {
+
+        } else if (id == R.id.nav_attractioninfo) {
+
+        }
+
+        if (fragment != null){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_drawer, fragment);
+            ft.commit();
+        }
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle(title);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

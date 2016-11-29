@@ -22,7 +22,7 @@
     			$("#detailModal #gid").html(data.matching.gid);
     			$("#detailModal #mphoto").attr('src', "/mymatch/matching/getPhoto?savedfile="+ data.matching.savedfile);
     			$("#detailModal #score").html(data.matching.score);
-    			$("#detailModal #matchdate").html(data.matching.matchdate);
+    			$("#detailModal #matchdate").html(data.matching.matchdate); 
     			$("#detailModal").modal("show");
     		}
     	});

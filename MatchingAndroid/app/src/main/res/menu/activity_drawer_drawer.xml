@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Loing" />
+        <item
+            android:id="@+id/nav_resist"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Resist" />
+        <item
+            android:id="@+id/nav_livematching"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Live Matching" />
+        <item
+            android:id="@+id/nav_attractioninfo"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Attraction Info" />
+    </group>
+
+</menu>

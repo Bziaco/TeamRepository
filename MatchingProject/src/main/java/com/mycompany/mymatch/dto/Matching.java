@@ -10,7 +10,7 @@ public class Matching {
 	private String mid;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date matchdate;
-	private int score;
+	private Double score;
 	private int bno;
 	private String btitle;
 	private String bcontent;
@@ -44,10 +44,10 @@ public class Matching {
 	public void setMatchdate(Date matchdate) {
 		this.matchdate = matchdate;
 	}
-	public int getScore() {
+	public Double getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+	public void setScore(Double score) {
 		this.score = score;
 	}
 	public int getBno() {

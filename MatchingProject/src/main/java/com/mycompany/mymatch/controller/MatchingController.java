@@ -1,7 +1,12 @@
 package com.mycompany.mymatch.controller;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.mymatch.dto.Matching;
+import com.mycompany.mymatch.dto.Member;
 import com.mycompany.mymatch.service.MatchingService;
 
 @Controller
@@ -18,10 +24,6 @@ public class MatchingController {
 	@Autowired
 	public MatchingService matchingService;
 	
-	/*@RequestMapping("/matchList")
-	public String List() {
-		return "matching/matchList";
-	}
 	@RequestMapping("/tourList")
 	public String tourList(HttpSession session, Model model) {
 		String gid = (String) session.getAttribute("login");
@@ -36,7 +38,7 @@ public class MatchingController {
 		List<Member> list = matchingService.getMatchingGuideList(mid);
 		model.addAttribute("list", list);
 		return "matching/guideList";
-	}*/
+	}
 	
 //-------------------------------------------------------------------------------------------------------------------
 	
@@ -96,14 +98,46 @@ public class MatchingController {
 	
 	@RequestMapping("/getMatching")
 	public String getMatching(String gid, Model model) {
-		Matching matching = matchingService.getMatching(gid);
-		model.addAttribute("matching", matching);
+		List<Matching> list = matchingService.getMatching(gid);
+		for(Matching matching : list){
+			System.out.println(matching.getGid());
+			System.out.println(matching.getBdate());
+			System.out.println(matching.getBtitle());
+			
+		}
+		
+		model.addAttribute("list", list);
+		
 		return "matching/getMatching";
 	}
 	
 	
 //--------------------------------------------------------------------------------------------------------------------------------------	
 
+	@RequestMapping("/getPhoto")
+	public void getPhoto(String savedfile, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String fileName = savedfile;
+
+			String mimeType = request.getServletContext().getMimeType(fileName);
+			response.setContentType(mimeType);
+			
+			OutputStream os = response.getOutputStream();
+			String filePath = request.getServletContext().getRealPath("/resources/img/" + fileName);
+			InputStream is = new FileInputStream(filePath);
+			byte[] values = new byte[1024];
+			int byteNum = -1;
+			while((byteNum = is.read(values)) != -1) {
+				os.write(values, 0, byteNum);
+			}
+			os.flush();
+			is.close();
+			os.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 
 }

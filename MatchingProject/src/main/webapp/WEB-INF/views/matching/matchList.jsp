@@ -44,7 +44,14 @@
 			document.location.reload();
 		}
 	}
+	
+	   function searchEnter() {
+		      var keyword = $("#keyword").val();
+		      location.href = "matchList?pageNo=1&keyword=" + keyword;
+		   }
 </script>
+
+
 
 </head>
 
@@ -55,9 +62,9 @@
 			<aside class="lg-side">
 				<div class="inbox-head">
 					<h3>Matching</h3>
-					<form class="pull-right position">
+					<form class="pull-right position" onsubmit="return false">
 						<div class="input-append">
-							<input id="keyword" type="text" class="sr-input"
+							<input id="keyword" type="text" class="sr-input" onkeydown="if(event.keyCode==13){javascript:searchEnter();}"
 								placeholder="Search">
 							<button id="btnSearch" class="btn sr-btn" type="button">
 								<i class="fa fa-search" aria-hidden="true"></i>
@@ -85,7 +92,7 @@
 													<td>${matching.matchno}</td>
 													<td><a class="btnDetailModal" href="#"
 														data-gid="${matching.gid}">${matching.gid}</a></td>
-													<td><img src="matching/getPhoto?savedfile=${matching.savedfile}" 
+													<td><img src="getPhoto?savedfile=${matching.savedfile}" 
 															width="120" height="130"></img> </td>
 													<td>${matching.score}</td>
 													<td>${matching.matchdate}</td>
@@ -100,21 +107,21 @@
 													style="color: gray"></span>
 											</c:if> <c:if test="${groupNo>1}">
 												<a
-													href="matchingList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
+													href="matchList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
 													class="glyphicon glyphicon-chevron-left"
 													style="color: green"></span></a>
 											</c:if></li>
 
 										<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
 											<li <c:if test="${pageNo==i}">class="active"</c:if>><a
-												href="matchingList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
+												href="matchList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
 										</c:forEach>
 
 										<li><c:if test="${groupNo==totalGroupNo}">
 												<span class="glyphicon glyphicon-chevron-right"
 													style="color: gray"></span>
 											</c:if> <c:if test="${groupNo<totalGroupNo}">
-												<a href="matchingList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
+												<a href="matchList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
 													class="glyphicon glyphicon-chevron-right"
 													style="color: green"></span></a>
 											</c:if></li>
@@ -183,6 +190,50 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<!-- 메세지 -->
+	<div id="messageModal" style="z-index: 8000;" class="modal fade"
+		tabindex="5" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog"
+			style="position: absolute; left: 800px; bottom: 100px; width: 2000px;">
+			<div class="container">
+				<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1"
+					style="margin-left: 10px;">
+					<div class="col-xs-12 col-md-12">
+						<div class="panel panel-default" style="height: 600px;">
+							<div class="panel-heading top-bar"
+								style="background-color: orange;">
+								<div class="col-md-8 col-xs-8">
+									<h3 class="panel-title">
+										<span class="glyphicon glyphicon-comment"></span> Message
+									</h3>
+								</div>
+								<div class="col-md-4 col-xs-4" style="text-align: right;">
+									<a id="btnMessageModalClose" data-dismiss="modal"><span
+										class="glyphicon glyphicon-remove"></span></a>
+								</div>
+							</div>
+							<div class="panel-body"
+								style="height: 505px; background-color: #eeeeee; overflow-y: scroll;">
+							</div>
+							<div class="panel-footer" style="background-color: gray;">
+								<div class="input-group">
+									<input id="txtMessageInput" type="text"
+										class="input-sm chat_input"
+										placeholder="Write your message here..."
+										style="margin-right: 10px; width: 350px;" /> <span
+										class="input-group-btn">
+										<button class="btn btn-primary btn-sm" id="btnMessageSend">Send</button>
+									</span>
+								</div> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
 	
 	
 </body>

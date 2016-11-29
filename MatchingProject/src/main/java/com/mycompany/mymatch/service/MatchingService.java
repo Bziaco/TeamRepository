@@ -1,12 +1,15 @@
 package com.mycompany.mymatch.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.mymatch.dao.MatchingDao;
+import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dto.Matching;
+import com.mycompany.mymatch.dto.Member;
 
 @Component
 public class MatchingService {
@@ -14,17 +17,15 @@ public class MatchingService {
 	@Autowired
 	private MatchingDao matchingDao;
 	
-	/*public static final int MODIFY_SUCCESS = 0;
+	@Autowired
+	private MemberDao memberDao;
+	
+	public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
 	
 	public static final int REMOVE_SUCCESS = 0;
 	public static final int REMOVE_FAIL = 1;
 	
-	@Autowired
-	private MatchingDao matchingDao;
-	
-	@Autowired
-	private MemberDao memberDao;
 	
 	public int modify(Matching matching){
 		int row = matchingDao.update(matching);
@@ -66,11 +67,11 @@ public class MatchingService {
 		
 		return matchingGuideList;
 	}
-	*/
+	
+	
 	public int countByGid(String gid) {
 		return matchingDao.countByGid(gid);
 	}
-	
 //---------------------------------------------------------------------------------------------------------------------------
 	
 	
@@ -93,9 +94,9 @@ public class MatchingService {
 		return matchingDao.count();
 	}
 	
-	public Matching getMatching(String gid) {
-		Matching matching = matchingDao.selectByGid(gid);
-		return matching;
+	public List<Matching> getMatching(String gid) {
+		List<Matching> list = matchingDao.selectByGid(gid);
+		return list;
 	}
 	
 	

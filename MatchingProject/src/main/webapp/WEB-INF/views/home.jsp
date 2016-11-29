@@ -29,7 +29,7 @@
 
          <!-- article 영역 -->
          <article clss="one">
-            <a href="${pageContext.servletContext.contextPath}/attraction/attractionList?pageNo=1"><h2>Information</h2></a>
+            <a href="${pageContext.servletContext.contextPath}/attraction/attractionList?pageNo=1"><h2>추천여행지</h2></a>
             <video loop="loop" preload="auto">
                <source
                   src="${pageContext.servletContext.contextPath}/resources/img/vid12.mp4"
@@ -47,8 +47,7 @@
 
          <!-- article 영역 -->
          <article clss="two">
-            <a href="${pageContext.servletContext.contextPath}/board/boardList?pageNo=1"><h2>Q
-                  & A</h2></a>
+            <a href="${pageContext.servletContext.contextPath}/board/boardList?pageNo=1"><h2>여행후기</h2></a>
             <video loop="loop" preload="auto">
                <source
                   src="${pageContext.servletContext.contextPath}/resources/img/vid13.mp4"
@@ -64,8 +63,7 @@
          <!-- article 영역 -->
          <article class="three">
             <a
-               href="${pageContext.servletContext.contextPath}/guide/guideList?pageNo=1"><h2>Best
-                  Guide</h2></a>
+               href="${pageContext.servletContext.contextPath}/guide/guideList?pageNo=1"><h2>가이드찾기</h2></a>
             <video loop="loop" preload="auto">
                <source
                   src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4"
@@ -81,7 +79,7 @@
             </p>
          </article>
 
-         <!-- article 영역 -->
+         <%-- <!-- article 영역 -->
          <article class="four">
             <a
                href="${pageContext.servletContext.contextPath}/matching/matchList?pageNo=1"><h2>Matching</h2></a>
@@ -97,7 +95,7 @@
                feugiat tincidunt a nec erat. Donec ornare finibus massa. In
                facilisis finibus rutrum. Sed tempor vitae erat sit amet molestie.
                Integer</p>
-         </article>
+         </article> --%>
       </section>
 
       <!-- footer -->

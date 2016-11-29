@@ -28,12 +28,6 @@
     	});
     });
 	
-	
-	
-	
-	
-	
-	
     /*message*/
     $(document).on('click', '.panel-heading span.icon_minim', function (e) {
         var $this = $(this);

@@ -34,7 +34,7 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/guide.js"></script>
 
 
-<script type="text/javascript">
+<script type="text/javascript"> 
    document.onkeydown = trapRefresh;
    function trapRefresh() {
       if (event.keyCode == 116) {

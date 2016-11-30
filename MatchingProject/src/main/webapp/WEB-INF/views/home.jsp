@@ -62,8 +62,7 @@
 
          <!-- article 영역 -->
          <article class="three">
-            <a
-               href="${pageContext.servletContext.contextPath}/guide/guideList?pageNo=1"><h2>가이드찾기</h2></a>
+            <a href="${pageContext.servletContext.contextPath}/guide/guideList?pageNo=1"><h2>가이드찾기</h2></a>
             <video loop="loop" preload="auto">
                <source
                   src="${pageContext.servletContext.contextPath}/resources/img/vid11.mp4"

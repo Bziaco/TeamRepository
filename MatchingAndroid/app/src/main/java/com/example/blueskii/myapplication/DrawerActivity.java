@@ -192,16 +192,17 @@ public class DrawerActivity extends AppCompatActivity
         String title = getString(R.string.app_name);
 
         if (id == R.id.nav_login) {
-            // Handle the camera action
-            Intent intent =  new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            title = "Home";
+
         } else if (id == R.id.nav_resist) {
 
         } else if (id == R.id.nav_livematching) {
-
+            Intent intent =  new Intent(this, MatchingActivity.class);
+            startActivity(intent);
+            title = "Matching";
         } else if (id == R.id.nav_attractioninfo) {
-
+            Intent intent =  new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            title = "Home";
         }
 
         if (fragment != null){

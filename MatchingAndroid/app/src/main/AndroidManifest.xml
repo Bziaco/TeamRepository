@@ -40,7 +40,8 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MatchingActivity"></activity>
     </application>
 
 </manifest>

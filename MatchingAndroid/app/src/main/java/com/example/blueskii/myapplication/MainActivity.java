@@ -1,5 +1,5 @@
 package com.example.blueskii.myapplication;
-
+/*
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(enableBtIntent, 1);
         }
     }
-/*
+*//*
     public void startBeaconScanService(View view) {
         Intent intent = new Intent(this, BeaconScanService.class);
         startService(intent);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public void stopBeaconScanService(View view) {
         Intent intent = new Intent(this, BeaconScanService.class);
         stopService(intent);
-    }*/
+    }*//*
 
     private void requestLocationPermission() {
         if(!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
@@ -142,4 +142,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-}
+}*/

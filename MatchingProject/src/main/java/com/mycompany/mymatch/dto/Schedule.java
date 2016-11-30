@@ -2,17 +2,19 @@ package com.mycompany.mymatch.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Schedule {
 	private int sno;
 	private String stitle;
 	private String scontent;
 	private String mid;
 	private Date sdate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date sstart;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date send;
-	
-	
-	
+
 	public int getSno() {
 		return sno;
 	}

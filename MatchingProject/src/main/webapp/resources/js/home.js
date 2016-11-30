@@ -44,8 +44,12 @@
 		});
 	});
 	
+	$("#btnSchedule").click(function(){
+		$("#scheduleModal").modal("show");
+	});
+	
 	/*매칭된 관광객*/
-	$(".btnMatchingTourist").click(function(){
+	$("#btnMatchingTourist").click(function(){
 		$.ajax({
 			url:"/mymatch/matching/tourList",
 			method: "post", 
@@ -57,7 +61,7 @@
 	});
 	
 	/*매칭된 가이드*/
-	$(".btnMatchingGuide").click(function(){
+	$("#btnMatchingGuide").click(function(){
 		$.ajax({
 			url:"/mymatch/matching/guideList",
 			method: "post",

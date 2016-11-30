@@ -25,6 +25,7 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/guideModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/touristModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/messageModal.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/scheduleModal.js"></script>	
 </head>
 <body>
 	<!-- 메뉴 -->
@@ -67,9 +68,9 @@
 					</ul></li>
 				<li id="menu3" class="depth3"><a>여행 스케줄</a>
 					<ul style="display: none" id="change_me3">
-						<li><a data-toggle="modal" data-target="#scheduleModal">스케줄 입력 및 검색</a></li>
-						<li><a class="btnMatchingTourist" href="#">매칭 투어리스트</a></li> 
-						<li><a class="btnMatchingGuide" href="#">매칭 가이드</a></li>
+						<li><a id="btnSchedule">스케줄 입력 및 검색</a></li>
+						<li><a id="btnMatchingTourist" href="#">매칭 투어리스트</a></li> 
+						<li><a id="btnMatchingGuide" href="#">매칭 가이드</a></li>
 					</ul></li>
 			</ul>
 		</nav>
@@ -94,7 +95,7 @@
 	<!-- touristresist 모달 -->
 	<%@ include file="tourist/touristModal.jsp"%>
 	<!-- schedule 모달 -->
-	<%@ include file="tourist/schedulModal.jsp"%>
+	<%@ include file="schedule/schedulModal.jsp"%>
 	<!-- matchtourist 모달 -->
 	<%@ include file="tourist/matchtouristModal.jsp"%>
 	<!-- matchguide 모달 -->

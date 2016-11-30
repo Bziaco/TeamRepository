@@ -1,42 +1,31 @@
 ﻿$(function() {
-   $("#mytable #checkall").click(function () {
-        if ($("#mytable #checkall").is(':checked')) {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", true);
-            });
-
-        } else {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", false);
-            });
-        }
-    });
-    
-    $("[data-toggle=tooltip]").tooltip();
-    
-    
-    /*-------모달창---------*/
-    
-    $("#writeModal #btnwrite").click(function(){
-       var stitle = $("#writeModal #btitle").val();
-       var scontent = $("#writeModal #bcontent").val();
+	$("#scheduleModal #btnWrite").click(function(){
+		$("#scheduleWriteModal").modal("show");
+	});
+	
+    $("#scheduleWriteModal #btnWrite").click(function(){
+       var stitle = $("#scheduleWriteModal #stitle").val();
+       var scontent = $("#scheduleWriteModal #scontent").val();
+       var sstart = $("#scheduleWriteModal #sstart").val();
+       var send = $("#scheduleWriteModal #send").val();
        
        $.ajax({
          url:"/mymatch/schedule/write",
-         data: {stitle:stitle, scontent:scontent},
+         data: {stitle:stitle, scontent:scontent, sstart:sstart, send:send},
          method: "post",
          success: function(data) {
             if(data.result=="success") {
-               $("#writeModal").modal('hide');
-               $('.modal-backdrop').remove();
-               location.reload(true);
+               $("#scheduleWriteModal").modal('hide');
+               $("#scheduleModal #iframe")[0].contentWindow.location.reload(true);
             }
          }
       });
     });
     
-    $(".table-responsive #btnDelete").click(function(event){
-       var sno = $(this).attr("data-sno");
+    $('body', $('#iframe')[0].contentWindow.document).on("click", ".btnScheduleDelete", function() {
+    //$("#scheduleModal #iframe").contents().find(".btnScheduleDelete").on("click", function(){
+    	console.log("btnScheduleDelete");
+       /*var sno = $(this).attr("data-sno");
        $("#deleteModal #btnYes").click(function(event){
           $.ajax({
              url:"/mymatch/schedule/delete",
@@ -52,11 +41,11 @@
           });
            
         });
-       $("#deleteModal").modal("show");
+       $("#deleteModal").modal("show");*/
     });    
     
     
-    $(".table-responsive #btnUpdate").click(function(event){
+    $("#scheduleWriteModal #btnUpdate").click(function(event){
        var sno = $(this).attr("data-sno");
        
        $.ajax({
@@ -88,15 +77,7 @@
     });
     
     
-    /*-------Search---------*/
-    
-    $("#btnSearch").click(function() {
-       var keyword = $("#keyword").val();
-       location.href = "scheduleList?pageNo=1&keyword="+keyword;
-    });
-    
-    
-    $(".btnDetailModal").click(function() {
+    $("#scheduleWriteModal #btnDetail").click(function() {
        var sno = $(this).attr("data-sno");
        
        $.ajax({
@@ -116,7 +97,9 @@
 });
 
 
-
+function onClickBtnScheduleDelete(sno) {
+	console.log("onClickBtnScheduleDelete");
+}
 
 
 

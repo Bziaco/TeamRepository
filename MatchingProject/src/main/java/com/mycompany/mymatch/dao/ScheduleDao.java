@@ -18,12 +18,14 @@ public class ScheduleDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Schedule schedule) {
-		String sql="insert into schedule(sno, stitle, scontent, mid, sdate, sstart, send) values(seq_schedule_sno.nextval, ?, ?, ?, sysdate, sysdate, sysdate)";
+		String sql="insert into schedule(sno, stitle, scontent, mid, sdate, sstart, send) values(seq_schedule_sno.nextval, ?, ?, ?, sysdate, ?, ?)";
 		int row=jdbcTemplate.update(
 				sql,
 				schedule.getStitle(),
 				schedule.getScontent(),
-				schedule.getMid()
+				schedule.getMid(),
+				schedule.getSstart(),
+				schedule.getSend()
 		);
 		return row;
 	}

@@ -1,27 +1,28 @@
-﻿$(document).ready(function(){  		
+﻿$(function() {	
 	
 /*-------Search---------*/
     
     $("#btnSearch").click(function() {
     	var keyword = $("#keyword").val();
-    	location.href = "matchingList?keyword="+keyword;
+    	location.href = "matchList?pageNo=1&keyword="+keyword;
     });
     
     
-    $(".btnDetailModal").click(function() {
+    $("#mytable .btnDetailModal").click(function() {
     	var gid = $(this).attr("data-gid");
-    	
+    	 console.log("aaa");
+    	 
     	$.ajax({
     		url:"/mymatch/matching/getMatching",
     		data:{gid:gid},
     		method:"post",
     		success: function(data) {
-    			console.log(data);
-    			$("#detailModal #matchno").html(matching.matchno);
-    			$("#detailModal #gid").html(matching.gid);
-    			$("#detailModal #score").html(matching.score);
-    			$("#detailModal #matchdate").html(matching.matchdate);
-    			$("#detailModal #mphoto").attr('src', "matching/getPhoto?savedfile=" + data.matching.mphoto);
+    			console.log("bbb");
+    			$("#detailModal #matchno").html(data.matching.matchno);
+    			$("#detailModal #gid").html(data.matching.gid);
+    			$("#detailModal #mphoto").attr('src', "/mymatch/matching/getPhoto?savedfile="+ data.matching.savedfile);
+    			$("#detailModal #score").html(data.matching.score);
+    			$("#detailModal #matchdate").html(data.matching.matchdate); 
     			$("#detailModal").modal("show");
     		}
     	});

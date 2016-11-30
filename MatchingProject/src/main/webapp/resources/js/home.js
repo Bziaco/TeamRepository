@@ -194,7 +194,7 @@
 					$("#infoModal #memail").html(data.member.memail);
 					$("#infoModal #mlocal").html(data.member.mlocal);
 					$("#infoModal #mtel").html(data.member.mtel);
-					$("#infoModal #mphoto").attr('src', "member/getPhoto?savedfile=" + data.member.mphoto)
+					$("#infoModal #mphoto").attr('src', "member/getPhoto?savedfile=" + data.member.mphoto);
 					$("#infoModal").modal("show");
 				} else {
 					alert("로그인하세요.");

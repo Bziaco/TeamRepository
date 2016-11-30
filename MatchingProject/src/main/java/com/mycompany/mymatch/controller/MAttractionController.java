@@ -10,41 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mycompany.mymatch.dto.Matching;
-import com.mycompany.mymatch.dto.Member;
-import com.mycompany.mymatch.service.MatchingService;
+import com.mycompany.mymatch.dto.Attraction;
+import com.mycompany.mymatch.service.AttractionService;
 
-@Controller
-@RequestMapping("/matching") 
-public class MatchingController {  
+@Component
+@RequestMapping("")
+public class MAttractionController {
+	
 	@Autowired
-	public MatchingService matchingService;
+	public AttractionService attractionService;
 	
-	@RequestMapping("/tourList")
-	public String tourList(HttpSession session, Model model) {
-		String gid = (String) session.getAttribute("login");
-		List<Member> list = matchingService.getMatchingToureList(gid);
-		model.addAttribute("list", list);
-		return "matching/tourList";
-	}
 	
-	@RequestMapping("/guideList")
-	public String guideList(HttpSession session, Model model) {
-		String mid = (String) session.getAttribute("login");
-		List<Member> list = matchingService.getMatchingGuideList(mid);
-		model.addAttribute("list", list);
-		return "matching/guideList";
-	}
-	
-//-------------------------------------------------------------------------------------------------------------------
-	
-	@RequestMapping("/matchList")
-	public String matchList(String pageNo, String keyword, Model model, HttpSession session) {
-		
+	@RequestMapping("/MgetAttraction")
+	public String attractionList(String pageNo, String keyword, Model model, HttpSession session) {
 		int intPageNo = 1;
 		if(pageNo == null) {
 			pageNo = (String) session.getAttribute("pageNo");
@@ -56,17 +38,17 @@ public class MatchingController {
 		}
 		session.setAttribute("pageNo", String.valueOf(intPageNo));
 		
-		int rowsPerPage = 3;
+		int rowsPerPage = 10;
 		int pagesPerGroup = 5;
 		
 		int totalBoardNo = 0;
-		List<Matching> list = null;
+		List<Attraction> list = null;
 		if(keyword == null || keyword.equals("")) {
-			totalBoardNo = matchingService.getCount();
-			list = matchingService.getList(intPageNo, rowsPerPage);
+			totalBoardNo = attractionService.getCount();
+			list = attractionService.getList(intPageNo, rowsPerPage);
 		} else {
-			totalBoardNo = matchingService.getCountKeyword(keyword);
-			list = matchingService.getListKeyword(keyword, intPageNo, rowsPerPage);
+			totalBoardNo = attractionService.getCountKeyword(keyword);
+			list = attractionService.getListKeyword(keyword, intPageNo, rowsPerPage);
 		}
 		
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);
@@ -89,31 +71,24 @@ public class MatchingController {
 		model.addAttribute("list", list);
 		model.addAttribute("keyword", keyword);
 
-		return "matching/matchList";
+		return "attraction/MgetAttraction";
 	}
-
-//--------------------------------------------------------------------------------------------------------------------------------------
-
 	
-	
-	@RequestMapping("/getMatching")
-	public String getMatching(String gid, Model model) {
-		List<Matching> list = matchingService.getMatching(gid);
-		for(Matching matching : list){
-			System.out.println(matching.getGid());
-			System.out.println(matching.getBdate());
-			System.out.println(matching.getBtitle());
-			
-		}
-		
-		model.addAttribute("list", list);
-		
-		return "matching/getMatching";
-	}
 	
 	
 //--------------------------------------------------------------------------------------------------------------------------------------	
-
+	
+	@RequestMapping("/getAttraction")
+	public String getAttraction(int ano, Model model) {
+		Attraction attraction = attractionService.getAttraction(ano);
+		model.addAttribute("attraction", attraction);
+		return "attraction/getAttraction";
+	}
+	
+//----------저장되어있는 사진의 타입을 읽어서 보낸다 ----------------------------------------------------------------------------------------------------------------------------	
+	
+	
+	
 	@RequestMapping("/getPhoto")
 	public void getPhoto(String savedfile, HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -139,8 +114,16 @@ public class MatchingController {
 	}
 	
 	
-
+	
+	
+	
+	
+	
+	
 }
+
+
+
 
 
 

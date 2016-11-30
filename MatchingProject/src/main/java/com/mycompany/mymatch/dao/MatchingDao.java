@@ -17,7 +17,8 @@ public class MatchingDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	/*public int insert(Matching matching){
+	
+	 public int insert(Matching matching){
 		String sql = "insert into matching(matchno, matchdate, score, bno, btitle, bcontent, bwriter, bhitcount, bdate, savedfile) values(seq_matching_matchno.nextval,sysdate,?,?,?,?,?,?,?,?)";
 		int row = jdbcTemplate.update(
 				sql,
@@ -60,7 +61,7 @@ public class MatchingDao {
 			public Matching mapRow(ResultSet rs, int row) throws SQLException {
 				Matching match = new Matching();
 				match.setMatchno(rs.getInt("matchno"));
-				match.setScore(rs.getInt("score"));
+				match.setScore(rs.getDouble("score"));
 				return match;
 			}
 		});
@@ -80,7 +81,7 @@ public class MatchingDao {
 						matching.setGid(rs.getString("gid"));
 						matching.setMid(rs.getString("mid"));
 						matching.setMatchdate(rs.getDate("matchdate"));
-						matching.setScore(rs.getInt("score"));
+						matching.setScore(rs.getDouble("score"));
 						matching.setBtitle(rs.getString("btitle"));
 						matching.setBcontent(rs.getString("bcontent"));
 						matching.setBhitcount(rs.getInt("bhitcount"));
@@ -105,7 +106,7 @@ public class MatchingDao {
 						matching.setGid(rs.getString("gid"));
 						matching.setMid(rs.getString("mid"));
 						matching.setMatchdate(rs.getDate("matchdate"));
-						matching.setScore(rs.getInt("score"));
+						matching.setScore(rs.getDouble("score"));
 						matching.setBtitle(rs.getString("btitle"));
 						matching.setBcontent(rs.getString("bcontent"));
 						matching.setBhitcount(rs.getInt("bhitcount"));
@@ -136,7 +137,7 @@ public class MatchingDao {
 						Matching matcing = new Matching();
 				
 						matcing.setMatchno(rs.getInt("matchno"));
-						matcing.setScore(rs.getInt("score"));
+						matcing.setScore(rs.getDouble("score"));
 						matcing.setMatchdate(rs.getDate("matchdate"));
 						return matcing;
 					}
@@ -144,7 +145,7 @@ public class MatchingDao {
 		);
 		return list;
 	}
-	*/
+	
 	public int countByGid(String gid) {
 		String sql = "select count(*) from matching where gid=?";
 		int count = jdbcTemplate.queryForObject(sql, new Object[] {gid}, Integer.class);
@@ -173,7 +174,7 @@ public class MatchingDao {
 							Matching matching = new Matching();
 							matching.setMatchno(rs.getInt("matchno"));
 							matching.setGid(rs.getString("gid"));
-							matching.setScore(rs.getInt("score"));
+							matching.setScore(rs.getDouble("score"));
 							matching.setMatchdate(rs.getDate("matchdate"));
 							matching.setSavedfile(rs.getString("savedfile"));
 							return matching;
@@ -204,7 +205,7 @@ public class MatchingDao {
 							Matching matching = new Matching();
 							matching.setMatchno(rs.getInt("matchno"));
 							matching.setGid(rs.getString("gid"));
-							matching.setScore(rs.getInt("score"));
+							matching.setScore(rs.getDouble("score"));
 							matching.setMatchdate(rs.getDate("matchdate"));
 							matching.setSavedfile(rs.getString("savedfile"));
 							return matching;
@@ -217,22 +218,22 @@ public class MatchingDao {
 //---------------------------------------------------------------------------------------------------------------------------------		
 		
 		
-		public Matching selectByGid(String gid) {
-			String sql = "select matchno, gid, score, matchdate, savedfile from board where gid=?";
+		/*public Matching selectByGid(String gid) {
+			String sql = "select  gid, matchno, score, matchdate, savedfile from matching where gid=?";
 			List<Matching> list = jdbcTemplate.query(sql, new Object[] {gid}, new RowMapper<Matching>() {
 				@Override
 				public Matching mapRow(ResultSet rs, int row) throws SQLException {
 					Matching matching = new Matching();
-					matching.setMatchno(rs.getInt("matchno"));
 					matching.setGid(rs.getString("gid"));
-					matching.setScore(rs.getInt("score"));
+					matching.setMatchno(rs.getInt("matchno"));
+					matching.setScore(rs.getDouble("score"));
 					matching.setMatchdate(rs.getDate("matchdate"));
 					matching.setSavedfile(rs.getString("savedfile"));
 					return matching;
 				}
 			});
 			return (list.size() != 0)? list.get(0) : null;
-		}
+		}*/
 		
 //------전체 행수-------------------------------------------------------------------------------------------------------------------------------
 

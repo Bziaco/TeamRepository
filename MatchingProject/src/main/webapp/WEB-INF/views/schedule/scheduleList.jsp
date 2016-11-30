@@ -54,16 +54,22 @@
                                  <c:forEach var="schedule" items="${list}">
                                     <tr>
                                        <td>${schedule.sno}</td>
-                                       <td><a class="btnDetailModal" href="#"
-                                          data-sno="${schedule.sno}">${schedule.stitle}</a></td>
+                                       <td><a href="javascript:parent.onClickBtnScheduleDetail(${schedule.sno})" ata-sno="${schedule.sno}">${schedule.stitle}</a></td>
                                        <td>${schedule.mid}</td>
                                        <td>${schedule.sdate}</td>
                                        <td>${schedule.sstart}</td>
                                        <td>${schedule.send}</td>
                                        <td>
-                                             <button id="btnUpdate" class="btn btn-warning btn-xs" data-sno="${schedule.sno}">
-                                                가이드 신청
-                                             </button>
+                                       		 <c:if test="${schedule.guideRequest}">
+	                                             <button class="btn btn-info btn-xs"  onclick="parent.onClickBtnCancelGuideSchedule(${schedule.sno})">
+	                                                가이드 취소
+	                                             </button>  
+                                       		 </c:if>
+                                       		 <c:if test="${!schedule.guideRequest}">
+	                                             <button class="btn btn-warning btn-xs"  onclick="parent.onClickBtnAddGuideSchedule(${schedule.sno})">
+	                                                가이드 신청
+	                                             </button>                                       		 
+                                       		 </c:if>
                                        </td>
                                        <td>
                                              <button class="btn btn-danger btn-xs" onclick="parent.onClickBtnScheduleDelete(${schedule.sno})">

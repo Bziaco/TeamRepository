@@ -14,6 +14,7 @@ public class Schedule {
 	private Date sstart;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date send;
+	private boolean guideRequest;
 
 	public int getSno() {
 		return sno;
@@ -57,8 +58,11 @@ public class Schedule {
 	public void setSend(Date send) {
 		this.send = send;
 	}
-	
-	
-	
+	public boolean isGuideRequest() {
+		return guideRequest;
+	}
+	public void setGuideRequest(boolean guideRequest) {
+		this.guideRequest = guideRequest;
+	}	
 	
 }

@@ -6,10 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.mymatch.dao.GuideScheduleDao;
 import com.mycompany.mymatch.dao.MatchingDao;
 import com.mycompany.mymatch.dao.MemberDao;
+import com.mycompany.mymatch.dao.ScheduleDao;
+import com.mycompany.mymatch.dto.GuideSchedule;
 import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
+import com.mycompany.mymatch.dto.Schedule;
 
 @Component
 public class MatchingService {
@@ -19,6 +23,12 @@ public class MatchingService {
 	
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private ScheduleDao scheduleDao;
+	
+	@Autowired
+	private GuideScheduleDao guideScheduleDao;
 	
 	public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
@@ -44,15 +54,15 @@ public class MatchingService {
 	}
 	
 
-	public List<Member> getMatchingToureList(String gid) {
-		List<Matching> list = matchingDao.selectByGid(gid);
-		List<Member> matchingTourList = new ArrayList<Member>();
-		for(Matching matching : list) {
-			Member member = memberDao.selectByMid(matching.getMid());
-			member.setMmatchingdate(matching.getMatchdate());
-			matchingTourList.add(member);
+	public List<GuideSchedule> getGuideSchedule(String gid) {
+		List<GuideSchedule> list = guideScheduleDao.selectByGid(gid);
+		for(GuideSchedule guideSchedule : list) {
+			Schedule schedule = scheduleDao.selectBySno(guideSchedule.getSno());
+			guideSchedule.setSchedule(schedule);
+			Member member = memberDao.selectByMid(schedule.getMid());
+			guideSchedule.setTourist(member);
 		}
-		return matchingTourList;
+		return list;
 	}
 
 	public List<Member> getMatchingGuideList(String mid) {

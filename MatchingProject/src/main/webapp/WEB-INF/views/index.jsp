@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/touristModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/messageModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/scheduleModal.js"></script>	
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchtouristModal.js"></script>	
 </head>
 <body>
 	<!-- 메뉴 -->
@@ -92,14 +93,12 @@
 	<%@ include file="member/withdrawModal.jsp"%>
 	<!-- guideresist 모달 -->
 	<%@ include file="guide/guideModal.jsp"%>
-	<!-- touristresist 모달 -->
-	<%@ include file="tourist/touristModal.jsp"%>
 	<!-- schedule 모달 -->
 	<%@ include file="schedule/schedulModal.jsp"%>
 	<!-- matchtourist 모달 -->
-	<%@ include file="tourist/matchtouristModal.jsp"%>
+	<%@ include file="matching/matchtouristModal.jsp"%>
 	<!-- matchguide 모달 -->
-	<%@ include file="guide/matchguideModal.jsp"%>
+	<%@ include file="matching/matchguideModal.jsp"%>
 	<!-- 메세지 -->
 	<%@ include file="message/messageModal.jsp"%>
  

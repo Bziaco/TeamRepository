@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.mymatch.dto.GuideSchedule;
 import com.mycompany.mymatch.dto.Schedule;
 import com.mycompany.mymatch.service.ScheduleService;
 
@@ -21,6 +22,22 @@ public class ScheduleController {
 	
 	@Autowired
 	public ScheduleService scheduleService;
+	
+	@RequestMapping("/addGuideSchedule")
+	public String addGuideSchedule(GuideSchedule guideSchedule, HttpSession session){
+		String mid = (String) session.getAttribute("login");
+		guideSchedule.setGid(mid);
+		scheduleService.addGuideSchedule(guideSchedule);
+		return "schedule/addGuideSchedule";
+	}
+	
+	@RequestMapping("/cancelGuideSchedule")
+	public String cancelGuideSchedule(GuideSchedule guideSchedule, HttpSession session){
+		String mid = (String) session.getAttribute("login");
+		guideSchedule.setGid(mid);
+		scheduleService.cancelGuideSchedule(guideSchedule);
+		return "schedule/cancelGuideSchedule";
+	}	
 	
 	@RequestMapping("/scheduleList")
 	public String scheduleList(String pageNo, String keyword, Model model, HttpSession session) {
@@ -48,6 +65,11 @@ public class ScheduleController {
 		} else {
 			totalBoardNo = scheduleService.getCountKeyword(keyword);
 			list = scheduleService.getListKeyword(keyword, intPageNo, rowsPerPage);
+		}
+		
+		String mid = (String) session.getAttribute("login");
+		for(Schedule schedule : list) {
+			schedule.setGuideRequest(scheduleService.isGuideRequest(mid, schedule.getSno()));
 		}
 		
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);

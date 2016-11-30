@@ -5,5 +5,8 @@
 	"stitle": "${schedule.stitle}", 
 	"scontent": "${schedule.scontent}", 
 	"mid": "${schedule.mid}",
-	"sdate": "${schedule.sdate}"	
+	"sdate": "${schedule.sdate}",
+	"sstart": "${schedule.sstart}",
+	"send": "${schedule.send}"
+		
 }

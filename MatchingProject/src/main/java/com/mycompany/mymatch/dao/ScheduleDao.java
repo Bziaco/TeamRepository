@@ -101,7 +101,7 @@ public class ScheduleDao {
 
 	
 	public int delete(int sno) {
-		String sql = "delete from board where sno=?";
+		String sql = "delete from schedule where sno=?";
 		int row = jdbcTemplate.update(sql, sno);
 		return row;
 	}

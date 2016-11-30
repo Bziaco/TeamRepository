@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.mymatch.dao.GuideScheduleDao;
 import com.mycompany.mymatch.dao.ScheduleDao;
-import com.mycompany.mymatch.dto.Board;
+import com.mycompany.mymatch.dto.GuideSchedule;
 import com.mycompany.mymatch.dto.Schedule;
 
 
@@ -14,6 +15,8 @@ import com.mycompany.mymatch.dto.Schedule;
 public class ScheduleService {	
 	@Autowired
 	private ScheduleDao scheduleDao;
+	@Autowired
+	private GuideScheduleDao guideScheduleDao;
 	
 	public void write(Schedule schedule) {
 		scheduleDao.insert(schedule);
@@ -51,5 +54,19 @@ public class ScheduleService {
 	public int getCountKeyword(String keyword) {
 		return scheduleDao.countKeyword(keyword);
 	}	
+	
+	public void addGuideSchedule(GuideSchedule guideSchedule) {
+		guideScheduleDao.insert(guideSchedule);
+	}
+
+	public boolean isGuideRequest(String gid, int sno) {
+		GuideSchedule guideSchedule = guideScheduleDao.selectByGidSno(gid, sno);
+		if(guideSchedule != null) return true;
+		else return false;
+	}
+
+	public void cancelGuideSchedule(GuideSchedule guideSchedule) {
+		guideScheduleDao.delete(guideSchedule);
+	}
 		
 }

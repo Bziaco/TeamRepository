@@ -75,7 +75,7 @@
                                  <th>Content</th>
                                  <th>Writer</th>
                                  <th>Date</th>
-                                 <th>Update</th>
+                                 <th>Update</th> 
                                  <th>Delete</th>
                               </thead>
                               <tbody>

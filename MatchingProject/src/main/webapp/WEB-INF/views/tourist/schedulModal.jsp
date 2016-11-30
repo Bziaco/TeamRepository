@@ -10,7 +10,7 @@
 				<h4 class="modal-title">스케쥴</h4>
 			</div>
 			<div class="modal-body">
-				<iframe style="width:1170px; height:530px; background-color: blue; border: 0px;" scrolling="no" src="schedule/boardList"></iframe>
+				<iframe style="width:1170px; height:530px; background-color: blue; border: 0px;" scrolling="no" src="schedule/scheduleList"></iframe>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

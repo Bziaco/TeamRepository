@@ -23,7 +23,7 @@
 <link rel="stylesheet"
    href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
 <script type="text/javascript"
-   src="${pageContext.servletContext.contextPath}/resources/js/board.js"></script>
+   src="${pageContext.servletContext.contextPath}/resources/js/schedule.js"></script>
 <script type="text/javascript"
    src="${pageContext.servletContext.contextPath}/resources/js/custom.js"></script>
 <script type="text/javascript"
@@ -47,7 +47,7 @@
    
    function searchEnter() {
       var keyword = $("#keyword").val();
-       location.href = "boardList?pageNo=1&keyword="+keyword;
+       location.href = "scheduleList?pageNo=1&keyword="+keyword;
    }
 </script>
 
@@ -74,32 +74,30 @@
                                  <th>Title</th>
                                  <th>Content</th>
                                  <th>Writer</th>
-                                 <th>Count</th>
                                  <th>Date</th>
                                  <th>Update</th>
                                  <th>Delete</th>
                               </thead>
                               <tbody>
-                                 <c:forEach var="board" items="${list}">
+                                 <c:forEach var="schedule" items="${list}">
                                     <tr>
-                                       <td>${board.bno}</td>
+                                       <td>${schedule.sno}</td>
                                        <td><a class="btnDetailModal" href="#"
-                                          data-bno="${board.bno}">${board.btitle}</a></td>
-                                       <td>${board.bcontent}</td>
-                                       <td>${board.mid}</td>
-                                       <td>${board.bhitcount}</td>
-                                       <td>${board.bdate}</td>
+                                          data-sno="${schedule.sno}">${schedule.stitle}</a></td>
+                                       <td>${schedule.scontent}</td>
+                                       <td>${schedule.mid}</td>
+                                       <td>${schedule.sdate}</td>
                                        <td><p data-placement="top" data-toggle="tooltip"
                                              title="Edit">
                                              <button id="btnUpdate" class="btn btn-primary btn-xs"
-                                                data-bno="${board.bno}">
+                                                data-sno="${schedule.sno}">
                                                 <span class="glyphicon glyphicon-pencil"></span>
                                              </button>
                                           </p></td>
                                        <td><p data-placement="top" data-toggle="tooltip"
                                              title="Delete">
                                              <button class="btn btn-danger btn-xs" id="btnDelete"
-                                                data-bno="${board.bno}">
+                                                data-sno="${schedule.sno}">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                              </button>
                                           </p></td>
@@ -115,21 +113,21 @@
                                        style="color: gray"></span>
                                  </c:if> <c:if test="${groupNo>1}">
                                     <a
-                                       href="boardList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
+                                       href="scheduleList?pageNo=${startPageNo-1}&keyword=${keyword}"><span
                                        class="glyphicon glyphicon-chevron-left"
                                        style="color: green"></span></a>
                                  </c:if></li>
 
                               <c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
                                  <li <c:if test="${pageNo==i}">class="active"</c:if>><a
-                                    href="boardList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
+                                    href="scheduleList?pageNo=${i}&keyword=${keyword}">${i}</a></li>
                               </c:forEach>
 
                               <li><c:if test="${groupNo==totalGroupNo}">
                                     <span class="glyphicon glyphicon-chevron-right"
                                        style="color: gray"></span>
                                  </c:if> <c:if test="${groupNo<totalGroupNo}">
-                                    <a href="boardList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
+                                    <a href="scheduleList?pageNo=${endPageNo+1}&keyword=${keyword}"><span
                                        class="glyphicon glyphicon-chevron-right"
                                        style="color: green"></span></a>
                                  </c:if></li>
@@ -264,7 +262,7 @@
                   class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
                   <div class="panel panel-primary">
                      <div class="panel-heading">
-                        <h2 class="panel-title">Board Detail</h2>
+                        <h2 class="panel-title">Detail</h2>
                      </div>
                      <div class="panel-body">
                         <button type="button" class="close" data-dismiss="modal"
@@ -297,10 +295,6 @@
                                     <tr>
                                        <td>Writer:</td>
                                        <td id="writer"></td>
-                                    </tr>
-                                    <tr>
-                                       <td>Hitcount:</td>
-                                       <td id="hitcount"></td>
                                     </tr>
                                  </tbody>
                               </table>

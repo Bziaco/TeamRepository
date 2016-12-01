@@ -25,7 +25,7 @@ public class MAttractionController {
 	public AttractionService attractionService;
 	
 	
-	@RequestMapping("/MgetAttraction")
+	@RequestMapping("/MgetAttractionlist")
 	public String attractionList(String pageNo, String keyword, Model model, HttpSession session) {
 		int intPageNo = 1;
 		if(pageNo == null) {
@@ -71,7 +71,7 @@ public class MAttractionController {
 		model.addAttribute("list", list);
 		model.addAttribute("keyword", keyword);
 
-		return "attraction/MgetAttraction";
+		return "attraction/MgetAttractionlist";
 	}
 	
 	

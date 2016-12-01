@@ -192,7 +192,9 @@ public class DrawerActivity extends AppCompatActivity
         String title = getString(R.string.app_name);
 
         if (id == R.id.nav_login) {
-
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            title="Login";
         } else if (id == R.id.nav_resist) {
 
         } else if (id == R.id.nav_livematching) {

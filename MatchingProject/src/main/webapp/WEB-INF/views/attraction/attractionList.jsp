@@ -141,9 +141,9 @@
                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
                         <!-- 사진 -->
-                        <img  id="savedfile" style="width:100%; height:400px"></img>
+                        <img  id="savedfile" style="width:360px; height:360px"></img>
                                  
-                        <div class="row">
+                        <div class="row" style="display:inline; position: absolute; left: 400px;">
                            <div ></div>
 
                            <div >

@@ -21,7 +21,8 @@ public class GuideScheduleDao {
 		int row=jdbcTemplate.update(
 				sql,
 				guideSchedule.getSno(),
-				guideSchedule.getGid()
+				guideSchedule.getGid(),
+				guideSchedule.getMid()
 		);
 		return row;
 	}
@@ -64,6 +65,23 @@ public class GuideScheduleDao {
 		return row;
 	}
 
+
+//------------추가-----------------------------------------------------------------------------------------------------
+	public List<GuideSchedule> selectByMid(String mid) {
+		String sql = "select mid, sno from guideschedule where mid=?";
+		List<GuideSchedule> list = jdbcTemplate.query(sql, new Object[] {mid}, new RowMapper<GuideSchedule>() {
+			@Override
+			public GuideSchedule mapRow(ResultSet rs, int index) throws SQLException {
+				GuideSchedule guideSchedule = new GuideSchedule();
+				guideSchedule.setGid(rs.getString("mid"));
+				guideSchedule.setSno(rs.getInt("sno"));
+				return guideSchedule;
+			}
+		});
+		return list;
+	}
+	
+	
 	
 }
 

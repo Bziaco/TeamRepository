@@ -5,7 +5,7 @@
 	<div class="modal-dialog" role="document"
 		style="width: 1175px; height: 750px;">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header" style=" width: 1173px; background-color: #F7B4AB; border-radius: 5px;">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>

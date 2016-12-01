@@ -1,0 +1,540 @@
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+/*    Reset CSS  */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+	outline: 0;
+	text-decoration: none;
+	color: #070707;
+    font-weight: bolder;
+}
+
+img {
+	border: 0;
+}
+
+html {
+	height: 950px
+}
+
+#wrap {
+	width: 100%;
+	height: 100%;
+	min-width: 1024px;
+	min-height: 600px;
+	background: url(../img/match3.jpg) no-repeat center bottom;
+	background-size: cover
+}
+
+#wrap .container {
+	opacity: 0.9;
+	position: relative;
+}
+
+.mail-box {
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	position: absolute;
+	top: 100px;
+}
+
+.mail-box aside {
+	display: table-cell;
+	float: none;
+	height: 100%;
+	padding: 0;
+	vertical-align: top;
+}
+
+.mail-box .sm-side {
+	background: none repeat scroll 0 0 #e5e8ef;
+	border-radius: 4px 0 0 4px;
+	width: 25%;
+}
+
+.mail-box .lg-side {
+	background: none repeat scroll 0 0 #fff;
+	border-radius: 30px;
+	width: 75%;
+}
+
+.mail-box .sm-side .user-head {
+	background: none repeat scroll 0 0 #00a8b3;
+	border-radius: 4px 0 0;
+	color: #fff;
+	min-height: 80px;
+	padding: 10px;
+}
+
+.user-head .inbox-avatar {
+	float: left;
+	width: 65px;
+}
+
+.user-head .inbox-avatar img {
+	border-radius: 4px;
+}
+
+.user-head .user-name {
+	display: inline-block;
+	margin: 0 0 0 10px;
+}
+
+.user-head .user-name h5 {
+	font-size: 14px;
+	font-weight: 300;
+	margin-bottom: 0;
+	margin-top: 15px;
+}
+
+.user-head .user-name h5 a {
+	color: #fff;
+}
+
+.user-head .user-name span a {
+	color: #87e2e7;
+	font-size: 12px;
+}
+
+a.mail-dropdown {
+	background: none repeat scroll 0 0 #80d3d9;
+	border-radius: 2px;
+	color: #01a7b3;
+	font-size: 10px;
+	margin-top: 20px;
+	padding: 3px 5px;
+}
+
+.inbox-body {
+	padding: 20px 10px 20px 10px;
+}
+
+.btn-compose {
+	background: none repeat scroll 0 0 #ff6c60;
+	color: #fff;
+	padding: 12px 0;
+	text-align: center;
+	width: 100%;
+}
+
+.btn-compose:hover {
+	background: none repeat scroll 0 0 #f5675c;
+	color: #fff;
+}
+
+ul.inbox-nav {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.inbox-divider {
+	border-bottom: 1px solid #d5d8df;
+}
+
+ul.inbox-nav li {
+	display: inline-block;
+	line-height: 45px;
+	width: 100%;
+}
+
+ul.inbox-nav li a {
+	color: #6a6a6a;
+	display: inline-block;
+	line-height: 45px;
+	padding: 0 20px;
+	width: 100%;
+}
+
+ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus
+	{
+	background: none repeat scroll 0 0 #d5d7de;
+	color: #6a6a6a;
+}
+
+ul.inbox-nav li a i {
+	color: #6a6a6a;
+	font-size: 16px;
+	padding-right: 10px;
+}
+
+ul.inbox-nav li a span.label {
+	margin-top: 13px;
+}
+
+ul.labels-info li h4 {
+	color: #5c5c5e;
+	font-size: 13px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+	text-transform: uppercase;
+}
+
+ul.labels-info li {
+	margin: 0;
+}
+
+ul.labels-info li a {
+	border-radius: 0;
+	color: #6a6a6a;
+}
+
+ul.labels-info li a:hover, ul.labels-info li a:focus {
+	background: none repeat scroll 0 0 #d5d7de;
+	color: #6a6a6a;
+}
+
+ul.labels-info li a i {
+	padding-right: 10px;
+}
+
+.nav.nav-pills.nav-stacked.labels-info p {
+	color: #9d9f9e;
+	font-size: 11px;
+	margin-bottom: 0;
+	padding: 0 22px;
+}
+
+.inbox-head {
+	background: none repeat scroll 0 0 #3C1EFF;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	min-height: 80px;
+	padding: 20px;
+}
+
+.inbox-head h3 {
+	display: inline-block;
+	font-weight: 300;
+	margin: 0;
+	padding-top: 6px;
+}
+
+.inbox-head .sr-input {
+	border: medium none;
+	border-radius: 4px 0 0 4px;
+	box-shadow: none;
+	color: #8a8a8a;
+	float: left;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.inbox-head .sr-btn {
+	background: none repeat scroll 0 0 #00a6b2;
+	border: medium none;
+	border-radius: 0 4px 4px 0;
+	color: #fff;
+	height: 40px;
+	padding: 0 20px;
+}
+
+.table-inbox {
+	border: 1px solid #d3d3d3;
+	margin-bottom: 0;
+}
+
+.table-inbox tr td {
+	padding: 12px !important;
+}
+
+.table-inbox tr td:hover {
+	cursor: pointer;
+}
+
+.table-inbox tr td .fa-star.inbox-started, .table-inbox tr td .fa-star:hover
+	{
+	color: #f78a09;
+}
+
+.table-inbox tr td .fa-star {
+	color: #d5d5d5;
+}
+
+.table-inbox tr.unread td {
+	font-weight: 600;
+}
+
+ul.inbox-pagination {
+	float: right;
+}
+
+ul.inbox-pagination li {
+	float: left;
+}
+
+.mail-option {
+	display: inline-block;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.mail-option .chk-all, .mail-option .btn-group a.btn {
+	background: none repeat scroll 0 0 #fcfcfc;
+	border: 1px solid #e7e7e7;
+	border-radius: 3px !important;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.inbox-pagination a.np-btn {
+	background: none repeat scroll 0 0 #fcfcfc;
+	border: 1px solid #e7e7e7;
+	border-radius: 3px !important;
+	color: #afafaf;
+	display: inline-block;
+	padding: 5px 15px;
+}
+
+.mail-option .chk-all input[type="checkbox"] {
+	margin-top: 0;
+}
+
+.mail-option .btn-group a.all {
+	border: medium none;
+	padding: 0;
+}
+
+.inbox-pagination a.np-btn {
+	margin-left: 5px;
+}
+
+.inbox-pagination li span {
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: 7px;
+}
+
+.fileinput-button {
+	background: none repeat scroll 0 0 #eeeeee;
+	border: 1px solid #e6e6e6;
+}
+
+.inbox-body .modal .modal-body input, .inbox-body .modal .modal-body textarea
+	{
+	border: 1px solid #e6e6e6;
+	box-shadow: none;
+}
+
+.btn-send, .btn-send:hover {
+	background: none repeat scroll 0 0 #00a8b3;
+	color: #fff;
+}
+
+.btn-send:hover {
+	background: none repeat scroll 0 0 #009da7;
+}
+
+.modal-header h4.modal-title {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+}
+
+.modal-body label {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+}
+
+.heading-inbox h4 {
+	border-bottom: 1px solid #ddd;
+	color: #444;
+	font-size: 18px;
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+
+.sender-info {
+	margin-bottom: 20px;
+}
+
+.sender-info img {
+	height: 30px;
+	width: 30px;
+}
+
+.sender-dropdown {
+	background: none repeat scroll 0 0 #eaeaea;
+	color: #777;
+	font-size: 10px;
+	padding: 0 3px;
+}
+
+.view-mail a {
+	color: #ff6c60;
+}
+
+.attachment-mail {
+	margin-top: 30px;
+}
+
+.attachment-mail ul {
+	display: inline-block;
+	margin-bottom: 30px;
+	width: 100%;
+}
+
+.attachment-mail ul li {
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	width: 150px;
+}
+
+.attachment-mail ul li img {
+	width: 100%;
+}
+
+.attachment-mail ul li span {
+	float: right;
+}
+
+.attachment-mail .file-name {
+	float: left;
+}
+
+.attachment-mail .links {
+	display: inline-block;
+	width: 100%;
+}
+
+.fileinput-button {
+	float: left;
+	margin-right: 4px;
+	overflow: hidden;
+	position: relative;
+}
+
+.fileinput-button input {
+	cursor: pointer;
+	direction: ltr;
+	font-size: 23px;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: translate(-300px, 0px) scale(4);
+}
+
+.fileupload-buttonbar .btn, .fileupload-buttonbar .toggle {
+	margin-bottom: 5px;
+}
+
+.files .progress {
+	width: 200px;
+}
+
+.fileupload-processing .fileupload-loading {
+	display: block;
+}
+
+* html .fileinput-button {
+	line-height: 24px;
+	margin: 1px -3px 0 0;
+}
+
+*+html .fileinput-button {
+	margin: 1px 0 0;
+	padding: 2px 15px;
+}
+
+@media ( max-width : 767px) {
+	.files .btn span {
+		display: none;
+	}
+	.files .preview * {
+		width: 40px;
+	}
+	.files .name * {
+		display: inline-block;
+		width: 80px;
+		word-wrap: break-word;
+	}
+	.files .progress {
+		width: 20px;
+	}
+	.files .delete {
+		width: 60px;
+	}
+}
+
+ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*   Reset CSS 
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none;	color:#bbb;}
+img { border:0;}
+
+  
+배경이미지 설정
+#wrap {width:100%; height:100%; min-width:1024px; min-height:768px; background:url(../img/board4.jpg) no-repeat center bottom; background-size:cover}
+#wrap #table {width:800px; height:500px;}
+#wrap #table .tb{width:900px; margin:auto; opacity:0.8;}
+#wrap #table .page{width:405px; margin:auto; opacity: 0.8;}
+.panel-info{margin-top:200px; height:600px; padding:0 20px 20px 20px;}
+.panel{margin-bottom:0;}
+.input-group{padding:25px}
+
+
+ 로고 영역 
+.wrap h1 { position:fixed; width:300px; top:240px; left:0px;	text-align:center;	line-height:0.8;}
+.wrap h1 strong {	font:bold 16px/1.1 verdana; color:#333;}
+.wrap h1 img {	width:200px; height:auto;}
+.wrap h1 span {font:bold 12px/1.6 arial; color:#444;letter-spacing:5px;}
+
+슬로건 영역
+.txt {	position:fixed; top:120px; left:400px;	font:70px/0.8 Raleway; color:#111;	letter-spacing:0px;}
+.txt span {font-size:40px; color:#111; font-weight:bold;}
+
+
+웹 아이콘 버튼 모음
+.sns { position:fixed; top:30px; right:50px; z-index:10;}
+.sns li { float:left;	margin-left:30px;}
+.sns li a {	color:#555;	font-size:22px;}	
+
+section 영역 레이아웃
+section {position:fixed; top:0px; right:0px;width:100%; height:100%;}
+article {position:relative;	width:12%; height:100%;background:url(../img/divider.png) no-repeat left center;float:right;	overflow:hidden;}
+
+article 제목
+article h2 {position:absolute;top:300px;	left:20px;	padding-left:15px;	border-left:3px solid #555;	font:bold 20px Raleway; color:#ffffff;	z-index:3;	transition:all 0.5s;}
+article div {	position:absolute;	left:0px; top:300px;	width:100%; height:0px;	background:#000;	opacity:0.5;	z-index:2;	transition:all 0.5s;}
+
+article 제목 호버 효과
+article:hover h2 { color:#ccc; border-left:3px solid #ccc;}
+article:hover div { top:270px; height:70px;}
+
+article 동영상
+article video {	position:absolute; width:auto; height:100%;	margin-top:0px; margin-left:-100px;	opacity:0;	z-index:1;}
+
+article 숨겨진 컨텐츠
+article h3 {position:absolute;	bottom:210px;	right:-310px;	font: 40px Raleway; color:#fff;	text-align:right;	opacity:1;	z-index:4;	}
+article p {	position:absolute;bottom:50px; right:-310px;	width:300px; height:150px;	font:12px/1.5 arial; color:#fff;	text-align:right;	opacity:0.8;	z-index:5;}
+
+footer
+footer {	position:fixed; 	width:100%; height:40px;	left:0px; bottom:0px;	background:#000;	font:12px/3.3 verdana; color:#fff;	letter-spacing:2px;	opacity:0.4;	z-index:10;}
+footer ul {	position:absolute; 	bottom:0px; left:50px;}
+footer ul li {	float:left;	margin-right:40px;}
+footer span {position:absolute; 	right:50px; bottom:0px;}
+
+ */

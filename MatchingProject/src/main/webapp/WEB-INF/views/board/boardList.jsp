@@ -59,7 +59,7 @@
       <div class="mail-box">
          <aside class="lg-side">
             <div class="inbox-head">
-               <h3>Free Board</h3>
+               <h3>자유게시판</h3>
                <form class="pull-right position" onsubmit="return false">
                   <div class="input-append">
                      <input id="keyword" type="text" class="sr-input" onkeydown="if(event.keyCode==13){javascript:searchEnter();}"

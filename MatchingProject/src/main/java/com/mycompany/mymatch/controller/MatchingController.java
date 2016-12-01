@@ -32,11 +32,12 @@ public class MatchingController {
 		model.addAttribute("list", list);
 		return "matching/tourList";
 	}
+//---추가-----------------------------------------------------------------------------------------------------
 	
 	@RequestMapping("/guideList")
 	public String guideList(HttpSession session, Model model) {
-		String mid = (String) session.getAttribute("login");
-		List<Member> list = matchingService.getMatchingGuideList(mid);
+		String gid = (String) session.getAttribute("login");
+		List<GuideSchedule> list = matchingService.getTouristSchedule(gid);
 		model.addAttribute("list", list);
 		return "matching/guideList";
 	}

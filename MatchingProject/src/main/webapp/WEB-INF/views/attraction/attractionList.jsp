@@ -56,7 +56,7 @@
       <div class="mail-box">
          <aside class="lg-side">
             <div class="inbox-head">
-               <h3>Photo Board</h3>
+               <h3>추천 여행지</h3>
                <form class="pull-right position" name="formname" onsubmit="return false">
                   <div class="input-append">
                      <input id="keyword" type="text" class="sr-input" onkeydown="if(event.keyCode==13){javascript:searchEnter();}"

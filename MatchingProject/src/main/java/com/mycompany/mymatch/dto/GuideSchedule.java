@@ -7,6 +7,27 @@ public class GuideSchedule {
 	private String gid;
 	private Member tourist;
 	private Schedule schedule;
+	private Guide guide;
+	
+	private String mid;
+	
+	
+	
+	
+	
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public Guide getGuide() {
+		return guide;
+	}
+	public void setGuide(Guide guide) {
+		this.guide = guide;
+	}
+	
 	
 	public int getSno() {
 		return sno;

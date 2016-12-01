@@ -58,7 +58,7 @@
 		$("#matchguideModal").modal("show");
 	});
 	
-	/*매칭 가이드*/
+	/*매칭 가이드
 	$("#btnMatchingGuide").click(function(){
 		$.ajax({
 			url:"/mymatch/matching/guideList",
@@ -69,5 +69,5 @@
 				console.log(data);
 			}
 		})
-	});
+	});*/
 });

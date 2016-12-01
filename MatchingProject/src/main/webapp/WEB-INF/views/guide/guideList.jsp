@@ -21,7 +21,7 @@
 <script type="text/javascript"
    src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
-   href="${pageContext.servletContext.contextPath}/resources/css/board.css" />
+   href="${pageContext.servletContext.contextPath}/resources/css/guide.css" />
 <script type="text/javascript"
    src="${pageContext.servletContext.contextPath}/resources/js/board.js"></script>
 <script type="text/javascript"

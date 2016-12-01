@@ -71,7 +71,12 @@ public class ScheduleController {
 		for(Schedule schedule : list) {
 			schedule.setGuideRequest(scheduleService.isGuideRequest(mid, schedule.getSno()));
 		}
-		
+//--------------추가-------------------------------------------------------------------------------------------------		
+		String gid = (String) session.getAttribute("login");
+		for(Schedule schedule : list) {
+			schedule.setGuideRequest(scheduleService.isGuideRequest(gid, schedule.getSno()));
+		}
+//-----------------------------------------------------------------------------------------------------------------		
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);
 		int totalGroupNo = (totalPageNo/pagesPerGroup) + ((totalPageNo%pagesPerGroup!=0)?1:0);
 		

@@ -1,15 +1,16 @@
 package com.mycompany.mymatch.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.mymatch.dao.GuideDao;
 import com.mycompany.mymatch.dao.GuideScheduleDao;
 import com.mycompany.mymatch.dao.MatchingDao;
 import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dao.ScheduleDao;
+import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.dto.GuideSchedule;
 import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
@@ -29,6 +30,10 @@ public class MatchingService {
 	
 	@Autowired
 	private GuideScheduleDao guideScheduleDao;
+	
+//---------------------------------------------------------
+	@Autowired
+	private GuideDao guideDao;
 	
 	public static final int MODIFY_SUCCESS = 0;
 	public static final int MODIFY_FAIL = 1;
@@ -64,27 +69,29 @@ public class MatchingService {
 		}
 		return list;
 	}
-
-	public List<Member> getMatchingGuideList(String mid) {
-		List<Matching> list = matchingDao.selectByMid(mid);
-		
-		List<Member> matchingGuideList = new ArrayList<Member>();
-		for(Matching matching : list) {
-			Member member = memberDao.selectByMid(matching.getGid());
-			member.setMmatchingdate(matching.getMatchdate());
-			matchingGuideList.add(member);
+//--추가----------------------------------------------------------------------------------------
+	
+	public List<GuideSchedule> getTouristSchedule(String mid) {
+		List<GuideSchedule> list = guideScheduleDao.selectByMid(mid);
+		for(GuideSchedule guideSchedule : list) {
+			Schedule schedule = scheduleDao.selectBySno(guideSchedule.getSno());
+			guideSchedule.setSchedule(schedule);
+			Guide guide = guideDao.selectByGid(guideSchedule.getGid());
+			guideSchedule.setGuide(guide);
 		}
-		
-		return matchingGuideList;
+		return list;
 	}
+	
+	
+	
+	
+//---------------------------------------------------------------------------------------------------------------------------	
+
 	
 	
 	public int countByGid(String gid) {
 		return matchingDao.countByGid(gid);
 	}
-//---------------------------------------------------------------------------------------------------------------------------
-	
-	
 	
 	public List<Matching> getList(int pageNo, int rowsPerPage) {
 		List<Matching> list = matchingDao.selectByPage(pageNo, rowsPerPage);

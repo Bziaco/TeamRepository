@@ -26,7 +26,9 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/touristModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/messageModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/scheduleModal.js"></script>	
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchtouristModal.js"></script>	
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchtouristModal.js"></script>
+	
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchguideModal.js"></script>	
 </head>
 <body>
 	<!-- 메뉴 -->

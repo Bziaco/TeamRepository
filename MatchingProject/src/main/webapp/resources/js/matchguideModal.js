@@ -1,12 +1,11 @@
 $(function() {
-	/*$("#btnMatchingTourist").click(function(){
+	$("#matchguideModal").on("show.bs.modal", function() {
 		$.ajax({
-			url:"/mymatch/matching/tourList",
+			url:"/mymatch/matching/guideList",
 			method: "post", 
 			success: function(data){
-				$("#matchtouristModal #matchtourlist").html(data);
-				$("#matchtouristModal").modal("show");
+				$("#matchguideModal #matchguidelist").html(data);
 			}
 		});
-	});*/
+	});
 });

@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">  
 <link rel="stylesheet"
    href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css">
 <link rel="stylesheet"

@@ -121,7 +121,7 @@
          </aside>
       </div>
    </div>
-
+ 
 
    <!-- modal -->
    <div style="z-index: 5000" class="modal fade" id="attractionModal"

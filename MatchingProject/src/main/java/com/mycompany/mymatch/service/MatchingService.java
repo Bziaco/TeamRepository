@@ -16,6 +16,8 @@ import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
 import com.mycompany.mymatch.dto.Schedule;
 
+
+
 @Component
 public class MatchingService {
 	
@@ -31,7 +33,6 @@ public class MatchingService {
 	@Autowired
 	private GuideScheduleDao guideScheduleDao;
 	
-//---------------------------------------------------------
 	@Autowired
 	private GuideDao guideDao;
 	
@@ -74,10 +75,14 @@ public class MatchingService {
 	public List<GuideSchedule> getTouristSchedule(String mid) {
 		List<GuideSchedule> list = guideScheduleDao.selectByMid(mid);
 		for(GuideSchedule guideSchedule : list) {
-			Schedule schedule = scheduleDao.selectBySno(guideSchedule.getSno());
-			guideSchedule.setSchedule(schedule);
-			Guide guide = guideDao.selectByGid(guideSchedule.getGid());
-			guideSchedule.setGuide(guide);
+			Member member = memberDao.selectByMid(guideSchedule.getGid());
+			
+			System.out.println(guideSchedule.getGid());
+			guideSchedule.setTourist(member);
+			/*Schedule schedule = guideScheduleDao.selectByGid(guideSchedule.getGid());
+			guideSchedule.setSchedule(schedule);*/
+			/*Guide guide = guideDao.selectByGid(guideSchedule.getGid());*/
+			/*guideschedule.setGuide(guide);*/
 		}
 		return list;
 	}

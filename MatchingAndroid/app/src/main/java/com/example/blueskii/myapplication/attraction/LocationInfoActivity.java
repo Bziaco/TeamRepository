@@ -1,7 +1,9 @@
-package com.example.blueskii.myapplication;
+package com.example.blueskii.myapplication.attraction;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.blueskii.myapplication.R;
 
 public class LocationInfoActivity extends AppCompatActivity {
 

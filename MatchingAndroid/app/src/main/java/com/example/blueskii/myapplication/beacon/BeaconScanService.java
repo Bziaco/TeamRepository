@@ -1,4 +1,4 @@
-package com.example.blueskii.myapplication;
+package com.example.blueskii.myapplication.beacon;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,6 +9,9 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 
+import com.example.blueskii.myapplication.attraction.LocationInfo;
+import com.example.blueskii.myapplication.attraction.LocationInfoActivity;
+import com.example.blueskii.myapplication.R;
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
 import com.perples.recosdk.RECOBeaconRegion;

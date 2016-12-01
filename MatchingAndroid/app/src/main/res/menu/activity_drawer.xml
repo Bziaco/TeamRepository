@@ -5,11 +5,7 @@
         <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Loing" />
-        <item
-            android:id="@+id/nav_resist"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Resist" />
+            android:title="Login" />
         <item
             android:id="@+id/nav_livematching"
             android:icon="@drawable/ic_menu_slideshow"

@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:id="@+id/rootViewGroup"
     android:fitsSystemWindows="true"
-    tools:context="com.example.blueskii.myapplication.DrawerActivity">
+    tools:context="com.example.blueskii.myapplication.main.DrawerActivity">
 
-    <include layout="@layout/content_drawer" />
+    <include layout="@layout/activity_drawer_content_drawer" />
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

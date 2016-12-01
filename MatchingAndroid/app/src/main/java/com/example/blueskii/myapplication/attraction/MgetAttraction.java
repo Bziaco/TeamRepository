@@ -1,4 +1,4 @@
-package com.example.blueskii.myapplication;
+package com.example.blueskii.myapplication.attraction;
 
 
 import android.graphics.Bitmap;

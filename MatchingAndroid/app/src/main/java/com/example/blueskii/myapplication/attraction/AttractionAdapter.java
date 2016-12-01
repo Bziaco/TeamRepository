@@ -1,4 +1,4 @@
-package com.example.blueskii.myapplication;
+package com.example.blueskii.myapplication.attraction;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.blueskii.myapplication.R;
 
 import java.util.List;
 
@@ -47,7 +49,7 @@ public class AttractionAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             //inplation
-            convertView = layoutInflater.inflate(R.layout.attraction_1, null);
+            convertView = layoutInflater.inflate(R.layout.activity_attraction_fragment_list_item, null);
         }
 
         //data setting

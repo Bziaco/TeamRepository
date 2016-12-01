@@ -1,4 +1,4 @@
-package com.example.blueskii.myapplication;
+package com.example.blueskii.myapplication.attraction;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,13 +23,13 @@ public class TabPagerAdapters extends FragmentStatePagerAdapter {
         // Returning the current tabs
         switch (position) {
             case 0:
-                TabFragment1 tabFragment1 = new TabFragment1();
+                TabFragment tabFragment1 = new TabFragment();
                 return tabFragment1;
             case 1:
-                TabFragment2 tabFragment2 = new TabFragment2();
+                TabFragment tabFragment2 = new TabFragment();
                 return tabFragment2;
             case 2:
-                TabFragment3 tabFragment3 = new TabFragment3();
+                TabFragment tabFragment3 = new TabFragment();
                 return tabFragment3;
             default:
                 return null;

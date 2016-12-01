@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootViewGroup"
+    android:id="@+id/content_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.blueskii.myapplication.MainActivity"
-    android:orientation="vertical"
-    android:background="@drawable/main"
-    >
-
-    <!--<ImageView
-        android:id="@+id/backImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/backImage"
-        android:scaleType="fitXY" />-->
-
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.blueskii.myapplication.main.DrawerActivity"
+    android:background="@drawable/activity_drawer_main_image"
+    tools:showIn="@layout/activity_drawer_app_bar_drawer">
 
     <Button
         android:text="Start BeaconService"

@@ -5,12 +5,12 @@
     android:id="@+id/activity_event"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.blueskii.myapplication.LocationInfoActivity"
+    tools:context="com.example.blueskii.myapplication.attraction.LocationInfoActivity"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
-        app:srcCompat="@drawable/photo5"
+        app:srcCompat="@drawable/activity_attraction_test_top_image"
         android:id="@+id/imageView"
         android:scaleType="fitXY"
         android:layout_height="250dp" />

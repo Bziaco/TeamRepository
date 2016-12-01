@@ -6,7 +6,7 @@
     android:id="@+id/activity_matching"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.blueskii.myapplication.MatchingActivity"
+    tools:context="com.example.blueskii.myapplication.matching.MatchingActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            app:srcCompat="@drawable/matching"
+            app:srcCompat="@drawable/activity_matching_top_image"
             android:scaleType="fitXY"
             android:id="@+id/imageLarge" />
 

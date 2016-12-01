@@ -29,7 +29,7 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------------------		
 
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping("/login")
 	public String login(String mid, String mpassword, HttpSession session, Model model){
 		String strResult = "LOGIN_SUCCESS";
 		int result = memberService.login(mid, mpassword);

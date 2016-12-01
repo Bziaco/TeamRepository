@@ -44,20 +44,22 @@
 		});
 	});
 	
-	/*매칭된 관광객*/
-	$(".btnMatchingTourist").click(function(){
-		$.ajax({
-			url:"/mymatch/matching/tourList",
-			method: "post", 
-			success: function(data){
-				$("#matchtouristModal #matchtourlist").html(data);
-				$("#matchtouristModal").modal("show");
-			}
-		});
+	$("#btnSchedule").click(function(){
+		$("#scheduleModal").modal("show");
 	});
 	
-	/*매칭된 가이드*/
-	$(".btnMatchingGuide").click(function(){
+	/*매칭 관광객*/
+	$("#btnMatchingTourist").click(function(){
+		$("#matchtouristModal").modal("show");
+	});
+	
+	/*매칭 가이드*/
+	$("#btnMatchingGuide").click(function(){
+		$("#matchguideModal").modal("show");
+	});
+	
+	/*매칭 가이드*/
+	$("#btnMatchingGuide").click(function(){
 		$.ajax({
 			url:"/mymatch/matching/guideList",
 			method: "post",

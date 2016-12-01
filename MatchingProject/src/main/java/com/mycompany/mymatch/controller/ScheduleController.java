@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mycompany.mymatch.dto.Board;
-import com.mycompany.mymatch.service.BoardService;
+import com.mycompany.mymatch.dto.GuideSchedule;
+import com.mycompany.mymatch.dto.Schedule;
+import com.mycompany.mymatch.service.ScheduleService;
 
 @Component
 @RequestMapping("/schedule")
@@ -20,11 +21,27 @@ public class ScheduleController {
 	private static final Logger logger = LoggerFactory.getLogger(ScheduleController.class);
 	
 	@Autowired
-	public BoardService boardService;
+	public ScheduleService scheduleService;
 	
-	@RequestMapping("/boardList")
-	public String boardList(String pageNo, String keyword, Model model, HttpSession session) {
-		logger.info("boardList");
+	@RequestMapping("/addGuideSchedule")
+	public String addGuideSchedule(GuideSchedule guideSchedule, HttpSession session){
+		String mid = (String) session.getAttribute("login");
+		guideSchedule.setGid(mid);
+		scheduleService.addGuideSchedule(guideSchedule);
+		return "schedule/addGuideSchedule";
+	}
+	
+	@RequestMapping("/cancelGuideSchedule")
+	public String cancelGuideSchedule(GuideSchedule guideSchedule, HttpSession session){
+		String mid = (String) session.getAttribute("login");
+		guideSchedule.setGid(mid);
+		scheduleService.cancelGuideSchedule(guideSchedule);
+		return "schedule/cancelGuideSchedule";
+	}	
+	
+	@RequestMapping("/scheduleList")
+	public String scheduleList(String pageNo, String keyword, Model model, HttpSession session) {
+		logger.info("scheduleList");
 		
 		int intPageNo = 1;
 		if(pageNo == null) {
@@ -41,13 +58,18 @@ public class ScheduleController {
 		int pagesPerGroup = 5;
 		
 		int totalBoardNo = 0;
-		List<Board> list = null;
+		List<Schedule> list = null;
 		if(keyword == null || keyword.equals("")) {
-			totalBoardNo = boardService.getCount();
-			list = boardService.getList(intPageNo, rowsPerPage);
+			totalBoardNo = scheduleService.getCount();
+			list = scheduleService.getList(intPageNo, rowsPerPage);
 		} else {
-			totalBoardNo = boardService.getCountKeyword(keyword);
-			list = boardService.getListKeyword(keyword, intPageNo, rowsPerPage);
+			totalBoardNo = scheduleService.getCountKeyword(keyword);
+			list = scheduleService.getListKeyword(keyword, intPageNo, rowsPerPage);
+		}
+		
+		String mid = (String) session.getAttribute("login");
+		for(Schedule schedule : list) {
+			schedule.setGuideRequest(scheduleService.isGuideRequest(mid, schedule.getSno()));
 		}
 		
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);
@@ -70,17 +92,17 @@ public class ScheduleController {
 		model.addAttribute("list", list);
 		model.addAttribute("keyword", keyword);
 
-		return "schedule/boardList";
+		return "schedule/scheduleList";
 	}
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 	
 	@RequestMapping("/write")
-	public String write(Board board, HttpSession session) {
+	public String write(Schedule schedule, HttpSession session) {
 		String mid = (String) session.getAttribute("login");
-		board.setMid(mid);
-		boardService.write(board);
-		return "board/write";
+		schedule.setMid(mid);
+		scheduleService.write(schedule);
+		return "schedule/write";
 	}
 
 	
@@ -88,19 +110,19 @@ public class ScheduleController {
 
 	
 	@RequestMapping("/delete")
-	public String delete(int bno) {
-		boardService.delete(bno);
-		return "board/delete";
+	public String delete(int sno) {
+		scheduleService.delete(sno);
+		return "schedule/delete";
 	}
 	
 //--------------------------------------------------------------------------------------------------------------------------------------
 	
 	
-	@RequestMapping("/getBoard")
-	public String getBoard(int bno, Model model) {
-		Board board = boardService.getBoard(bno);
-		model.addAttribute("board", board);
-		return "board/getBoard";
+	@RequestMapping("/getSchedule")
+	public String getSchedule(int sno, Model model) {
+		Schedule schedule = scheduleService.getSchedule(sno);
+		model.addAttribute("schedule", schedule);
+		return "schedule/getSchedule";
 	}
 	
 	
@@ -108,8 +130,8 @@ public class ScheduleController {
 	
 	
 	@RequestMapping("/update")
-	public String update(Board board) {
-		boardService.update(board);
-		return "board/update";
+	public String update(Schedule schedule) {
+		scheduleService.update(schedule);
+		return "schedule/update";
 	}
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.mymatch.dto.GuideSchedule;
 import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
 import com.mycompany.mymatch.service.MatchingService;
@@ -27,7 +28,7 @@ public class MatchingController {
 	@RequestMapping("/tourList")
 	public String tourList(HttpSession session, Model model) {
 		String gid = (String) session.getAttribute("login");
-		List<Member> list = matchingService.getMatchingToureList(gid);
+		List<GuideSchedule> list = matchingService.getGuideSchedule(gid);
 		model.addAttribute("list", list);
 		return "matching/tourList";
 	}

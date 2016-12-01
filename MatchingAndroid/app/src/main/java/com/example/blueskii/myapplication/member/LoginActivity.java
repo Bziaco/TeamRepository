@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.0.45:8080/mymatch/member/login?mid=" + mid + "&mpassword=" + mpassword);
+                    URL url = new URL("http://192.168.219.191:8080/mymatch/member/login?mid=" + mid + "&mpassword=" + mpassword);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

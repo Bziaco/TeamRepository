@@ -1,18 +1,14 @@
-package com.example.blueskii.myapplication.attraction;
-
+package com.example.blueskii.myapplication.TouristMatching;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.example.blueskii.myapplication.R;
+import com.example.blueskii.myapplication.attraction.AttractionAdapter;
+import com.example.blueskii.myapplication.attraction.MgetAttraction;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,40 +23,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabFragment extends Fragment{
-    private ListView MgetAttractionlist;
+public class TouristInfoActivity extends AppCompatActivity {
     private AttractionAdapter attractionAdapter;
-    private boolean mLockListView;
-    private LayoutInflater mInflater;
-
-    private int pageNo=1;
-
-
-
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fillItems(pageNo);
+        setContentView(R.layout.activity_tourist_info);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.activity_attraction_fragment, container, false);
-        MgetAttractionlist = (ListView)view.findViewById(R.id.MgetAttractionlist);
-
-
-        return view;
-    }
-
-
-    public void fillItems(final int pageNo) {
+    public void fillItems(final String mid) {
         //HTTP 통신 코드
         Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.219.191:8080/mymatch/MgetAttractionlist?pageNo="+pageNo);
+                    URL url = new URL("http://192.168.219.191:8080/mymatch/member/info+"+mid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
 
@@ -139,4 +116,3 @@ public class TabFragment extends Fragment{
         return bitmap;
     }
 }
-

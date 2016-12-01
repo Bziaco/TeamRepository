@@ -25,17 +25,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".attraction.LocationInfoActivity"/>
-        <activity android:name=".matching.MatchingActivity" />
-        <activity android:name=".member.LoginActivity"/>
-        <activity android:name=".attraction.AttractionActivity"/>
+        <activity android:name=".attraction.LocationInfoActivity" />
+        <activity android:name=".guideMatching.GuideMatchingActivity" />
+        <activity android:name=".member.LoginActivity" />
+        <activity android:name=".attraction.AttractionActivity" />
 
         <service
             android:name=".beacon.BeaconScanService"
             android:enabled="true"
             android:exported="true" />
         <service android:name="com.perples.recosdk.RECOBeaconService" />
+
+        <activity android:name=".TouristMatching.TouristMatchingActivity" />
+        <activity android:name=".TouristMatching.TouristInfoActivity"></activity>
     </application>
 
 </manifest>

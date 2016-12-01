@@ -5,13 +5,13 @@
 	<div class="thumbnail" style="width:350px; display: inline-block;margin:6px;">
 		<div class="caption">
 			<div style="margin:0px 10px; height:270px;">
-				<%-- <img src="member/getPhoto?savedfile=${guideschedule.tourist.savedfile}"
-				style="float: right" class="img-rounded" alt="Cinque Terre" width="120" height="120"> --%>
-				<span id="mname" style="font-weight: bold" >이름: ${guideschedule.guide.gid}</span><br /> 
-				<span id="mtel"style="font-weight: bold">전화: ${guideschedule.guide.glocal}</span><br /> 
-				<span id="memail"style="font-weight: bold">메일: ${guideschedule.guide.gintro}</span><br />  
-				<%--<span id="mage"style="font-weight: bold">나이: ${guideschedule.guide.mage}</span><br /> 
-				<span id="msex"style="font-weight: bold">성별: ${guideschedule.guide.msex}</span><br />  --%>
+				<img src="member/getPhoto?savedfile=${guideschedule.tourist.savedfile}"
+				style="float: right" class="img-rounded" alt="Cinque Terre" width="120" height="120"> 
+				<span id="mname" style="font-weight: bold" >이름: ${guideschedule.tourist.mname}</span><br /> 
+				<span id="mtel"style="font-weight: bold">전화: ${guideschedule.tourist.mtel}</span><br /> 
+				<span id="memail"style="font-weight: bold">메일: ${guideschedule.tourist.memail}</span><br /> 
+				<span id="mage"style="font-weight: bold">나이: ${guideschedule.tourist.mage}</span><br /> 
+				<span id="msex"style="font-weight: bold">성별: ${guideschedule.tourist.msex}</span><br /> 
 			</div>
 			<button type="button"
 				class="btn btn-primary btn-xs btn-update btn-add-card"

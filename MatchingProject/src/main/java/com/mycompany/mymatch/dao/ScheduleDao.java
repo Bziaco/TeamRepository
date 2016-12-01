@@ -158,6 +158,31 @@ public class ScheduleDao {
 		return count;
 	}	
 	
+//------------------------------------------------------------------------------------------------------	
+	
+	public Schedule selectByMid(String mid) {
+		String sql = "select sno, stitle, scontent, mid, sdate, sstart, send from schedule where mid=?";
+		List<Schedule> list = jdbcTemplate.query(sql, new Object[] {mid}, new RowMapper<Schedule>() {
+			@Override
+			public Schedule mapRow(ResultSet rs, int row) throws SQLException {
+				Schedule schedule = new Schedule();
+				schedule.setSno(rs.getInt("sno"));
+				schedule.setStitle(rs.getString("stitle"));
+				schedule.setScontent(rs.getString("scontent"));
+				schedule.setMid(rs.getString("mid"));
+				schedule.setSdate(rs.getDate("sdate"));
+				schedule.setSstart(rs.getDate("sstart"));
+				schedule.setSend(rs.getDate("send"));
+				return schedule;
+			}
+		});
+		return (list.size() != 0)? list.get(0) : null;
+	}
+	
+	
+	
+	
+	
 }
 
 

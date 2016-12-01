@@ -17,7 +17,7 @@ public class GuideScheduleDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(GuideSchedule guideSchedule) {
-		String sql="insert into guideSchedule(sno, gid) values(?, ?)";
+		String sql="insert into guideSchedule(sno, gid, mid) values(?, ?, ?)";
 		int row=jdbcTemplate.update(
 				sql,
 				guideSchedule.getSno(),
@@ -40,7 +40,22 @@ public class GuideScheduleDao {
 		});
 		return list;
 	}
-
+	
+	public List<GuideSchedule> selectByMid(String mid) {
+		String sql = "select gid, sno, mid from guideschedule where mid=?";
+		List<GuideSchedule> list = jdbcTemplate.query(sql, new Object[] {mid}, new RowMapper<GuideSchedule>() {
+			@Override
+			public GuideSchedule mapRow(ResultSet rs, int index) throws SQLException {
+				GuideSchedule guideSchedule = new GuideSchedule();
+				guideSchedule.setGid(rs.getString("gid"));
+				guideSchedule.setSno(rs.getInt("sno"));
+				guideSchedule.setMid(rs.getString("mid"));
+				return guideSchedule;
+			}
+		});
+		return list;
+	}
+	
 	public GuideSchedule selectByGidSno(String gid, int sno) {
 		String sql = "select gid, sno from guideschedule where gid=? and sno=?";
 		List<GuideSchedule> list = jdbcTemplate.query(sql, new Object[] {gid, sno}, new RowMapper<GuideSchedule>() {
@@ -63,22 +78,6 @@ public class GuideScheduleDao {
 				guideSchedule.getSno()
 		);
 		return row;
-	}
-
-
-//------------추가-----------------------------------------------------------------------------------------------------
-	public List<GuideSchedule> selectByMid(String mid) {
-		String sql = "select mid, sno from guideschedule where mid=?";
-		List<GuideSchedule> list = jdbcTemplate.query(sql, new Object[] {mid}, new RowMapper<GuideSchedule>() {
-			@Override
-			public GuideSchedule mapRow(ResultSet rs, int index) throws SQLException {
-				GuideSchedule guideSchedule = new GuideSchedule();
-				guideSchedule.setGid(rs.getString("mid"));
-				guideSchedule.setSno(rs.getInt("sno"));
-				return guideSchedule;
-			}
-		});
-		return list;
 	}
 	
 	

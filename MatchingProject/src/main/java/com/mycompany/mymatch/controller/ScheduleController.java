@@ -70,13 +70,7 @@ public class ScheduleController {
 		String mid = (String) session.getAttribute("login");
 		for(Schedule schedule : list) {
 			schedule.setGuideRequest(scheduleService.isGuideRequest(mid, schedule.getSno()));
-		}
-//--------------추가-------------------------------------------------------------------------------------------------		
-		String gid = (String) session.getAttribute("login");
-		for(Schedule schedule : list) {
-			schedule.setGuideRequest(scheduleService.isGuideRequest(gid, schedule.getSno()));
-		}
-//-----------------------------------------------------------------------------------------------------------------		
+		}	
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0);
 		int totalGroupNo = (totalPageNo/pagesPerGroup) + ((totalPageNo%pagesPerGroup!=0)?1:0);
 		
@@ -124,7 +118,7 @@ public class ScheduleController {
 	
 	
 	@RequestMapping("/getSchedule")
-	public String getSchedule(int sno, Model model) {
+	public String getSchedule(int sno, HttpSession session, Model model) {
 		Schedule schedule = scheduleService.getSchedule(sno);
 		model.addAttribute("schedule", schedule);
 		return "schedule/getSchedule";

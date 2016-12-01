@@ -130,8 +130,8 @@
          <div class="container">
             <div class="">
                <div
-                  class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-                  <div class="panel panel-primary" style="margin-top: 30px;">
+                  class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1" style="width:950px">
+                  <div class="panel panel-primary" style="margin-top: 155px;">
                      <div class="panel-heading">
                         <h2 class="panel-title">Attraction Detail</h2>
                      </div>
@@ -143,7 +143,7 @@
                         <!-- 사진 -->
                         <img  id="savedfile" style="width:360px; height:360px"></img>
                                  
-                        <div class="row" style="display:inline; position: absolute; left: 400px;">
+                        <div class="row" style="display:inline; position: absolute; left: 400px; width: 500px;">
                            <div ></div>
 
                            <div >

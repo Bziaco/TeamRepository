@@ -10,13 +10,11 @@ import android.widget.TextView;
 
 import com.example.blueskii.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MatchingAdapter extends BaseAdapter {
-    private List<Matching> list;
-    public void setList(List<Matching> list) {
-        this.list = list;
-    }
+    private List<Matching> list = new ArrayList<>();
 
     private Context context;
     private LayoutInflater layoutInflater;
@@ -51,18 +49,32 @@ public class MatchingAdapter extends BaseAdapter {
         //data setting
         Matching matching = list.get(position);
 
-        ImageView MatchingImage = (ImageView) convertView.findViewById(R.id.MatchingImage);
-        MatchingImage.setImageBitmap(matching.getImage());
+        ImageView savedfile = (ImageView) convertView.findViewById(R.id.savedfile);
+        savedfile.setImageBitmap(matching.getBitmap());
 
-        TextView MatchingName = (TextView) convertView.findViewById(R.id.MatchingName);
-        MatchingName.setText(matching.getName());
+        TextView mname = (TextView) convertView.findViewById(R.id.mname);
+        mname.setText(matching.getMname());
 
-        TextView MatchingLocation = (TextView) convertView.findViewById(R.id.MatchingLocation);
-        MatchingLocation.setText(matching.getLocation());
+        TextView glocal = (TextView) convertView.findViewById(R.id.glocal);
+        glocal.setText(matching.getGlocal());
 
-        TextView Matchingcontent = (TextView) convertView.findViewById(R.id.MatchingContent);
-        Matchingcontent.setText(matching.getContent());
+        TextView gintro = (TextView) convertView.findViewById(R.id.gintro);
+        gintro.setText(matching.getGintro());
 
         return convertView;
+    }
+
+    public void addItem(Matching matching) {
+        boolean isExist = false;
+        for(Matching m : list) {
+            if(m.getGid().equals(matching.getGid())) {
+                isExist = true;
+                break;
+            }
+        }
+        if(!isExist) {
+            list.add(matching);
+            notifyDataSetChanged();
+        }
     }
 }

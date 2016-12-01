@@ -3,67 +3,58 @@ package com.example.blueskii.myapplication.matching;
 import android.graphics.Bitmap;
 
 public class Matching {
-    private Bitmap image;
-    private Bitmap imageLarge;
-    private String imageFileName;
-    private String imageLargeFileName;
-    private String name;
-    private String location;
-    private String content;
+    private String gid;
+    private Bitmap bitmap;
+    private String savedfile;
+    private String mname;
+    private String glocal;
+    private String gintro;
 
-    public Bitmap getImage() {
-        return image;
+    public String getGid() {
+        return gid;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
+    public void setGid(String gid) {
+        this.gid = gid;
     }
 
-    public Bitmap getImageLarge() {
-        return imageLarge;
+    public Bitmap getBitmap() {
+        return bitmap;
     }
 
-    public void setImageLarge(Bitmap imageLarge) {
-        this.imageLarge = imageLarge;
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
-    public String getImageFileName() {
-        return imageFileName;
+    public String getSavedfile() {
+        return savedfile;
     }
 
-    public void setImageFileName(String imageFileName) {
-        this.imageFileName = imageFileName;
+    public void setSavedfile(String savedfile) {
+        this.savedfile = savedfile;
     }
 
-    public String getImageLargeFileName() {
-        return imageLargeFileName;
+    public String getMname() {
+        return mname;
     }
 
-    public void setImageLargeFileName(String imageLargeFileName) {
-        this.imageLargeFileName = imageLargeFileName;
+    public void setMname(String mname) {
+        this.mname = mname;
     }
 
-    public String getName() {
-        return name;
+    public String getGlocal() {
+        return glocal;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGlocal(String glocal) {
+        this.glocal = glocal;
     }
 
-    public String getLocation() {
-        return location;
+    public String getGintro() {
+        return gintro;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setGintro(String gintro) {
+        this.gintro = gintro;
     }
 }

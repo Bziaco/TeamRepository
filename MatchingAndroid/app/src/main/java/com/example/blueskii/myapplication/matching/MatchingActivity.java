@@ -1,7 +1,10 @@
 package com.example.blueskii.myapplication.matching;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +12,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
+import com.example.blueskii.myapplication.attraction.LocationInfo;
+import com.example.blueskii.myapplication.member.LoginActivity;
+import com.perples.recosdk.RECOBeacon;
+import com.perples.recosdk.RECOBeaconManager;
+import com.perples.recosdk.RECOBeaconRegion;
+import com.perples.recosdk.RECOErrorCode;
+import com.perples.recosdk.RECORangingListener;
+import com.perples.recosdk.RECOServiceConnectListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,12 +35,26 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class MatchingActivity extends AppCompatActivity {
+public class MatchingActivity extends AppCompatActivity implements RECOServiceConnectListener, RECORangingListener {
     private ImageView imageLarge;
     private ListView matchinglist;
     private MatchingAdapter matchingAdapter;
+
+    /*비콘신호를 수신하는 객체*/
+    private RECOBeaconManager recoBeaconManager;
+    /*어떤 비콘을 수신할 것인지 정의*/
+    private RECOBeaconRegion currentRegion;
+
+    /*가이드 찾기 요청을 했는지 여부*/
+    private boolean requestedMatchingGuide;
+
+    /*신청한 가이드 목록을 가져오는 스레드*/
+    private Thread receiveThread;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,101 +62,192 @@ public class MatchingActivity extends AppCompatActivity {
         imageLarge = (ImageView) findViewById(R.id.imageLarge);
 
         matchinglist = (ListView) findViewById(R.id.matchinglist);
-        matchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        matchingAdapter = new MatchingAdapter(this);
+        matchinglist.setAdapter(matchingAdapter);
+
+        /*matchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Matching matching = (Matching) matchingAdapter.getItem(position);
-                Thread thread = new Thread() {
-                    @Override
-                    public void run() {
-                        final Bitmap bitmap = getBitmap(matching.getImageLargeFileName());
-                        imageLarge.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                imageLarge.setImageBitmap(bitmap);
-                            }
-                        });
-                    }
-                };
-                thread.start();
-            }
-        });
 
-        fillItems();
+            }
+        });*/
     }
 
-    public void fillItems() {
-        //HTTP 통신 코드
-        Thread thread = new Thread() {
+    /*가이드 찾기 버튼을 눌렀을 때 실행*/
+    public void onClickBtnFindGuide(View view) {
+        /*비콘신호를 수신하는 객체 얻기*/
+        recoBeaconManager = RECOBeaconManager.getInstance(getApplicationContext(), true, false);
+        /*1초동안 수신하기*/
+        recoBeaconManager.setScanPeriod(1000);
+        /*비콘신호의 수신을 준비*/
+        recoBeaconManager.bind(this);
+        requestedMatchingGuide = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(receiveThread !=null ) {
+            receiveThread.interrupt();
+        }
+        if(recoBeaconManager != null) {
+            try {
+                recoBeaconManager.stopRangingBeaconsInRegion(currentRegion);
+                recoBeaconManager.unbind();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    //인터페이스 구현/////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public void onServiceConnect() {
+        Log.i("mylog", "onServiceConnect");
+        try {
+            /*수신이 되면 통지할 객체 설정*/
+            recoBeaconManager.setRangingListener(this);
+            /*어떤 비콘의 신호를 받을 것이냐*/
+            currentRegion = new RECOBeaconRegion("24DDF411-8CF1-440C-87CD-E368DAF9C93E", "currentRegion");
+            /*비콘신호를 수신해라*/
+            recoBeaconManager.startRangingBeaconsInRegion(currentRegion);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void onServiceFail(RECOErrorCode recoErrorCode) {}
+    //-----------------------------------------------------------------
+    @Override
+    public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
+        for(RECOBeacon beacon : collection) {
+            if (beacon.getAccuracy() < 1) {
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                String mid = pref.getString("login", "");
+                int bminor = beacon.getMinor();
+                requestMatchingGuide(mid, bminor);
+                requestedMatchingGuide = true;
+            }
+        }
+        if(requestedMatchingGuide) {
+            try {
+                recoBeaconManager.stopRangingBeaconsInRegion(currentRegion);
+                recoBeaconManager.unbind();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    @Override
+    public void rangingBeaconsDidFailForRegion(RECOBeaconRegion recoBeaconRegion, RECOErrorCode recoErrorCode) {}
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void requestMatchingGuide(final String mid, final int bminor) {
+        Log.i("mylog", "매칭 가이드 요청: " + mid + "-" + bminor);
+
+        AsyncTask<Void, Void, String> asyncTask = new AsyncTask<Void, Void, String>() {
             @Override
-            public void run() {
+            protected String doInBackground(Void... params) {
+                String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.0.69:8080/myandroid/matchinglist");
+                    URL url = new URL("http://192.168.0.45:8080/mymatch/guide/requestMatchingGuide?mid=" + mid + "&bminor=" + bminor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
-
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                         InputStream is = conn.getInputStream();
                         Reader reader = new InputStreamReader(is);
                         BufferedReader br = new BufferedReader(reader);
-                        String strJson = "";
                         while(true) {
                             String data = br.readLine();
                             if(data == null) break;
                             strJson += data;
                         }
                         br.close(); reader.close(); is.close();
-
-                        final List<Matching> list = parseJson(strJson);
-                        matchinglist.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                matchingAdapter = new MatchingAdapter(MatchingActivity.this);
-                                matchingAdapter.setList(list);
-                                matchinglist.setAdapter(matchingAdapter);
-                                imageLarge.setImageBitmap(list.get(0).getImageLarge());
-                            }
-                        });
                     }
-
                     conn.disconnect();
                 } catch (Exception e) {
                     Log.i("mylog", e.getMessage());
                 }
+                return strJson;
+            }
+
+            @Override
+            protected void onPostExecute(String strJson) {
+                try {
+                    JSONObject jsonObject = new JSONObject(strJson);
+                    String result = jsonObject.getString("result");
+                    if(result.equals("success")) {
+                        Toast.makeText(MatchingActivity.this, "요청이 되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    Log.i("mylog", e.getMessage());
+                }
             }
         };
-        thread.start();
+        asyncTask.execute();
+        /*신청한 가이드 목록 받아오기*/
+        receiveMatchingGuide(mid, bminor);
     }
 
-    public List<Matching> parseJson(String strJson) {
-        List<Matching> list = new ArrayList<>();
-        try {
-            //[]로 시작하는건 Array로
-            JSONArray jsonArray = new JSONArray(strJson);
-            for(int i=0; i<jsonArray.length(); i++) {
-                //{}로 시작하는건 object로
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Matching matching = new Matching();
-                matching.setImage(getBitmap(jsonObject.getString("image")));
-                //첫 이미지를 보여주는 부분
-                if(i==0) {
-                    matching.setImageLarge(getBitmap(jsonObject.getString("imageLarge")));
-                }
-                matching.setImageLargeFileName(jsonObject.getString("imageLarge"));
-                matching.setName(jsonObject.getString("name"));
-                matching.setContent(jsonObject.getString("content"));
-                list.add(matching);
-            }
-        } catch (JSONException e) {
-            Log.i("mylog", e.getMessage());
+    private void receiveMatchingGuide(final String mid, final int bminor) {
+        Log.i("mylog", "매칭 가이드 목록 요청");
+        if(receiveThread !=null ) {
+            receiveThread.interrupt();
         }
-        return list;
+        receiveThread = new Thread() {
+            @Override
+            public void run() {
+                while(true) {
+                    Log.i("mylog", "목록 수신...");
+                    try {
+                        URL url = new URL("http://192.168.0.45:8080/mymatch/guide/receiveMatchingGuide?mid=" + mid + "&bminor=" + bminor);
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.connect();
+                        if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                            InputStream is = conn.getInputStream();
+                            Reader reader = new InputStreamReader(is);
+                            BufferedReader br = new BufferedReader(reader);
+                            String strJson = "";
+                            while(true) {
+                                String data = br.readLine();
+                                if(data == null) break;
+                                strJson += data;
+                            }
+                            br.close(); reader.close(); is.close();
+
+                            JSONArray jsonArray = new JSONArray(strJson);
+                            for(int i=0;i<jsonArray.length();i++){
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                final Matching matching = new Matching();
+                                matching.setGid(jsonObject.getString("gid"));
+                                matching.setMname(jsonObject.getString("mname"));
+                                matching.setGlocal(jsonObject.getString("glocal"));
+                                matching.setGintro(jsonObject.getString("gintro"));
+                                matching.setSavedfile(jsonObject.getString("savedfile"));
+                                matching.setBitmap(getBitmap(matching.getSavedfile()));
+                                //메인스레드로 하여금 UI를 업데이트하도록 요청
+                                matchinglist.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        matchingAdapter.addItem(matching);
+                                    }
+                                });
+                            }
+                        }
+                        conn.disconnect();
+                        Thread.sleep(3000);
+                    } catch (Exception e) {
+                        break;
+                    }
+                }
+            }
+        };
+        receiveThread.start();
     }
 
-    public Bitmap getBitmap(String fileName) {
+    public Bitmap getBitmap(String savedfile) {
         Bitmap bitmap = null;
         try {
-            URL url = new URL("http://192.168.0.69:8080/myandroid/getImage?fileName=" + fileName);
+            URL url = new URL("http://192.168.0.45:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 
@@ -144,5 +261,12 @@ public class MatchingActivity extends AppCompatActivity {
             Log.i("mylog", e.getMessage());
         }
         return bitmap;
+    }
+
+    public void onClickBtnSelectGuide(View view) {
+        Log.i("mylog", "가이드 선택");
+        if(receiveThread != null) {
+            receiveThread.interrupt();
+        }
     }
 }

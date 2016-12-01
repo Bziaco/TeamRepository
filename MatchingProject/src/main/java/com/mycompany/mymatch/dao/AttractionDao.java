@@ -51,8 +51,7 @@ public class AttractionDao {
 		int row = jdbcTemplate.update(sql, ano);
 		return row;
 	}
-	
-	
+		
 	
 //-------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -167,6 +166,27 @@ public class AttractionDao {
 			String sql = "select count(*) from attraction where aname like ?";
 			int count = jdbcTemplate.queryForObject(sql, new Object[] {"%"+keyword+"%"}, Integer.class);
 			return count;
+		}
+
+		public Attraction selectByBeacon(int bminor) {
+			String sql = "select ano, aname, ainfo, alocation, latitude, longitude, beacon, savedfile from attraction where beacon=?";
+			List<Attraction> list = jdbcTemplate.query(sql, new Object[]{bminor}, new RowMapper<Attraction> () {
+				
+				@Override
+				public Attraction mapRow(ResultSet rs, int row) throws SQLException {
+					Attraction attraction = new Attraction();
+					attraction.setAno(rs.getInt("ano"));
+					attraction.setAname(rs.getString("aname"));
+					attraction.setAinfo(rs.getString("ainfo"));
+					attraction.setAlocation(rs.getString("alocation"));
+					attraction.setLatitude(rs.getDouble("latitude"));
+					attraction.setLongitude(rs.getDouble("longitude"));
+					attraction.setBeacon(rs.getInt("beacon"));
+					attraction.setSavedfile(rs.getString("savedfile"));
+					return attraction;
+				}
+			});
+			return (list.size() != 0)? list.get(0) : null;
 		}	
 
 }

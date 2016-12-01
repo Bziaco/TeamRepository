@@ -6,6 +6,8 @@ public class Guide {
 	private String gintro;
 	private String gable;
 	private int count;
+	private String mname;
+	private String savedfile;
 
 	public String getGable() {
 		return gable;
@@ -37,4 +39,18 @@ public class Guide {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public String getSavedfile() {
+		return savedfile;
+	}
+	public void setSavedfile(String savedfile) {
+		this.savedfile = savedfile;
+	}
+	
+	
 }

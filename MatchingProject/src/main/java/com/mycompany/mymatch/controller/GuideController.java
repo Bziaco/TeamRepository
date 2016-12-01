@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mycompany.mymatch.dto.Board;
 import com.mycompany.mymatch.dto.Guide;
+import com.mycompany.mymatch.dto.GuideRequest;
 import com.mycompany.mymatch.service.GuideService;
 import com.mycompany.mymatch.service.MatchingService;
 
@@ -70,5 +70,18 @@ public class GuideController {
 		});	
 		model.addAttribute("list", list);
 		return "guide/findGuide";
+	}
+	
+	@RequestMapping("/requestMatchingGuide")
+	public String requestMatchingGuide(GuideRequest guideRequest){
+		guideService.requestMatchingGuide(guideRequest);
+		return "guide/requestMatchingGuide";
+	}
+	
+	@RequestMapping("/receiveMatchingGuide")
+	public String receiveMatchingGuide(GuideRequest guideRequest, Model model){
+		List<Guide> list = guideService.receiveMatchingGuide(guideRequest);
+		model.addAttribute("list", list);
+		return "guide/receiveMatchingGuide";
 	}
 }

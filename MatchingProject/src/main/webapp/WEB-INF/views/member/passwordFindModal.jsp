@@ -1,6 +1,6 @@
 <%@ page contentType= "text/html;charset=UTF-8" %>
 
-<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+<div id="passwordFindModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
 	<div class="modal-dialog" role="document"  style="width:300px;">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -17,8 +17,8 @@
 					value="123" /> 
 				</br>
 				<br /> 
-				<a href="" id="btnFindId" style="margin-right: 15px; margin-left: 30px">Find ID</a>
-				<a href="" id="btnFindPassword">Find Password</a>
+				<a href="" style="margin-right: 15px; margin-left: 30px">Find ID</a>
+				<a href="">Find Password</a>
 			</div>
       		<div class="modal-footer">
         		<button id="btnLogin" type="button" class="btn btn-primary">login</button>

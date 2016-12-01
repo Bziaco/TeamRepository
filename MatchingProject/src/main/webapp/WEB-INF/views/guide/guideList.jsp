@@ -71,28 +71,28 @@
 										<ul class="list-group" role="tablist">
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Seoul">Seoul</a></li>
+												href="#" class="btnLocation" data-location="Seoul">서울</a></li>
 								
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Busan">Busan</a></li>
+												href="#" class="btnLocation" data-location="Busan">부산</a></li>
 								
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Daejun">Daejun</a></li>
+												href="#" class="btnLocation" data-location="Daejun">대전</a></li>
 								
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Ulsan">Ulsan</a></li>
+												href="#" class="btnLocation" data-location="Ulsan">울산</a></li>
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Gwangju">Gwangju</a></li>
+												href="#" class="btnLocation" data-location="Gwangju">광주</a></li>
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Incheon">Incheon</a></li>
+												href="#" class="btnLocation" data-location="Incheon">인천</a></li>
 											<li class="list-group-item"><span
 												class="glyphicon glyphicon-pencil text-primary"></span> <a
-												href="#" class="btnLocation" data-location="Kangwon">Kangwon</a></li>
+												href="#" class="btnLocation" data-location="Kangwon">강원</a></li>
 										</ul>
 									</div>
                         		</td>
@@ -133,7 +133,7 @@
 						class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<h2 class="panel-title">Board Detail</h2>
+								<h2 class="panel-title">지역별 가이드 찾기</h2>
 							</div>
 							<div class="panel-body">
 								<button type="button" class="close" data-dismiss="modal"
@@ -162,6 +162,10 @@
 												<tr>
 													<td>Intro:</td>
 													<td id="intro"></td>
+												</tr>
+												<tr>
+													<td>Count:</td>
+													<td id="count"></td>
 												</tr>
 											</tbody> 
 										</table>

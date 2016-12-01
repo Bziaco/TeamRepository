@@ -1,6 +1,6 @@
 <%@ page contentType= "text/html;charset=UTF-8" %>
 
-<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
+<div id="idFindModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
 	<div class="modal-dialog" role="document"  style="width:300px;">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -8,20 +8,14 @@
 				<h4 class="modal-title">LOGIN</h4>
 			</div>
 			<div class="modal-body">
-				<input type="text" id="mid"
+				<input type="text" id="memail"
 					class="form-control input-sm chat-input" placeholder="username"
-					value="test" /> 
-				</br> 
-				<input type="password" id="mpassword"
-					class="form-control input-sm chat-input" placeholder="password"
-					value="123" /> 
+					value="guide1@naver.com" /> 
 				</br>
-				<br /> 
-				<a href="" id="btnFindId" style="margin-right: 15px; margin-left: 30px">Find ID</a>
-				<a href="" id="btnFindPassword">Find Password</a>
+				<a href="">Find Password</a>
 			</div>
       		<div class="modal-footer">
-        		<button id="btnLogin" type="button" class="btn btn-primary">login</button>
+        		<button id="#" type="button" class="btn btn-primary">찾기</button>
       		</div>
     	</div>
   	</div>

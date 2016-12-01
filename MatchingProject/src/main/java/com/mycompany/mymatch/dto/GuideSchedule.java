@@ -8,7 +8,6 @@ public class GuideSchedule {
 	private Member tourist;
 	private Schedule schedule;
 	private Guide guide;
-	
 	private String mid;
 	
 	

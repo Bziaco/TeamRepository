@@ -54,7 +54,7 @@ public class MemberController {
 	public String findMid(String memail, Model model, HttpSession session) {
 		String mid = memberService.findMid(memail);
 		if(mid == null) {
-			model.addAttribute("error", "�씠硫붿씪�씠 議댁옱 �븯吏� �븡�뒿�땲�떎.");
+			model.addAttribute("error", "아이디를 찾을수 없습니다.");
 			return "member/findMidForm";
 		}
 		session.setAttribute("findMid", mid);

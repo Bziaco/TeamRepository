@@ -27,6 +27,8 @@
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/messageModal.js"></script>
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/scheduleModal.js"></script>	
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchtouristModal.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/idFindModal.js"></script>
+	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/passwordFindModal.js"></script>
 	
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/matchguideModal.js"></script>	
 </head>
@@ -103,6 +105,10 @@
 	<%@ include file="matching/matchguideModal.jsp"%>
 	<!-- 메세지 -->
 	<%@ include file="message/messageModal.jsp"%>
+	<!-- IdSearch 모달 -->
+	<%@ include file="member/idFindModal.jsp"%>
+	<!-- PasswordSearch 모달 -->
+	<%@ include file="member/passwordFindModal.jsp"%>
  
 </body>
 </html>

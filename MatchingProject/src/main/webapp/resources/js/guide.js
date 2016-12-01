@@ -1,6 +1,7 @@
 ﻿$(function() {    
-	$(".btnLocation").click(function(){
+	$("#collapseOne .btnLocation").click(function(){
 		var location=$(this).attr("data-location");
+		console.log("aaa")
 		
 		
 		$.ajax({
@@ -8,6 +9,7 @@
 			data: {glocal:location},
 			method: "post",
 			success: function(data) {
+				console.log("bbb")
 				$("#guideTable").html(data);
 			}
 		});
@@ -27,6 +29,7 @@
     			$("#detailModal #id").html(data.gid);
     			$("#detailModal #local").html(data.glocal);
     			$("#detailModal #intro").html(data.gintro);
+    			$("#detailModal #intro").html(data.gcount);
 				$("#detailModal").modal("show");
 				console.log(data.gid);
 			}

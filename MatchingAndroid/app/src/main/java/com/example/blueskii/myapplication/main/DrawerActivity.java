@@ -28,10 +28,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.blueskii.myapplication.TouristMatching.TouristMatchingActivity;
 import com.example.blueskii.myapplication.attraction.AttractionActivity;
 import com.example.blueskii.myapplication.beacon.BeaconScanService;
 import com.example.blueskii.myapplication.member.LoginActivity;
-import com.example.blueskii.myapplication.matching.MatchingActivity;
+import com.example.blueskii.myapplication.guideMatching.GuideMatchingActivity;
 import com.example.blueskii.myapplication.R;
 
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -210,12 +211,16 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             title="Login";
-        }  else if (id == R.id.nav_livematching) {
-            Intent intent =  new Intent(this, MatchingActivity.class);
+        }  else if (id == R.id.nav_guidematching) {
+            Intent intent =  new Intent(this, GuideMatchingActivity.class);
             startActivity(intent);
-            title = "Matching";
+            title = "GuideMatching";
+        } else if (id == R.id.nav_touristmatching) {
+            Intent intent =  new Intent(this, TouristMatchingActivity.class);
+            startActivity(intent);
+            title = "TouristMatching";
         } else if (id == R.id.nav_attractioninfo) {
-            Intent intent =  new Intent(this, AttractionActivity.class);
+            Intent intent = new Intent(this, AttractionActivity.class);
             startActivity(intent);
             title = "Home";
         }

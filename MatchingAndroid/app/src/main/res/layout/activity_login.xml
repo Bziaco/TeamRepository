@@ -17,10 +17,11 @@
         android:layout_centerHorizontal = "true"
         android:textColor = "#b906589b"
         android:textSize = "35dp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:id="@+id/textView2" />
 
     <EditText
-        android:layout_width = "wrap_content"
+        android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
         android:id = "@+id/txtMid"
         android:hint = "Enter ID"
@@ -35,7 +36,7 @@
         android:layout_alignParentEnd="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
@@ -48,22 +49,31 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textview"
-        android:layout_toStartOf="@+id/textview" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textview"
-        android:layout_toEndOf="@+id/textview" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/textview"
+            android:layout_toStartOf="@+id/textview"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textview"
+            android:layout_toEndOf="@+id/textview"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </LinearLayout>

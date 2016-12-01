@@ -102,7 +102,7 @@ public class MemberController {
 	
 //----------------------------------------------------------------------------------------------------------------------------	
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/logout")  
 	public String logout(HttpSession session){
 		System.out.println("logout");
 		session.removeAttribute("login");

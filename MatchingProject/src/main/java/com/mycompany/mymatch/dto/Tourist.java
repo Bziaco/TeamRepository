@@ -12,6 +12,8 @@ public class Tourist {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date tenddate;
 	private String tintro;
+	private String mname;
+	private String savedfile;
 	
 	public String getTid() {
 		return tid;
@@ -43,6 +45,19 @@ public class Tourist {
 	public void setTintro(String tintro) {
 		this.tintro = tintro;
 	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public String getSavedfile() {
+		return savedfile;
+	}
+	public void setSavedfile(String savedfile) {
+		this.savedfile = savedfile;
+	}
+	
 	
 	
 }

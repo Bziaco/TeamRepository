@@ -7,9 +7,13 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Login" />
         <item
-            android:id="@+id/nav_livematching"
+            android:id="@+id/nav_guidematching"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Live Matching" />
+            android:title="Guide Matching" />
+        <item
+            android:id="@+id/nav_touristmatching"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tourist Matching" />
         <item
             android:id="@+id/nav_attractioninfo"
             android:icon="@drawable/ic_menu_manage"

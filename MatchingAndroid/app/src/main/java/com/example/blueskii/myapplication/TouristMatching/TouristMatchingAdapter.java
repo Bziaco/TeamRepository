@@ -50,17 +50,14 @@ public class TouristMatchingAdapter extends BaseAdapter {
 
         TouristMatching touristMatching = list.get(position);
 
-        ImageView savedfile = (ImageView) convertView.findViewById(R.id.savedfile);
-        savedfile.setImageBitmap(touristMatching.getBitmap());
+        TextView txtMname = (TextView) convertView.findViewById(R.id.txtMname);
+        txtMname.setText(touristMatching.getMname());
 
-        TextView mname = (TextView) convertView.findViewById(R.id.mname);
-        mname.setText(touristMatching.getMname());
+        TextView txtAname = (TextView) convertView.findViewById(R.id.txtAname);
+        txtAname.setText(touristMatching.getAname());
 
-        TextView tlocal = (TextView) convertView.findViewById(R.id.tlocal);
-        tlocal.setText(touristMatching.getTlocal());
-
-        TextView tintro = (TextView) convertView.findViewById(R.id.tintro);
-        tintro.setText(touristMatching.getTintro());
+        ImageView imgMember = (ImageView) convertView.findViewById(R.id.imgMember);
+        imgMember.setImageBitmap(touristMatching.getBitmap());
 
         return convertView;
     }
@@ -68,7 +65,7 @@ public class TouristMatchingAdapter extends BaseAdapter {
     public void addItem(TouristMatching touristMatching) {
         boolean isExist = false;
         for(TouristMatching m : list) {
-            if(m.getTid().equals(touristMatching.getTid())) {
+            if(m.getMid().equals(touristMatching.getMid())) {
                 isExist = true;
                 break;
             }

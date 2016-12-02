@@ -37,7 +37,10 @@
         <service android:name="com.perples.recosdk.RECOBeaconService" />
 
         <activity android:name=".TouristMatching.TouristMatchingActivity" />
-        <activity android:name=".TouristMatching.TouristInfoActivity"></activity>
+        <activity
+            android:name=".TouristMatching.TouristInfoActivity"
+            android:theme="@style/AppTheme.Dialog" />
+        <activity android:name=".guideMatching.GuideInfoActivity" android:theme="@style/AppTheme.Dialog"></activity>
     </application>
 
 </manifest>

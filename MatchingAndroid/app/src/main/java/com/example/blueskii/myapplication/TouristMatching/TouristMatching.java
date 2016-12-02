@@ -2,36 +2,22 @@ package com.example.blueskii.myapplication.TouristMatching;
 
 import android.graphics.Bitmap;
 
-public class TouristMatching {
-    private String tid;
-    private Bitmap bitmap;
-    private String savedfile;
+import java.io.Serializable;
+
+public class TouristMatching implements Serializable {
+    private String mid;
     private String mname;
-    private String tlocal;
-    private String tintro;
+    private String aname;
+    private String savedfile;
+    private Bitmap bitmap;
+    private int grno;
 
-    public String getTid() {
-        return tid;
+    public String getMid() {
+        return mid;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid;
-    }
-
-    public Bitmap getBitmap() {
-        return bitmap;
-    }
-
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
-    }
-
-    public String getSavedfile() {
-        return savedfile;
-    }
-
-    public void setSavedfile(String savedfile) {
-        this.savedfile = savedfile;
+    public void setMid(String mid) {
+        this.mid = mid;
     }
 
     public String getMname() {
@@ -42,19 +28,31 @@ public class TouristMatching {
         this.mname = mname;
     }
 
-    public String getTlocal() {
-        return tlocal;
+    public String getAname() {
+        return aname;
     }
 
-    public void setTlocal(String tlocal) {
-        this.tlocal = tlocal;
+    public void setAname(String aname) {
+        this.aname = aname;
     }
 
-    public String getTintro() {
-        return tintro;
+    public String getSavedfile() {
+        return savedfile;
     }
 
-    public void setTintro(String tintro) {
-        this.tintro = tintro;
+    public void setSavedfile(String savedfile) {
+        this.savedfile = savedfile;
     }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    public int getGrno() { return grno; }
+
+    public void setGrno(int grno) { this.grno = grno; }
 }

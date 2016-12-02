@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
+import com.example.blueskii.myapplication.main.NetworkInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +63,7 @@ public class LoginActivity extends Activity {
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.0.69:8080/mymatch/member/login?mid=" + mid + "&mpassword=" + mpassword);
+                    URL url = new URL(NetworkInfo.BASE_URL + "/member/login?mid=" + mid + "&mpassword=" + mpassword);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

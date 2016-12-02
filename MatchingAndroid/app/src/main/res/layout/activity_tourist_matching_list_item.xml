@@ -6,15 +6,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/select_listview">
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
             android:layout_margin="5dp"
-            android:id="@+id/savedfile" />
+            android:id="@+id/imgMember" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,43 +21,28 @@
             android:layout_gravity="center_vertical"
             >
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Name"
-                    android:textSize="18sp"
-                    android:textStyle="normal|bold"
-                    android:gravity="left"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:id="@+id/mname" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Seuol"
-                    android:textSize="18sp"
-                    android:textStyle="normal|bold"
-
-                    android:gravity="right"
-                    android:textColor="@android:color/holo_blue_bright"
-                    android:id="@+id/tlocal" />
-
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Name"
+                android:textSize="18sp"
+                android:textStyle="normal|bold"
+                android:gravity="left"
+                android:textColor="@android:color/holo_blue_dark"
+                android:id="@+id/txtMname" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="sdfeinrisdfklsdnfiwerlnidsfndilfdcxvjdslfsjfisenrilsdufsndfilseurnsd"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="12sp"
-                android:id="@+id/tintro" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Seuol"
+                android:textSize="18sp"
+                android:textStyle="normal|bold"
+
+                android:gravity="right"
+                android:textColor="@android:color/holo_blue_bright"
+                android:id="@+id/txtAname" />
         </LinearLayout>
 
     </LinearLayout>

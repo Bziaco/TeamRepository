@@ -33,14 +33,6 @@
             android:id="@+id/btnFindGuide"
             android:onClick="onClickBtnFindTourist" />
 
-        <Button
-            android:text="관광객 선택"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/BtnSelectTourist"
-            android:onClick="onClickBtnSelectTourlist" />
-
     </LinearLayout>
 
     <FrameLayout

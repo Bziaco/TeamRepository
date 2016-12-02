@@ -1,5 +1,6 @@
 package com.example.blueskii.myapplication.guideMatching;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,11 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
+import com.example.blueskii.myapplication.TouristMatching.TouristInfoActivity;
+import com.example.blueskii.myapplication.TouristMatching.TouristMatchingActivity;
+import com.example.blueskii.myapplication.main.NetworkInfo;
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
 import com.perples.recosdk.RECOBeaconRegion;
@@ -60,12 +65,13 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
         guidematchingAdapter = new GuideMatchingAdapter(this);
         guideMatchinglist.setAdapter(guidematchingAdapter);
 
-        /*matchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        guideMatchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(GuideMatchingActivity.this, GuideInfoActivity.class);
+                startActivity(intent);
             }
-        });*/
+        });
     }
 
     /*가이드 찾기 버튼을 눌렀을 때 실행*/
@@ -144,7 +150,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.0.69:8080/mymatch/guide/requestMatchingGuide?mid=" + mid + "&bminor=" + bminor);
+                    URL url = new URL(NetworkInfo.BASE_URL + "/guide/requestMatchingGuide?mid=" + mid + "&bminor=" + bminor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -194,7 +200,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
                 while(true) {
                     Log.i("mylog", "목록 수신...");
                     try {
-                        URL url = new URL("http://192.168.0.69:8080/mymatch/guide/receiveMatchingGuide?mid=" + mid + "&bminor=" + bminor);
+                        URL url = new URL(NetworkInfo.BASE_URL + "/guide/receiveMatchingGuide?mid=" + mid + "&bminor=" + bminor);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.connect();
                         if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -243,7 +249,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
     public Bitmap getBitmap(String savedfile) {
         Bitmap bitmap = null;
         try {
-            URL url = new URL("http://192.168.0.69:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
+            URL url = new URL(NetworkInfo.BASE_URL + "/member/getPhoto?savedfile=" + savedfile);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 

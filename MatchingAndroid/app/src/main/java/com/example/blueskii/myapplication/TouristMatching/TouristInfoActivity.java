@@ -1,101 +1,141 @@
 package com.example.blueskii.myapplication.TouristMatching;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
 import com.example.blueskii.myapplication.attraction.AttractionAdapter;
+import com.example.blueskii.myapplication.main.NetworkInfo;
+import com.example.blueskii.myapplication.member.LoginActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class TouristInfoActivity extends AppCompatActivity {
-    private AttractionAdapter attractionAdapter;
+    private String mid;
+    private int grno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tourist_info);
+
+        Intent intent = getIntent();
+        mid = intent.getStringExtra("mid");
+        grno = intent.getIntExtra("grno",0);
+        Log.i("mylog", mid);
+        Log.i("mylog", String.valueOf(grno));
+
+        getTouristInfo(mid);
     }
 
-  /*  public void fillItems(final String mid) {
-        //HTTP 통신 코드
-        Thread thread = new Thread() {
+    private void getTouristInfo(final String mid) {
+        AsyncTask<Void, Void, String> asyncTask = new AsyncTask<Void, Void, String>() {
             @Override
-            public void run() {
+            protected String doInBackground(Void... params) {
+                String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.219.191:8080/mymatch/member/info+"+mid);
+                    URL url = new URL(NetworkInfo.BASE_URL + "/member/info?mid=" + mid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
-
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                         InputStream is = conn.getInputStream();
                         Reader reader = new InputStreamReader(is);
                         BufferedReader br = new BufferedReader(reader);
-                        String strJson = "";
                         while(true) {
                             String data = br.readLine();
                             if(data == null) break;
                             strJson += data;
                         }
                         br.close(); reader.close(); is.close();
-                        Log.i("mylog",strJson);
-                        final List<MgetAttraction> list = parseJson(strJson);
-                        Log.i("mylog list",list.toString());
-                        MgetAttractionlist.post(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                attractionAdapter= new AttractionAdapter(getContext());
-                                attractionAdapter.setList(list);
-                                MgetAttractionlist.setAdapter(attractionAdapter);
-                            }
-                        });
                     }
-
                     conn.disconnect();
                 } catch (Exception e) {
                     Log.i("mylog", e.getMessage());
                 }
+                return strJson;
+            }
+
+            @Override
+            protected void onPostExecute(String strJson) {
+                try {
+                    JSONObject jsonObject = new JSONObject(strJson);
+                    String result = jsonObject.getString("result");
+                    if(result.equals("success")) {
+                        JSONObject jo = jsonObject.getJSONObject("member");
+
+                    }
+                } catch (JSONException e) {
+                    Log.i("mylog", e.getMessage());
+                }
             }
         };
-        thread.start();
+        asyncTask.execute();
     }
 
-    public List<MgetAttraction> parseJson(String strJson) {
-        List<MgetAttraction> list = new ArrayList<>();
-        try {
-            //[]로 시작하는건 Array로
-            JSONArray jsonArray = new JSONArray(strJson);
-            for(int i=0; i<jsonArray.length(); i++) {
-                //{}로 시작하는건 object로
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                MgetAttraction mgetAttraction = new MgetAttraction();
-                mgetAttraction.setAno(jsonObject.getInt("ano"));
-                mgetAttraction.setAname(jsonObject.getString("aname"));
-                mgetAttraction.setAlocation(jsonObject.getString("alocation"));
-                mgetAttraction.setAinfo(jsonObject.getString("ainfo"));
-                mgetAttraction.setSavedfile(getBitmap(jsonObject.getString("savedfile")));
-                list.add(mgetAttraction);
+    public void onClickBtnProposal(View view) {
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        final String gid = pref.getString("login", "");
+        AsyncTask<Void, Void, String> asyncTask = new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                String strJson = "";
+                try {
+                    URL url = new URL(NetworkInfo.BASE_URL + "/guide/addGuidePossible?gid=" + gid + "&grno=" + grno);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.connect();
+                    if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                        InputStream is = conn.getInputStream();
+                        Reader reader = new InputStreamReader(is);
+                        BufferedReader br = new BufferedReader(reader);
+                        while(true) {
+                            String data = br.readLine();
+                            if(data == null) break;
+                            strJson += data;
+                        }
+                        br.close(); reader.close(); is.close();
+                    }
+                    conn.disconnect();
+                } catch (Exception e) {
+                    Log.i("mylog", e.getMessage());
+                }
+                return strJson;
             }
-        } catch (JSONException e) {
-            Log.i("mylog", e.getMessage());
-        }
-        return list;
+
+            @Override
+            protected void onPostExecute(String strJson) {
+                try {
+                    JSONObject jsonObject = new JSONObject(strJson);
+                    String result = jsonObject.getString("result");
+                    if(result.equals("success")) {
+                        Toast.makeText(TouristInfoActivity.this, "가이드로 신청 성공", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(TouristInfoActivity.this, "가이드로 신청 실패", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    Log.i("mylog", e.getMessage());
+                }
+            }
+        };
+        asyncTask.execute();
     }
 
-    public Bitmap getBitmap(String fileName) {
-        Bitmap bitmap = null;
-        try {
-            URL url = new URL("http://192.168.219.191:8080/mymatch/getPhoto?savedfile=" + fileName);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.connect();
-
-            if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                InputStream is = conn.getInputStream();
-                bitmap = BitmapFactory.decodeStream(is);
-            }
-
-            conn.disconnect();
-        } catch (Exception e) {
-            Log.i("mylog", e.getMessage());
-        }
-        return bitmap;
-    }*/
+    public void onClickBtnCancel(View view) {
+        finish();
+    }
 }

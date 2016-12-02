@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">LOGIN</h4>
+				<h4 class="modal-title">로그인</h4>
 			</div>
 			<div class="modal-body">
 				<input type="text" id="mid"
@@ -17,11 +17,11 @@
 					value="123" /> 
 				</br>
 				<br /> 
-				<a href="" id="btnFindId" style="margin-right: 15px; margin-left: 30px">Find ID</a>
-				<a href="" id="btnFindPassword">Find Password</a>
+				<a href="" id="btnFindId" style="margin-right: 15px; margin-left: 30px">아이디 찾기</a>
+				<a href="" id="btnFindPassword">비밀번호 찾기</a>
 			</div>
       		<div class="modal-footer">
-        		<button id="btnLogin" type="button" class="btn btn-primary">login</button>
+        		<button id="btnLogin" type="button" class="btn btn-primary">확인</button>
       		</div>
     	</div>
   	</div>

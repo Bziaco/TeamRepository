@@ -5,7 +5,7 @@
 <table class="table table-striped table-bordered table-list">
 	<thead>
 		<tr>
-			<th class="hidden-xs">ID</th>
+			<th class="hidden-xs" style="text-align: center">ID</th>
 			<th>Local</th>
 			<th>Intro</th>
 			<th>Count</th>

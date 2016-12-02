@@ -5,12 +5,12 @@
 	<div class="modal-dialog" role="document"
 		style="width: 1175px; height: 750px;">
 		<div class="modal-content">
-			<div class="modal-header" style=" width: 1173px; background-color: #F7B4AB; border-radius: 5px;">
+			<div class="modal-header" style="width: 1173px; background-color: #F87575; border-radius: 5px; color: white;">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">matchtourist</h4>
+				<h4 class="modal-title">관광객 리스트</h4>
 			</div>
 			<div class="modal-body">
 				<table>

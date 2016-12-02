@@ -28,7 +28,7 @@
     			$("#detailModal #id").html(data.gid);
     			$("#detailModal #local").html(data.glocal);
     			$("#detailModal #intro").html(data.gintro);
-    			$("#detailModal #intro").html(data.gcount);
+    			$("#detailModal #able").html(data.gable);
 				$("#detailModal").modal("show");
 				console.log(data.gid);
 			}

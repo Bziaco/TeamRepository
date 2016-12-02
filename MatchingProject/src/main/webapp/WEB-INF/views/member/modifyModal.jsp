@@ -28,7 +28,7 @@
 						class="form-control input-sm chat-input" placeholder="Tel" /> 
 			</div>
 			<div class="modal-footer">
-				<button id="btnModify" type="button" class="btn btn-primary">modify</button>
+				<button id="btnModify" type="button" class="btn btn-primary">확인</button>
 			</div>
 		</div>
 	</div>

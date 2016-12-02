@@ -13,13 +13,13 @@
 			</div>
 			<div class="modal-body">
 				<input type="text" id="guideLocal"
-					class="form-control input-sm chat-input" placeholder="Guide Local" />
+					class="form-control input-sm chat-input" placeholder="지역" />
 				</br>
 				<textarea id="guideIntro" class="form-control input-sm chat-input"
-					placeholder="Guide Introuce"></textarea>
+					placeholder="소개"></textarea>
 			</div>
 			<div class="modal-footer">
-				<button id="btnguideresist" type="button" class="btn btn-primary">Resist</button>
+				<button id="btnguideresist" type="button" class="btn btn-primary">확인</button>
 			</div>
 		</div>
 	</div>

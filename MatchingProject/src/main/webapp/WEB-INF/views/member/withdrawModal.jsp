@@ -15,8 +15,8 @@
 						<h4>really want to leave?</h4>
 				</div> -->
 			<div class="modal-footer">
-				<button id="Okwithdraw" type="button" class="btn btn-primary">OK</button>
-				<button id="Canclewithdraw" type="button" class="btn btn-primary">Cancle</button>
+				<button id="Okwithdraw" type="button" class="btn btn-primary">확인</button>
+				<button id="Canclewithdraw" type="button" class="btn btn-primary">취소</button>
 			</div>
 		</div>
 	</div>

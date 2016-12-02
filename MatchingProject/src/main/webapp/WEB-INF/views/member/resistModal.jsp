@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title">RESIST</h4>
+        		<h4 class="modal-title">회원가입</h4>
       		</div>
       		<div class="modal-body">
 				<input type="text" id="mid"
@@ -49,7 +49,7 @@
 				<input type="file" id="mphoto" multiple /> <br/>
 			</div>
       		<div class="modal-footer">
-        		<button id="btnResist" type="button" class="btn btn-primary">Resist</button>
+        		<button id="btnResist" type="button" class="btn btn-primary">확인</button>
       		</div>
     	</div>
   	</div>

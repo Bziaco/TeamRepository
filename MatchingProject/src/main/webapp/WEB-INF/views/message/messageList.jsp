@@ -14,7 +14,7 @@
 				<img src="/mymatch/resources/img/${message.mfromPhoto}" width="70px" height="65px">
 			</div>
 		</div>
-	</c:if>
+	</c:if> 
 	
 	<c:if test="${login != message.mfrom}">
 		<div class="row msg_container base_receive">

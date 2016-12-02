@@ -2,19 +2,15 @@ package com.example.blueskii.myapplication.member;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
-import com.example.blueskii.myapplication.attraction.AttractionAdapter;
-import com.example.blueskii.myapplication.attraction.MgetAttraction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,12 +18,9 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
 
 public class LoginActivity extends Activity {
@@ -69,7 +62,7 @@ public class LoginActivity extends Activity {
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.219.191:8080/mymatch/member/login?mid=" + mid + "&mpassword=" + mpassword);
+                    URL url = new URL("http://192.168.0.69:8080/mymatch/member/login?mid=" + mid + "&mpassword=" + mpassword);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

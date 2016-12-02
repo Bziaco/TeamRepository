@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,9 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
-import com.example.blueskii.myapplication.guideMatching.GuideMatching;
-import com.example.blueskii.myapplication.guideMatching.GuideMatchingActivity;
-import com.example.blueskii.myapplication.member.LoginActivity;
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
 import com.perples.recosdk.RECOBeaconRegion;
@@ -132,7 +129,7 @@ public class TouristMatchingActivity extends AppCompatActivity implements RECOSe
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.219.191:8080/mymatch/tourist/requestMatchingTourist?mid=" + mid + "&bminor=" + bminor);
+                    URL url = new URL("http://192.168.0.69:8080/mymatch/tourist/requestMatchingTourist?mid=" + mid + "&bminor=" + bminor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -183,7 +180,7 @@ public class TouristMatchingActivity extends AppCompatActivity implements RECOSe
                 while(true) {
                     Log.i("mylog", "목록 수신...");
                     try {
-                        URL url = new URL("http://192.168.219.191:8080/mymatch/tourist/receiveMatchingTourist?mid=" + mid + "&bminor=" + bminor);
+                        URL url = new URL("http://192.168.0.69:8080/mymatch/tourist/receiveMatchingTourist?mid=" + mid + "&bminor=" + bminor);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.connect();
                         if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -233,7 +230,7 @@ public class TouristMatchingActivity extends AppCompatActivity implements RECOSe
     public Bitmap getBitmap(String savedfile){
         Bitmap bitmap = null;
         try {
-            URL url = new URL("http://192.168.219.191:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
+            URL url = new URL("http://192.168.0.69:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 
@@ -254,12 +251,12 @@ public class TouristMatchingActivity extends AppCompatActivity implements RECOSe
         if(receiveTouristThread != null) {
             receiveTouristThread.interrupt();
         }
-        Bundle extras = new Bundle();
+        /*Bundle extras = new Bundle();
 
-        extras.putString("tid", .getTid());
+        extras.putString("tid", .getTid());*/
 
         Intent intent = new Intent(this, TouristInfoActivity.class);
-        intent.putExtras(extras);
+    /*    intent.putExtras(extras);*/
         startActivity(intent);
     }
 }

@@ -144,7 +144,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL("http://192.168.219.191:8080/mymatch/guide/requestMatchingGuide?mid=" + mid + "&bminor=" + bminor);
+                    URL url = new URL("http://192.168.0.69:8080/mymatch/guide/requestMatchingGuide?mid=" + mid + "&bminor=" + bminor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -194,7 +194,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
                 while(true) {
                     Log.i("mylog", "목록 수신...");
                     try {
-                        URL url = new URL("http://192.168.219.191:8080/mymatch/guide/receiveMatchingGuide?mid=" + mid + "&bminor=" + bminor);
+                        URL url = new URL("http://192.168.0.69:8080/mymatch/guide/receiveMatchingGuide?mid=" + mid + "&bminor=" + bminor);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                         conn.connect();
                         if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -243,7 +243,7 @@ public class GuideMatchingActivity extends AppCompatActivity implements RECOServ
     public Bitmap getBitmap(String savedfile) {
         Bitmap bitmap = null;
         try {
-            URL url = new URL("http://192.168.219.191:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
+            URL url = new URL("http://192.168.0.69:8080/mymatch/member/getPhoto?savedfile=" + savedfile);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 

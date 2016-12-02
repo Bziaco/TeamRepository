@@ -19,9 +19,12 @@
 					</div>
 
 					<div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-						<strong id="mname"></strong><br>
 						<table class="table table-user-information">
 							<tbody>
+							<tr>
+									<td>Name:</td>
+									<td id="mname"></td>
+								</tr>
 								<tr>
 									<td>Nickname:</td>
 									<td id="mnickname"></td>

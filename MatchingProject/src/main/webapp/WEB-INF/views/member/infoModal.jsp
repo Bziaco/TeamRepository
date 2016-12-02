@@ -4,12 +4,12 @@
 	style="z-index: 5000">
 	<div class="modal-dialog" role="document" style="width: 600px;">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header"   style="background-color: #F87575;">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">User information</h4>
+				<h4 class="modal-title" style="color: white;">유저 정보</h4>
 			</div>
 			<div class="modal-body">
 				<div class="row">

@@ -5,7 +5,7 @@
 	"result":"success",
 	"member": {
 		"mid":"${member.mid}",
-		"mnickname":"${member.mnickname}",
+		"mnickname":"${member.mnickname}",  
 		"mname":"${member.mname}",
 		"mage":"${member.mage}",
 		"msex":"${member.msex}",

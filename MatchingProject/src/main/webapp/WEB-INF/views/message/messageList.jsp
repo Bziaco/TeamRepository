@@ -5,7 +5,7 @@
 	<c:if test="${login == message.mfrom}">
 		<div class="row msg_container base_sent">
 			<div class="col-md-10 col-xs-10">
-				<div class="messages msg_sent" style="height:65px;">
+				<div class="messages msg_sent" style="height:65px; background-color: #c0ffff;">
 					<p>${message.mcontent}</p>
 					<time>${message.mdate}</time>
 				</div>

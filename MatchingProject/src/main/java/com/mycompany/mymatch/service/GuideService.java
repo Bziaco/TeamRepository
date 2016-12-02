@@ -12,10 +12,12 @@ import com.mycompany.mymatch.dao.GuideDao;
 import com.mycompany.mymatch.dao.GuidePossibleDao;
 import com.mycompany.mymatch.dao.GuideRequestDao;
 import com.mycompany.mymatch.dao.MemberDao;
+import com.mycompany.mymatch.dto.Attraction;
 import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.dto.GuidePossible;
 import com.mycompany.mymatch.dto.GuideRequest;
 import com.mycompany.mymatch.dto.Member;
+import com.mycompany.mymatch.dto.Tourist;
 
 @Component
 public class GuideService {
@@ -64,22 +66,53 @@ public class GuideService {
 	}
 	
 	public int requestMatchingGuide(GuideRequest guideRequest){
-		guideRequestDao.insert(guideRequest);
+		GuideRequest dbGuideRequest = guideRequestDao.select(guideRequest);
+		if(dbGuideRequest == null) {
+			guideRequestDao.insert(guideRequest);
+		}
 		return GUIDE_REQUEST_SUCCESS;
 	}
 
 	public List<Guide> receiveMatchingGuide(GuideRequest guideRequest) {
 		GuideRequest dbGuideRequest = guideRequestDao.select(guideRequest);
-		List<GuidePossible> guidePossibleList = guidePossibleDao.selectByGrno(dbGuideRequest.getGrno());
 		List<Guide> guideList = new ArrayList<Guide>();
-		for(GuidePossible guidePossible : guidePossibleList){
-			Guide guide = guideDao.selectByGid(guidePossible.getGid());
-			Member member = memberDao.selectByMid(guide.getGid());
-			guide.setMname(member.getMname());
-			guide.setSavedfile(member.getSavedfile());
-			guideList.add(guide);
+		if(dbGuideRequest != null) {
+			List<GuidePossible> guidePossibleList = guidePossibleDao.selectByGrno(dbGuideRequest.getGrno());
+			for(GuidePossible guidePossible : guidePossibleList){
+				Guide guide = guideDao.selectByGid(guidePossible.getGid());
+				Member member = memberDao.selectByMid(guide.getGid());
+				guide.setMname(member.getMname());
+				guide.setSavedfile(member.getSavedfile());
+				guideList.add(guide);
+			}
 		}
 		return guideList;
+	}
+
+	public List<Tourist> receiveMatchingTourist(String gid) {
+		Guide guide = guideDao.selectByGid(gid);
+		List<Attraction> attractionList = attractionDao.selectByAlocation(guide.getGlocal());
+		List<Tourist> list = new ArrayList<Tourist>();
+		for(Attraction attraction : attractionList) {
+			List<GuideRequest> guideRequestList = guideRequestDao.selectByBeacon(attraction.getBeacon());
+			for(GuideRequest guideRequest : guideRequestList){
+				Member member = memberDao.selectByMid(guideRequest.getMid());
+				Tourist tourist = new Tourist();
+				tourist.setMid(member.getMid());
+				tourist.setMname(member.getMname());
+				tourist.setAname(attraction.getAname());
+				tourist.setGrno(guideRequest.getGrno());
+				tourist.setSavedfile(member.getSavedfile());
+				list.add(tourist);
+			}
+		}
+		return list;
+	}
+
+	public void addGuidePossible(GuidePossible guidePossible) {
+		guidePossibleDao.insert(guidePossible);
+		
+		
 	}
 	
 }

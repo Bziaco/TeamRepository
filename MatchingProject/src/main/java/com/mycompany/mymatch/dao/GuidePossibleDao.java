@@ -34,6 +34,16 @@ public class GuidePossibleDao {
 		);
 		return list;
 	}
+
+	public int insert(GuidePossible guidePossible) {
+		String sql = "insert into guidepossible(gid, grno) values(?,?)";
+		int row = jdbcTemplate.update(
+				sql,
+				guidePossible.getGid(),
+				guidePossible.getGrno()
+				);
+		return row;
+	}
 	
 	
 }

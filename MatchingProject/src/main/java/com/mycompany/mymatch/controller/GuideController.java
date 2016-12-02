@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mycompany.mymatch.dto.Guide;
+import com.mycompany.mymatch.dto.GuidePossible;
 import com.mycompany.mymatch.dto.GuideRequest;
+import com.mycompany.mymatch.dto.Tourist;
 import com.mycompany.mymatch.service.GuideService;
 import com.mycompany.mymatch.service.MatchingService;
 
@@ -83,5 +85,18 @@ public class GuideController {
 		List<Guide> list = guideService.receiveMatchingGuide(guideRequest);
 		model.addAttribute("list", list);
 		return "guide/receiveMatchingGuide";
+	}
+	
+	@RequestMapping("receiveMatchingTourist")
+	public String receiveMatchingTourist(String gid, Model model){
+		List<Tourist> list = guideService.receiveMatchingTourist(gid) ;
+		model.addAttribute("list", list);
+		return "guide/receiveMatchingTourist";
+	}
+	
+	@RequestMapping("addGuidePossible")
+	public String addGuidePossible(GuidePossible guidePossible){
+		guideService.addGuidePossible(guidePossible);
+		return "guide/addGuidePossible";
 	}
 }

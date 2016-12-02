@@ -2,6 +2,7 @@ package com.mycompany.mymatch.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,23 @@ public class TouristRequestDao {
 	public TouristRequest select(TouristRequest touristRequest) {
 		String sql = "select trno, mid, bminor, requestdate from touristrequest where mid=? and bminor=?";
 		List<TouristRequest> list = jdbcTemplate.query(sql, new Object[]{touristRequest.getMid(), touristRequest.getBminor()}, new RowMapper<TouristRequest>() {
+			@Override
+			public TouristRequest mapRow(ResultSet rs, int row) throws SQLException {
+				TouristRequest touristRequest = new TouristRequest();
+				touristRequest.setTrno(rs.getInt("trno"));
+				touristRequest.setMid(rs.getString("mid"));
+				touristRequest.setBminor(rs.getInt("bminor"));
+				touristRequest.setRequestdate(rs.getDate("requestdate"));
+			return touristRequest;
+		}
+	});
+	return (list.size() !=0)? list.get(0) : null;
+	}
+
+	public Object selectBySysdate(Date requestdate) {
+		
+		String sql = "select trno, mid, bminor, requestdate from touristrequest where mid=? and bminor=?";
+		List<TouristRequest> list = jdbcTemplate.query(sql, new Object[]{requestdate.getTime()}, new RowMapper<TouristRequest>() {
 			@Override
 			public TouristRequest mapRow(ResultSet rs, int row) throws SQLException {
 				TouristRequest touristRequest = new TouristRequest();

@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.mymatch.dao.AttractionDao;
 import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dao.TouristPossibleDao;
 import com.mycompany.mymatch.dao.TouristRequestDao;
 import com.mycompany.mymatch.dao.TourlistDao;
+import com.mycompany.mymatch.dto.Attraction;
 import com.mycompany.mymatch.dto.Member;
 import com.mycompany.mymatch.dto.Tourist;
 import com.mycompany.mymatch.dto.TouristPossible;
@@ -43,13 +45,18 @@ public class TouristService {
 	@Autowired
 	private MemberDao memberDao;
 	
+	@Autowired
+	private AttractionDao attractionDao;
+	
 	public int join(Tourist tourist) {
 		touristDao.insert(tourist);
 		return JOIN_SUCCESS;
 	}
 	
 	public int requestMatchingTourist(TouristRequest touristRequest){
-		touristRequestDao.insert(touristRequest);
+		if(!touristRequest.getRequestdate().equals(touristRequestDao.selectBySysdate(touristRequest.getRequestdate()))){
+			touristRequestDao.insert(touristRequest);
+		}
 		return TOURIST_REQUEST_SUCCESS;
 	}
 
@@ -62,7 +69,10 @@ public class TouristService {
 			Member member = memberDao.selectByMid(tourist.getTid());
 			tourist.setMname(member.getMname());
 			tourist.setSavedfile(member.getSavedfile());
-			touristList.add(tourist);
+			Attraction attraction = attractionDao.selectByBeacon(touristRequest.getBminor());
+			if(tourist.getTlocal().equals(attraction.getAlocation())){
+				touristList.add(tourist);
+			}
 		}
 		return touristList;
 	}

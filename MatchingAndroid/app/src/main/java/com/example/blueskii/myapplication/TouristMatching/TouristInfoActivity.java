@@ -1,27 +1,10 @@
 package com.example.blueskii.myapplication.TouristMatching;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.blueskii.myapplication.R;
 import com.example.blueskii.myapplication.attraction.AttractionAdapter;
-import com.example.blueskii.myapplication.attraction.MgetAttraction;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TouristInfoActivity extends AppCompatActivity {
     private AttractionAdapter attractionAdapter;
@@ -31,7 +14,7 @@ public class TouristInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tourist_info);
     }
 
-    public void fillItems(final String mid) {
+  /*  public void fillItems(final String mid) {
         //HTTP 통신 코드
         Thread thread = new Thread() {
             @Override
@@ -114,5 +97,5 @@ public class TouristInfoActivity extends AppCompatActivity {
             Log.i("mylog", e.getMessage());
         }
         return bitmap;
-    }
+    }*/
 }

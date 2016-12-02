@@ -64,7 +64,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-12">
-                        <table>
+                        <table id="guideList">
                         	<tr>
                         		<td style="vertical-align: top;">
 									<div id="collapseOne" class="panel-collapse collapse in" style="width:300px; display: inline-block;">

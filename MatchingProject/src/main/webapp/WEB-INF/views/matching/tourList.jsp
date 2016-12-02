@@ -25,7 +25,7 @@
 				data-content="Hi, My hobby is coding. do you play coding with me?">Intro
 			</button>
 			<button id="btnMessageModal" type="button"
-				class="btn btn-danger btn-xs btn-update btn-add-card" data-mto="test1">CHATTING
+				class="btn btn-danger btn-xs btn-update btn-add-card" data-mto="user1">CHATTING
 			</button>
 		</div>
 	</div>

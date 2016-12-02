@@ -1,5 +1,5 @@
 ﻿$(function() {    
-	$("#collapseOne .btnLocation").click(function(){
+	$("#guideList .btnLocation").click(function(){
 		var location=$(this).attr("data-location");
 		console.log("aaa")
 		
@@ -9,7 +9,6 @@
 			data: {glocal:location},
 			method: "post",
 			success: function(data) {
-				console.log("bbb")
 				$("#guideTable").html(data);
 			}
 		});

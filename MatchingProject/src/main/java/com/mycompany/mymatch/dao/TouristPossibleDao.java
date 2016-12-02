@@ -13,7 +13,7 @@ import com.mycompany.mymatch.dto.TouristPossible;
 
 @Component
 public class TouristPossibleDao {
-	@Autowired
+	@Autowired  
 	private JdbcTemplate jdbcTemplate;
 
 	public List<TouristPossible> selectByTrno(int trno) {

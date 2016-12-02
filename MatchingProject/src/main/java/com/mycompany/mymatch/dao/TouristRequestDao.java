@@ -25,7 +25,7 @@ public class TouristRequestDao {
 				touristRequest.getMid(),
 				touristRequest.getBminor()
 				);
-		return row;
+		return row;  
 	}
 
 	public TouristRequest select(TouristRequest touristRequest) {

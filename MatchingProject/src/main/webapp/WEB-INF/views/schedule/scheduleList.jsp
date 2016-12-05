@@ -54,7 +54,7 @@
                                  <c:forEach var="schedule" items="${list}">
                                     <tr>
                                        <td>${schedule.sno}</td>
-                                       <td><a href="javascript:parent.onClickBtnScheduleDetail(${schedule.sno})" ata-sno="${schedule.sno}">${schedule.stitle}</a></td>
+                                       <td><a href="javascript:parent.onClickBtnScheduleDetail(${schedule.sno})" data-sno="${schedule.sno}">${schedule.stitle}</a></td>
                                        <td>${schedule.mid}</td>
                                        <td>${schedule.sdate}</td>
                                        <td>${schedule.sstart}</td>

@@ -3,15 +3,15 @@
 <div id="modifyModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
 	<div class="modal-dialog" role="document"  style="width:400px;">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header"style="background-color: #41cac0; border-color: #41cac0; border-radius: 5px; color: white;">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Modification</h4>
+				<h4 class="modal-title">회원정보 수정</h4>
 			</div>
 			<div class="modal-body">
-					<input type="file" id="mphoto" multiple /> <br /> <input
+					<input type="file" id="mphoto" multiple /><br /> <input
 						type="password" id="mpassword"
 						class="form-control input-sm chat-input" placeholder="Password" />
-					</br> <input type="text" id="mnickname"
+					</br><input type="text" id="mnickname"
 						class="form-control input-sm chat-input" placeholder="Nickname" />
 					</br> <input type="text" id="mname"
 						class="form-control input-sm chat-input" placeholder="Name" /> </br>

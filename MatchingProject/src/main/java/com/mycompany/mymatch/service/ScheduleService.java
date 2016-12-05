@@ -58,15 +58,16 @@ public class ScheduleService {
 	public void addGuideSchedule(GuideSchedule guideSchedule) {
 		guideScheduleDao.insert(guideSchedule);
 	}
+	
+	
+	public void cancelGuideSchedule(GuideSchedule guideSchedule) {
+		guideScheduleDao.delete(guideSchedule);
+	}
 
 	public boolean isGuideRequest(String gid, int sno) {
 		GuideSchedule guideSchedule = guideScheduleDao.selectByGidSno(gid, sno);
 		if(guideSchedule != null) return true;
 		else return false;
-	}
-
-	public void cancelGuideSchedule(GuideSchedule guideSchedule) {
-		guideScheduleDao.delete(guideSchedule);
 	}
 		
 }

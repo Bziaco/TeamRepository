@@ -70,7 +70,7 @@ public class MatchingService {
 		}
 		return list;
 	}
-//--추가----------------------------------------------------------------------------------------
+	
 	
 	public List<GuideSchedule> getTouristSchedule(String mid) {
 		List<GuideSchedule> list = guideScheduleDao.selectByMid(mid);

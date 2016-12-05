@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.blueskii.myapplication.R;
-import com.example.blueskii.myapplication.attraction.AttractionAdapter;
 import com.example.blueskii.myapplication.main.NetworkInfo;
-import com.example.blueskii.myapplication.member.LoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +27,11 @@ import java.net.URL;
 public class TouristInfoActivity extends AppCompatActivity {
     private String mid;
     private int grno;
+    private String nickName;
+    private TouristMatchingAdapter touristMatchingAdapter;
+    TouristMatching touristMatching;
+    TextView txtName, txtNickname, txtAge, txtSex, txtLocation, txtEmail, txtTel;
+    ImageView imgview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,16 @@ public class TouristInfoActivity extends AppCompatActivity {
         grno = intent.getIntExtra("grno",0);
         Log.i("mylog", mid);
         Log.i("mylog", String.valueOf(grno));
+
+        txtName = (TextView)findViewById(R.id.txtName);
+        txtNickname = (TextView)findViewById(R.id.txtNickname);
+        txtAge = (TextView)findViewById(R.id.txtAge);
+        txtSex = (TextView)findViewById(R.id.txtSex);
+        txtLocation = (TextView)findViewById(R.id.txtLocation);
+        txtEmail = (TextView)findViewById(R.id.txtEmail);
+        txtTel = (TextView)findViewById(R.id.txtTel);
+/*        imgview = (ImageView)findViewById(R.id.imgview);*/
+
 
         getTouristInfo(mid);
     }
@@ -64,6 +78,8 @@ public class TouristInfoActivity extends AppCompatActivity {
                         br.close(); reader.close(); is.close();
                     }
                     conn.disconnect();
+
+                    Log.i("mylog json", strJson);
                 } catch (Exception e) {
                     Log.i("mylog", e.getMessage());
                 }
@@ -78,10 +94,32 @@ public class TouristInfoActivity extends AppCompatActivity {
                     if(result.equals("success")) {
                         JSONObject jo = jsonObject.getJSONObject("member");
 
+                        touristMatching = new TouristMatching();
+                        touristMatching.setMname(jo.getString("mname"));
+                        touristMatching.setNickName(jo.getString("mnickname"));
+                        touristMatching.setAge(jo.getString("mage"));
+                        touristMatching.setSex(jo.getString("msex"));
+                        touristMatching.setLocation(jo.getString("mlocal"));
+                        touristMatching.setEmail(jo.getString("memail"));
+                        touristMatching.setTel(jo.getString("mtel"));
+  /*                      touristMatching.setSavedfile(jo.getString("mphoto"));*/
+
                     }
                 } catch (JSONException e) {
+                    e.printStackTrace();
                     Log.i("mylog", e.getMessage());
                 }
+                //----
+/*                Log.i("mylog123", touristMatching.getSavedfile());*/
+                txtName.setText(touristMatching.getMname());
+                txtNickname.setText(touristMatching.getNickName());
+                txtAge.setText(touristMatching.getAge());
+                txtSex.setText(touristMatching.getSex());
+                txtLocation.setText(touristMatching.getLocation());
+                txtEmail.setText(touristMatching.getEmail());
+                txtTel.setText(touristMatching.getTel());
+/*                touristMatching.setBitmap(getBitmap(touristMatching.getSavedfile()));
+                imgview.setImageBitmap(touristMatching.getBitmap());*/
             }
         };
         asyncTask.execute();
@@ -134,6 +172,25 @@ public class TouristInfoActivity extends AppCompatActivity {
         };
         asyncTask.execute();
     }
+
+ /*   public Bitmap getBitmap(String savedfile){
+        Bitmap bitmap = null;
+        try {
+            URL url = new URL(NetworkInfo.BASE_URL + "/member/getPhoto?savedfile=" + savedfile);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.connect();
+
+            if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream is = conn.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
+            }
+
+            conn.disconnect();
+        } catch (Exception e) {
+            Log.i("mylog", e.getMessage());
+        }
+        return bitmap;
+    }*/
 
     public void onClickBtnCancel(View view) {
         finish();

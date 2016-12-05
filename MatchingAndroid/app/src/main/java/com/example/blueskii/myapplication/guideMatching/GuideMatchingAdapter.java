@@ -1,6 +1,7 @@
 package com.example.blueskii.myapplication.guideMatching;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,5 +77,11 @@ public class GuideMatchingAdapter extends BaseAdapter {
             list.add(guideMatching);
             notifyDataSetChanged();
         }
+    }
+
+    public void removeAll() {
+        Log.i("mylog", "###############removeAll");
+        list.clear();
+        notifyDataSetChanged();
     }
 }

@@ -19,18 +19,11 @@ public class MatchingDao {
 	
 	
 	 public int insert(Matching matching){
-		String sql = "insert into matching(matchno, matchdate, score, bno, btitle, bcontent, bwriter, bhitcount, bdate, savedfile) values(seq_matching_matchno.nextval,sysdate,?,?,?,?,?,?,?,?)";
+		String sql = "insert into matching(matchno, gid, mid, matchdate) values(seq_matching_matchno.nextval,?,?,sysdate)";
 		int row = jdbcTemplate.update(
 				sql,
-				matching.getMatchno(),
-				matching.getScore(),
-				matching.getBno(),
-				matching.getBtitle(),
-				matching.getBcontent(),
-				matching.getBwriter(),
-				matching.getBhitcount(),
-				matching.getBdate(),
-				matching.getSavedfile()
+				matching.getGid(),
+				matching.getMid()
 		);
 		return row;
 	}
@@ -94,7 +87,7 @@ public class MatchingDao {
 		return list;
 	}
 	public List<Matching> selectByMid(String mid) {
-		String sql = "select * from matching where mid=?";
+		String sql = "select * from matching where mid=? order by matchdate desc";
 		List<Matching> list = jdbcTemplate.query(
 				sql,
 				new Object[]{mid},

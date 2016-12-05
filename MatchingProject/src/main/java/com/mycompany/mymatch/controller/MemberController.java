@@ -106,7 +106,7 @@ public class MemberController {
 	public String logout(HttpSession session){
 		System.out.println("logout");
 		session.removeAttribute("login");
-		return "member/logout";
+		return "member/logout";  
 	}
 
 	

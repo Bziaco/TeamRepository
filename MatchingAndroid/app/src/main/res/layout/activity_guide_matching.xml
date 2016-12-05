@@ -45,6 +45,14 @@
             android:id="@+id/btnFindGuide"
             android:onClick="onClickBtnFindGuide" />
 
+        <Button
+            android:text="매칭 가이드"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMatchingGuide"
+            android:layout_weight="1"
+            android:onClick="onClickBtnMatchingGuide" />
+
     </LinearLayout>
 
     <FrameLayout
@@ -56,13 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/guideMatchinglist" />
+            android:id="@+id/guideFindList" />
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/currentLocationInfo"></LinearLayout>
+            android:id="@+id/guideMatchingList" />
+
     </FrameLayout>
 
 </LinearLayout>

@@ -4,7 +4,7 @@
 	style="z-index: 5000">
 	<div class="modal-dialog" role="document" style="width: 400px;">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header" style=" background-color: #F87575;  border-color: #F87575;  border-radius: 5px;  color: white; ">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>

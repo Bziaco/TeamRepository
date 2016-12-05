@@ -3,7 +3,7 @@
 <div id="scheduleModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 5000">
 	<div class="modal-dialog" role="document" style="width: 1200px;">
 		<div class="modal-content" style="height:700px;">
-			<div class="modal-header">
+			<div class="modal-header" style="background-color: #F87575;  border-color: #F87575;  border-radius: 5px;  color: white;">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -24,12 +24,12 @@
    role="dialog" aria-labelledby="edit" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content">
-         <div class="modal-header">
+         <div class="modal-header" style="background-color: #5bc0de;  border-color: #5bc0de;  border-radius: 5px;  color: white;">
             <button type="button" class="close" data-dismiss="modal"
                aria-hidden="true">
                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
-            <h4 class="modal-title custom_align" id="Heading">Do you went to write?</h4>
+            <h4 class="modal-title custom_align" id="Heading">글쓰기</h4>
          </div>
          <div class="modal-body">
 			  <div class="form-group">
@@ -171,12 +171,12 @@
 <div id="scheduleDetailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true" style="z-index: 5000;">
    <div class="modal-dialog">
       <div class="modal-content">
-         <div class="modal-header">
+         <div class="modal-header" style="background-color: #5bc0de;  border-color: #5bc0de;  border-radius: 5px;  color: white;">
             <button type="button" class="close" data-dismiss="modal"
                aria-hidden="true">
                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
-            <h4 class="modal-title custom_align" id="Heading">Detail</h4>
+            <h4 class="modal-title custom_align" id="Heading">상세보기</h4>
          </div>
          <div class="modal-body">
          	<table style="width:100%">

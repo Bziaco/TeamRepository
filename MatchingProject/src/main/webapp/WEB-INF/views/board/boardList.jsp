@@ -163,13 +163,12 @@
       role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #41cac0;  border-color: #41cac0;  border-radius: 5px;  color: white;">
                <button type="button" class="close" data-dismiss="modal"
                   aria-hidden="true">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                </button>
-               <h4 class="modal-title custom_align" id="Heading">Do you went
-                  to write?</h4>
+               <h4 class="modal-title custom_align" id="Heading">글쓰기</h4>
             </div>
             <div class="modal-body">
                <div class="form-group">
@@ -183,7 +182,7 @@
             </div>
             <div class="modal-footer ">
                <a class="btn btn-warning btn-lg" id="btnwrite" href="#"> <span
-                  class="glyphicon glyphicon-ok-sign"></span> Submit
+                  class="glyphicon glyphicon-ok-sign"></span> 확인
                </a>
             </div>
          </div>
@@ -196,13 +195,12 @@
       aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #41cac0;  border-color: #41cac0;  border-radius: 5px;  color: white;">
                <button type="button" class="close" data-dismiss="modal"
                   aria-hidden="true">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                </button>
-               <h4 class="modal-title custom_align" id="Heading">Edit Your
-                  Detail</h4>
+               <h4 class="modal-title custom_align" id="Heading">수정</h4>
             </div>
             <div class="modal-body">
                <div class="form-group">
@@ -216,7 +214,7 @@
             </div>
             <div class="modal-footer ">
                <button id="btnUpdate" type="button" class="btn btn-warning btn-lg">
-                  <span class="glyphicon glyphicon-ok-sign"></span> Update
+                  <span class="glyphicon glyphicon-ok-sign"></span> 확인
                </button>
             </div>
          </div>
@@ -234,19 +232,17 @@
       aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #41cac0;  border-color: #41cac0;  border-radius: 5px;  color: white;">
                <button type="button" class="close" data-dismiss="modal"
                   aria-hidden="true">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                </button>
-               <h4 class="modal-title custom_align" id="Heading">Delete this
-                  entry</h4>
+               <h4 class="modal-title custom_align" id="Heading">삭제</h4>
             </div>
             <div class="modal-body">
 
-               <div class="alert alert-danger">
-                  <span class="glyphicon glyphicon-warning-sign"></span> Are you
-                  sure you want to delete this Record?
+               <div class="alert alert-danger"  style=" text-align: center">
+                  <span></span>정말 삭제 하시겠습니까?
                </div>
 
             </div>

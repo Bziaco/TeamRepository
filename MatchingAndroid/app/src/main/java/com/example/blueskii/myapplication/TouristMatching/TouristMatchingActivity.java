@@ -45,7 +45,7 @@ public class TouristMatchingActivity extends AppCompatActivity {
         tourlistMatchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(TouristMatchingActivity.this, TouristInfoActivity.class);
+                Intent intent = new Intent(TouristMatchingActivity.this, TouristInfoActivity.class);
                 TouristMatching touristMatching = (TouristMatching)touristMatchingAdapter.getItem(position);
                 intent.putExtra("mid", touristMatching.getMid());
                 intent.putExtra("grno", touristMatching.getGrno());

@@ -8,6 +8,7 @@ public class Guide {
 	private int count;
 	private String mname;
 	private String savedfile;
+	private int grno;
 
 	public String getGable() {
 		return gable;
@@ -52,5 +53,10 @@ public class Guide {
 		this.savedfile = savedfile;
 	}
 	
-	
+	public int getGrno() {
+		return grno;
+	}
+	public void setGrno(int grno) {
+		this.grno = grno;
+	}
 }

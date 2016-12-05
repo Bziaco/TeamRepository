@@ -1,5 +1,6 @@
 package com.example.blueskii.myapplication.guideMatching;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -24,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class GuideInfoActivity extends AppCompatActivity {
-    private String mid;
+    private String gid;
     private int grno;
     private String nickName;
     private GuideMatchingAdapter guideMatchingAdapter;
@@ -38,20 +39,20 @@ public class GuideInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guide_info);
 
         Intent intent = getIntent();
-        mid = intent.getStringExtra("mid");
+        gid = intent.getStringExtra("gid");
         grno = intent.getIntExtra("grno",0);
-/*        Log.i("mylog", gid);
-        Log.i("mylog", String.valueOf(grno));*/
+        Log.i("mylog", gid);
+        Log.i("mylog", String.valueOf(grno));
 
         txtName = (TextView)findViewById(R.id.txtName);
         txtNickname = (TextView)findViewById(R.id.txtNickname);
         txtAge = (TextView)findViewById(R.id.txtAge);
         txtSex = (TextView)findViewById(R.id.txtSex);
-        txtLocation = (TextView)findViewById(R.id.txtLocation);
+        txtLocation = (TextView)findViewById(R.id.txtLocal);
         txtEmail = (TextView)findViewById(R.id.txtEmail);
         txtTel = (TextView)findViewById(R.id.txtTel);
 
-        getGuideInfo(mid);
+        getGuideInfo(gid);
     }
 
     private void getGuideInfo(final String mid) {
@@ -114,14 +115,14 @@ public class GuideInfoActivity extends AppCompatActivity {
                 txtLocation.setText(guideMatching.getLocation());
                 txtEmail.setText(guideMatching.getEmail());
                 txtTel.setText(guideMatching.getTel());
-/*                touristMatching.setBitmap(getBitmap(touristMatching.getSavedfile()));
+/*              touristMatching.setBitmap(getBitmap(touristMatching.getSavedfile()));
                 imgview.setImageBitmap(touristMatching.getBitmap());*/
             }
         };
         asyncTask.execute();
     }
 
-    public void onClickBtnProposal(View view) {
+    public void onClickBtnGuideSelect(View view) {
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         final String mid = pref.getString("login", "");
         AsyncTask<Void, Void, String> asyncTask = new AsyncTask<Void, Void, String>() {
@@ -129,7 +130,7 @@ public class GuideInfoActivity extends AppCompatActivity {
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL(NetworkInfo.BASE_URL + "/guide/addGuidePossible?mid=" + mid + "&grno=" + grno);
+                    URL url = new URL(NetworkInfo.BASE_URL + "/guide/selectGuide?mid=" + mid + "&gid=" + gid + "&grno=" + grno);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -145,6 +146,7 @@ public class GuideInfoActivity extends AppCompatActivity {
                     }
                     conn.disconnect();
                 } catch (Exception e) {
+                    e.printStackTrace();
                     Log.i("mylog", e.getMessage());
                 }
                 return strJson;
@@ -156,10 +158,13 @@ public class GuideInfoActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(strJson);
                     String result = jsonObject.getString("result");
                     if(result.equals("success")) {
-                        Toast.makeText(GuideInfoActivity.this, "가이드에게 요청 성공", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GuideInfoActivity.this, "가이드 선택 성공", Toast.LENGTH_SHORT).show();
+                        setResult(Activity.RESULT_OK);
                         finish();
                     } else {
-                        Toast.makeText(GuideInfoActivity.this, "가이드에게 요청 실패", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GuideInfoActivity.this, "가이드 선택 실패", Toast.LENGTH_SHORT).show();
+                        setResult(Activity.RESULT_CANCELED);
+                        finish();
                     }
                 } catch (JSONException e) {
                     Log.i("mylog", e.getMessage());
@@ -170,6 +175,7 @@ public class GuideInfoActivity extends AppCompatActivity {
     }
 
     public void onClickBtnCancel(View view) {
+        setResult(Activity.RESULT_CANCELED);
         finish();
     }
 }

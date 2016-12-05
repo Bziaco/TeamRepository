@@ -9,8 +9,7 @@
 			"glocal": "${guide.glocal}", 
 			"gintro": "${guide.gintro}",
 			"mname": "${guide.mname}",
-			"savedfile": "${guide.savedfile}",
-			"grno": ${guide.grno}
+			"savedfile": "${guide.savedfile}"
 		}
 		<c:if test="${!status.last}">,</c:if>
 	</c:forEach>

@@ -99,4 +99,17 @@ public class GuideController {
 		guideService.addGuidePossible(guidePossible);
 		return "guide/addGuidePossible";
 	}
+	
+	@RequestMapping("selectGuide")
+	public String selectGuide(String mid, String gid, int grno){
+		guideService.selectGuide(mid, gid, grno);
+		return "guide/selectGuide";
+	}
+	
+	@RequestMapping("/listMatchingGuide")
+	public String listMatchingGuide(String mid, Model model){
+		List<Guide> list = guideService.listMatchingGuide(mid);
+		model.addAttribute("list", list);
+		return "guide/listMatchingGuide";
+	}
 }

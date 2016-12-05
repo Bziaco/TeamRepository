@@ -11,11 +11,13 @@ import com.mycompany.mymatch.dao.AttractionDao;
 import com.mycompany.mymatch.dao.GuideDao;
 import com.mycompany.mymatch.dao.GuidePossibleDao;
 import com.mycompany.mymatch.dao.GuideRequestDao;
+import com.mycompany.mymatch.dao.MatchingDao;
 import com.mycompany.mymatch.dao.MemberDao;
 import com.mycompany.mymatch.dto.Attraction;
 import com.mycompany.mymatch.dto.Guide;
 import com.mycompany.mymatch.dto.GuidePossible;
 import com.mycompany.mymatch.dto.GuideRequest;
+import com.mycompany.mymatch.dto.Matching;
 import com.mycompany.mymatch.dto.Member;
 import com.mycompany.mymatch.dto.Tourist;
 
@@ -50,6 +52,9 @@ public class GuideService {
 	@Autowired
 	private MemberDao memberDao;
 	
+	@Autowired
+	private MatchingDao matchingDao;
+	
 	public int join(Guide guide) {
 		guideDao.insert(guide);
 		return JOIN_SUCCESS;
@@ -83,6 +88,7 @@ public class GuideService {
 				Member member = memberDao.selectByMid(guide.getGid());
 				guide.setMname(member.getMname());
 				guide.setSavedfile(member.getSavedfile());
+				guide.setGrno(dbGuideRequest.getGrno());
 				guideList.add(guide);
 			}
 		}
@@ -113,6 +119,30 @@ public class GuideService {
 		guidePossibleDao.insert(guidePossible);
 		
 		
+	}
+
+	public void selectGuide(String mid, String gid, int grno) {
+		guideRequestDao.removeByGrno(grno);
+		guidePossibleDao.removeByGrno(grno);
+		Matching matching = new Matching();
+		matching.setMid(mid);
+		matching.setGid(gid);
+		matchingDao.insert(matching);
+	}
+
+	public List<Guide> listMatchingGuide(String mid) {
+		List<Matching> matchingList = matchingDao.selectByMid(mid);
+		List<Guide> guideList = new ArrayList<Guide>();
+		for(Matching matching : matchingList) {
+			String gid = matching.getGid();
+			Guide guide = guideDao.selectByGid(gid);
+			Member member = memberDao.selectByMid(guide.getGid());
+			guide.setMname(member.getMname());
+			guide.setSavedfile(member.getSavedfile());
+			guideList.add(guide);
+			
+		}
+		return guideList;
 	}
 	
 }

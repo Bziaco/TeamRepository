@@ -44,6 +44,12 @@ public class GuidePossibleDao {
 				);
 		return row;
 	}
+
+	public int removeByGrno(int grno) {
+		String sql = "delete from guidepossible where grno=?";
+		int row =jdbcTemplate.update(sql, grno);
+		return row;
+	}
 	
 	
 }

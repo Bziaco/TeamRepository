@@ -57,4 +57,9 @@ public class GuideRequestDao {
 		return list;
 	}
 
+	public int removeByGrno(int grno) {
+		String sql = "delete from guiderequest where grno=?";
+		int row =jdbcTemplate.update(sql, grno);
+		return row;
+	}
 }

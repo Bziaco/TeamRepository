@@ -27,7 +27,8 @@ import java.net.URL;
 
 public class TouristMatchingActivity extends AppCompatActivity {
     private ImageView imageLarge;
-    private ListView tourlistMatchinglist;
+    private ListView touristFindList;
+    private ListView touristMatchingList;
     private TouristMatchingAdapter touristMatchingAdapter;
 
     private Thread receiveTouristThread;
@@ -38,11 +39,15 @@ public class TouristMatchingActivity extends AppCompatActivity {
 
         imageLarge = (ImageView) findViewById(R.id.imageLarge);
 
-        tourlistMatchinglist = (ListView) findViewById(R.id.touristMatchinglist);
+        touristFindList = (ListView) findViewById(R.id.touristFindList);
         touristMatchingAdapter = new TouristMatchingAdapter(this);
-        tourlistMatchinglist.setAdapter(touristMatchingAdapter);
+        touristFindList.setAdapter(touristMatchingAdapter);
 
-        tourlistMatchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        touristMatchingList = (ListView) findViewById(R.id.touristMatchingList);
+        touristMatchingAdapter = new TouristMatchingAdapter(this);
+        touristMatchingList.setAdapter(touristMatchingAdapter);
+
+        touristFindList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(TouristMatchingActivity.this, TouristInfoActivity.class);
@@ -107,7 +112,7 @@ public class TouristMatchingActivity extends AppCompatActivity {
                                 touristMatching.setBitmap(getBitmap(touristMatching.getSavedfile()));
 
                                 //메인스레드로 하여금 UI를 업데이트하도록 요청
-                                tourlistMatchinglist.post(new Runnable() {
+                                touristFindList.post(new Runnable() {
                                     @Override
                                     public void run() {
                                         touristMatchingAdapter.addItem(touristMatching);

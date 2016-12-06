@@ -24,9 +24,8 @@ public class AttractionActivity extends AppCompatActivity {
 
         // Initializing the TabLayout
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Seoul"));
-        tabLayout.addTab(tabLayout.newTab().setText("Pusan"));
-        tabLayout.addTab(tabLayout.newTab().setText("Ulsan"));
+        tabLayout.addTab(tabLayout.newTab().setText("attraction"));
+
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // Initializing ViewPager

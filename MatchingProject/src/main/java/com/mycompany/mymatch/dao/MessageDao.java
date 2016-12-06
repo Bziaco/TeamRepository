@@ -45,3 +45,4 @@ public class MessageDao {
 		return list;
 	}		
 }
+

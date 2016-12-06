@@ -26,18 +26,32 @@ public class GuideScheduleDao {
 		);
 		return row;
 	}
+	
+	
+	public int delete(GuideSchedule guideSchedule) {
+		String sql="delete from guideschedule where gid=? and sno=?";
+		int row=jdbcTemplate.update(
+				sql,
+				guideSchedule.getGid(),
+				guideSchedule.getSno()
+		);
+		return row;
+	}
 
+	
 	public List<GuideSchedule> selectByGid(String gid) {
-		String sql = "select gid, sno from guideschedule where gid=?";
+		String sql = "select gid, sno, mid from guideschedule where gid=?";
 		List<GuideSchedule> list = jdbcTemplate.query(sql, new Object[] {gid}, new RowMapper<GuideSchedule>() {
 			@Override
 			public GuideSchedule mapRow(ResultSet rs, int index) throws SQLException {
 				GuideSchedule guideSchedule = new GuideSchedule();
 				guideSchedule.setGid(rs.getString("gid"));
 				guideSchedule.setSno(rs.getInt("sno"));
+				guideSchedule.setMid(rs.getString("mid"));
 				return guideSchedule;
 			}
 		});
+		
 		return list;
 	}
 	
@@ -53,6 +67,7 @@ public class GuideScheduleDao {
 				return guideSchedule;
 			}
 		});
+		
 		return list;
 	}
 	
@@ -68,16 +83,6 @@ public class GuideScheduleDao {
 			}
 		});
 		return (list.size() != 0)? list.get(0) : null;
-	}
-
-	public int delete(GuideSchedule guideSchedule) {
-		String sql="delete from guideschedule where gid=? and sno=?";
-		int row=jdbcTemplate.update(
-				sql,
-				guideSchedule.getGid(),
-				guideSchedule.getSno()
-		);
-		return row;
 	}
 	
 	

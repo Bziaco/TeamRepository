@@ -18,14 +18,13 @@ import com.mycompany.mymatch.dto.Attraction;
 import com.mycompany.mymatch.service.AttractionService;
 
 @Component
-@RequestMapping("")
+@RequestMapping("/mattraction")
 public class MAttractionController {
 	
 	@Autowired
 	public AttractionService attractionService;
 	
-	
-	@RequestMapping("/MgetAttractionlist")
+	@RequestMapping("/attractionlist")
 	public String attractionList(String pageNo, String keyword, Model model, HttpSession session) {
 		int intPageNo = 1;
 		if(pageNo == null) {

@@ -56,6 +56,8 @@ public class ScheduleService {
 	}	
 	
 	public void addGuideSchedule(GuideSchedule guideSchedule) {
+		Schedule schedule = scheduleDao.selectBySno(guideSchedule.getSno());
+		guideSchedule.setMid(schedule.getMid());
 		guideScheduleDao.insert(guideSchedule);
 	}
 	

@@ -61,7 +61,7 @@ public class GuideInfoActivity extends AppCompatActivity {
             protected String doInBackground(Void... params) {
                 String strJson = "";
                 try {
-                    URL url = new URL(NetworkInfo.BASE_URL + "/member/info?mid=" + mid);
+                    URL url = new URL(NetworkInfo.BASE_URL + "/member/androidInfo?mid=" + mid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

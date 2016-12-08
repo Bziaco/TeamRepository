@@ -56,6 +56,9 @@ public class TouristMatchingActivity extends AppCompatActivity {
                 Log.i("mylog", "onItemClick");
                 Intent intent = new Intent(TouristMatchingActivity.this, TouristInfoActivity.class);
                 TouristMatching touristMatching = (TouristMatching)touristFindAdapter.getItem(position);
+                //Log.i("tourId", touristMatching.getMname());
+                Log.i("tourId", touristMatching.getMid());
+
                 intent.putExtra("mid", touristMatching.getMid());
                 intent.putExtra("grno", touristMatching.getGrno());
                 startActivity(intent);

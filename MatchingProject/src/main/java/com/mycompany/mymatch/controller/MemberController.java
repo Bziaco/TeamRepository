@@ -120,6 +120,14 @@ public class MemberController {
 		model.addAttribute("member", member);
 		return "member/info";
 	}
+	
+	@RequestMapping(value="/androidInfo")
+	public String androidInfo(String mid, Model model, HttpSession session) {
+		Member member = memberService.getMember(mid);
+		System.out.println(member.getSavedfile());
+		model.addAttribute("member", member);
+		return "member/info";
+	}
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------	

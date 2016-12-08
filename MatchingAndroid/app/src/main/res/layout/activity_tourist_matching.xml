@@ -33,6 +33,14 @@
             android:id="@+id/btnFindGuide"
             android:onClick="onClickBtnFindTourist" />
 
+        <Button
+            android:text="매칭 관광객"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMatchingTourist"
+            android:layout_weight="1"
+            android:onClick="onClickBtnMatchingTourist" />
+
     </LinearLayout>
 
     <FrameLayout
@@ -44,13 +52,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/touristMatchinglist" />
+            android:id="@+id/touristFindList" />
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/currentLocationInfo"></LinearLayout>
+            android:id="@+id/touristMatchingList" />
+
     </FrameLayout>
 
 </LinearLayout>

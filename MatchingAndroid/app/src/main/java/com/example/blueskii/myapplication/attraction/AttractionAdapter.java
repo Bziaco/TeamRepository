@@ -17,8 +17,8 @@ import java.util.List;
  */
 
 public class AttractionAdapter extends BaseAdapter {
-    private List<MgetAttraction> list;
-    public void setList(List<MgetAttraction> list) {
+    private List<Attraction> list;
+    public void setList(List<Attraction> list) {
         this.list = list;
     }
 
@@ -53,19 +53,19 @@ public class AttractionAdapter extends BaseAdapter {
         }
 
         //data setting
-        MgetAttraction mgetAttraction = list.get(position);
+        Attraction attraction = list.get(position);
 
         TextView AttractionName = (TextView) convertView.findViewById(R.id.AttractionName);
-        AttractionName.setText(mgetAttraction.getAname());
+        AttractionName.setText(attraction.getAname());
 
         TextView AttractionLocation = (TextView) convertView.findViewById(R.id.AttractionLocation);
-        AttractionLocation.setText(mgetAttraction.getAlocation());
+        AttractionLocation.setText(attraction.getAlocation());
 
         TextView AttractionContent = (TextView) convertView.findViewById(R.id.AttractionContent);
-        AttractionContent.setText(mgetAttraction.getAinfo());
+        AttractionContent.setText(attraction.getAinfo());
 
         ImageView AttractionImage = (ImageView) convertView.findViewById(R.id.AttractionSavedfile);
-        AttractionImage.setImageBitmap(mgetAttraction.getSavedfile());
+        AttractionImage.setImageBitmap(attraction.getSavedfile());
 
         return convertView;
     }

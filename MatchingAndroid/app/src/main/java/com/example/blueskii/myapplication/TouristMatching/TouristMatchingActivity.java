@@ -27,7 +27,9 @@ import java.net.URL;
 
 public class TouristMatchingActivity extends AppCompatActivity {
     private ImageView imageLarge;
-    private ListView tourlistMatchinglist;
+    private ListView touristFindList;
+    private ListView touristMatchingList;
+    private TouristMatchingAdapter touristFindAdapter;
     private TouristMatchingAdapter touristMatchingAdapter;
 
     private Thread receiveTouristThread;
@@ -38,15 +40,22 @@ public class TouristMatchingActivity extends AppCompatActivity {
 
         imageLarge = (ImageView) findViewById(R.id.imageLarge);
 
-        tourlistMatchinglist = (ListView) findViewById(R.id.touristMatchinglist);
-        touristMatchingAdapter = new TouristMatchingAdapter(this);
-        tourlistMatchinglist.setAdapter(touristMatchingAdapter);
+        touristFindList = (ListView) findViewById(R.id.touristFindList);
+        touristFindAdapter = new TouristMatchingAdapter(this);
+        touristFindList.setAdapter(touristFindAdapter);
 
-        tourlistMatchinglist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        touristMatchingList = (ListView) findViewById(R.id.touristMatchingList);
+        touristMatchingAdapter = new TouristMatchingAdapter(this);
+        touristMatchingList.setAdapter(touristMatchingAdapter);
+
+        Log.i("mylog", "onCreate");
+
+        touristFindList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("mylog", "onItemClick");
                 Intent intent = new Intent(TouristMatchingActivity.this, TouristInfoActivity.class);
-                TouristMatching touristMatching = (TouristMatching)touristMatchingAdapter.getItem(position);
+                TouristMatching touristMatching = (TouristMatching)touristFindAdapter.getItem(position);
                 intent.putExtra("mid", touristMatching.getMid());
                 intent.putExtra("grno", touristMatching.getGrno());
                 startActivity(intent);
@@ -55,6 +64,9 @@ public class TouristMatchingActivity extends AppCompatActivity {
     }
 
     public void onClickBtnFindTourist(View view){
+        touristFindList.setVisibility(View.VISIBLE);
+        touristMatchingList.setVisibility(View.INVISIBLE);
+
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         String mid = pref.getString("login", "");
         receiveMatchingTourist(mid);
@@ -107,10 +119,10 @@ public class TouristMatchingActivity extends AppCompatActivity {
                                 touristMatching.setBitmap(getBitmap(touristMatching.getSavedfile()));
 
                                 //메인스레드로 하여금 UI를 업데이트하도록 요청
-                                tourlistMatchinglist.post(new Runnable() {
+                                touristFindList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        touristMatchingAdapter.addItem(touristMatching);
+                                        touristFindAdapter.addItem(touristMatching);
                                     }
                                 });
                             }
@@ -146,6 +158,9 @@ public class TouristMatchingActivity extends AppCompatActivity {
     }
 
     public void onClickBtnSelectTourlist(View view) {
+        touristFindList.setVisibility(View.INVISIBLE);
+        touristMatchingList.setVisibility(View.VISIBLE);
+
         Log.i("mylog", "관광객 선택");
         if(receiveTouristThread != null) {
             receiveTouristThread.interrupt();

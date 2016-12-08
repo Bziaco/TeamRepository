@@ -3,7 +3,7 @@ package com.example.blueskii.myapplication.attraction;
 
 import android.graphics.Bitmap;
 
-public class MgetAttraction {
+public class Attraction {
 
     private int ano;
     private String aname;

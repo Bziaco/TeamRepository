@@ -9,7 +9,7 @@ public class GuideSchedule {
 	private Schedule schedule;
 	private Guide guide;
 	private String mid;
-	
+	 
 	
 	
 	

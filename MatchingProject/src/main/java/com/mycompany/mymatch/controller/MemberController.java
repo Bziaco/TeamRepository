@@ -113,10 +113,10 @@ public class MemberController {
 //-------------------------------------------------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/info")
-	public String info(String mid, Model model, HttpSession session) {
-/*		String mid = (String) session.getAttribute("login");*/
+	public String info(Model model, HttpSession session) {
+		String mid = (String) session.getAttribute("login");
 		Member member = memberService.getMember(mid);
-/*		System.out.println(member.getSavedfile());*/
+		System.out.println(member.getSavedfile());
 		model.addAttribute("member", member);
 		return "member/info";
 	}

@@ -14,7 +14,7 @@ public class MessageService {
 	private MessageDao messageDao;
 	
 	public List<Message> getMessageList(String mid, String chatter) {
-		List<Message> list = messageDao.selectMessage(mid, chatter);
+		List<Message> list = messageDao.selectMessage(mid, chatter); 
 		return list;
 	}
 	
